@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { QuizItem } from "@/lib/content/schema";
 import { finishSession, recordAnswer, shuffle, startSession } from "@/lib/client";
+import Icon from "@/components/Icon";
 
 const ROUND = 10;
 
@@ -17,7 +18,6 @@ function normalize(s: string): string {
 }
 
 export default function QuizGame({ items }: { items: QuizItem[] }) {
-  // round tiré au montage (client uniquement) → évite tout mismatch d'hydratation.
   const [round, setRound] = useState<QuizItem[] | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [i, setI] = useState(0);
@@ -89,15 +89,13 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
         <span className="counter-label">Question <b>{i + 1}</b>/{round.length}</span>
-        <span className="score-chip">🎯 {score} <span className="text-[#9bd9b3]">·</span> <span className="text-[var(--green-deep)]">{xp} XP</span></span>
+        <span className="score-chip"><Icon name="target" size={15} /> {score} · {xp} XP</span>
       </div>
-      <div className="timer-bar">
-        <div className="timer-fill !bg-[var(--green)]" style={{ width: `${(i / round.length) * 100}%` }} />
-      </div>
+      <div className="timer-bar"><div className="timer-fill !bg-[var(--green)]" style={{ width: `${(i / round.length) * 100}%` }} /></div>
 
-      <div className="card p-6">
+      <div className="glass p-6">
         <h2 className="display text-xl leading-snug">{item.prompt}</h2>
 
         {item.type === "qcm" ? (
@@ -106,43 +104,30 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
               const isAnswer = idx === Number(item.answer);
               const isPicked = idx === selected;
               let state = "";
-              if (revealed) {
-                if (isAnswer) state = "opt-good";
-                else if (isPicked) state = "opt-bad";
-                else state = "opt-dim";
-              }
+              if (revealed) state = isAnswer ? "good" : isPicked ? "bad" : "dim";
               return (
-                <button key={idx} disabled={revealed} onClick={() => answer(idx)} className={`opt ${state}`}>
-                  <span className="text-[15px] font-medium leading-snug">{opt}</span>
+                <button key={idx} disabled={revealed} onClick={() => answer(idx)} className={`opt-b ${state}`}>
+                  <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                  <span className="txt">{opt}</span>
                 </button>
               );
             })}
           </div>
         ) : (
           <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); answer(null); }}>
-            <input
-              autoFocus
-              disabled={revealed}
-              value={typed}
-              onChange={(e) => setTyped(e.target.value)}
-              placeholder="Ta réponse…"
-              className="field flex-1"
-            />
+            <input autoFocus disabled={revealed} value={typed} onChange={(e) => setTyped(e.target.value)} placeholder="Ta réponse…" className="field flex-1" />
             {!revealed && <button type="submit" className="btn-arcade">Valider</button>}
           </form>
         )}
 
         {revealed && (
-          <div className="mt-6 border-t border-[var(--line)] pt-4 flex flex-col gap-3">
-            <span className={`verdict ${wasCorrect ? "verdict-good" : "verdict-bad"} self-start`}>
-              {wasCorrect ? "✓ Correct" : "✕ Raté"}
-            </span>
-            {item.type === "trou" && !wasCorrect && (
-              <p className="text-sm">Réponse attendue : <strong>{String(item.answer)}</strong></p>
-            )}
+          <div className="mt-6 border-t border-[var(--glass-edge)] pt-4 flex flex-col gap-3">
+            <span className={`verdict ${wasCorrect ? "v-good" : "v-bad"} self-start`}>{wasCorrect ? "Correct" : "Raté"}</span>
+            {item.type === "trou" && !wasCorrect && (<p className="text-sm">Réponse attendue : <strong>{String(item.answer)}</strong></p>)}
             <p className="text-sm text-[var(--ink-soft)]">{item.explanation}</p>
             <button onClick={next} className="btn-arcade self-start mt-1">
               {i + 1 >= round.length ? "Voir le résultat" : "Suivant"}
+              <Icon name="arrowRight" size={16} strokeWidth={2.5} />
             </button>
           </div>
         )}
@@ -153,13 +138,14 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
 
 function EndScreen({ label, score, total, xp }: { label: string; score: number; total: number; xp: number }) {
   return (
-    <div className="card p-10 text-center flex flex-col items-center gap-4">
+    <div className="glass p-10 text-center flex flex-col items-center gap-4">
+      <span className="mode-ic"><Icon name="trophy" size={24} /></span>
       <h1 className="display text-2xl">{label}</h1>
       <p className="display text-6xl text-[var(--green-deep)]">{score}<span className="text-[var(--ink-faint)] text-3xl">/{total}</span></p>
       <p className="mono text-[var(--ink-soft)]">+{xp} XP</p>
       <div className="flex gap-3 mt-2">
-        <Link href="/" className="mono text-sm text-[var(--ink-faint)] hover:text-[var(--ink)] px-4 py-3">← Hub</Link>
-        <button onClick={() => window.location.reload()} className="btn-arcade">Rejouer</button>
+        <Link href="/" className="btn btn-glass">← Hub</Link>
+        <button onClick={() => window.location.reload()} className="btn btn-primary">Rejouer</button>
       </div>
     </div>
   );

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SalesGame — Liquid Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #eef4f0;
+    --ink: #07140e;
+    --ink-soft: #475a51;
+    --ink-faint: #7e9089;
+
+    --green: #00c06a;
+    --green-bright: #19e487;
+    --green-deep: #028a55;
+    --green-ink: #053524;
+
+    --good: #00b86b;
+    --ok: #e8a317;
+    --bad: #ff5d6c;
+
+    --glass: rgba(255, 255, 255, 0.55);
+    --glass-strong: rgba(255, 255, 255, 0.72);
+    --glass-line: rgba(255, 255, 255, 0.85);
+    --glass-edge: rgba(7, 20, 14, 0.06);
+
+    --r: 18px;
+    --r-lg: 26px;
+    --r-sm: 12px;
+
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.4, 0.5, 1);
+    --shadow: 0 1px 1px rgba(7,20,14,.04), 0 12px 30px -14px rgba(7,20,14,.18);
+    --shadow-glow: 0 20px 60px -24px rgba(0,192,106,.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Hanken Grotesk", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* Ambient liquid orbs behind glass */
+  .orbs { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; }
+  .orb.a { width: 540px; height: 540px; background: radial-gradient(circle, #2bf09a, transparent 70%); top: -160px; left: -120px; animation: float1 16s var(--ease) infinite; }
+  .orb.b { width: 460px; height: 460px; background: radial-gradient(circle, #00c06a, transparent 70%); top: 20%; right: -160px; animation: float2 20s var(--ease) infinite; }
+  .orb.c { width: 420px; height: 420px; background: radial-gradient(circle, #7ef7c0, transparent 70%); bottom: -160px; left: 30%; animation: float1 22s var(--ease) infinite reverse; }
+  @keyframes float1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,50px) scale(1.1); } }
+  @keyframes float2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px,30px) scale(.92); } }
+  /* Grain */
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(26px) saturate(165%);
+    -webkit-backdrop-filter: blur(26px) saturate(165%);
+    border: 1px solid var(--glass-line);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.7);
+    border-radius: var(--r);
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  .display { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+  .mono { font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-faint); }
+
+  /* reveal on load */
+  .reveal { opacity: 0; transform: translateY(18px); animation: rise .8s var(--ease) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* Header */
+  header {
+    position: sticky; top: 16px; z-index: 20; margin: 16px auto 0; max-width: 980px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-radius: 999px;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand-mark {
+    width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--green-bright), var(--green-deep));
+    color: #fff; box-shadow: 0 6px 18px -6px rgba(0,192,106,.8);
+  }
+  .brand-name { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 19px; letter-spacing: -.03em; }
+  .brand-name span { color: var(--green-deep); }
+  .head-right { display: flex; align-items: center; gap: 10px; }
+  .chip-mono { display: inline-flex; align-items: center; gap: 6px; font-family: "JetBrains Mono"; font-weight: 600; font-size: 13px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.5); border: 1px solid var(--glass-line); color: var(--ink-soft); }
+  .ava { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 14px; color: #fff; background: linear-gradient(135deg, #0c2a1d, #14503a); border: 1.5px solid var(--green); }
+
+  main { padding: 28px 0 80px; }
+  .stack { display: flex; flex-direction: column; gap: 18px; }
+
+  /* HERO — rank + ring */
+  .hero { padding: 30px; border-radius: var(--r-lg); display: flex; align-items: center; gap: 32px; flex-wrap: wrap; position: relative; overflow: hidden; }
+  .hero::before { content:""; position:absolute; inset:0; background: radial-gradient(120% 130% at 100% 0%, rgba(0,192,106,.14), transparent 55%); pointer-events:none; }
+  .ring-wrap { position: relative; width: 132px; height: 132px; flex: none; }
+  .ring-wrap svg { transform: rotate(-90deg); }
+  .ring-center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+  .ring-center .lvl { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 30px; line-height: 1; color: var(--ink); }
+  .ring-center .lbl { font-family: "JetBrains Mono"; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); margin-top: 3px; }
+  .hero-meta { flex: 1; min-width: 220px; }
+  .hero-meta h1 { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: clamp(30px, 6vw, 46px); letter-spacing: -.03em; line-height: .95; }
+  .hero-meta .sub { color: var(--ink-soft); margin-top: 8px; font-size: 15px; }
+  .hero-xp { display:flex; align-items:baseline; gap:8px; margin-top:14px; }
+  .hero-xp b { font-family:"JetBrains Mono"; font-weight:700; font-size:26px; color:var(--green-deep); }
+  .hero-xp small { color: var(--ink-faint); font-family:"JetBrains Mono"; font-size:12px; }
+
+  /* Featured — conversation avec l'artisan */
+  .feature { padding: 0; border-radius: var(--r-lg); overflow: hidden; }
+  .feature-head { display:flex; align-items:center; justify-content:space-between; padding: 18px 22px; border-bottom: 1px solid var(--glass-edge); }
+  .feature-head .t { display:flex; align-items:center; gap:10px; font-family:"Bricolage Grotesque"; font-weight:700; font-size:16px; }
+  .phase-dots { display:flex; gap:5px; }
+  .phase-dots i { width:7px; height:7px; border-radius:50%; background: rgba(7,20,14,.14); }
+  .phase-dots i.on { background: var(--green); box-shadow:0 0 8px var(--green); }
+  .convo { padding: 20px 22px; display:flex; flex-direction:column; gap:12px; background: linear-gradient(180deg, rgba(255,255,255,.25), transparent); }
+  .msg { display:flex; gap:10px; max-width:86%; }
+  .msg .who { width:30px; height:30px; border-radius:9px; flex:none; display:grid; place-items:center; }
+  .msg.them .who { background: linear-gradient(135deg,#fff0d4,#ffd98a); color:#6b4e12; }
+  .msg.me { align-self:flex-end; flex-direction:row-reverse; }
+  .msg .body { font-size:14.5px; padding:11px 15px; border-radius:16px; }
+  .msg.them .body { background:#fff; border:1px solid var(--glass-edge); border-bottom-left-radius:5px; }
+  .msg.me .body { background: linear-gradient(135deg, var(--green-deep), var(--green)); color:#fff; border-bottom-right-radius:5px; }
+  .msg .body .tag { display:block; font-family:"JetBrains Mono"; font-size:9px; letter-spacing:.14em; text-transform:uppercase; opacity:.6; margin-bottom:3px; }
+  .feature-foot { display:flex; align-items:center; justify-content:space-between; padding:16px 22px; gap:12px; flex-wrap:wrap; }
+  .feature-foot .meta { font-family:"JetBrains Mono"; font-size:12px; color:var(--ink-faint); }
+
+  /* Buttons */
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:"Bricolage Grotesque"; font-weight:700; font-size:15px; padding:13px 22px; border-radius:14px; border:none; cursor:pointer; min-height:46px; transition: transform .18s var(--ease-spring), box-shadow .18s var(--ease), filter .18s; }
+  .btn-primary { background: linear-gradient(135deg, var(--green-bright), var(--green-deep)); color:#fff; box-shadow: 0 10px 26px -10px rgba(0,192,106,.9), inset 0 1px 0 rgba(255,255,255,.4); }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.04); }
+  .btn-glass { background: rgba(255,255,255,.55); border:1px solid var(--glass-line); color:var(--ink); backdrop-filter: blur(12px); }
+  .btn-glass:hover { transform: translateY(-2px); }
+
+  /* Modes grid */
+  .grid3 { display:grid; grid-template-columns:1fr; gap:14px; }
+  @media (min-width:680px){ .grid3 { grid-template-columns: repeat(3,1fr); } }
+  .mode { padding:22px; border-radius:var(--r); position:relative; overflow:hidden; cursor:pointer; transition: transform .22s var(--ease-spring), box-shadow .22s var(--ease); }
+  .mode::after { content:""; position:absolute; inset:0; border-radius:var(--r); background:linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%); transform: translateX(-120%); transition: transform .6s var(--ease); }
+  .mode:hover { transform: translateY(-5px); box-shadow: var(--shadow-glow); }
+  .mode:hover::after { transform: translateX(120%); }
+  .mode .ic { width:48px; height:48px; border-radius:14px; display:grid; place-items:center; color:var(--green-deep); background: linear-gradient(135deg, rgba(0,192,106,.16), rgba(0,192,106,.06)); border:1px solid rgba(0,192,106,.2); }
+  .mode h3 { font-family:"Bricolage Grotesque"; font-weight:700; font-size:18px; margin-top:16px; }
+  .mode p { color:var(--ink-soft); font-size:13.5px; margin-top:3px; }
+  .mode .foot { margin-top:18px; display:flex; align-items:center; justify-content:space-between; }
+  .mode .n { font-family:"JetBrains Mono"; font-size:12px; color:var(--green-deep); font-weight:600; }
+  .mode .arr { color:var(--ink-faint); transition: transform .2s var(--ease); }
+  .mode:hover .arr { transform: translateX(4px); color:var(--green-deep); }
+
+  /* Focus card (condensed mastery) */
+  .focus { padding:24px; border-radius:var(--r-lg); }
+  .focus-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+  .focus-top h2 { font-family:"Bricolage Grotesque"; font-weight:700; font-size:18px; }
+  .focus-top .all { font-family:"JetBrains Mono"; font-size:12px; color:var(--ink-faint); display:inline-flex; align-items:center; gap:5px; cursor:pointer; }
+  .weak-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+  @media(min-width:640px){ .weak-grid{ grid-template-columns:1fr 1fr; } }
+  .weak { display:flex; align-items:center; gap:14px; padding:14px; border-radius:var(--r-sm); background: rgba(255,255,255,.45); border:1px solid var(--glass-edge); }
+  .mini-ring { width:46px; height:46px; flex:none; position:relative; }
+  .mini-ring .v { position:absolute; inset:0; display:grid; place-items:center; font-family:"JetBrains Mono"; font-weight:700; font-size:12px; }
+  .weak .nm { font-weight:600; font-size:14px; }
+  .weak .hint { font-family:"JetBrains Mono"; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--bad); margin-top:2px; }
+  .summary-line { margin-top:16px; padding-top:16px; border-top:1px solid var(--glass-edge); display:flex; align-items:center; justify-content:space-between; font-size:13px; color:var(--ink-soft); }
+
+  /* ============ IN-GAME ============ */
+  .label-sep { max-width:980px; margin:64px auto 18px; padding:0 20px; }
+  .label-sep span { font-family:"JetBrains Mono"; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--green-deep); background:rgba(255,255,255,.55); border:1px solid var(--glass-line); padding:6px 14px; border-radius:999px; }
+
+  .hud { padding:16px 20px; border-radius:var(--r); display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  .hud .l { display:flex; align-items:center; gap:14px; }
+  .hud-chip { display:inline-flex; align-items:center; gap:8px; font-family:"Bricolage Grotesque"; font-weight:700; font-size:14px; padding:8px 14px; border-radius:11px; background: linear-gradient(135deg, rgba(0,192,106,.16), rgba(0,192,106,.06)); border:1px solid rgba(0,192,106,.2); color:var(--green-ink); }
+  .hud .cnt { font-family:"JetBrains Mono"; font-size:14px; color:var(--ink-soft); }
+  .hud .cnt b { color:var(--ink); }
+  .hud .sc { font-family:"JetBrains Mono"; font-weight:600; font-size:14px; color:var(--green-deep); }
+  .timer { height:8px; border-radius:999px; background:rgba(7,20,14,.08); overflow:hidden; margin-top:14px; }
+  .timer i { display:block; height:100%; width:52%; border-radius:999px; background:linear-gradient(90deg,var(--green),var(--ok) 60%,var(--bad)); }
+
+  .ask { display:flex; align-items:flex-start; gap:14px; margin-top:18px; }
+  .ask .face { width:52px; height:52px; flex:none; border-radius:15px; display:grid; place-items:center; color:#6b4e12; background:linear-gradient(135deg,#fff0d4,#ffd98a); border:1px solid #f0d28e; box-shadow: var(--shadow); }
+  .ask .glassbubble { flex:1; padding:18px 22px; border-radius:20px; border-top-left-radius:6px; }
+  .ask .who { display:block; font-family:"JetBrains Mono"; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px; }
+  .ask q { font-family:"Bricolage Grotesque"; font-weight:700; font-size:22px; letter-spacing:-.01em; }
+
+  .opts { display:flex; flex-direction:column; gap:12px; margin-top:22px; }
+  .opt { text-align:left; width:100%; padding:16px 18px; border-radius:var(--r); border:1px solid var(--glass-line); background:rgba(255,255,255,.5); backdrop-filter: blur(12px); cursor:pointer; transition: transform .14s var(--ease), border-color .14s, box-shadow .14s; font:inherit; color:inherit; }
+  .opt:hover { transform:translateY(-2px); border-color:var(--green); box-shadow: var(--shadow); }
+  .opt .txt { font-size:15px; font-weight:500; }
+  .opt.good { border-color:var(--good); background:linear-gradient(135deg, rgba(0,184,107,.14), rgba(255,255,255,.5)); box-shadow:0 0 0 3px rgba(0,184,107,.12), 0 0 30px -8px rgba(0,184,107,.5); }
+  .opt.bad { border-color:var(--bad); background:linear-gradient(135deg, rgba(255,93,108,.12), rgba(255,255,255,.5)); }
+  .opt.dim { opacity:.5; }
+  .opt .fb { display:flex; gap:9px; align-items:flex-start; margin-top:11px; padding-top:11px; border-top:1px dashed var(--glass-edge); font-size:13px; color:var(--ink-soft); }
+  .verdict { font-family:"JetBrains Mono"; font-weight:700; font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:3px 8px; border-radius:999px; flex:none; }
+  .v-good { background:var(--good); color:#fff; } .v-ok { background:var(--ok); color:#3d2c00; } .v-bad { background:var(--bad); color:#fff; }
+  .ico { width:22px; height:22px; display:block; }
+  .ico-sm { width:16px; height:16px; }
+  .footnote { text-align:center; font-family:"JetBrains Mono"; font-size:11px; color:var(--ink-faint); margin:48px 0 24px; }
+</style>
+</head>
+<body>
+  <div class="orbs"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+
+  <!-- icons defs -->
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <g id="i-spark"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></g>
+  </defs></svg>
+
+  <header class="glass reveal">
+    <div class="brand">
+      <span class="brand-mark"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14l4-4 4 3 6-7"/><path d="M14 6h4v4"/></svg></span>
+      <span class="brand-name">Sales<span>Game</span></span>
+    </div>
+    <div class="head-right">
+      <span class="chip-mono"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2s4 4 4 8a4 4 0 0 1-8 0c0-1 .5-2 1-3"/><path d="M12 22a6 6 0 0 0 6-6c0-3-2-5-3-7"/></svg> 7</span>
+      <span class="ava">N</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="stack">
+
+      <!-- HERO -->
+      <section class="glass hero reveal" style="animation-delay:.05s">
+        <div class="ring-wrap">
+          <svg width="132" height="132" viewBox="0 0 132 132">
+            <circle cx="66" cy="66" r="58" fill="none" stroke="rgba(7,20,14,.08)" stroke-width="11"/>
+            <circle cx="66" cy="66" r="58" fill="none" stroke="url(#g1)" stroke-width="11" stroke-linecap="round" stroke-dasharray="364" stroke-dashoffset="185"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19e487"/><stop offset="1" stop-color="#028a55"/></linearGradient></defs>
+          </svg>
+          <div class="ring-center"><div><div class="lvl">III</div><div class="lbl">Niveau</div></div></div>
+        </div>
+        <div class="hero-meta">
+          <p class="eyebrow">Rang actuel</p>
+          <h1>Closer</h1>
+          <p class="sub">Plus que <b style="color:var(--green-deep)">760 XP</b> pour atteindre <b>Top Closer</b>.</p>
+          <div class="hero-xp"><b>740</b><small>/ 1500 XP</small></div>
+        </div>
+      </section>
+
+      <!-- FEATURE : conversation avec l'artisan -->
+      <section class="glass feature reveal" style="animation-delay:.12s">
+        <div class="feature-head">
+          <span class="t"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Reprends ton appel — Marc, couvreur</span>
+          <span class="phase-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+        </div>
+        <div class="convo">
+          <div class="msg them"><span class="who"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><path d="M2 18h20"/><circle cx="12" cy="7" r="3"/></svg></span><div class="body"><span class="tag">Artisan</span>Ouais le bouche-à-oreille me suffit, j'ai pas besoin de site.</div></div>
+          <div class="msg me"><span class="who"></span><div class="body"><span class="tag">Toi</span>Si demain le bouche-à-oreille ralentit, ou que vous voulez plus de chantiers — vous faites comment ?</div></div>
+        </div>
+        <div class="feature-foot">
+          <span class="meta">Phase 3/7 · Découverte des douleurs</span>
+          <button class="btn btn-primary">Continuer l'appel <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </section>
+
+      <!-- MODES -->
+      <section class="grid3 reveal" style="animation-delay:.18s">
+        <button class="glass mode">
+          <span class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 0 0-6 .2A3 3 0 0 0 4 11a3 3 0 0 0 2 5 3 3 0 0 0 6 .5z"/><path d="M12 5a3 3 0 0 1 6 .2A3 3 0 0 1 20 11a3 3 0 0 1-2 5 3 3 0 0 1-6 .5z"/></svg></span>
+          <h3>Quiz</h3><p>Mémorise scripts &amp; prix</p>
+          <span class="foot"><span class="n">34 questions</span><span class="arr"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span>
+        </button>
+        <button class="glass mode">
+          <span class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></span>
+          <h3>Drill objections</h3><p>Réponds vite et juste</p>
+          <span class="foot"><span class="n">11 objections</span><span class="arr"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span>
+        </button>
+        <button class="glass mode">
+          <span class="ic"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <h3>Simulateur d'appel</h3><p>Mène un appel complet</p>
+          <span class="foot"><span class="n">3 scénarios</span><span class="arr"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span></span>
+        </button>
+      </section>
+
+      <!-- FOCUS (maîtrise condensée) -->
+      <section class="glass focus reveal" style="animation-delay:.24s">
+        <div class="focus-top">
+          <h2>À travailler en priorité</h2>
+          <span class="all">Toutes les compétences <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </div>
+        <div class="weak-grid">
+          <div class="weak">
+            <div class="mini-ring"><svg width="46" height="46" viewBox="0 0 46 46" style="transform:rotate(-90deg)"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(7,20,14,.08)" stroke-width="5"/><circle cx="23" cy="23" r="19" fill="none" stroke="var(--bad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119" stroke-dashoffset="74"/></svg><span class="v" style="color:var(--bad)">38%</span></div>
+            <div><div class="nm">Le Pont</div><div class="hint">point faible</div></div>
+          </div>
+          <div class="weak">
+            <div class="mini-ring"><svg width="46" height="46" viewBox="0 0 46 46" style="transform:rotate(-90deg)"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(7,20,14,.08)" stroke-width="5"/><circle cx="23" cy="23" r="19" fill="none" stroke="var(--bad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="119" stroke-dashoffset="63"/></svg><span class="v" style="color:var(--bad)">47%</span></div>
+            <div><div class="nm">Découverte</div><div class="hint">point faible</div></div>
+          </div>
+        </div>
+        <div class="summary-line"><span>Maîtrise globale</span><span class="mono" style="color:var(--green-deep);font-weight:700">68%</span></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============ IN-GAME ============ -->
+  <div class="label-sep"><span>En jeu — Drill objections</span></div>
+  <main class="wrap"><div class="stack">
+    <div class="glass hud">
+      <div class="l">
+        <span class="hud-chip"><svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg> Drill</span>
+        <span class="cnt">Objection <b>3</b>/11</span>
+      </div>
+      <span class="sc">5 · 120 XP</span>
+    </div>
+    <div class="timer" style="margin-top:-6px"><i></i></div>
+
+    <div class="ask">
+      <span class="face"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18a8 8 0 0 1 16 0"/><path d="M2 18h20"/><circle cx="12" cy="7" r="3"/></svg></span>
+      <div class="glass glassbubble"><span class="who">Artisan — couvreur</span><q>C'est trop cher.</q></div>
+    </div>
+
+    <div class="opts">
+      <button class="opt good"><span class="txt">Par rapport à quoi c'est cher : votre budget, ou ce que ça va vous rapporter ? Un seul chantier signé grâce au site, ça vaut combien ?</span><span class="fb"><span class="verdict v-good">Top</span> Tu recadres sur la valeur et le ROI plutôt que sur le coût.</span></button>
+      <button class="opt dim"><span class="txt">Je peux vous faire un petit geste sur le tarif si on signe aujourd'hui.</span></button>
+      <button class="opt bad"><span class="txt">Cher ? Non, c'est le prix normal du marché.</span><span class="fb"><span class="verdict v-bad">À éviter</span> Tu contredis et fermes le dialogue.</span></button>
+    </div>
+
+    <button class="btn btn-primary" style="align-self:flex-start;margin-top:20px">Objection suivante <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+  </div></main>
+
+  <p class="footnote">SalesGame — Liquid Glass · v2</p>
+</body>
+</html>

@@ -1,153 +1,136 @@
 import Link from "next/link";
 import { getStore } from "@/lib/db";
 import { getObjections, getQuiz, getScenarios } from "@/lib/content";
-import { progressToNextRank, rankForXp, weakSkills } from "@/lib/progression";
+import { RANKS, progressToNextRank, rankForXp, weakSkills } from "@/lib/progression";
 import { SKILL_LABELS, type SkillId } from "@/lib/types";
+import Icon, { type IconName } from "@/components/Icon";
+import MasterySection, { type MasteryRow } from "@/components/MasterySection";
 
 export const dynamic = "force-dynamic";
 
-function Arrow() {
+const ROMAN = ["I", "II", "III", "IV", "V"];
+
+function Ring({ ratio }: { ratio: number }) {
+  const r = 58;
+  const c = 2 * Math.PI * r;
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
+    <svg width="132" height="132" viewBox="0 0 132 132" style={{ transform: "rotate(-90deg)" }}>
+      <circle cx="66" cy="66" r={r} fill="none" stroke="rgba(7,20,14,.08)" strokeWidth="11" />
+      <circle cx="66" cy="66" r={r} fill="none" stroke="url(#ringG)" strokeWidth="11" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - Math.max(0.04, ratio))} />
+      <defs>
+        <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#19e487" />
+          <stop offset="1" stopColor="#028a55" />
+        </linearGradient>
+      </defs>
     </svg>
   );
-}
-
-function meterClass(score: number): string {
-  return score >= 0.7 ? "m-good" : score >= 0.5 ? "m-mid" : "m-low";
-}
-function pctColor(score: number): string {
-  return score >= 0.7 ? "var(--green-deep)" : score >= 0.5 ? "var(--ok)" : "var(--bad)";
 }
 
 export default async function HubPage() {
   const store = getStore();
   const { progress, mastery } = await store.getSnapshot();
   const rank = rankForXp(progress.xpTotal);
+  const rankIdx = RANKS.findIndex((r) => r.name === rank.name);
   const next = progressToNextRank(progress.xpTotal);
   const weak = new Set(weakSkills(mastery as Record<string, { score: number; attempts: number }>));
-  const attempted = (Object.entries(mastery) as [SkillId, { score: number; attempts: number }][])
-    .filter(([, m]) => m.attempts > 0)
-    .sort((a, b) => a[1].score - b[1].score);
 
-  const games = [
-    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, emoji: "🧠" },
-    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${getObjections().length} objections`, emoji: "🛡️" },
-    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, emoji: "📞" },
+  const rows: MasteryRow[] = (Object.entries(mastery) as [SkillId, { score: number; attempts: number }][])
+    .map(([skill, m]) => ({ skill, label: SKILL_LABELS[skill], score: m.score, attempts: m.attempts, weak: weak.has(skill) }))
+    .sort((a, b) => a.score - b.score);
+
+  // Teaser conversation (carte "reprends ton appel")
+  const objs = getObjections();
+  const teaser = objs.find((o) => o.id === "obj_bouche_a_oreille") ?? objs[0];
+  const teaserGood = teaser?.options.find((o) => o.quality === "good");
+
+  const modes: { href: string; title: string; desc: string; count: string; icon: IconName }[] = [
+    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain" },
+    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${objs.length} objections`, icon: "shield" },
+    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, icon: "phone" },
   ];
 
   return (
-    <div className="flex flex-col gap-10">
-      {/* Progression */}
-      <section className="progress-card">
-        <div className="flex items-start justify-between gap-5 flex-wrap relative z-[1]">
-          <div className="flex items-center gap-4">
-            <span className="rank-hex" aria-hidden="true">
-              {rank.name.charAt(0)}
-            </span>
+    <div className="flex flex-col gap-[18px]">
+      {/* HERO */}
+      <section className="glass hero reveal" style={{ animationDelay: "0.05s" }}>
+        <div className="ring-wrap">
+          <Ring ratio={next.ratio} />
+          <div className="ring-center">
             <div>
-              <p className="eyebrow">Rang actuel</p>
-              <h1 className="display text-3xl sm:text-4xl mt-0.5">{rank.name}</h1>
+              <div className="display text-3xl">{ROMAN[rankIdx] ?? "I"}</div>
+              <div className="eyebrow mt-1">Niveau</div>
             </div>
-          </div>
-          <div className="text-right">
-            <div className="rank-xp-big">{progress.xpTotal}</div>
-            <div className="eyebrow">XP total</div>
           </div>
         </div>
-
-        <div className="mt-8 relative z-[1]">
-          {next.next && (
-            <div className="flex justify-between mono text-[13px] mb-2 text-[var(--ink-soft)]">
-              <span>{rank.name}</span>
-              <span className="font-bold text-[var(--ink)]">{next.next} · {next.remaining + progress.xpTotal} XP</span>
-            </div>
-          )}
-          <div className="xp-bar" role="progressbar" aria-valuenow={progress.xpTotal} aria-valuemin={0}>
-            <div className="xp-fill" style={{ width: `${Math.round(next.ratio * 100)}%` }} />
-          </div>
-          <p className="mt-3 mono text-[13px] text-[var(--ink-soft)]">
+        <div className="flex-1 min-w-[220px] relative z-[1]">
+          <p className="eyebrow">Rang actuel</p>
+          <h1 className="display text-[clamp(30px,6vw,46px)]">{rank.name}</h1>
+          <p className="text-[var(--ink-soft)] text-sm mt-2">
             {next.next ? (
-              <>Plus que <b className="text-[var(--green-deep)]">{next.remaining} XP</b> pour débloquer le rang <b className="text-[var(--green-deep)]">{next.next}</b>.</>
+              <>Plus que <b className="text-[var(--green-deep)]">{next.remaining} XP</b> pour atteindre <b>{next.next}</b>.</>
             ) : (
-              <>Rang maximum atteint 🏆</>
+              <>Rang maximum atteint.</>
             )}
           </p>
-        </div>
-
-        {store.backend === "memory" && (
-          <p className="mt-4 relative z-[1] text-xs text-[#92590a] bg-[var(--ok-wash)] border border-[#f1d493] rounded-lg px-3 py-2 inline-block">
-            ⚠️ Suivi local (Supabase non connecté) — repart à zéro au redémarrage du serveur.
+          <p className="flex items-baseline gap-2 mt-3.5">
+            <b className="mono text-[26px] text-[var(--green-deep)]">{progress.xpTotal}</b>
+            {next.next && <small className="mono text-[12px] text-[var(--ink-faint)]">/ {progress.xpTotal + next.remaining} XP</small>}
           </p>
-        )}
-      </section>
-
-      {/* Modes */}
-      <section>
-        <div className="flex items-baseline justify-between mb-5">
-          <h2 className="display text-xl">Modes d&apos;entraînement</h2>
-          <span className="eyebrow">{games.length} disponibles</span>
-        </div>
-        <div className="grid sm:grid-cols-3 gap-4">
-          {games.map((g) => (
-            <Link key={g.href} href={g.href} className="game-card">
-              <span className="game-icon" aria-hidden="true">{g.emoji}</span>
-              <h3 className="display text-lg mt-5">{g.title}</h3>
-              <p className="text-sm text-[var(--ink-soft)] mt-1">{g.desc}</p>
-              <span className="mt-auto pt-5 flex items-center justify-between">
-                <span className="count-pill">{g.count}</span>
-                <span className="w-[34px] h-[34px] rounded-full grid place-items-center bg-[var(--ink)] text-[var(--green)]">
-                  <Arrow />
-                </span>
-              </span>
-            </Link>
-          ))}
         </div>
       </section>
 
-      {/* Maîtrise */}
-      <section>
-        <div className="flex items-baseline justify-between mb-5">
-          <h2 className="display text-xl">Maîtrise par compétence</h2>
-          <span className="eyebrow">Cycle de vente</span>
-        </div>
-        <div className="card p-6">
-          {attempted.length === 0 ? (
-            <p className="text-sm text-[var(--ink-soft)]">
-              Joue une partie pour voir ta maîtrise apparaître ici.
-            </p>
-          ) : (
-            <div className="flex flex-col">
-              {attempted.map(([skill, m], idx) => {
-                const pct = Math.round(m.score * 100);
-                return (
-                  <div
-                    key={skill}
-                    className={`flex flex-col gap-2 py-4 ${idx === 0 ? "pt-0" : ""} ${
-                      idx < attempted.length - 1 ? "border-b border-[var(--line)]" : "pb-0"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-bold text-[15px] flex items-center gap-3">
-                        {SKILL_LABELS[skill]}
-                        {weak.has(skill) && <span className="tag-todo">à bosser</span>}
-                      </span>
-                      <span className="mono font-bold text-[15px]" style={{ color: pctColor(m.score) }}>
-                        {pct}%
-                      </span>
-                    </div>
-                    <div className="meter">
-                      <i className={meterClass(m.score)} style={{ width: `${pct}%` }} />
-                    </div>
-                  </div>
-                );
-              })}
+      {/* Suivi mémoire */}
+      {store.backend === "memory" && (
+        <p className="mono text-[11px] text-[#9a6a00] bg-[var(--ok-wash)] border border-[rgba(232,163,23,.3)] rounded-xl px-3 py-2">
+          Suivi local (Supabase non connecté) — la progression repart à zéro au redémarrage.
+        </p>
+      )}
+
+      {/* CONVERSATION FEATURE */}
+      {teaser && teaserGood && (
+        <section className="glass reveal !p-0 overflow-hidden" style={{ animationDelay: "0.12s" }}>
+          <div className="flex items-center justify-between px-[22px] py-[18px] border-b border-[var(--glass-edge)]">
+            <span className="flex items-center gap-2.5 display text-base">
+              <Icon name="chat" size={18} className="text-[var(--green-deep)]" />
+              Entraîne-toi sur un appel
+            </span>
+            <span className="phase-dots"><i className="on" /><i className="on" /><i /><i /><i /></span>
+          </div>
+          <div className="px-[22px] py-5 flex flex-col gap-3 bg-[linear-gradient(180deg,rgba(255,255,255,.25),transparent)]">
+            <div className="convo-msg convo-them">
+              <span className="convo-who"><Icon name="worker" size={16} /></span>
+              <div className="convo-body"><span className="block mono text-[9px] tracking-[.14em] uppercase opacity-60 mb-0.5">Artisan</span>{teaser.artisanLine}</div>
             </div>
-          )}
-        </div>
+            <div className="convo-msg convo-me">
+              <span className="convo-who" />
+              <div className="convo-body"><span className="block mono text-[9px] tracking-[.14em] uppercase opacity-70 mb-0.5">Bonne réponse</span>{teaserGood.text}</div>
+            </div>
+          </div>
+          <div className="flex items-center justify-between px-[22px] py-4 gap-3 flex-wrap">
+            <span className="mono text-[12px] text-[var(--ink-faint)]">7 phases · l&apos;artisan réagit en live</span>
+            <Link href="/sim" className="btn btn-primary">Lancer un appel <Icon name="arrowRight" size={16} strokeWidth={2.5} /></Link>
+          </div>
+        </section>
+      )}
+
+      {/* MODES */}
+      <section className="grid sm:grid-cols-3 gap-3.5 reveal" style={{ animationDelay: "0.18s" }}>
+        {modes.map((m) => (
+          <Link key={m.href} href={m.href} className="glass mode">
+            <span className="mode-ic"><Icon name={m.icon} size={24} /></span>
+            <h3 className="display text-lg mt-4">{m.title}</h3>
+            <p className="text-[var(--ink-soft)] text-[13.5px] mt-1">{m.desc}</p>
+            <span className="mt-[18px] flex items-center justify-between">
+              <span className="mono text-[12px] text-[var(--green-deep)] font-semibold">{m.count}</span>
+              <span className="mode-arr"><Icon name="arrowRight" size={16} strokeWidth={2.5} /></span>
+            </span>
+          </Link>
+        ))}
       </section>
+
+      {/* MAÎTRISE */}
+      <MasterySection rows={rows} />
     </div>
   );
 }
