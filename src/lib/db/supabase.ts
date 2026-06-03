@@ -1,5 +1,7 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
+import { nextStreak, rankForXp, unlockedDifficulty, xpForAnswer } from "../progression";
+
+const MASTERY_ALPHA = 0.25; // doit rester aligné avec updateMastery() de progression.ts
 import type { GameType, SkillId } from "../types";
 import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store, Trend } from "./types";
 
@@ -41,45 +43,19 @@ export class SupabaseStore implements Store {
 
   async recordAnswer(sessionId: string, input: AnswerInput): Promise<{ xpGained: number }> {
     const xpGained = xpForAnswer(input.quality, input.difficulty ?? 1);
-
-    await this.c.from("answers").insert({
-      session_id: sessionId,
-      skill: input.skill,
-      item_ref: input.itemRef ?? null,
-      quality: input.quality,
-      chosen: input.chosen ?? null,
-      time_ms: input.timeMs ?? null,
+    // 1 seul aller-retour atomique (insert answer + upsert mastery + bump xp) via fonction Postgres
+    const { error } = await this.c.rpc("record_answer", {
+      p_session: sessionId,
+      p_skill: input.skill,
+      p_quality: input.quality,
+      p_item: input.itemRef ?? null,
+      p_chosen: input.chosen ?? null,
+      p_time_ms: input.timeMs ?? null,
+      p_xp: xpGained,
+      p_qval: QV[input.quality] ?? 0,
+      p_alpha: MASTERY_ALPHA,
     });
-
-    // maîtrise (read-modify-write)
-    const { data: mRow } = await this.c
-      .from("mastery")
-      .select("score, attempts")
-      .eq("skill", input.skill)
-      .maybeSingle();
-    const next = updateMastery(
-      { score: mRow?.score ?? 0, attempts: mRow?.attempts ?? 0 },
-      input.quality
-    );
-    await this.c
-      .from("mastery")
-      .upsert({ skill: input.skill, score: next.score, attempts: next.attempts, updated_at: new Date().toISOString() });
-
-    // progress singleton
-    const { data: pRow } = await this.c
-      .from("progress")
-      .select("xp_total")
-      .eq("id", 1)
-      .maybeSingle();
-    const xpTotal = (pRow?.xp_total ?? 0) + xpGained;
-    await this.c.from("progress").upsert({
-      id: 1,
-      xp_total: xpTotal,
-      rank: rankForXp(xpTotal).name,
-      unlocked: difficultiesUnlocked(xpTotal),
-      updated_at: new Date().toISOString(),
-    });
-
+    if (error) console.error("[record_answer]", error.message);
     return { xpGained };
   }
 
@@ -123,43 +99,32 @@ export class SupabaseStore implements Store {
   }
 
   async getTrends(): Promise<Partial<Record<string, Trend>>> {
-    const { data } = await this.c
-      .from("answers")
-      .select("skill, quality, created_at")
-      .order("created_at", { ascending: false })
-      .limit(400);
-    const bySkill = new Map<string, number[]>(); // qualités, plus récentes d'abord
-    for (const r of data ?? []) {
-      const arr = bySkill.get(r.skill as string) ?? [];
-      arr.push(QV[r.quality as string] ?? 0);
-      bySkill.set(r.skill as string, arr);
-    }
+    // calcul en SQL (récent vs précédent), résultat minuscule, 1 aller-retour
+    const { data } = await this.c.rpc("skill_trends");
     const out: Partial<Record<string, Trend>> = {};
-    for (const [skill, vals] of bySkill) {
-      if (vals.length < 4) continue;
-      const half = Math.floor(vals.length / 2);
-      const recent = vals.slice(0, half).reduce((s, v) => s + v, 0) / half;
-      const older = vals.slice(half).reduce((s, v) => s + v, 0) / (vals.length - half);
-      out[skill] = recent - older > 0.12 ? "up" : older - recent > 0.12 ? "down" : "flat";
+    for (const r of (data ?? []) as { skill: string; trend: string }[]) {
+      out[r.skill] = r.trend as Trend;
     }
     return out;
   }
 
   async getSnapshot(): Promise<Snapshot> {
-    const { data: pRow } = await this.c
-      .from("progress")
-      .select("xp_total, rank, unlocked, streak, best_streak, last_day")
-      .eq("id", 1)
-      .maybeSingle();
+    // les 2 lectures en parallèle ; rang/déblocages dérivés de l'XP (plus stockés)
+    const [pRes, mRes] = await Promise.all([
+      this.c.from("progress").select("xp_total, streak, best_streak, last_day").eq("id", 1).maybeSingle(),
+      this.c.from("mastery").select("skill, score, attempts, updated_at"),
+    ]);
+    const pRow = pRes.data;
+    const xpTotal = pRow?.xp_total ?? 0;
     const progress: ProgressState = {
-      xpTotal: pRow?.xp_total ?? 0,
-      rank: pRow?.rank ?? "Débutant",
-      unlocked: (pRow?.unlocked as string[]) ?? [],
+      xpTotal,
+      rank: rankForXp(xpTotal).name,
+      unlocked: difficultiesUnlocked(xpTotal),
       streak: pRow?.streak ?? 0,
       bestStreak: pRow?.best_streak ?? 0,
       lastDay: (pRow?.last_day as string | null) ?? null,
     };
-    const { data: mRows } = await this.c.from("mastery").select("skill, score, attempts, updated_at");
+    const mRows = mRes.data;
     const mastery: MasteryMap = {};
     for (const r of mRows ?? []) {
       mastery[r.skill as SkillId] = {

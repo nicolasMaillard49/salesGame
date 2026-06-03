@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
 import { recordAnswer, startSession } from "@/lib/client";
+import { seededPick, seededShuffle } from "@/lib/seed";
 import { SKILL_LABELS } from "@/lib/types";
 import Icon from "@/components/Icon";
 
@@ -14,33 +15,6 @@ const VERDICT: Record<ObjectionOption["quality"], { cls: string; label: string }
   bad: { cls: "v-bad", label: "À éviter" },
 };
 
-function mulberry32(a: number) {
-  return function () {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-function seededPick(items: Objection[], seed: number, n: number): Objection[] {
-  const rng = mulberry32(seed);
-  const a = items.map((_, i) => i);
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a.slice(0, Math.min(n, items.length)).map((i) => items[i]);
-}
-function seededOptions(opts: ObjectionOption[], seed: number): ObjectionOption[] {
-  const rng = mulberry32(seed + 99);
-  const a = [...opts];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 function enc(o: unknown): string {
   return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
@@ -69,19 +43,19 @@ export default function DuelGame({ objections, challenge }: { objections: Object
   const [started, setStarted] = useState(false);
 
   const obj = round[i];
-  const options = useMemo(() => (obj && seed != null ? seededOptions(obj.options, seed + i) : []), [obj, seed, i]);
+  const options = useMemo(() => (obj && seed != null ? seededShuffle(obj.options, seed + i + 99) : []), [obj, seed, i]);
 
   function begin() {
     if (seed == null) setSeed(Math.floor(Math.random() * 1e9));
     setStarted(true);
     startSession("drill", "duel").then(setSessionId);
   }
-  function pick(idx: number, opt: ObjectionOption) {
+  async function pick(idx: number, opt: ObjectionOption) {
     if (revealed || !obj) return;
     setPicked(idx);
     setRevealed(true);
     if (opt.quality === "good") setScore((s) => s + 1);
-    if (sessionId) recordAnswer({ sessionId, skill: obj.id, quality: opt.quality, itemRef: `duel:${obj.id}`, chosen: opt.text });
+    if (sessionId) await recordAnswer({ sessionId, skill: obj.id, quality: opt.quality, itemRef: `duel:${obj.id}`, chosen: opt.text });
   }
   function next() {
     if (i + 1 >= round.length) setDone(true);

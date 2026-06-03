@@ -53,7 +53,7 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
     if (revealed || !cur || !boss) return;
     setPicked(idx);
     setRevealed(true);
-    if (sessionId) recordAnswer({ sessionId, skill: cur.id, quality: opt.quality, itemRef: `boss:${cur.id}`, chosen: opt.text });
+    if (sessionId) await recordAnswer({ sessionId, skill: cur.id, quality: opt.quality, itemRef: `boss:${cur.id}`, chosen: opt.text });
     if (opt.quality === "good") setHp((h) => Math.max(0, h - 1));
     else if (opt.quality === "bad") setLives((l) => Math.max(0, l - 1));
   }

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getFiches } from "@/lib/content";
 import FichesBrowser from "./FichesBrowser";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // contenu statique : mis en cache 1 h
 
 export default function FichesPage() {
   const fiches = getFiches();

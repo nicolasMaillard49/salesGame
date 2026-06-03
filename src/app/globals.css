@@ -3,7 +3,7 @@
 @theme {
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-hanken), sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 }
 
 :root {
@@ -24,8 +24,8 @@
   --bad: #ff5d6c;
   --bad-wash: #ffe7e9;
 
-  --glass: rgba(255, 255, 255, 0.48);
-  --glass-strong: rgba(255, 255, 255, 0.68);
+  --glass: rgba(255, 255, 255, 0.62);
+  --glass-strong: rgba(255, 255, 255, 0.8);
   --glass-line: rgba(255, 255, 255, 0.85);
   --glass-edge: rgba(7, 20, 14, 0.07);
 
@@ -49,9 +49,9 @@ html[data-theme="dark"] {
   --good-wash: rgba(0, 184, 107, 0.18);
   --ok-wash: rgba(232, 163, 23, 0.16);
   --bad-wash: rgba(255, 93, 108, 0.16);
-  --glass: rgba(255, 255, 255, 0.055);
-  --glass-strong: rgba(255, 255, 255, 0.09);
-  --glass-line: rgba(255, 255, 255, 0.13);
+  --glass: rgba(255, 255, 255, 0.085);
+  --glass-strong: rgba(255, 255, 255, 0.14);
+  --glass-line: rgba(255, 255, 255, 0.14);
   --glass-edge: rgba(255, 255, 255, 0.1);
   --shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 16px 36px -16px rgba(0, 0, 0, 0.65);
 }
@@ -98,10 +98,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   .glass {
     background: var(--glass);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
     border: 1px solid var(--glass-line);
-    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     border-radius: var(--r);
   }
 
@@ -128,7 +126,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .btn-primary { background: linear-gradient(135deg, var(--green-bright), var(--green-deep)); color: #fff; box-shadow: 0 10px 26px -10px rgba(0, 192, 106, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
   .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.04); }
   .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-  .btn-glass { background: var(--glass); border: 1px solid var(--glass-line); color: var(--ink); backdrop-filter: blur(12px); }
+  .btn-glass { background: var(--glass); border: 1px solid var(--glass-line); color: var(--ink); }
   .btn-glass:hover { transform: translateY(-2px); }
 
   /* Arcade push button (écran en jeu, style option B) */
@@ -189,7 +187,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
   .face { width: 54px; height: 54px; flex: none; border-radius: 15px; display: grid; place-items: center; color: #6b4e12; background: linear-gradient(135deg, #fff0d4, #ffd98a); border: 1px solid #f0d28e; box-shadow: var(--shadow); }
   /* bulle de l'artisan — verre clair, accent vert (pas de noir) */
-  .bubble-b { position: relative; flex: 1; background: var(--glass-strong); backdrop-filter: blur(12px) saturate(150%); -webkit-backdrop-filter: blur(12px) saturate(150%); border: 1.5px solid rgba(2, 138, 85, 0.28); border-radius: 18px; padding: 18px 22px; box-shadow: 0 14px 32px -16px rgba(0, 184, 95, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7); }
+  .bubble-b { position: relative; flex: 1; background: var(--glass-strong); border: 1.5px solid rgba(2, 138, 85, 0.28); border-radius: 18px; padding: 18px 22px; box-shadow: 0 14px 32px -16px rgba(0, 184, 95, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7); }
   .bubble-b::before { content: ""; position: absolute; left: -10px; top: 20px; width: 16px; height: 16px; background: var(--glass-strong); border-left: 1.5px solid rgba(2, 138, 85, 0.28); border-bottom: 1.5px solid rgba(2, 138, 85, 0.28); transform: rotate(45deg); }
   .bubble-q { font-family: var(--font-display); font-weight: 800; font-size: 23px; letter-spacing: -0.01em; }
 
@@ -241,4 +239,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   }
   .orbs, header, .no-print, body::after { display: none !important; }
   .glass { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+}
+
+@media (max-width: 640px) {
+  .orb-c, .orb-d { display: none; }
+  .orb { animation: none !important; filter: blur(50px); }
 }

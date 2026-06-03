@@ -34,11 +34,10 @@ function trainHref(skill: string): string {
 
 export default async function HubPage() {
   const store = getStore();
-  const { progress, mastery } = await store.getSnapshot();
+  const [{ progress, mastery }, trends] = await Promise.all([store.getSnapshot(), store.getTrends()]);
   const rank = rankForXp(progress.xpTotal);
   const rankIdx = RANKS.findIndex((r) => r.name === rank.name);
   const next = progressToNextRank(progress.xpTotal);
-  const trends = await store.getTrends();
   // server component (async) : timestamp par requête, pas de render client
   // eslint-disable-next-line react-hooks/purity
   const now = Date.now();

@@ -58,7 +58,7 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
               ))}
             </ul>
             {f.example && (
-              <p className="mono text-[13px] text-[var(--green-ink)] bg-[var(--good-wash)] border border-[rgba(0,184,107,.2)] rounded-xl px-3 py-2.5 leading-relaxed">
+              <p className="mono text-[13px] text-[var(--ink)] bg-[var(--good-wash)] border border-[rgba(0,184,107,.25)] rounded-xl px-3 py-2.5 leading-relaxed">
                 {f.example}
               </p>
             )}

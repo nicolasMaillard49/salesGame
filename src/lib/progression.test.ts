@@ -8,6 +8,10 @@ import {
   unlockedDifficulty,
   isUnlocked,
   weakSkills,
+  nextStreak,
+  decayedScore,
+  masteryLevel,
+  dailyIndex,
 } from "./progression";
 
 describe("xpForAnswer", () => {
@@ -95,5 +99,50 @@ describe("weakSkills", () => {
       pont: { score: 0.1, attempts: 0 }, // pas encore tenté → ignoré
     });
     expect(res).toEqual(["douleurs", "ambitions"]);
+  });
+});
+
+describe("nextStreak", () => {
+  it("déjà joué aujourd'hui => alreadyDone, série inchangée", () => {
+    expect(nextStreak({ streak: 4, lastDay: "2026-01-02" }, "2026-01-02", "2026-01-01")).toEqual({ streak: 4, alreadyDone: true });
+  });
+  it("joué hier => série +1", () => {
+    expect(nextStreak({ streak: 4, lastDay: "2026-01-01" }, "2026-01-02", "2026-01-01")).toEqual({ streak: 5, alreadyDone: false });
+  });
+  it("trou dans la série => repart à 1", () => {
+    expect(nextStreak({ streak: 9, lastDay: "2025-12-30" }, "2026-01-02", "2026-01-01").streak).toBe(1);
+    expect(nextStreak({ streak: 0, lastDay: null }, "2026-01-02", "2026-01-01").streak).toBe(1);
+  });
+});
+
+describe("decayedScore", () => {
+  const D = 86_400_000;
+  const now = 1_700_000_000_000;
+  it("pas de décroissance avant 3 jours", () => {
+    expect(decayedScore(0.8, now - 2 * D, now)).toBe(0.8);
+    expect(decayedScore(0.8, null, now)).toBe(0.8);
+  });
+  it("décroît au-delà de 3 jours", () => {
+    expect(decayedScore(1, now - 10 * D, now)).toBeCloseTo(0.72); // -4%/j × 7j
+  });
+  it("plancher à 30 % du score", () => {
+    expect(decayedScore(1, now - 365 * D, now)).toBeCloseTo(0.3);
+  });
+});
+
+describe("masteryLevel", () => {
+  it("seuils Bronze/Argent/Or", () => {
+    expect(masteryLevel(0.9)?.name).toBe("Or");
+    expect(masteryLevel(0.75)?.name).toBe("Argent");
+    expect(masteryLevel(0.55)?.name).toBe("Bronze");
+    expect(masteryLevel(0.4)).toBeNull();
+  });
+});
+
+describe("dailyIndex", () => {
+  it("déterministe et borné", () => {
+    expect(dailyIndex("2026-06-03", 11)).toBe(dailyIndex("2026-06-03", 11));
+    expect(dailyIndex("2026-06-03", 11)).toBeGreaterThanOrEqual(0);
+    expect(dailyIndex("2026-06-03", 11)).toBeLessThan(11);
   });
 });
