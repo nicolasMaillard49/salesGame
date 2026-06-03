@@ -172,7 +172,7 @@
       "points": [
         "Honnêteté détachée : 'que tu le fasses ou pas, ça ne change rien pour moi' (pause).",
         "Assise par les résultats : 'je sais ce que j'apporte à mes clients, ça tourne très bien de leur côté'.",
-        "Désamorcer le prix : 'tu te doutes que 300€ ce n'est pas ça qui va changer ma vie' (pause).",
+        "Désamorcer le prix : 'tu te doutes que 299€ ce n'est pas ça qui va changer ma vie' (pause).",
         "Switch : 'Par contre, pour toi, ça peut clairement faire une différence.'",
         "Intention détachée, confiante, calme, posée. PAS arrogant ni nerveux : reprend le pouvoir et force la décision."
       ],
@@ -284,8 +284,8 @@
       "title": "Phase 5 : Prix et Close",
       "summary": "Annoncer le prix avec confiance, ancrer la valeur agence, puis poser le close et se taire.",
       "points": [
-        "Ancrage : 'ce type de site chez une agence c'est entre 1000 et 3000€. Nous on est à 300€, site complet, mis en ligne.'",
-        "Rentabilité : 'Un seul client trouvé grâce au site et il est déjà remboursé.'",
+        "Ancrage : 'ce type de site chez une agence c'est entre 1000 et 3000€. Nous on est à 299€, site complet, mis en ligne.'",
+        "Rentabilité : 'Un seul client trouvé grâce au site et il est déjà rentabilisé.'",
         "Close direct : 'On l'active pour ton activité ?' puis silence absolu, la prochaine personne qui parle a perdu.",
         "'Oui' : ne célèbre pas, passe direct au paiement (carte ou virement, lien WhatsApp ou email, numéro actuel ou dédié).",
         "Règle d'or objections : isoler avant de répondre, 'À part ça, est-ce qu'il y a autre chose qui te ferait hésiter ?' (si non → traite et close direct)."
@@ -296,28 +296,28 @@
       "id": "objection-je-reflechis",
       "category": "objection",
       "title": "Objection : 'je dois réfléchir' / 'je te rappelle'",
-      "summary": "Isoler le vrai frein (souvent un non poli), ne jamais dire 'prends le temps', créer l'urgence du test à 300€.",
+      "summary": "Isoler le vrai frein (souvent un non poli), ne jamais dire 'prends le temps', créer l'urgence du test à 299€.",
       "points": [
         "Ne JAMAIS dire 'prends le temps' : 'je te rappelle' est presque toujours un non poli.",
         "Isoler : 'Qu'est-ce qui te ferait hésiter exactement ?' puis valider que sinon le site plaît.",
         "Démasquer : 'quand tu dis ça, c'est vraiment que t'as besoin de temps ou y'a quelque chose qui te bloque et que t'as pas dit ?'",
-        "Recadrer + urgence : 'est-ce que ça vaut le coup de tester à 300€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes.'",
-        "Lever le risque : 'je l'active maintenant, et si dans 14 jours t'es pas satisfait je rembourse. Je maintiens pas le tarif 300€ après cet appel.'"
+        "Recadrer + urgence : 'est-ce que ça vaut le coup de tester à 299€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes.'",
+        "Créer l'urgence tarif : 'je l'active maintenant. Je maintiens pas le tarif 299€ après cet appel.'"
       ],
-      "example": "\"La vraie question : est-ce que ça vaut le coup de tester à 300€ ? On le met en place aujourd'hui et tu vois dans 30 jours.\""
+      "example": "\"La vraie question : est-ce que ça vaut le coup de tester à 299€ ? On le met en place aujourd'hui et tu vois dans 30 jours.\""
     },
     {
       "id": "objection-en-parler-conjoint",
       "category": "objection",
       "title": "Objection : 'je dois en parler à ma femme / mon associé'",
-      "summary": "Vérifier qui décide vraiment, neutraliser l'objection imaginaire et proposer la garantie.",
+      "summary": "Vérifier qui décide vraiment et neutraliser l'objection imaginaire.",
       "points": [
         "Vérifier le décideur : 'Pour ce type de décision c'est toi qui tranches ou vous décidez ensemble ?'",
         "Si 'c'est moi' : la vraie objection est ailleurs, 'Alors qu'est-ce qui te retient ?'",
-        "Projeter l'avis : 'Si elle était là maintenant, elle aurait une objection à un site 300€ qui peut vous amener des clients ?'",
-        "Lever le risque : 'On l'active maintenant et tu lui montres ce soir. Si ça lui va pas, garantie 14 jours.'"
+        "Projeter l'avis : 'Si elle était là maintenant, elle aurait une objection à un site 299€ qui peut vous amener des clients ?'",
+        "Avancer concret : 'On l'active maintenant et tu lui montres ce soir. Un seul client trouvé via le site et il est rentabilisé.'"
       ],
-      "example": "\"On l'active maintenant et tu lui montres ce soir. Si ça lui va pas, garantie 14 jours.\""
+      "example": "\"On l'active maintenant et tu lui montres ce soir. Un seul client trouvé via le site et il est rentabilisé.\""
     },
     {
       "id": "objection-trop-cher",
@@ -326,12 +326,12 @@
       "summary": "Ne pas se défendre, creuser le 'par rapport à quoi', et ramener à la valeur d'un seul chantier.",
       "points": [
         "Ne te défends pas, creuse : 'Trop cher par rapport à quoi exactement ?'",
-        "Ancrage agence : 'Un site comme ça chez une agence c'est 1000 à 3000€. Là 300€.'",
+        "Ancrage agence : 'Un site comme ça chez une agence c'est 1000 à 3000€. Là 299€.'",
         "Valeur d'usage : 'Un seul chantier trouvé via le site, ça vaut combien pour toi ?'",
-        "Recadrer la question : pas 'est-ce que 300€ c'est cher', mais 'est-ce que ce site peut me ramener au moins un client ?'",
+        "Recadrer la question : pas 'est-ce que 299€ c'est cher', mais 'est-ce que ce site peut me ramener au moins un client ?'",
         "Rappeler qu'il a dit lui-même pouvoir prendre plus de clients."
       ],
-      "example": "\"La question c'est pas est-ce que 300€ c'est cher, c'est est-ce que ce site peut me ramener au moins un client ?\""
+      "example": "\"La question c'est pas est-ce que 299€ c'est cher, c'est est-ce que ce site peut me ramener au moins un client ?\""
     },
     {
       "id": "objection-pas-maintenant",
@@ -343,7 +343,7 @@
         "Timing : 'La mise en ligne prend 48h, ça te prend pas de temps. Pendant que tu bosses, le site travaille en arrière-plan.'",
         "Timing : le mettre maintenant, c'est récupérer des demandes le plus tôt possible.",
         "Budget : proposer le paiement en plusieurs fois.",
-        "Budget : 'Un seul chantier et il est remboursé, il se finance tout seul dès le 1er mois.'"
+        "Budget : 'Un seul chantier et il est rentabilisé, il se finance tout seul dès le 1er mois.'"
       ],
       "example": "\"La mise en ligne prend 48h. Pendant que tu bosses, le site travaille en arrière-plan. On l'active ?\""
     },
@@ -351,12 +351,12 @@
       "id": "objection-deja-essaye",
       "category": "objection",
       "title": "Objection : 'j'ai déjà essayé, ça n'a rien donné'",
-      "summary": "La plus délicate : écouter vraiment, distinguer le site du référencement, rassurer avec la garantie.",
+      "summary": "La plus délicate : écouter vraiment, distinguer le site du référencement, repositionner l'outil.",
       "points": [
         "Écouter vraiment : 'Qu'est-ce que t'avais essayé ?' puis silence.",
         "Distinguer : 'C'était le site lui-même ou il était pas visible sur Google ?'",
         "Repositionner : 'Ce qu'on fait c'est un site conçu pour apparaître quand quelqu'un cherche [activité] à [ville]. C'est pas une vitrine, c'est un outil fait pour être trouvé.'",
-        "Lever le risque : '300€ avec garantie 14 jours, si t'as pas eu au moins une demande on rembourse. T'as rien à perdre.'"
+        "Ramener au ROI : 'À 299€, un seul client trouvé via le site et il est rentabilisé. C'est un outil fait pour être trouvé, pas une vitrine.'"
       ],
       "example": "\"C'est pas une vitrine, c'est un outil fait pour être trouvé.\""
     },
@@ -366,14 +366,13 @@
       "title": "Pricing & offre",
       "summary": "Mémoriser les chiffres clés pour ancrer la valeur et lever les freins financiers.",
       "points": [
-        "Prix : 300€ unique + 10€/mois d'hébergement.",
+        "Prix : 299€ unique + 29€/mois de maintenance.",
         "Ancrage agence : un site équivalent coûte entre 1000 et 3000€.",
-        "Garantie 14 jours : remboursé si pas au moins une demande, zéro risque.",
-        "Rentabilité : un seul client trouvé via le site rembourse l'investissement.",
+        "Rentabilité : un seul client trouvé via le site rentabilise l'investissement, le site se finance.",
         "Encaissement : éviter les frais Sendpage, privilégier virement direct ou Stripe.",
-        "Le tarif 300€ n'est pas maintenu après l'appel (levier d'urgence)."
+        "Le tarif 299€ n'est pas maintenu après l'appel (levier d'urgence)."
       ],
-      "example": "\"On est à 300€, site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà remboursé.\""
+      "example": "\"On est à 299€, site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà rentabilisé.\""
     },
     {
       "id": "mindset-creneaux-canal",

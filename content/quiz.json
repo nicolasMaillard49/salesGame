@@ -7,12 +7,12 @@
       "prompt": "Quel est le prix d'un site web proposé dans le script de closing ?",
       "options": [
         "100€",
-        "300€",
+        "299€",
         "1000€",
         "3000€"
       ],
       "answer": 1,
-      "explanation": "Le site complet et mis en ligne est vendu 300€, contre 1000 à 3000€ chez une agence classique.",
+      "explanation": "Le site complet et mis en ligne est vendu 299€, contre 1000 à 3000€ chez une agence classique.",
       "difficulty": 1
     },
     {
@@ -21,46 +21,22 @@
       "type": "qcm",
       "prompt": "Selon le script, combien coûte ce type de site chez une agence classique ?",
       "options": [
-        "300 à 500€",
+        "299 à 500€",
         "500 à 800€",
         "1000 à 3000€",
         "5000 à 10000€"
       ],
       "answer": 2,
-      "explanation": "On ancre la valeur à 1000-3000€ en agence avant d'annoncer 300€, ce qui fait paraître le prix dérisoire.",
+      "explanation": "On ancre la valeur à 1000-3000€ en agence avant d'annoncer 299€, ce qui fait paraître le prix dérisoire.",
       "difficulty": 2
     },
     {
       "id": "quiz-hebergement-mensuel",
       "skill": "prix_close",
       "type": "trou",
-      "prompt": "Au-delà des 300€ uniques, l'hébergement mensuel coûte ___ € par mois.",
+      "prompt": "Au-delà des 299€ uniques, l'maintenance mensuel coûte ___ € par mois.",
       "answer": "10",
-      "explanation": "Le prix est de 300€ unique + 10€/mois d'hébergement (source training découverte).",
-      "difficulty": 1
-    },
-    {
-      "id": "quiz-garantie-jours",
-      "skill": "obj_deja_essaye",
-      "type": "trou",
-      "prompt": "La garantie satisfait ou remboursé proposée est de ___ jours.",
-      "answer": "14",
-      "explanation": "La garantie 14 jours lève le risque : si pas satisfait (ou pas une seule demande), on rembourse.",
-      "difficulty": 1
-    },
-    {
-      "id": "quiz-garantie-usage",
-      "skill": "obj_reflechir",
-      "type": "qcm",
-      "prompt": "À quoi sert la garantie 14 jours dans le closing ?",
-      "options": [
-        "À justifier un prix plus élevé",
-        "À enlever le risque pour faire passer à l'action sans réflexion",
-        "À retarder le paiement de deux semaines",
-        "À forcer un engagement annuel"
-      ],
-      "answer": 1,
-      "explanation": "La garantie 14 jours retire le risque perçu ('zéro risque') et débloque les hésitants.",
+      "explanation": "Le prix est de 299€ unique + 29€/mois de maintenance (source training découverte).",
       "difficulty": 1
     },
     {
@@ -131,7 +107,7 @@
       "options": [
         "Une remise commerciale temporaire",
         "Le lien entre la situation actuelle (douleurs) et la situation désirée (rêves), le site étant le pont",
-        "Un argument technique sur l'hébergement",
+        "Un argument technique sur l'maintenance",
         "Une étape de relance après l'appel"
       ],
       "answer": 1,
@@ -312,7 +288,7 @@
         "Il célèbre bruyamment",
         "Il ne célèbre pas et passe direct au paiement (carte ou virement ?)",
         "Il propose de réfléchir encore",
-        "Il rappelle la garantie"
+        "Il reparle du prix de l'agence"
       ],
       "answer": 1,
       "explanation": "On ne célèbre pas : on enchaîne 'Tu préfères régler par carte ou virement ?' pour verrouiller.",
@@ -906,7 +882,7 @@
         "Voici ce que je vais vous vendre.",
         "Dis-moi si j'ai bien compris : aujourd'hui [sa douleur], et ce que tu voudrais vraiment c'est [son ambition]. C'est bien ça ?",
         "Vous avez tort sur toute la ligne.",
-        "Le prix est de 300€, on y va ?"
+        "Le prix est de 299€, on y va ?"
       ],
       "answer": 1,
       "explanation": "On reformule avec SES mots et on fait valider ; s'il corrige, on intègre et on reformule.",
@@ -1000,30 +976,30 @@
       "id": "quiz-prix-remboursement-1client",
       "skill": "prix_close",
       "type": "qcm",
-      "prompt": "Quel argument de rentabilité accompagne l'annonce du prix de 300€ ?",
+      "prompt": "Quel argument de rentabilité accompagne l'annonce du prix de 299€ ?",
       "options": [
         "C'est moins cher qu'un café par jour",
-        "Un seul client trouvé grâce au site et il est déjà remboursé",
+        "Un seul client trouvé grâce au site et il est déjà rentabilisé",
         "C'est déductible des impôts",
         "On offre un deuxième site"
       ],
       "answer": 1,
-      "explanation": "On ancre la rentabilité : un seul client venu du site rembourse déjà les 300€.",
+      "explanation": "On ancre la rentabilité : un seul client venu du site rentabilise déjà les 299€.",
       "difficulty": 1
     },
     {
       "id": "quiz-prix-automatise",
       "skill": "prix_close",
       "type": "qcm",
-      "prompt": "Comment justifie-t-on le prix bas de 300€ face aux 1000-3000€ des agences ?",
+      "prompt": "Comment justifie-t-on le prix bas de 299€ face aux 1000-3000€ des agences ?",
       "options": [
         "C'est une promotion limitée",
         "On bosse avec beaucoup d'artisans et on a automatisé la création",
         "Le site est de moins bonne qualité",
-        "C'est un prix d'essai sans garantie"
+        "C'est une version d'essai limitée dans le temps"
       ],
       "answer": 1,
-      "explanation": "L'automatisation de la création et le volume d'artisans justifient le prix de 300€ sans dévaloriser le site.",
+      "explanation": "L'automatisation de la création et le volume d'artisans justifient le prix de 299€ sans dévaloriser le site.",
       "difficulty": 2
     },
     {
@@ -1098,7 +1074,7 @@
         "Qu'est-ce qui te ferait hésiter ?",
         "Prends le temps.",
         "Le site te plaît ?",
-        "On peut le tester 14 jours."
+        "Tu veux que je te laisse mon numéro ?"
       ],
       "answer": 1,
       "explanation": "Ne jamais dire 'prends le temps' : on cherche plutôt ce qui le fait hésiter exactement.",
@@ -1171,21 +1147,21 @@
       "prompt": "Quelle question pose-t-on sur l'avis de la femme/associé ?",
       "options": [
         "Elle est sévère ?",
-        "Si elle était là maintenant, elle aurait une objection à un site 300€ qui peut vous amener des clients ?",
+        "Si elle était là maintenant, elle aurait une objection à un site 299€ qui peut vous amener des clients ?",
         "Elle gère les comptes ?",
         "Elle veut un site aussi ?"
       ],
       "answer": 1,
-      "explanation": "On rend l'objection absurde : difficile d'imaginer une objection à 300€ qui ramène des clients.",
+      "explanation": "On rend l'objection absurde : difficile d'imaginer une objection à 299€ qui ramène des clients.",
       "difficulty": 3
     },
     {
       "id": "quiz-obj-femme-ce-soir",
       "skill": "obj_femme_associe",
       "type": "trou",
-      "prompt": "On close malgré la femme/associé : 'On l'active maintenant et tu lui montres ce ___ ; si ça lui va pas, garantie 14 jours.'",
+      "prompt": "On close malgré la femme/associé : 'On l'active maintenant et tu lui montres ce ___ une fois en ligne.'",
       "answer": "soir",
-      "explanation": "La garantie 14 jours permet d'activer maintenant tout en laissant la possibilité de montrer à la femme/associé.",
+      "explanation": "On active maintenant tout en laissant la possibilité de montrer le site à la femme/associé une fois en ligne.",
       "difficulty": 3
     },
     {
@@ -1209,8 +1185,8 @@
       "type": "qcm",
       "prompt": "Comment recadre-t-on la question du prix face à 'trop cher' ?",
       "options": [
-        "Est-ce que 300€ c'est cher ?",
-        "La question c'est pas 'est-ce que 300€ c'est cher', c'est 'est-ce que ce site peut me ramener au moins un client ?'",
+        "Est-ce que 299€ c'est cher ?",
+        "La question c'est pas 'est-ce que 299€ c'est cher', c'est 'est-ce que ce site peut me ramener au moins un client ?'",
         "Vous pouvez payer en plusieurs fois ?",
         "C'est le prix du marché."
       ],
@@ -1224,7 +1200,7 @@
       "type": "trou",
       "prompt": "Argument anti 'trop cher' : un seul ___ trouvé via le site, ça vaut combien pour toi ?",
       "answer": "chantier",
-      "explanation": "On compare la valeur d'un chantier au prix du site : un seul chantier dépasse largement les 300€.",
+      "explanation": "On compare la valeur d'un chantier au prix du site : un seul chantier dépasse largement les 299€.",
       "difficulty": 2
     },
     {
@@ -1243,7 +1219,7 @@
       "prompt": "Si l'objection 'pas maintenant' est un problème de budget, que propose-t-on ?",
       "options": [
         "On annule",
-        "Payer en plusieurs fois, et rappeler qu'un seul chantier le rembourse (il se finance tout seul dès le 1er mois)",
+        "Payer en plusieurs fois, et rappeler qu'un seul chantier le rentabilise (il se finance tout seul dès le 1er mois)",
         "Un prix doublé",
         "Un site gratuit"
       ],
@@ -1308,7 +1284,7 @@
         "C'est moins cher que l'ancien"
       ],
       "answer": 1,
-      "explanation": "On différencie : un outil conçu pour être trouvé sur Google, pas une vitrine passive, avec garantie 14 jours.",
+      "explanation": "On différencie : un outil conçu pour être trouvé sur Google, pas une vitrine passive.",
       "difficulty": 3
     },
     {
@@ -1342,12 +1318,12 @@
       "prompt": "S'il insiste sur 'je te rappelle', quel levier honnête utilise-t-on ?",
       "options": [
         "On le menace",
-        "Je maintiens pas le tarif 300€ après cet appel ; je l'active maintenant, garantie 14 jours, zéro risque",
+        "Je maintiens pas le tarif 299€ après cet appel ; on l'active maintenant, un seul chantier et c'est rentabilisé",
         "On double le prix sur-le-champ",
         "On raccroche"
       ],
       "answer": 1,
-      "explanation": "On crée une urgence honnête (tarif non maintenu) couplée à la garantie 14 jours pour un 'zéro risque'.",
+      "explanation": "On crée une urgence honnête (tarif non maintenu) couplée au rappel qu'un seul chantier rentabilise le site.",
       "difficulty": 3
     },
     {
@@ -1466,8 +1442,8 @@
       "options": [
         "Insister plus fort",
         "Arrêter de creuser, c'est mort ; et ne jamais demander soi-même 's'il a déjà payé'",
-        "Proposer un remboursement de l'autre",
-        "Doubler la garantie"
+        "Critiquer le site de l'autre prestataire",
+        "Baisser le prix de moitié"
       ],
       "answer": 1,
       "explanation": "S'il a déjà payé, c'est mort : on arrête. Et on ne demande JAMAIS soi-même 'vous avez déjà payé ?' (on donne l'échappatoire).",
@@ -1635,7 +1611,7 @@
       "type": "qcm",
       "prompt": "Dans 'Inaction vs Action', quelle est l'étape de verrouillage ?",
       "options": [
-        "Annoncer la garantie",
+        "Annoncer le prix de l'agence",
         "Si rien ne change, rien ne change — on est d'accord ?",
         "Donner le prix",
         "Faire la démo"
@@ -1678,15 +1654,15 @@
       "id": "quiz-tech2-300euros",
       "skill": "obj_trop_cher",
       "type": "qcm",
-      "prompt": "Dans la technique de détachement, que dit-on à propos des 300€ ?",
+      "prompt": "Dans la technique de détachement, que dit-on à propos des 299€ ?",
       "options": [
         "C'est une grosse somme pour moi.",
-        "Tu te doutes que 300€, c'est pas ça qui va changer ma vie.",
+        "Tu te doutes que 299€, c'est pas ça qui va changer ma vie.",
         "C'est négociable.",
         "C'est un acompte."
       ],
       "answer": 1,
-      "explanation": "Le détachement : '300€ ne change pas ma vie, mais pour toi ça peut tout changer' → reprend le pouvoir.",
+      "explanation": "Le détachement : '299€ ne change pas ma vie, mais pour toi ça peut tout changer' → reprend le pouvoir.",
       "difficulty": 3
     },
     {
@@ -1783,21 +1759,6 @@
       "difficulty": 1
     },
     {
-      "id": "quiz-prix-defi-rembourse",
-      "skill": "obj_deja_essaye",
-      "type": "qcm",
-      "prompt": "Quelle promesse accompagne la garantie 14 jours pour un sceptique ?",
-      "options": [
-        "On double le prix sinon",
-        "Si t'as pas eu au moins une demande, on rembourse : t'as rien à perdre",
-        "On offre un second site",
-        "On forme gratuitement"
-      ],
-      "answer": 1,
-      "explanation": "À 300€ avec garantie 14 jours, si aucune demande on rembourse : 'zéro risque', 'rien à perdre'.",
-      "difficulty": 2
-    },
-    {
       "id": "quiz-close-jamais-redemander",
       "skill": "prix_close",
       "type": "qcm",
@@ -1863,7 +1824,7 @@
       "type": "trou",
       "prompt": "Annonce du prix : 'Normalement ce type de site chez une agence c'est entre 1000 et ___ €.'",
       "answer": "3000",
-      "explanation": "On ancre 1000-3000€ en agence avant d'annoncer 300€, site complet et mis en ligne.",
+      "explanation": "On ancre 1000-3000€ en agence avant d'annoncer 299€, site complet et mis en ligne.",
       "difficulty": 1
     },
     {
@@ -1903,12 +1864,12 @@
       "prompt": "Quel argument montre que le site 'se finance tout seul' ?",
       "options": [
         "Il est gratuit la première année",
-        "Un seul chantier le rembourse, et avec de la capacité dispo il se finance dès le 1er mois",
-        "L'hébergement est offert à vie",
+        "Un seul chantier le rentabilise, et avec de la capacité dispo il se finance dès le 1er mois",
+        "L'maintenance est offert à vie",
         "On paie après 6 mois"
       ],
       "answer": 1,
-      "explanation": "Avec de la capacité disponible (munition), un seul chantier rembourse le site dès le 1er mois.",
+      "explanation": "Avec de la capacité disponible (munition), un seul chantier rentabilise le site dès le 1er mois.",
       "difficulty": 3
     },
     {
@@ -2017,21 +1978,6 @@
       "difficulty": 1
     },
     {
-      "id": "quiz-obj-deja-essaye-trois-cas",
-      "skill": "obj_deja_essaye",
-      "type": "qcm",
-      "prompt": "Quel angle final sécurise l'artisan qui a déjà essayé sans succès ?",
-      "options": [
-        "Promettre la première place Google",
-        "À 300€ avec garantie 14 jours, si pas une seule demande on rembourse : rien à perdre",
-        "Offrir 3 mois gratuits",
-        "Garantir 10 clients"
-      ],
-      "answer": 1,
-      "explanation": "On ne survend pas de résultat : on sécurise avec la garantie 14 jours et le 'rien à perdre'.",
-      "difficulty": 2
-    },
-    {
       "id": "quiz-obj-seul-deleguer",
       "skill": "obj_seul",
       "type": "qcm",
@@ -2054,7 +2000,7 @@
       "options": [
         "Une remise",
         "Un levier qu'on peut activer en particulier",
-        "Une garantie",
+        "Une recommandation supplémentaire",
         "Une publicité payante"
       ],
       "answer": 1,
@@ -2133,7 +2079,7 @@
         "On baisse le prix",
         "Je t'entends. Qu'est-ce qui te ferait hésiter exactement ? puis 'À part ça, autre chose ?'",
         "On raccroche",
-        "On répète la garantie en boucle"
+        "On répète le prix en boucle"
       ],
       "answer": 1,
       "explanation": "On accueille l'hésitation et on isole l'objection avant de la traiter et de re-closer.",

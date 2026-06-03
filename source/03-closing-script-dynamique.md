@@ -1,6 +1,6 @@
 # Script de Closing Dynamique + Guide Anti-Objections (source : formation Léo / Sendpage)
 
-App interactive, 7 phases branchées selon les réponses du prospect (artisan). Cible : vendre un site web à 300€.
+App interactive, 7 phases branchées selon les réponses du prospect (artisan). Cible : vendre un site web à 299€.
 
 ## PHASE 0 — Brise-glace (1-2 min)
 **Mindset :** tu n'es pas un commercial qui appelle, tu es quelqu'un qui a déjà travaillé pour lui avant l'appel. Décontracte-toi.
@@ -50,7 +50,7 @@ App interactive, 7 phases branchées selon les réponses du prospect (artisan). 
 
 ## PHASE 5 — Prix et Close
 **Direct, confiant, sans hésiter.**
-- "Normalement ce type de site chez une agence c'est entre 1000 et 3000€. Nous on bosse avec beaucoup d'artisans, on a automatisé la création, donc on est à 300€ — site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà remboursé."
+- "Normalement ce type de site chez une agence c'est entre 1000 et 3000€. Nous on bosse avec beaucoup d'artisans, on a automatisé la création, donc on est à 299€ — site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà remboursé."
 - ⚡ Close : **"On l'active pour ton activité ?"** ⏸ Silence absolu. La prochaine personne qui parle a perdu.
   - **"Oui" :** ne célèbre pas, passe direct au paiement → "Tu préfères régler par carte ou virement ?" / "Je t'envoie le lien sur WhatsApp ou email ?" / "On le met avec ton numéro actuel ou dédié ?"
   - **Il hésite :** "Je t'entends. Qu'est-ce qui te ferait hésiter exactement ?" ⏸ puis "À part ça, autre chose ?" (si non → "Donc si on règle ça, t'es partant ?")
@@ -62,17 +62,17 @@ App interactive, 7 phases branchées selon les réponses du prospect (artisan). 
 **OBJ 1 — "Je dois réfléchir"** (ne JAMAIS dire "prends le temps")
 - "Je comprends. Mais qu'est-ce qui te ferait hésiter exactement ?" ⏸
 - "Donc si je comprends bien c'est surtout [ses mots]. Et à part ça, le site te plaît et tu vois l'intérêt ?" (oui → close)
-- "La vraie question : est-ce que ça vaut le coup de tester à 300€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes." / "On le met en place aujourd'hui et tu vois dans 30 jours."
+- "La vraie question : est-ce que ça vaut le coup de tester à 299€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes." / "On le met en place aujourd'hui et tu vois dans 30 jours."
 
 **OBJ 2 — "Je dois en parler à ma femme / mon associé"**
 - "Bien sûr. C'est ta femme ? ton associé ?" → "Pour ce type de décision c'est toi qui tranches ou vous décidez ensemble ?" (si "c'est moi" → vraie objection ailleurs : "Alors qu'est-ce qui te retient ?")
-- "Si elle était là maintenant, elle aurait une objection à un site 300€ qui peut vous amener des clients ?" ⏸
-- "On l'active maintenant et tu lui montres ce soir. Si ça lui va pas — garantie 14 jours."
+- "Si elle était là maintenant, elle aurait une objection à un site 299€ qui peut vous amener des clients ?" ⏸
+- "On l'active maintenant et tu lui montres ce soir. Tu verras sa réaction direct."
 
 **OBJ 3 — "C'est trop cher"** (ne te défends pas, creuse)
 - "Trop cher par rapport à quoi exactement ?" ⏸
-- "Un site comme ça chez une agence c'est 1000 à 3000€. Là 300€. Un seul chantier trouvé via le site, ça vaut combien pour toi ?"
-- "La question c'est pas 'est-ce que 300€ c'est cher', c'est 'est-ce que ce site peut me ramener au moins un client ?' Et tu m'as dit toi-même que tu pourrais en prendre plus." / "On le met en place ?"
+- "Un site comme ça chez une agence c'est 1000 à 3000€. Là 299€. Un seul chantier trouvé via le site, ça vaut combien pour toi ?"
+- "La question c'est pas 'est-ce que 299€ c'est cher', c'est 'est-ce que ce site peut me ramener au moins un client ?' Et tu m'as dit toi-même que tu pourrais en prendre plus." / "On le met en place ?"
 
 **OBJ 4 — "Je ne peux pas maintenant"**
 - "C'est un problème de timing ou de budget ?"
@@ -82,11 +82,11 @@ App interactive, 7 phases branchées selon les réponses du prospect (artisan). 
 **OBJ 5 — "J'ai déjà essayé, ça n'a rien donné"** (la plus délicate, écoute vraiment)
 - "Qu'est-ce que t'avais essayé ?" ⏸
 - "C'était le site lui-même ou il était pas visible sur Google ?"
-- "Ce qu'on fait c'est un site conçu pour apparaître quand quelqu'un cherche [activité] à [ville]. C'est pas une vitrine, c'est un outil fait pour être trouvé." / "À 300€ avec garantie 14 jours — si t'as pas eu au moins une demande, on rembourse. T'as rien à perdre."
+- "Ce qu'on fait c'est un site conçu pour apparaître quand quelqu'un cherche [activité] à [ville]. C'est pas une vitrine, c'est un outil fait pour être trouvé." / "À 299€, un seul chantier trouvé via le site et il est rentabilisé — c'est fait pour te ramener des demandes."
 
 **OBJ 6 — "Je te rappelle"** (presque toujours un non poli)
 - "Entre nous — quand tu dis ça, c'est vraiment que t'as besoin de temps ou y'a quelque chose qui te bloque et que t'as pas dit ?" (s'il admet → traite l'objection réelle)
-- S'il insiste : "Je vais être honnête, je maintiens pas le tarif 300€ après cet appel. On fait simple : je l'active maintenant, et si dans 14 jours t'es pas satisfait je rembourse. Zéro risque."
+- S'il insiste : "Je vais être honnête, je maintiens pas le tarif 299€ après cet appel. On fait simple : je l'active maintenant et tu commences à recevoir des demandes. Tu prends la main."
 
 **Closes finaux** (jamais redemander l'avis, poser UNE question) :
 - "On l'active pour ton activité ?" / "Tu préfères carte ou virement ?" / "Je t'envoie le lien WhatsApp ou email ?" / "On le met avec ton numéro actuel ou dédié ?"

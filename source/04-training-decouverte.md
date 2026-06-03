@@ -25,7 +25,7 @@ Creuser l'écart entre la **situation actuelle** (douleurs) et la **situation d�
 - **Commencer par sa vie :** demander comment s'est passée sa journée lance naturellement la conversation sur son travail et ses problèmes.
 
 ## Opérationnel
-- **Prix :** 300€ unique + 10€/mois hébergement. Éviter frais Sendpage → virement direct ou Stripe.
+- **Prix :** 299€ unique + 29€/mois maintenance. Éviter frais Sendpage → virement direct ou Stripe.
 - **Closing en visio (Google Meet) :** recommandé (moins de raccrochage, rassure sur l'arnaque).
 - **Qualité du site :** secondaire si la découverte est bien faite — à ce moment-là il veut juste un site.
 - **Meilleurs créneaux d'appel :** 9h-10h (top), 11h-12h, 13h-14h, 17h-19h.

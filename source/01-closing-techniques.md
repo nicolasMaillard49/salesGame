@@ -24,7 +24,7 @@
 Script :
 - "Je vais être honnête : que tu le fasses ou pas, ça ne change rien pour moi." (pause)
 - "Moi je sais ce que j'apporte à mes clients, les résultats qu'ils ont, ça tourne très bien de leur côté."
-- "Donc tu te doutes que 300€, ce n'est pas ça qui va changer ma vie." (pause)
+- "Donc tu te doutes que 299€, ce n'est pas ça qui va changer ma vie." (pause)
 - 💥 **Switch :** "Par contre, pour toi… ça peut clairement faire une différence."
 - 🎯 **Projection + pression douce :** "Ça fait un moment que t'es dans cette situation… tu penses que c'est en ne changeant rien que ça va évoluer ?"
 - 🚪 **Close :** "Ou est-ce que c'est pas le moment de faire un premier pas pour changer ça ?"

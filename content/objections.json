@@ -17,7 +17,7 @@
           "feedback": "À éviter : ne JAMAIS dire 'prends le temps'. 'Je réfléchis' est presque toujours un non poli qu'il faut creuser."
         },
         {
-          "text": "La vraie question : ça vaut le coup de tester à 300€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes.",
+          "text": "La vraie question : ça vaut le coup de tester à 299€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes.",
           "quality": "ok",
           "feedback": "Argument valable et fidèle au script, mais il vaut mieux d'abord isoler l'objection réelle avant de mettre cette pression."
         },
@@ -70,12 +70,12 @@
         {
           "text": "Je respecte ça, prenez votre temps pour bien faire les choses.",
           "quality": "bad",
-          "feedback": "À éviter : 'prenez votre temps' valide la fuite. Une décision à 300€ avec garantie 14 jours ne demande pas des jours."
+          "feedback": "À éviter : 'prenez votre temps' valide la fuite. Une décision à 299€ ne demande pas des jours."
         },
         {
-          "text": "Justement, comme la garantie 14 jours te couvre, tu ne décides pas vraiment sur un coup de tête : tu testes sans risque et tu te rétractes si ça te va pas.",
+          "text": "Justement, c'est une décision à 299€, pas un engagement à vie : un seul chantier trouvé via le site et il est rentabilisé. Le vrai risque, c'est de laisser passer les demandes pendant que tu réfléchis.",
           "quality": "ok",
-          "feedback": "Bon usage de la garantie pour lever le risque, mais le script recommande d'abord d'isoler ce qui le fait hésiter."
+          "feedback": "Bon recadrage valeur/ROI, mais le script recommande d'abord d'isoler ce qui le fait hésiter."
         },
         {
           "text": "Vous savez, tous mes clients ont réfléchi aussi et ils ont tous dit oui.",
@@ -91,9 +91,9 @@
       "difficulty": 2,
       "options": [
         {
-          "text": "Bien sûr. Pour ce type de décision c'est toi qui tranches ou vous décidez ensemble ? Si elle était là, elle aurait une objection à un site 300€ qui peut vous amener des clients ?",
+          "text": "Bien sûr. Pour ce type de décision c'est toi qui tranches ou vous décidez ensemble ? Si elle était là, elle aurait une objection à un site 299€ qui peut vous amener des clients ?",
           "quality": "good",
-          "feedback": "Bonne réponse : on vérifie qui décide vraiment et on désamorce. On peut activer maintenant et montrer ce soir, garantie 14 jours."
+          "feedback": "Bonne réponse : on vérifie qui décide vraiment et on désamorce. On peut activer maintenant et montrer ce soir."
         },
         {
           "text": "Ah, donc ce n'est pas vous le patron en fait ?",
@@ -106,9 +106,9 @@
           "feedback": "Mauvais : on lâche le lead. C'est souvent une fuite, il faut isoler la vraie objection."
         },
         {
-          "text": "On peut l'activer maintenant et vous lui montrez ce soir ; si ça ne lui va pas, garantie 14 jours, vous êtes remboursé.",
+          "text": "On peut l'activer maintenant et vous lui montrez ce soir ; un seul chantier trouvé via le site et il est rentabilisé, elle verra vite l'intérêt.",
           "quality": "ok",
-          "feedback": "Bon argument issu du script, mais idéalement on vérifie d'abord s'il est vraiment décisionnaire avant de proposer ça."
+          "feedback": "Bon argument ROI issu du script, mais idéalement on vérifie d'abord s'il est vraiment décisionnaire avant de proposer ça."
         }
       ]
     },
@@ -119,7 +119,7 @@
       "difficulty": 2,
       "options": [
         {
-          "text": "Logique. Sur un investissement comme ça c'est toi qui tranches ou vous décidez vraiment à deux ? Parce que s'il était là, qu'est-ce qu'il objecterait à un site 300€ qui peut vous ramener des chantiers ?",
+          "text": "Logique. Sur un investissement comme ça c'est toi qui tranches ou vous décidez vraiment à deux ? Parce que s'il était là, qu'est-ce qu'il objecterait à un site 299€ qui peut vous ramener des chantiers ?",
           "quality": "good",
           "feedback": "Bonne réponse : on clarifie le pouvoir de décision et on fait projeter l'objection de l'associé pour la désamorcer."
         },
@@ -147,9 +147,9 @@
       "difficulty": 2,
       "options": [
         {
-          "text": "Je comprends. Sur une dépense à 300€ avec garantie 14 jours, c'est vraiment elle qui doit valider ou tu peux décider et lui montrer après ? Si elle voyait que ça peut ramener des clients, elle dirait quoi ?",
+          "text": "Je comprends. Sur une dépense à 299€, c'est vraiment elle qui doit valider ou tu peux décider et lui montrer après ? Si elle voyait que ça peut ramener des clients, elle dirait quoi ?",
           "quality": "good",
-          "feedback": "Bonne réponse : on teste s'il est décisionnaire et on neutralise l'objection de la femme grâce au montant faible et à la garantie."
+          "feedback": "Bonne réponse : on teste s'il est décisionnaire et on neutralise l'objection de la femme grâce au montant faible et au ROI."
         },
         {
           "text": "D'accord, demandez-lui ce soir et on se rappelle demain.",
@@ -157,9 +157,9 @@
           "feedback": "Mauvais : on reporte. Souvent 'ma femme' est un paravent ; il faut isoler le vrai frein dans l'appel."
         },
         {
-          "text": "On l'active maintenant, tu lui montres ce soir, et si elle n'est pas d'accord la garantie 14 jours te rembourse intégralement. Zéro risque pour le couple.",
+          "text": "On l'active maintenant, tu lui montres ce soir : à 299€, un seul chantier trouvé via le site et il est rentabilisé. C'est l'investissement le plus léger qu'elle aura à valider cette année.",
           "quality": "ok",
-          "feedback": "Bon usage de la garantie, mais le script conseille de vérifier d'abord s'il est réellement le décideur."
+          "feedback": "Bon recadrage valeur/ROI, mais le script conseille de vérifier d'abord s'il est réellement le décideur."
         },
         {
           "text": "Bah écoutez, c'est vous le chef à la maison non ? Prenez la décision.",
@@ -171,18 +171,18 @@
     {
       "id": "obj_trop_cher",
       "label": "C'est trop cher",
-      "artisanLine": "300€ quand même, je trouve ça cher pour un site.",
+      "artisanLine": "299€ quand même, je trouve ça cher pour un site.",
       "difficulty": 1,
       "options": [
         {
           "text": "Trop cher par rapport à quoi exactement ? Un site comme ça chez une agence c'est 1000 à 3000€. Un seul chantier trouvé via le site, ça vaut combien pour toi ?",
           "quality": "good",
-          "feedback": "Bonne réponse : on ne se défend pas, on creuse puis on ancre la valeur et le ROI (un seul client = remboursé)."
+          "feedback": "Bonne réponse : on ne se défend pas, on creuse puis on ancre la valeur et le ROI (un seul client = rentabilisé)."
         },
         {
           "text": "Je peux vous faire une remise à 200€ si vous prenez aujourd'hui.",
           "quality": "bad",
-          "feedback": "Mauvais : casser le prix décrédibilise l'offre et confirme que 300€ était gonflé."
+          "feedback": "Mauvais : casser le prix décrédibilise l'offre et confirme que 299€ était gonflé."
         },
         {
           "text": "C'est le prix, c'est comme ça, c'est déjà donné.",
@@ -190,7 +190,7 @@
           "feedback": "Sec et défensif : on n'a pas creusé ni ancré la valeur, l'objection reste entière."
         },
         {
-          "text": "La vraie question c'est pas si 300€ c'est cher, c'est si ce site peut te ramener au moins un client — et tu m'as dit que tu pouvais en prendre plus.",
+          "text": "La vraie question c'est pas si 299€ c'est cher, c'est si ce site peut te ramener au moins un client — et tu m'as dit que tu pouvais en prendre plus.",
           "quality": "ok",
           "feedback": "Bon recadrage fidèle au script, mais commencer par 'trop cher par rapport à quoi ?' fait sortir la vraie cause."
         }
@@ -199,11 +199,11 @@
     {
       "id": "obj_trop_cher",
       "label": "C'est trop cher",
-      "artisanLine": "Franchement c'est pas dans mon budget en ce moment, 300 balles ça fait beaucoup.",
+      "artisanLine": "Franchement c'est pas dans mon budget en ce moment, 299 balles ça fait beaucoup.",
       "difficulty": 1,
       "options": [
         {
-          "text": "Cher par rapport à quoi exactement ? Parce qu'un seul chantier décroché grâce au site, ça te rapporte combien ? Là on parle de 300€ une fois, pas tous les mois.",
+          "text": "Cher par rapport à quoi exactement ? Parce qu'un seul chantier décroché grâce au site, ça te rapporte combien ? Là on parle de 299€ une fois, pas tous les mois.",
           "quality": "good",
           "feedback": "Bonne réponse : on creuse la référence du 'cher' puis on ancre le ROI d'un seul chantier, sans se défendre."
         },
@@ -213,12 +213,12 @@
           "feedback": "Mauvais : brader confirme que le prix était gonflé et détruit la valeur perçue de l'offre."
         },
         {
-          "text": "Tu m'as dit que tu pouvais prendre plus de chantiers : un seul trouvé via le site et il est déjà remboursé, donc il se finance tout seul.",
+          "text": "Tu m'as dit que tu pouvais prendre plus de chantiers : un seul trouvé via le site et il est déjà rentabilisé, donc il se finance tout seul.",
           "quality": "ok",
           "feedback": "Bon recadrage ROI fidèle au script, mais on commence idéalement par 'trop cher par rapport à quoi ?'."
         },
         {
-          "text": "300€ c'est rien du tout enfin, faut arrêter.",
+          "text": "299€ c'est rien du tout enfin, faut arrêter.",
           "quality": "bad",
           "feedback": "Mauvais : on minimise son ressenti et on le juge, il se ferme immédiatement."
         }
@@ -227,13 +227,13 @@
     {
       "id": "obj_trop_cher",
       "label": "C'est trop cher",
-      "artisanLine": "J'ai un cousin qui me ferait un site gratos, alors 300€ ça me paraît élevé.",
+      "artisanLine": "J'ai un cousin qui me ferait un site gratos, alors 299€ ça me paraît élevé.",
       "difficulty": 2,
       "options": [
         {
-          "text": "Carrément, et s'il te le fait bien tant mieux. Mais dis-moi : il est conçu pour ressortir sur Google quand on cherche ton activité dans ta ville, ou c'est juste une vitrine ? Parce que c'est ça qui ramène les chantiers, et ça vaut bien plus que 300€.",
+          "text": "Carrément, et s'il te le fait bien tant mieux. Mais dis-moi : il est conçu pour ressortir sur Google quand on cherche ton activité dans ta ville, ou c'est juste une vitrine ? Parce que c'est ça qui ramène les chantiers, et ça vaut bien plus que 299€.",
           "quality": "good",
-          "feedback": "Bonne réponse : on ne brade pas, on déplace le débat de 'gratuit vs 300€' vers 'site trouvable qui rapporte', en ancrant la valeur."
+          "feedback": "Bonne réponse : on ne brade pas, on déplace le débat de 'gratuit vs 299€' vers 'site trouvable qui rapporte', en ancrant la valeur."
         },
         {
           "text": "Un site gratuit c'est de la camelote, ça ne marchera jamais.",
@@ -241,7 +241,7 @@
           "feedback": "Mauvais : on dénigre son cousin et son choix, il se braque et défend son entourage."
         },
         {
-          "text": "Si tu as une solution gratuite, je comprends — mais un seul chantier décroché ici et les 300€ sont remboursés ; un site mal fait peut te coûter bien plus en clients perdus.",
+          "text": "Si tu as une solution gratuite, je comprends — mais un seul chantier décroché ici et les 299€ sont rentabilisés ; un site mal fait peut te coûter bien plus en clients perdus.",
           "quality": "ok",
           "feedback": "Bon recadrage ROI, mais le script préfère d'abord requalifier ce que le 'gratuit' offre vraiment avant de comparer."
         },
@@ -261,7 +261,7 @@
         {
           "text": "C'est un problème de timing ou de budget ?",
           "quality": "good",
-          "feedback": "Bonne réponse : on qualifie l'objection. Timing → 'la mise en ligne prend 48h, le site travaille pendant que tu bosses'. Budget → paiement en plusieurs fois / remboursé au 1er chantier."
+          "feedback": "Bonne réponse : on qualifie l'objection. Timing → 'la mise en ligne prend 48h, le site travaille pendant que tu bosses'. Budget → paiement en plusieurs fois / rentabilisé au 1er chantier."
         },
         {
           "text": "Ok, on verra ça plus tard alors.",
@@ -315,7 +315,7 @@
       "difficulty": 2,
       "options": [
         {
-          "text": "Je comprends, donc c'est plutôt une question de budget que de timing ? Si c'est ça, on peut voir un paiement en plusieurs fois — et surtout, un seul chantier trouvé via le site et il est déjà remboursé. Il se finance tout seul dès le 1er mois.",
+          "text": "Je comprends, donc c'est plutôt une question de budget que de timing ? Si c'est ça, on peut voir un paiement en plusieurs fois — et surtout, un seul chantier trouvé via le site et il est déjà rentabilisé. Il se finance tout seul dès le 1er mois.",
           "quality": "good",
           "feedback": "Bonne réponse : on qualifie, on identifie le budget et on lève le frein (paiement échelonné + ROI au 1er chantier)."
         },
@@ -325,12 +325,12 @@
           "feedback": "Mauvais : on lâche le lead et on perd le momentum, sans avoir traité le frein budget."
         },
         {
-          "text": "Attendre quelques mois, c'est aussi quelques mois de demandes qui partent chez tes concurrents qui ont déjà un site. Là, à 300€, le site se rembourse au 1er chantier.",
+          "text": "Attendre quelques mois, c'est aussi quelques mois de demandes qui partent chez tes concurrents qui ont déjà un site. Là, à 299€, le site se rentabilise au 1er chantier.",
           "quality": "ok",
           "feedback": "Bon argument coût d'opportunité, mais le script recommande d'abord de confirmer que c'est bien le budget puis de proposer l'échelonné."
         },
         {
-          "text": "Une grosse dépense de plus ou de moins, à 300€ ça change rien franchement.",
+          "text": "Une grosse dépense de plus ou de moins, à 299€ ça change rien franchement.",
           "quality": "bad",
           "feedback": "Mauvais : on minimise sa situation financière, ça sonne méprisant et il se ferme."
         }
@@ -345,7 +345,7 @@
         {
           "text": "Qu'est-ce que t'avais essayé ? C'était le site lui-même ou il était pas visible sur Google ?",
           "quality": "good",
-          "feedback": "Bonne réponse : on écoute vraiment et on diagnostique. Souvent le site n'était pas trouvable. On enchaîne sur un site conçu pour être trouvé + garantie 14 jours."
+          "feedback": "Bonne réponse : on écoute vraiment et on diagnostique. Souvent le site n'était pas trouvable. On enchaîne sur un site conçu pour être trouvé qui se rentabilise au 1er chantier."
         },
         {
           "text": "C'est que vous n'avez pas dû bien vous y prendre.",
@@ -353,7 +353,7 @@
           "feedback": "Mauvais : on rejette la faute sur lui, il se braque immédiatement."
         },
         {
-          "text": "Nous c'est un site conçu pour apparaître quand on cherche ton activité à ta ville : pas une vitrine, un outil fait pour être trouvé. Et à 300€ avec garantie 14 jours, t'as rien à perdre.",
+          "text": "Nous c'est un site conçu pour apparaître quand on cherche ton activité à ta ville : pas une vitrine, un outil fait pour être trouvé. Et à 299€, un seul chantier décroché et il est déjà rentabilisé.",
           "quality": "ok",
           "feedback": "Bon argument du script, mais c'est la plus délicate des objections : il faut d'abord comprendre ce qu'il avait essayé avant de répondre."
         },
@@ -381,9 +381,9 @@
           "feedback": "Mauvais : dramatiser ravive sa mauvaise expérience et le rend méfiant envers tous les vendeurs, dont toi."
         },
         {
-          "text": "Nous on est à 300€ tout compris avec garantie 14 jours : si tu n'as pas eu au moins une demande, on rembourse. Tu ne peux pas te refaire avoir.",
+          "text": "Nous on est à 299€ tout compris, conçu pour être trouvé sur Google : un seul chantier décroché et il est déjà rentabilisé. On n'est pas du tout sur le même budget que ce que tu as connu.",
           "quality": "ok",
-          "feedback": "Bonne réassurance via la garantie, mais le script demande d'abord de comprendre ce qui avait échoué avant de proposer."
+          "feedback": "Bonne réassurance via le ROI et le contraste de prix, mais le script demande d'abord de comprendre ce qui avait échoué avant de proposer."
         },
         {
           "text": "C'est pour ça qu'il faut bosser avec nous et pas avec n'importe qui.",
@@ -409,7 +409,7 @@
           "feedback": "Mauvais : on juge son choix passé, il se sent visé et se ferme."
         },
         {
-          "text": "Nous on s'occupe de tout et le site est conçu pour être trouvé, pas une vitrine que tu dois bricoler. À 300€ avec garantie 14 jours, tu testes sans risque.",
+          "text": "Nous on s'occupe de tout et le site est conçu pour être trouvé, pas une vitrine que tu dois bricoler. À 299€, un seul chantier trouvé via le site et il est déjà rentabilisé.",
           "quality": "ok",
           "feedback": "Bon contraste avec le bricolage, mais le script veut d'abord comprendre pourquoi il a abandonné avant de présenter."
         },
@@ -437,7 +437,7 @@
           "feedback": "Mauvais : il ne rappellera jamais. On a laissé filer le lead sans creuser."
         },
         {
-          "text": "Je vais être honnête, je maintiens pas le tarif 300€ après cet appel. On fait simple : je l'active maintenant, et si dans 14 jours t'es pas satisfait je rembourse. Zéro risque.",
+          "text": "Je vais être honnête, je maintiens pas le tarif 299€ après cet appel. On fait simple : je l'active maintenant et un seul chantier trouvé via le site, il est déjà rentabilisé.",
           "quality": "ok",
           "feedback": "Bon levier du script s'il insiste, mais on essaie d'abord de faire admettre le vrai blocage."
         },
@@ -465,9 +465,9 @@
           "feedback": "Mauvais : on accepte le report ; dans la quasi-totalité des cas le rappel n'arrive jamais."
         },
         {
-          "text": "Pas de souci, mais je préfère être transparent : je ne garantis pas le tarif 300€ après l'appel. On peut l'activer maintenant avec garantie 14 jours, zéro risque.",
+          "text": "Pas de souci, mais je préfère être transparent : je ne garantis pas le tarif 299€ après l'appel. On peut l'activer maintenant, et un seul chantier trouvé via le site et il est déjà rentabilisé.",
           "quality": "ok",
-          "feedback": "Bon levier (tarif non maintenu + garantie) s'il insiste, mais le script conseille d'abord de faire admettre le vrai frein."
+          "feedback": "Bon levier (tarif non maintenu + ROI) s'il insiste, mais le script conseille d'abord de faire admettre le vrai frein."
         },
         {
           "text": "Vous savez que 9 personnes sur 10 qui disent ça ne rappellent jamais ?",
@@ -493,7 +493,7 @@
           "feedback": "Mauvais : on lâche sans verrouiller ni qualifier ; le rappel risque de ne jamais aboutir."
         },
         {
-          "text": "Je comprends que tu sois occupé. Le souci c'est que je ne maintiens pas le tarif 300€ après l'appel ; on peut faire un partage d'écran de 10 min ce soir, ça te va ?",
+          "text": "Je comprends que tu sois occupé. Le souci c'est que je ne maintiens pas le tarif 299€ après l'appel ; on peut faire un partage d'écran de 10 min ce soir, ça te va ?",
           "quality": "ok",
           "feedback": "Bon verrouillage de RDV avec levier tarif, mais on gagne d'abord à s'assurer que ce n'est pas une fuite déguisée."
         },
@@ -908,7 +908,7 @@
           "feedback": "Bonne réponse : on ne lâche pas le prix sec, on fait saliver, on lève la pression ('gratuit de regarder') et on verrouille le RDV."
         },
         {
-          "text": "C'est 300€, voilà, vous voulez ou pas ?",
+          "text": "C'est 299€, voilà, vous voulez ou pas ?",
           "quality": "bad",
           "feedback": "Mauvais : donner le prix sec hors contexte, sans valeur perçue, le pousse à juger uniquement sur le chiffre et à dire non."
         },
