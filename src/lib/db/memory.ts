@@ -1,6 +1,6 @@
 import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType } from "../types";
-import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store, Trend } from "./types";
 
 type Mem = {
   sessions: Map<string, SessionRow>;
@@ -53,7 +53,7 @@ export class MemoryStore implements Store {
     m.progress.unlocked = difficultiesUnlocked(m.progress.xpTotal);
     // maîtrise
     const prev = m.mastery[input.skill] ?? { score: 0, attempts: 0 };
-    m.mastery[input.skill] = updateMastery(prev, input.quality);
+    m.mastery[input.skill] = { ...updateMastery(prev, input.quality), updatedAt: Date.now() };
     // meilleures répliques (pour la fiche perso)
     if (input.quality === "good" && input.chosen) {
       const key = `${input.skill}|${input.chosen}`;
@@ -84,6 +84,10 @@ export class MemoryStore implements Store {
 
   async getBestReplies(): Promise<BestReply[]> {
     return [...mem().good.values()].sort((a, b) => b.count - a.count);
+  }
+
+  async getTrends(): Promise<Partial<Record<string, Trend>>> {
+    return {};
   }
 
   async getSnapshot(): Promise<Snapshot> {

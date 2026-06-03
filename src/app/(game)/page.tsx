@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getStore } from "@/lib/db";
 import { getDailyObjection, getObjections, getQuiz, getScenarios } from "@/lib/content";
-import { RANKS, progressToNextRank, rankForXp, weakSkills } from "@/lib/progression";
+import { RANKS, decayedScore, isRusty, masteryLevel, progressToNextRank, rankForXp } from "@/lib/progression";
 import { SKILL_LABELS, type SkillId } from "@/lib/types";
 import Icon, { type IconName } from "@/components/Icon";
 import MasterySection, { type MasteryRow } from "@/components/MasterySection";
@@ -28,17 +28,41 @@ function Ring({ ratio }: { ratio: number }) {
   );
 }
 
+function trainHref(skill: string): string {
+  return skill.startsWith("obj_") ? `/drill?skill=${skill}` : `/quiz?skill=${skill}`;
+}
+
 export default async function HubPage() {
   const store = getStore();
   const { progress, mastery } = await store.getSnapshot();
   const rank = rankForXp(progress.xpTotal);
   const rankIdx = RANKS.findIndex((r) => r.name === rank.name);
   const next = progressToNextRank(progress.xpTotal);
-  const weak = new Set(weakSkills(mastery as Record<string, { score: number; attempts: number }>));
-
-  const rows: MasteryRow[] = (Object.entries(mastery) as [SkillId, { score: number; attempts: number }][])
-    .map(([skill, m]) => ({ skill, label: SKILL_LABELS[skill], score: m.score, attempts: m.attempts, weak: weak.has(skill) }))
+  const trends = await store.getTrends();
+  // server component (async) : timestamp par requête, pas de render client
+  // eslint-disable-next-line react-hooks/purity
+  const now = Date.now();
+  const rows: MasteryRow[] = (Object.entries(mastery) as [SkillId, { score: number; attempts: number; updatedAt?: number | null }][])
+    .map(([skill, m]) => {
+      const s = decayedScore(m.score, m.updatedAt ?? null, now);
+      return {
+        skill,
+        label: SKILL_LABELS[skill],
+        score: s,
+        attempts: m.attempts,
+        weak: s < 0.5,
+        rusty: isRusty(m.updatedAt ?? null, now),
+        level: masteryLevel(s),
+        trend: trends[skill] ?? null,
+      };
+    })
     .sort((a, b) => a.score - b.score);
+
+  // Reco de session : priorités = rouillées d'abord, puis plus faibles (parmi les jouées)
+  const priorities = rows
+    .filter((r) => r.attempts > 0)
+    .sort((a, b) => Number(b.rusty) - Number(a.rusty) || a.score - b.score)
+    .slice(0, 2);
 
   // Teaser conversation (carte "reprends ton appel")
   const objs = getObjections();
@@ -148,6 +172,29 @@ export default async function HubPage() {
             {dailyDone ? "✓ Fait" : "Relever →"}
           </span>
         </Link>
+      )}
+
+      {/* RECO DE SESSION */}
+      {priorities.length > 0 && (
+        <section className="glass reveal p-5 flex items-center gap-4 flex-wrap" style={{ animationDelay: "0.17s" }}>
+          <span className="mode-ic" style={{ color: "#19c3e4", background: "linear-gradient(135deg, #19c3e428, #19c3e410)", borderColor: "#19c3e440" }}>
+            <Icon name="target" size={24} />
+          </span>
+          <div className="flex-1 min-w-[200px]">
+            <h3 className="display text-lg">Ta prochaine séance</h3>
+            <p className="text-[var(--ink-soft)] text-[13.5px] mt-0.5">
+              Concentre-toi sur {priorities.map((p) => p.label).join(" et ")}
+              {priorities.some((p) => p.rusty) ? " — à rafraîchir." : "."}
+            </p>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {priorities.map((p) => (
+              <Link key={p.skill} href={trainHref(p.skill)} className="btn btn-glass" style={{ fontSize: "13px", minHeight: "40px", padding: "8px 16px" }}>
+                {p.label}
+              </Link>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* MODES */}

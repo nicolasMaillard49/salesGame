@@ -1,7 +1,9 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType, SkillId } from "../types";
-import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store, Trend } from "./types";
+
+const QV: Record<string, number> = { good: 1, ok: 0.5, bad: 0 };
 
 function difficultiesUnlocked(xp: number): string[] {
   const d = unlockedDifficulty(xp);
@@ -120,6 +122,29 @@ export class SupabaseStore implements Store {
     return [...map.values()].sort((a, b) => b.count - a.count);
   }
 
+  async getTrends(): Promise<Partial<Record<string, Trend>>> {
+    const { data } = await this.c
+      .from("answers")
+      .select("skill, quality, created_at")
+      .order("created_at", { ascending: false })
+      .limit(400);
+    const bySkill = new Map<string, number[]>(); // qualités, plus récentes d'abord
+    for (const r of data ?? []) {
+      const arr = bySkill.get(r.skill as string) ?? [];
+      arr.push(QV[r.quality as string] ?? 0);
+      bySkill.set(r.skill as string, arr);
+    }
+    const out: Partial<Record<string, Trend>> = {};
+    for (const [skill, vals] of bySkill) {
+      if (vals.length < 4) continue;
+      const half = Math.floor(vals.length / 2);
+      const recent = vals.slice(0, half).reduce((s, v) => s + v, 0) / half;
+      const older = vals.slice(half).reduce((s, v) => s + v, 0) / (vals.length - half);
+      out[skill] = recent - older > 0.12 ? "up" : older - recent > 0.12 ? "down" : "flat";
+    }
+    return out;
+  }
+
   async getSnapshot(): Promise<Snapshot> {
     const { data: pRow } = await this.c
       .from("progress")
@@ -134,10 +159,14 @@ export class SupabaseStore implements Store {
       bestStreak: pRow?.best_streak ?? 0,
       lastDay: (pRow?.last_day as string | null) ?? null,
     };
-    const { data: mRows } = await this.c.from("mastery").select("skill, score, attempts");
+    const { data: mRows } = await this.c.from("mastery").select("skill, score, attempts, updated_at");
     const mastery: MasteryMap = {};
     for (const r of mRows ?? []) {
-      mastery[r.skill as SkillId] = { score: r.score as number, attempts: r.attempts as number };
+      mastery[r.skill as SkillId] = {
+        score: r.score as number,
+        attempts: r.attempts as number,
+        updatedAt: r.updated_at ? Date.parse(r.updated_at as string) : null,
+      };
     }
     return { progress, mastery };
   }

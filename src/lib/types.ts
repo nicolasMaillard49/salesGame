@@ -9,6 +9,13 @@ export const PHASE_SKILLS = [
   "prix_close",
 ] as const;
 
+export const PROSPECTION_SKILLS = [
+  "ouverture_froide",
+  "prise_rdv",
+  "reprendre_lead",
+  "pitch_site",
+] as const;
+
 export const OBJECTION_SKILLS = [
   "obj_reflechir",
   "obj_femme_associe",
@@ -23,7 +30,7 @@ export const OBJECTION_SKILLS = [
   "obj_prix_mail",
 ] as const;
 
-export const ALL_SKILLS = [...PHASE_SKILLS, ...OBJECTION_SKILLS] as const;
+export const ALL_SKILLS = [...PHASE_SKILLS, ...PROSPECTION_SKILLS, ...OBJECTION_SKILLS] as const;
 
 export type SkillId = (typeof ALL_SKILLS)[number];
 export type PhaseSkill = (typeof PHASE_SKILLS)[number];
@@ -40,6 +47,10 @@ export const SKILL_LABELS: Record<SkillId, string> = {
   pont: "Le Pont",
   presentation: "Présentation",
   prix_close: "Prix & Close",
+  ouverture_froide: "Ouverture à froid",
+  prise_rdv: "Prise de RDV",
+  reprendre_lead: "Reprendre le lead",
+  pitch_site: "Pitch du site",
   obj_reflechir: "« Je dois réfléchir »",
   obj_femme_associe: "« J'en parle à ma femme/associé »",
   obj_trop_cher: "« C'est trop cher »",

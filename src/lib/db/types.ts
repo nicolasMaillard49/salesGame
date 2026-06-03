@@ -9,8 +9,10 @@ export type AnswerInput = {
   timeMs?: number;
 };
 
-export type MasteryEntry = { score: number; attempts: number };
+export type MasteryEntry = { score: number; attempts: number; updatedAt?: number | null };
 export type MasteryMap = Partial<Record<SkillId, MasteryEntry>>;
+
+export type Trend = "up" | "down" | "flat";
 
 export type ProgressState = {
   xpTotal: number;
@@ -45,5 +47,6 @@ export interface Store {
   recordAnswer(sessionId: string, input: AnswerInput): Promise<{ xpGained: number }>;
   recordDaily(today: string, yesterday: string): Promise<DailyResult>;
   getBestReplies(): Promise<BestReply[]>;
+  getTrends(): Promise<Partial<Record<string, Trend>>>;
   getSnapshot(): Promise<Snapshot>;
 }

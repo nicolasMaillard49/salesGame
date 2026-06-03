@@ -78,6 +78,35 @@ export function isUnlocked(difficulty: number, xp: number): boolean {
   return difficulty <= unlockedDifficulty(xp);
 }
 
+// --- Niveaux de maîtrise (Bronze / Argent / Or) ---
+export function masteryLevel(score: number): { name: string; color: string } | null {
+  if (score >= 0.85) return { name: "Or", color: "#ffc24d" };
+  if (score >= 0.7) return { name: "Argent", color: "#c7d0d9" };
+  if (score >= 0.5) return { name: "Bronze", color: "#cd8e5e" };
+  return null;
+}
+
+// --- Décroissance (la maîtrise "rouille" si pas pratiquée) ---
+const RUST_GRACE_DAYS = 3;
+const RUST_PER_DAY = 0.04;
+
+export function daysSince(lastSeenMs: number | null, nowMs: number): number {
+  if (!lastSeenMs) return Infinity;
+  return (nowMs - lastSeenMs) / 86_400_000;
+}
+
+/** Score affiché après décroissance : -4 %/jour au-delà de 3 jours d'inactivité (plancher 30 %). */
+export function decayedScore(score: number, lastSeenMs: number | null, nowMs: number): number {
+  const d = daysSince(lastSeenMs, nowMs);
+  if (d <= RUST_GRACE_DAYS || !isFinite(d)) return score;
+  const dec = Math.min(0.7, (d - RUST_GRACE_DAYS) * RUST_PER_DAY);
+  return Math.max(score * 0.3, score * (1 - dec));
+}
+
+export function isRusty(lastSeenMs: number | null, nowMs: number): boolean {
+  return daysSince(lastSeenMs, nowMs) > 5;
+}
+
 // --- Défi quotidien / streak ---
 /** Calcule la nouvelle série selon le dernier jour joué. */
 export function nextStreak(

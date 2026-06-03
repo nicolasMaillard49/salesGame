@@ -2117,6 +2117,336 @@
       "answer": "Google",
       "explanation": "On rend concret : recherche Google [activité] [ville] → arrivée sur le site → contact en 30 secondes.",
       "difficulty": 1
+    },
+    {
+      "id": "cc-ouverture-froide-10sec",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Comment s'ouvre le Base Script (partie 1) ?",
+      "options": [
+        "Bonjour, auriez-vous deux minutes pour mon agence web ?",
+        "Si je vous dis que c'est un appel de prospection vous balancez le téléphone par la fenêtre ou vous me laissez 10 secondes pour expliquer ?",
+        "Je vous appelle de la part d'un de vos clients satisfaits.",
+        "Bonjour, je fais une enquête sur les artisans de votre région."
+      ],
+      "answer": 1,
+      "explanation": "Le Base Script désamorce d'emblée par l'honnêteté et l'humour, en demandant 10 secondes pour s'expliquer.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-ouverture-froide-constat-site",
+      "skill": "ouverture_froide",
+      "type": "trou",
+      "prompt": "Après l'accroche 10 secondes : 'Je suis tombé sur votre profil sur internet et j'ai vu que vous n'avez pas de ___ web.'",
+      "answer": "site",
+      "explanation": "Le constat 'pas de site web' est le point de départ logique de toute la conversation du Base Script.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-ouverture-froide-pizza",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "En quoi consiste la technique d'ouverture 'La Pizza' ?",
+      "options": [
+        "Comparer le prix du site à celui d'une pizza",
+        "Feindre de commander une margarita/royale pour faire rire, puis enchaîner Tech 1 + Base Script",
+        "Offrir une pizza si l'artisan accepte le RDV",
+        "Raconter une anecdote sur sa pause déjeuner"
+      ],
+      "answer": 1,
+      "explanation": "La Pizza est la plus simple : on feint de commander une pizza, l'artisan rit, puis on enchaîne. Marche aussi quand l'artisan rappelle.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-ouverture-froide-loto",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Quelle est la chute de l'ouverture 'Loto' ?",
+      "options": [
+        "Vous avez gagné un site web gratuit",
+        "Non vous n'avez pas gagné au loto… mais vous avez gagné un appel de prospection",
+        "Vous avez gagné un rendez-vous prioritaire",
+        "Vous avez gagné une réduction exceptionnelle"
+      ],
+      "answer": 1,
+      "explanation": "L'effet comique du Loto : 'vous avez gagné un appel de prospection', avant d'enchaîner Tech 1 + Base Script.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-ouverture-froide-jingle",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Comment fonctionne l'ouverture 'Jingle radio' ?",
+      "options": [
+        "On chante une chanson connue pendant 10 secondes",
+        "On joue un jingle 2-3 s puis on demande la radio préférée pour 'tenter de gagner un cadeau de 1000€'",
+        "On imite la voix d'un animateur célèbre",
+        "On diffuse une vraie publicité radio"
+      ],
+      "answer": 1,
+      "explanation": "Jingle 2-3 s + question 'quelle est votre radio préférée pour gagner 1000€', puis Tech 1 + Base Script.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-ouverture-froide-comiques-200",
+      "skill": "ouverture_froide",
+      "type": "trou",
+      "prompt": "Les ouvertures comiques (accent, voix robotique) doivent être jouées en forçant à ___ % pour vraiment faire rire.",
+      "answer": "200",
+      "explanation": "On force ces ouvertures à 200% puis on désamorce par 'Non je plaisante.' avant d'enchaîner Tech 1 + Base Script.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-ouverture-froide-felicitations",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Que dit l'ouverture 'Félicitations site discret' ?",
+      "options": [
+        "Félicitations, votre site est le plus rapide d'internet",
+        "Votre site web est probablement le plus discret d'internet, impossible de le trouver",
+        "Félicitations pour vos nombreux avis clients",
+        "Votre site est mieux référencé que vos concurrents"
+      ],
+      "answer": 1,
+      "explanation": "On feint de féliciter pour un site 'le plus discret d'internet' : une façon humoristique de pointer son invisibilité.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-ouverture-froide-marre",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Comment l'ouverture 'Marre qu'on vous appelle' retourne-t-elle l'agacement de l'artisan ?",
+      "options": [
+        "En promettant de ne plus jamais le rappeler",
+        "Je vais régler votre problème : je vous ai fait un site, on arrêtera de vous appeler pour vous en vendre, on vous appellera pour des devis",
+        "En le mettant sur liste rouge immédiatement",
+        "En lui proposant de bloquer tous les démarcheurs"
+      ],
+      "answer": 1,
+      "explanation": "On retourne l'agacement : avec un site, on ne l'appellera plus pour vendre, mais pour lui amener des devis.",
+      "difficulty": 3
+    },
+    {
+      "id": "cc-ouverture-froide-appartient",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Que révèle l'ouverture 'Quelque chose qui vous appartient' ?",
+      "options": [
+        "Un colis livré chez vous par erreur",
+        "Un site web tout neuf pour votre entreprise, prêt à être activé dès aujourd'hui",
+        "Une facture restée impayée",
+        "Un nom de domaine déjà réservé à votre nom"
+      ],
+      "answer": 1,
+      "explanation": "On intrigue ('quelque chose qui vous appartient') puis on révèle le site neuf prêt à activer, et on enchaîne sur la Partie 2 du Base Script.",
+      "difficulty": 3
+    },
+    {
+      "id": "cc-prise-rdv-prenom",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Pourquoi récupérer le prénom de l'artisan pendant l'appel ?",
+      "options": [
+        "Pour l'inscrire sur le devis",
+        "Pour rendre le RDV de rappel naturel ('Salut Mathieu, ça va depuis notre appel ?')",
+        "Pour vérifier qu'il est bien le gérant",
+        "Pour le retrouver sur les réseaux sociaux"
+      ],
+      "answer": 1,
+      "explanation": "Le prénom rend le rappel naturel et chaleureux, comme entre deux personnes qui se connaissent déjà.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-prise-rdv-prenom-oubli",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Si on a oublié de demander le prénom, quelle formule utiliser ?",
+      "options": [
+        "Au fait monsieur, c'est quoi votre prénom ?",
+        "Bon, on est allé un peu vite, j'ai oublié de me présenter — moi c'est [Prénom]. C'est quoi le vôtre ?",
+        "Vous pouvez me rappeler votre nom complet ?",
+        "Je n'ai pas noté votre prénom, répétez."
+      ],
+      "answer": 1,
+      "explanation": "En se présentant d'abord soi-même, l'artisan ne peut que répondre. Demander brutalement 'c'est quoi votre prénom ?' donne l'air de ne pas avoir écouté.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-prise-rdv-confirmer-creneau",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Comment confirmer le créneau pour éviter le no-show ?",
+      "options": [
+        "Je vous envoie un SMS de rappel automatique",
+        "C'est noté pour [heure]. Vous me confirmez que vous aurez bien 10 min dans un endroit tranquille ? J'ai passé du temps sur le site.",
+        "Notez bien le RDV dans votre agenda.",
+        "Si vous ne pouvez pas, rappelez-moi."
+      ],
+      "answer": 1,
+      "explanation": "On confirme le créneau et la dispo de 10 min au calme, en justifiant par le temps passé sur le site : cela responsabilise et évite le no-show.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-prise-rdv-justif-partage-ecran",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Comment justifier qu'on ne peut pas envoyer le site et qu'il faut un RDV en partage d'écran ?",
+      "options": [
+        "Le site est confidentiel, je ne peux pas l'envoyer.",
+        "Le souci c'est que je suis pas chez moi, le site est sur mon ordi, pas encore en ligne. La seule chose qu'on peut faire c'est un petit RDV 10 min en partage d'écran.",
+        "Notre politique interdit l'envoi par mail.",
+        "Le fichier est trop lourd pour un email."
+      ],
+      "answer": 1,
+      "explanation": "Cette justification (même si elle arrange) rend le RDV obligatoire, car le site n'est ni envoyable ni en ligne.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-prise-rdv-10min",
+      "skill": "prise_rdv",
+      "type": "trou",
+      "prompt": "La seule chose à proposer pour montrer le site, c'est un petit RDV de ___ min en partage d'écran.",
+      "answer": "10",
+      "explanation": "Le RDV 10 min en partage d'écran est le format imposé : court, concret, sans engagement, il rend le RDV facile à accepter.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-prise-rdv-erreur-forcer",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Quelle erreur fait passer pour 'un vendeur qui force' au moment de la prise de RDV ?",
+      "options": [
+        "Proposer deux créneaux au choix",
+        "Se battre 3 fois pour le RDV sans expliquer pourquoi on ne peut pas envoyer le site",
+        "Confirmer le créneau avant de raccrocher",
+        "Récupérer le prénom de l'artisan"
+      ],
+      "answer": 1,
+      "explanation": "Insister 3 fois sans justifier l'impossibilité d'envoyer donne l'image d'un vendeur qui force ; il faut d'abord expliquer le pourquoi.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-reprendre-lead-couper",
+      "skill": "reprendre_lead",
+      "type": "qcm",
+      "prompt": "Quelle formule permet de couper proprement un artisan parti dans un tunnel ?",
+      "options": [
+        "Pardon, je dois vous interrompre.",
+        "C'est super intéressant, mais justement par rapport à ça…",
+        "On reviendra là-dessus plus tard.",
+        "Excusez-moi, je n'ai pas beaucoup de temps."
+      ],
+      "answer": 1,
+      "explanation": "'C'est super intéressant, mais justement par rapport à ça…' fait reprendre le lead sans que l'artisan se rende compte qu'il a été coupé.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-reprendre-lead-tunnel-10min",
+      "skill": "reprendre_lead",
+      "type": "trou",
+      "prompt": "Il ne faut JAMAIS laisser l'artisan t'embarquer dans un tunnel de ___ min.",
+      "answer": "10",
+      "explanation": "On garde le contrôle de l'appel : se laisser enfermer 10 min dans le récit de l'artisan, c'est perdre le lead.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-reprendre-lead-debout-sourire",
+      "skill": "reprendre_lead",
+      "type": "qcm",
+      "prompt": "Quelles habitudes physiques renforcent l'énergie et le contrôle pendant l'appel ?",
+      "options": [
+        "Être assis et parler doucement",
+        "Être debout, sourire (même forcé), avec un casque sans fil",
+        "Garder une voix neutre et monocorde",
+        "Lire le script les yeux baissés"
+      ],
+      "answer": 1,
+      "explanation": "Debout + sourire forcé changent physiquement la résonance vocale ; le casque sans fil permet de rester mobile et énergique.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-reprendre-lead-mentalite",
+      "skill": "reprendre_lead",
+      "type": "qcm",
+      "prompt": "Quelle mentalité aide à garder le contrôle sans forcer la vente ?",
+      "options": [
+        "Tu es là pour vendre coûte que coûte",
+        "Tu es là pour aider, pas pour vendre : l'artisan a un problème, tu as la solution",
+        "Tu dois parler plus que l'artisan",
+        "Tu dois imposer ton avis pour montrer ton expertise"
+      ],
+      "answer": 1,
+      "explanation": "La posture d'aide donne l'autorité naturelle pour mener l'appel, sans paraître insistant.",
+      "difficulty": 2
+    },
+    {
+      "id": "cc-reprendre-lead-tutoiement",
+      "skill": "reprendre_lead",
+      "type": "qcm",
+      "prompt": "Si l'artisan te tutoie pendant l'appel, que fais-tu ?",
+      "options": [
+        "Tu restes au vous pour rester professionnel",
+        "Tu le tutoies aussi immédiatement",
+        "Tu demandes la permission de continuer",
+        "Tu raccroches pour reprendre le contrôle"
+      ],
+      "answer": 1,
+      "explanation": "S'il tutoie, on tutoie tout de suite pour rester au même niveau ; sinon on propose 'On peut se tutoyer ?' (efficace avec profils jeunes/familiaux).",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-pitch-site-pris-liberte",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Quel est l'angle clé de la Partie 2 du Base Script ?",
+      "options": [
+        "Promettre des résultats spectaculaires sous 3 mois",
+        "J'ai pris la liberté de vous en créer un directement au lieu de vous promettre beaucoup de choses",
+        "Demander le budget avant de montrer quoi que ce soit",
+        "Proposer d'envoyer un devis détaillé par mail"
+      ],
+      "answer": 1,
+      "explanation": "La grande différence : on a déjà créé le site au lieu de promettre. On montre, on ne vend pas du vent.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-pitch-site-montrer",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Après avoir dit qu'on a créé le site, comment propose-t-on de le faire découvrir ?",
+      "options": [
+        "Je vous l'envoie par mail pour que vous le regardiez tranquillement.",
+        "Si ça vous intéresse je peux vous le montrer, comme ça vous voyez si vous le trouvez bien ou pas ?",
+        "Je vous laisse réfléchir et je vous rappelle.",
+        "Vous me dites combien vous voulez payer et je l'adapte."
+      ],
+      "answer": 1,
+      "explanation": "On propose de montrer le site pour qu'il juge par lui-même, ce qui mène naturellement à la prise de RDV.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-pitch-site-gratuit-regarder",
+      "skill": "pitch_site",
+      "type": "trou",
+      "prompt": "Pour lever la pression, on précise que pour l'instant c'est totalement ___ de regarder.",
+      "answer": "gratuit",
+      "explanation": "'C'est totalement gratuit de regarder' enlève la pression du prix et facilite l'acceptation du RDV.",
+      "difficulty": 1
+    },
+    {
+      "id": "cc-pitch-site-montrer-vs-promettre",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Pourquoi montrer le site plutôt que promettre des résultats ?",
+      "options": [
+        "Parce que c'est plus rapide à dire",
+        "Parce qu'un site déjà créé est concret et crédible, là où une promesse n'engage à rien",
+        "Parce que c'est obligatoire légalement",
+        "Parce que ça permet de cacher le prix"
+      ],
+      "answer": 1,
+      "explanation": "Montrer un site déjà fait casse le scepticisme face aux promesses habituelles des démarcheurs : c'est tangible, donc convaincant.",
+      "difficulty": 2
     }
   ]
 }
