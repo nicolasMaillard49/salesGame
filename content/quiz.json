@@ -5,7 +5,12 @@
       "skill": "prix_close",
       "type": "qcm",
       "prompt": "Quel est le prix d'un site web proposé dans le script de closing ?",
-      "options": ["100€", "300€", "1000€", "3000€"],
+      "options": [
+        "100€",
+        "300€",
+        "1000€",
+        "3000€"
+      ],
       "answer": 1,
       "explanation": "Le site complet et mis en ligne est vendu 300€, contre 1000 à 3000€ chez une agence classique.",
       "difficulty": 1
@@ -15,7 +20,12 @@
       "skill": "prix_close",
       "type": "qcm",
       "prompt": "Selon le script, combien coûte ce type de site chez une agence classique ?",
-      "options": ["300 à 500€", "500 à 800€", "1000 à 3000€", "5000 à 10000€"],
+      "options": [
+        "300 à 500€",
+        "500 à 800€",
+        "1000 à 3000€",
+        "5000 à 10000€"
+      ],
       "answer": 2,
       "explanation": "On ancre la valeur à 1000-3000€ en agence avant d'annoncer 300€, ce qui fait paraître le prix dérisoire.",
       "difficulty": 2
@@ -27,7 +37,7 @@
       "prompt": "Au-delà des 300€ uniques, l'hébergement mensuel coûte ___ € par mois.",
       "answer": "10",
       "explanation": "Le prix est de 300€ unique + 10€/mois d'hébergement (source training découverte).",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-garantie-jours",
@@ -51,7 +61,7 @@
       ],
       "answer": 1,
       "explanation": "La garantie 14 jours retire le risque perçu ('zéro risque') et débloque les hésitants.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-ouverture-standard",
@@ -81,7 +91,7 @@
       ],
       "answer": 1,
       "explanation": "On feint de commander une margarita/royale, l'artisan rit, puis on enchaîne sur Tech 1 + Base Script. C'est la plus simple et marche aussi quand l'artisan rappelle.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-ouverture-inspecteur",
@@ -111,7 +121,7 @@
       ],
       "answer": 1,
       "explanation": "La différence : 'j'ai pris la liberté de vous en créer un directement au lieu de vous promettre beaucoup de choses'.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-pont-concept",
@@ -126,20 +136,14 @@
       ],
       "answer": 1,
       "explanation": "Le Pont creuse l'écart entre douleurs et rêves, puis positionne le site comme le pont entre les deux.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-pont-regle-or",
       "skill": "pont",
-      "type": "qcm",
-      "prompt": "Quelle est la règle d'or du Pont ?",
-      "options": [
-        "Toujours annoncer le prix en premier",
-        "Ne jamais présenter le site tant qu'on n'a pas compris les deux côtés du pont",
-        "Présenter le site dès l'ouverture",
-        "Parler le plus possible pour convaincre"
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "Règle d'or : on ne présente jamais le site tant qu'on n'a pas compris les ___ côtés du pont.",
+      "answer": "deux",
       "explanation": "On ne présente JAMAIS le site avant d'avoir compris douleurs ET ambitions.",
       "difficulty": 2
     },
@@ -195,37 +199,25 @@
       ],
       "answer": 1,
       "explanation": "Ne pas pitcher trop tôt : présenter avant d'avoir creusé est l'erreur n°1.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-decouverte-creuser",
       "skill": "douleurs",
-      "type": "qcm",
-      "prompt": "Quelle est la technique clé quand l'artisan donne une info en découverte ?",
-      "options": [
-        "Changer de sujet pour couvrir plus de points",
-        "Ne pas changer de sujet et creuser de plus en plus profond avec des relances",
-        "Donner immédiatement la solution",
-        "Noter et passer au prix"
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "Technique clé : quand l'artisan donne une info, ne pas changer de sujet et ___ de plus en plus profond.",
+      "answer": "creuser",
       "explanation": "On creuse de plus en plus profond, ex : 'C'est calme… tu te sens comment par rapport à ça ?'",
       "difficulty": 2
     },
     {
       "id": "quiz-douleurs-ressenti",
       "skill": "douleurs",
-      "type": "qcm",
-      "prompt": "Quelle question débloque bien plus que le factuel selon la formation ?",
-      "options": [
-        "Combien de chantiers par mois ?",
-        "Tu te sens comment par rapport à ça ?",
-        "Quel est ton budget ?",
-        "Tu es sur Google ?"
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "Faire parler l'artisan sur le ___ débloque bien plus que le factuel.",
+      "answer": "ressenti",
       "explanation": "Faire parler sur le ressenti ('Tu te sens comment par rapport à ça ?') débloque bien plus que le factuel.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-douleurs-mots-exacts",
@@ -245,17 +237,11 @@
     {
       "id": "quiz-ambitions-but",
       "skill": "ambitions",
-      "type": "qcm",
-      "prompt": "Pourquoi creuser les ambitions de l'artisan ?",
-      "options": [
-        "Pour gagner du temps",
-        "C'est le carburant émotionnel : moins tu parles, plus il se vend le site tout seul",
-        "Pour fixer un prix plus élevé",
-        "Pour remplir un formulaire CRM"
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "Les ambitions de l'artisan sont décrites comme le carburant ___ de la vente.",
+      "answer": "émotionnel",
       "explanation": "Les ambitions sont le carburant émotionnel ; en le laissant parler, il se vend le site lui-même.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-ambitions-check",
@@ -285,7 +271,7 @@
       ],
       "answer": 1,
       "explanation": "On fait valider l'intérêt par une question ; si 'oui ça pourrait aider' → prix et close.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-close-principal",
@@ -330,17 +316,22 @@
       ],
       "answer": 1,
       "explanation": "On ne célèbre pas : on enchaîne 'Tu préfères régler par carte ou virement ?' pour verrouiller.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-creneaux-top",
       "skill": "ouverture",
       "type": "qcm",
       "prompt": "Quel est le meilleur créneau d'appel selon la formation ?",
-      "options": ["7h-8h", "9h-10h", "14h-15h", "20h-21h"],
+      "options": [
+        "7h-8h",
+        "9h-10h",
+        "14h-15h",
+        "20h-21h"
+      ],
       "answer": 1,
       "explanation": "Les meilleurs créneaux : 9h-10h (top), puis 11h-12h, 13h-14h, 17h-19h.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-creneaux-soir",
@@ -369,30 +360,18 @@
     {
       "id": "quiz-tech-detachement",
       "skill": "obj_trop_cher",
-      "type": "qcm",
-      "prompt": "Quelle phrase ouvre la technique 'Détachement + recadrage fort' ?",
-      "options": [
-        "Vous faites une grosse erreur.",
-        "Je vais être honnête : que tu le fasses ou pas, ça ne change rien pour moi.",
-        "C'est votre dernière chance.",
-        "Tout le monde l'a déjà pris."
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "La technique forte qui consiste à dire 'que tu le fasses ou pas, ça ne change rien pour moi' s'appelle le ___.",
+      "answer": "détachement",
       "explanation": "Le détachement enlève la pression de vente et reprend le pouvoir, en restant calme et posé, pas arrogant.",
       "difficulty": 3
     },
     {
       "id": "quiz-tech-escalier",
       "skill": "ambitions",
-      "type": "qcm",
-      "prompt": "Sur quoi repose la technique de 'l'escalier de projection' ?",
-      "options": [
-        "Empiler les remises",
-        "Faire vivre le futur dans sa tête, marche par marche (court terme → 6 mois)",
-        "Comparer avec la concurrence",
-        "Lister les fonctionnalités techniques"
-      ],
-      "answer": 1,
+      "type": "trou",
+      "prompt": "La technique qui fait vivre le futur dans sa tête, marche par marche, s'appelle l'escalier de ___.",
+      "answer": "projection",
       "explanation": "Le cerveau distingue mal imagination et réalité : on lui fait vivre une expérience émotionnelle qui fait désirer le résultat avant l'achat.",
       "difficulty": 3
     },
@@ -424,7 +403,7 @@
       ],
       "answer": 1,
       "explanation": "Le prénom rend le RDV naturel. Si oublié, on ne demande jamais brutalement le prénom (on aurait l'air de ne pas avoir écouté).",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-rdv-confirmer",
@@ -454,21 +433,1743 @@
       ],
       "answer": 1,
       "explanation": "Sans RDV il oublie en 30 min. Bonne formule : 'le site est sur mon ordi, pas en ligne, la seule chose c'est un RDV 10 min en partage d'écran'.",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "quiz-debout-sourire",
       "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Pour améliorer l'énergie vocale, il faut passer les appels ___ (et sourire, même forcé).",
+      "answer": "debout",
+      "explanation": "Debout + sourire forcé changent physiquement la résonance vocale et l'énergie.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ouverture-10sec-but",
+      "skill": "ouverture",
       "type": "qcm",
-      "prompt": "Quel conseil physique améliore l'énergie vocale en prospection ?",
+      "prompt": "Quel est le but de l'ouverture 'vous me laissez 10 secondes' ?",
       "options": [
-        "Parler très vite",
-        "Être debout et sourire (même forcé) pour changer la résonance vocale",
-        "Boire un café",
-        "Baisser la voix"
+        "Gagner du temps sur l'appel",
+        "Désamorcer la méfiance par l'honnêteté et obtenir un micro-engagement",
+        "Faire pression sur le prospect",
+        "Annoncer le prix tout de suite"
       ],
       "answer": 1,
-      "explanation": "Debout + sourire forcé changent physiquement la résonance vocale et l'énergie.",
+      "explanation": "En annonçant franchement que c'est de la prospection, on désamorce la méfiance et on obtient l'autorisation de continuer.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ouverture-pas-site",
+      "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Dans le Base Script : 'Je suis tombé sur votre profil sur internet et j'ai vu que vous n'avez pas de ___ web.'",
+      "answer": "site",
+      "explanation": "L'accroche repose sur le constat que l'artisan n'a pas de site web, point de départ de toute la conversation.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ouverture-silence-souvent",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Après 'J'imagine qu'on vous appelle souvent pour ça…', que fait-on ?",
+      "options": [
+        "On enchaîne aussitôt sur le prix",
+        "On laisse un silence pour le faire réagir",
+        "On raccroche",
+        "On change de sujet"
+      ],
+      "answer": 1,
+      "explanation": "Le silence après cette phrase crée une ouverture où le prospect réagit de lui-même.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ouverture-jingle",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Sur quoi repose la technique d'ouverture 'Jingle radio' ?",
+      "options": [
+        "Chanter une chanson connue",
+        "Jouer un jingle 2-3 s puis demander la radio préférée pour 'gagner un cadeau de 1000€'",
+        "Parler très fort",
+        "Imiter un présentateur télé"
+      ],
+      "answer": 1,
+      "explanation": "On joue un jingle radio puis on propose de gagner un cadeau de 1000€ avant d'enchaîner Tech 1 + Base Script.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ouverture-loto",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Comment fonctionne l'ouverture 'Loto' ?",
+      "options": [
+        "On annonce un vrai gain au loto",
+        "'Excellente nouvelle… non vous n'avez pas gagné au loto… mais un appel de prospection'",
+        "On vend des billets de loto",
+        "On parle des chiffres porte-bonheur"
+      ],
+      "answer": 1,
+      "explanation": "L'effet de surprise comique : 'vous avez gagné un appel de prospection', avant Tech 1 + Base Script.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ouverture-felicitations",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Que dit l'ouverture 'Félicitations site discret' ?",
+      "options": [
+        "Votre site est le plus beau d'internet",
+        "Votre site web est probablement le plus discret d'internet, impossible de le trouver",
+        "Félicitations pour votre chiffre d'affaires",
+        "Votre site est mieux que vos concurrents"
+      ],
+      "answer": 1,
+      "explanation": "On feint de féliciter pour un site 'le plus discret d'internet', façon humoristique de pointer son invisibilité.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ouverture-marre",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quelle est la chute de l'ouverture 'Marre qu'on vous appelle' ?",
+      "options": [
+        "On arrête de vous appeler définitivement",
+        "Je vais régler votre problème, je vous ai fait un site, on vous appellera pour des devis",
+        "Je vous mets sur liste rouge",
+        "Je transmets votre numéro"
+      ],
+      "answer": 1,
+      "explanation": "On retourne l'agacement : avec un site, on cessera de l'appeler pour lui vendre, on l'appellera pour des devis.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ouverture-appartient",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Que prétend détenir l'ouverture 'Quelque chose qui vous appartient' ?",
+      "options": [
+        "Un colis livré par erreur",
+        "Un site web tout neuf prêt à être activé dès aujourd'hui",
+        "Un document administratif",
+        "Une facture impayée"
+      ],
+      "answer": 1,
+      "explanation": "On intrigue avec 'quelque chose qui vous appartient' puis on révèle le site neuf, prêt à être activé, et on enchaîne Partie 2 du Base Script.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ouverture-accent",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Comment doit-on jouer les ouvertures comiques type 'accent' ou 'voix robotique' ?",
+      "options": [
+        "Discrètement, à demi-mot",
+        "À fond, en forçant à 200% pour faire vraiment rire",
+        "En s'excusant à l'avance",
+        "Sans jamais dire 'je plaisante'"
+      ],
+      "answer": 1,
+      "explanation": "Ces ouvertures doivent être jouées à fond (⚡ forcer à 200%) puis désamorcées par 'Non je plaisante.'",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ouverture-tutoiement",
+      "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Si l'artisan te tutoie, tu le ___ aussi immédiatement.",
+      "answer": "tutoies",
+      "explanation": "S'il tutoie, on tutoie immédiatement. Sinon on propose : 'On peut se tutoyer ?' (efficace avec profils jeunes/familiaux).",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ouverture-tunnel",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Comment couper proprement un artisan qui t'embarque dans un tunnel ?",
+      "options": [
+        "Le couper net en disant 'stop'",
+        "'C'est super intéressant, mais justement par rapport à ça…' pour reprendre le lead",
+        "Le laisser parler 10 minutes",
+        "Raccrocher poliment"
+      ],
+      "answer": 1,
+      "explanation": "Cette formule lui fait reprendre la main sans qu'il se rende compte d'avoir été coupé. Ne jamais le laisser t'enfermer dans un tunnel de 10 min.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ouverture-casque",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quel matériel est recommandé pour les appels ?",
+      "options": [
+        "Un haut-parleur",
+        "Un casque sans fil (pour rester debout et mobile)",
+        "Un téléphone fixe",
+        "Un micro-cravate"
+      ],
+      "answer": 1,
+      "explanation": "Casque sans fil + être debout = meilleure énergie vocale pendant la prospection.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-decouverte-2temps",
+      "skill": "decouverte",
+      "type": "trou",
+      "prompt": "La découverte se fait en ___ temps : situation initiale (douleurs) puis situation désirée (rêves).",
+      "answer": "2",
+      "explanation": "La découverte se fait en 2 temps : situation initiale (douleurs) puis situation désirée (rêves), pour construire le pont.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-decouverte-juge",
+      "skill": "decouverte",
+      "type": "trou",
+      "prompt": "Posture de la phase 1 : tu ne juges pas, tu ___.",
+      "answer": "comprends",
+      "explanation": "En phase 1, 'tu ne juges pas, tu comprends' la situation de l'artisan.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-decouverte-google-position",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Si l'artisan dit avoir déjà un site, quelle question pose-t-on ?",
+      "options": [
+        "Combien il vous a coûté ?",
+        "Quand tu cherches [activité] à [ville] sur Google, il sort à quelle position ?",
+        "Qui l'a fait ?",
+        "Il est de quelle couleur ?"
+      ],
+      "answer": 1,
+      "explanation": "On teste la visibilité réelle : s'il ne connaît pas sa position, c'est qu'il ne sort pas — on le note.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-leboncoin",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Si l'artisan trouve ses clients via Le Bon Coin / réseaux, que creuse-t-on ?",
+      "options": [
+        "Le nombre d'abonnés",
+        "La qualité des clients : des gens qui comparent les prix ou qui font confiance d'entrée ?",
+        "Le coût des annonces",
+        "Le temps passé en ligne"
+      ],
+      "answer": 1,
+      "explanation": "On qualifie la qualité du flux : clients qui comparent les prix vs clients qui font confiance d'entrée.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-decouverte-capacite",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Pourquoi demander 'T'as de la capacité pour de nouveaux chantiers ou t'es bien chargé ?'",
+      "options": [
+        "Pour calculer le prix",
+        "Si capacité dispo → c'est une munition (besoin de clients) ; si chargé → 'c'était pareil l'hiver dernier ?'",
+        "Pour connaître ses horaires",
+        "Pour savoir s'il embauche"
+      ],
+      "answer": 1,
+      "explanation": "La capacité disponible est une munition. S'il est chargé, on creuse la saisonnalité ('c'était pareil l'hiver dernier ?').",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-decouverte-affirmation-deguisee",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Qu'est-ce qu'une 'affirmation déguisée en question' ?",
+      "options": [
+        "Affirmer 'tu jettes de l'argent par la fenêtre'",
+        "Dire 'Tu penses pas que là, concrètement, ça sert à rien ?' pour qu'il arrive lui-même à la conclusion",
+        "Poser une question fermée",
+        "Répéter le prix sous forme de question"
+      ],
+      "answer": 1,
+      "explanation": "On transforme l'affirmation en question pour qu'il arrive lui-même à la conclusion plutôt que de la lui imposer.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-decouverte-commencer-vie",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Par quoi est-il conseillé de commencer pour lancer naturellement la conversation ?",
+      "options": [
+        "Par le tarif",
+        "Par sa vie / sa journée, ce qui amène naturellement sur son travail et ses problèmes",
+        "Par la présentation de l'agence",
+        "Par la démo du site"
+      ],
+      "answer": 1,
+      "explanation": "Commencer par sa vie (comment s'est passée sa journée) lance naturellement la conversation sur son activité.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-conviction",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Pourquoi laisser l'artisan arriver lui-même aux conclusions ?",
+      "options": [
+        "Pour gagner du temps",
+        "Parce que sa propre conviction vaut 10x la tienne",
+        "Pour le flatter",
+        "Pour éviter de parler"
+      ],
+      "answer": 1,
+      "explanation": "Ne jamais lui dire quoi penser : on pose des questions, sa conviction vaut 10x la tienne.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-visio",
+      "skill": "decouverte",
+      "type": "trou",
+      "prompt": "Le closing est recommandé en ___ (Google Meet) pour limiter les raccrochages et rassurer sur l'arnaque.",
+      "answer": "visio",
+      "explanation": "Le closing en visio (Google Meet) limite les raccrochages et rassure sur l'arnaque.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-douleurs-question-pivot",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Quelle question fait sortir la douleur principale en phase 2 ?",
+      "options": [
+        "Quel est ton chiffre d'affaires ?",
+        "C'est quoi ton plus gros problème côté activité en ce moment ?",
+        "Tu veux payer comment ?",
+        "Tu connais mes concurrents ?"
+      ],
+      "answer": 1,
+      "explanation": "On demande directement le plus gros problème sans rien suggérer, puis on creuse selon la réponse.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-douleurs-ne-pas-sauter",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Pourquoi la phase 2 (douleurs) est-elle dite 'critique, ne pas sauter' ?",
+      "options": [
+        "Parce qu'elle fixe le prix",
+        "Parce qu'on ne présente rien avant d'avoir fait sortir la douleur réelle",
+        "Parce qu'elle dure longtemps",
+        "Parce qu'elle est facultative"
+      ],
+      "answer": 1,
+      "explanation": "Règle : ne rien présenter avant d'avoir fait sortir la douleur réelle, en notant ses mots exacts.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-douleurs-pas-de-probleme",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Si l'artisan dit 'je n'ai pas de problème', comment réagir ?",
+      "options": [
+        "Le croire et raccrocher",
+        "Normaliser puis creuser : 'y'a des mois où ils se demandent d'où viendra le prochain chantier, tu ressens ça ?'",
+        "Lui dire qu'il a tort",
+        "Passer directement au prix"
+      ],
+      "answer": 1,
+      "explanation": "On normalise (beaucoup d'artisans s'en sortent bien) puis on creuse l'incertitude latente, ou la saisonnalité.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-douleurs-dependance",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Pour creuser la dépendance au bouche-à-oreille en phase douleurs, on demande :",
+      "options": [
+        "Combien de personnes te recommandent ?",
+        "Si demain tes clients arrêtent de te recommander, t'as un plan B ?",
+        "Tu paies pour les recommandations ?",
+        "Tu connais leurs noms ?"
+      ],
+      "answer": 1,
+      "explanation": "On fait ressentir la fragilité : 'plan B ?' et 'tu maîtrises ton activité ou tu subis ?'",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-douleurs-concurrence",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Pour creuser la douleur de visibilité face aux concurrents, on demande :",
+      "options": [
+        "Tes concurrents sont sympas ?",
+        "Quand un client cherche [activité] à [ville], c'est qui qui sort ? Ça te fait quoi que ces demandes partent ailleurs ?",
+        "Tu fais quel prix ?",
+        "Tu veux racheter un concurrent ?"
+      ],
+      "answer": 1,
+      "explanation": "On fait ressentir que les demandes partent ailleurs, ce qui crée une douleur émotionnelle.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-douleurs-calme-relance",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Quand l'artisan dit que ses mois sont irréguliers, quelles relances utiliser ?",
+      "options": [
+        "Aucune, on passe au prix",
+        "'Ça dure depuis combien de temps ?' et 'Ça t'impacte comment au quotidien ?'",
+        "'Combien tu gagnes ?'",
+        "'Tu veux un site bleu ?'"
+      ],
+      "answer": 1,
+      "explanation": "On creuse la durée et l'impact quotidien pour faire ressortir la douleur réelle.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-douleurs-souffre-de",
+      "skill": "douleurs",
+      "type": "trou",
+      "prompt": "Après la phase douleurs, on doit pouvoir compléter : 'Aujourd'hui il ___ de [sa douleur]'.",
+      "answer": "souffre",
+      "explanation": "Le check final de la découverte : 'Aujourd'hui il souffre de ___' et 'Ce qu'il veut vraiment c'est ___'.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ambitions-reglait",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Quelle question ouvre la phase ambitions ?",
+      "options": [
+        "Tu veux payer comment ?",
+        "Si on réglait ça — une vraie source de clients réguliers sans courir après — ça changerait quoi pour toi ?",
+        "Tu connais le prix ?",
+        "Tu as un comptable ?"
+      ],
+      "answer": 1,
+      "explanation": "On projette la situation désirée puis on laisse le silence faire émerger l'ambition.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-ambitions-image-pro",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Pour creuser l'ambition 'image pro', on demande :",
+      "options": [
+        "Tu veux un logo ?",
+        "Quand un prospect te contacte, il te fait confiance d'entrée ou il compare ?",
+        "Tu veux des cartes de visite ?",
+        "Tu as un uniforme ?"
+      ],
+      "answer": 1,
+      "explanation": "On creuse la confiance d'entrée vs comparaison, puis 'si t'avais un site pro avec tes réalisations, ça changerait la dynamique ?'",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ambitions-choisir-chantiers",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Quelle ambition cible la question 'T'aimerais choisir sur quels chantiers tu dis oui ?'",
+      "options": [
+        "L'ambition de baisser ses prix",
+        "L'ambition de choisir ses chantiers / le type de projet qui l'intéresse vraiment",
+        "L'ambition de partir en vacances",
+        "L'ambition d'embaucher"
+      ],
+      "answer": 1,
+      "explanation": "On creuse le désir de pouvoir choisir ses chantiers et le type de projet qui l'intéresse.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ambitions-veut-vraiment",
+      "skill": "ambitions",
+      "type": "trou",
+      "prompt": "Le second élément du check à compléter : 'Ce qu'il veut ___ c'est [son ambition]'.",
+      "answer": "vraiment",
+      "explanation": "Check final : 'Aujourd'hui il souffre de ___' et 'Ce qu'il veut vraiment c'est ___'.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ambitions-6mois",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Selon le training découverte, quelle question projette l'artisan dans la situation désirée ?",
+      "options": [
+        "Tu paies quand ?",
+        "Tu te verrais où dans 6 mois / 2 ans ? C'est quoi ton objectif concret ?",
+        "Tu connais mes tarifs ?",
+        "Tu veux une remise ?"
+      ],
+      "answer": 1,
+      "explanation": "On projette dans 6 mois / 2 ans, puis on demande 'qu'est-ce qui t'empêche d'y arriver aujourd'hui ?'",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-pont-reformuler",
+      "skill": "pont",
+      "type": "qcm",
+      "prompt": "Comment formuler la reformulation-validation avant le pont ?",
+      "options": [
+        "Voici ce que je vais vous vendre.",
+        "Dis-moi si j'ai bien compris : aujourd'hui [sa douleur], et ce que tu voudrais vraiment c'est [son ambition]. C'est bien ça ?",
+        "Vous avez tort sur toute la ligne.",
+        "Le prix est de 300€, on y va ?"
+      ],
+      "answer": 1,
+      "explanation": "On reformule avec SES mots et on fait valider ; s'il corrige, on intègre et on reformule.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-pont-vraie-question",
+      "skill": "pont",
+      "type": "qcm",
+      "prompt": "Comment est formulé le pont lui-même ?",
+      "options": [
+        "La vraie question c'est : est-ce que t'as le budget ?",
+        "La vraie question c'est pas 'est-ce que j'ai besoin d'un site', c'est : veux-tu continuer à [douleur] ou enfin [ambition] ?",
+        "Tu veux un site oui ou non ?",
+        "Tu signes maintenant ?"
+      ],
+      "answer": 1,
+      "explanation": "Le pont déplace la question du 'besoin d'un site' vers le choix entre rester dans la douleur ou atteindre l'ambition.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-pont-peut-etre",
+      "skill": "pont",
+      "type": "qcm",
+      "prompt": "Après la présentation, si l'artisan répond 'Peut-être, je sais pas', cela signifie :",
+      "options": [
+        "Qu'il faut baisser le prix",
+        "Qu'on n'a pas assez creusé : retour creuser douleur/ambition",
+        "Qu'il faut raccrocher",
+        "Qu'il faut conclure quand même"
+      ],
+      "answer": 1,
+      "explanation": "'Peut-être je sais pas' = pas assez creusé. On demande 'Qu'est-ce qui te ferait douter ?' et on retourne creuser.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-presentation-elements",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Quels éléments montre-t-on lors de la présentation du site exemple ?",
+      "options": [
+        "Le code source et la base de données",
+        "Les services, photos, avis, et un bouton pour appeler",
+        "Le contrat et les CGV",
+        "Le planning de paiement"
+      ],
+      "answer": 1,
+      "explanation": "On montre un exemple concret : services, photos, avis, bouton d'appel, et l'apparition sur Google.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-presentation-30sec",
+      "skill": "presentation",
+      "type": "trou",
+      "prompt": "On insiste : grâce au site, le client voit que t'es pro et te contacte en 30 ___.",
+      "answer": "secondes",
+      "explanation": "On insiste : quand quelqu'un tape [activité] [ville], il tombe sur le site, voit que t'es pro et te contacte en 30 secondes.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-presentation-partage-ecran",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Comment introduit-on la présentation du site en phase 4 ?",
+      "options": [
+        "Je vous envoie le lien par mail.",
+        "C'est exactement pour ça que j'ai préparé quelque chose. Laisse-moi te montrer. (partage écran)",
+        "Réfléchissez et rappelez-moi.",
+        "Voici mon tarif d'abord."
+      ],
+      "answer": 1,
+      "explanation": "On enchaîne le pont avec 'c'est exactement pour ça que j'ai préparé quelque chose' puis partage d'écran.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-presentation-qualite",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Selon le training, quelle est l'importance de la qualité du site ?",
+      "options": [
+        "C'est le facteur n°1 de la vente",
+        "Secondaire si la découverte est bien faite : à ce moment-là il veut juste un site",
+        "Inutile, on ne montre pas le site",
+        "Il faut un design primé pour vendre"
+      ],
+      "answer": 1,
+      "explanation": "Si la découverte est bien faite, la qualité du site devient secondaire : il veut juste un site.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-prix-remboursement-1client",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quel argument de rentabilité accompagne l'annonce du prix de 300€ ?",
+      "options": [
+        "C'est moins cher qu'un café par jour",
+        "Un seul client trouvé grâce au site et il est déjà remboursé",
+        "C'est déductible des impôts",
+        "On offre un deuxième site"
+      ],
+      "answer": 1,
+      "explanation": "On ancre la rentabilité : un seul client venu du site rembourse déjà les 300€.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-prix-automatise",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Comment justifie-t-on le prix bas de 300€ face aux 1000-3000€ des agences ?",
+      "options": [
+        "C'est une promotion limitée",
+        "On bosse avec beaucoup d'artisans et on a automatisé la création",
+        "Le site est de moins bonne qualité",
+        "C'est un prix d'essai sans garantie"
+      ],
+      "answer": 1,
+      "explanation": "L'automatisation de la création et le volume d'artisans justifient le prix de 300€ sans dévaloriser le site.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-options-paiement",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quelle question de close propose un choix sur le moyen de paiement ?",
+      "options": [
+        "Vous voulez réfléchir au paiement ?",
+        "Tu préfères régler par carte ou virement ?",
+        "Vous avez un budget ?",
+        "On en reparle demain ?"
+      ],
+      "answer": 1,
+      "explanation": "C'est un close alternatif : on ne redemande pas l'avis, on pose une question fermée sur le 'comment'.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-numero",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quel close alternatif porte sur le numéro de téléphone du site ?",
+      "options": [
+        "Tu veux un numéro ou pas ?",
+        "On le met avec ton numéro actuel ou dédié ?",
+        "Tu as un téléphone ?",
+        "Tu paies le numéro à part ?"
+      ],
+      "answer": 1,
+      "explanation": "Close par choix : 'numéro actuel ou dédié ?' fait avancer la vente sans rouvrir la décision.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-lien-whatsapp",
+      "skill": "prix_close",
+      "type": "trou",
+      "prompt": "Close alternatif sur l'envoi du lien : 'Je t'envoie le lien sur ___ ou email ?'",
+      "answer": "WhatsApp",
+      "explanation": "On propose un choix entre WhatsApp ou email, jamais une question ouverte qui rouvre la décision.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-mise-en-ligne-48h",
+      "skill": "obj_pas_maintenant",
+      "type": "trou",
+      "prompt": "Pour lever l'objection de timing, on précise que la mise en ligne prend ___ h.",
+      "answer": "48",
+      "explanation": "La mise en ligne en 48h ne prend pas de temps à l'artisan : 'pendant que tu bosses, le site travaille en arrière-plan'.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-virement-stripe",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quels moyens de paiement sont privilégiés pour éviter les frais Sendpage ?",
+      "options": [
+        "Espèces ou chèque",
+        "Virement direct ou Stripe",
+        "PayPal uniquement",
+        "Crypto"
+      ],
+      "answer": 1,
+      "explanation": "On évite les frais Sendpage en privilégiant le virement direct ou Stripe.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-reflechir-jamais",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Face à 'je dois réfléchir', que ne faut-il JAMAIS dire ?",
+      "options": [
+        "Qu'est-ce qui te ferait hésiter ?",
+        "Prends le temps.",
+        "Le site te plaît ?",
+        "On peut le tester 14 jours."
+      ],
+      "answer": 1,
+      "explanation": "Ne jamais dire 'prends le temps' : on cherche plutôt ce qui le fait hésiter exactement.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-reflechir-isoler",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quelle est la règle d'or face à toute objection au moment du close ?",
+      "options": [
+        "Répondre immédiatement",
+        "Isoler avant de répondre : 'À part ça, autre chose qui te ferait hésiter ?'",
+        "Baisser le prix",
+        "Raccrocher"
+      ],
+      "answer": 1,
+      "explanation": "On isole l'objection ('à part ça, autre chose ?') ; si non, on traite et on close direct.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-reflechir-concurrents",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quel argument de pression douce utilise-t-on face à 'je réfléchis' ?",
+      "options": [
+        "Vous perdez votre temps",
+        "Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes",
+        "Le prix va doubler demain",
+        "Je ne vous rappellerai jamais"
+      ],
+      "answer": 1,
+      "explanation": "On rappelle le coût de l'inaction : les concurrents avec un site captent les demandes pendant qu'il réfléchit.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-reflechir-30jours",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quelle proposition concrète accompagne le close face à 'je réfléchis' ?",
+      "options": [
+        "On en reparle dans 6 mois.",
+        "On le met en place aujourd'hui et tu vois dans 30 jours.",
+        "Je vous envoie une brochure.",
+        "Réfléchissez tranquillement."
+      ],
+      "answer": 1,
+      "explanation": "On transforme la réflexion en test à faible risque : mise en place aujourd'hui, bilan dans 30 jours.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-femme-tranche",
+      "skill": "obj_femme_associe",
+      "type": "qcm",
+      "prompt": "Face à 'je dois en parler à ma femme / mon associé', que demande-t-on d'abord ?",
+      "options": [
+        "Son numéro à elle",
+        "Pour ce type de décision, c'est toi qui tranches ou vous décidez ensemble ?",
+        "Combien elle gagne",
+        "Si elle aime les sites web"
+      ],
+      "answer": 1,
+      "explanation": "On clarifie qui décide. Si 'c'est moi' → la vraie objection est ailleurs : 'alors qu'est-ce qui te retient ?'",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-femme-objecterait",
+      "skill": "obj_femme_associe",
+      "type": "qcm",
+      "prompt": "Quelle question pose-t-on sur l'avis de la femme/associé ?",
+      "options": [
+        "Elle est sévère ?",
+        "Si elle était là maintenant, elle aurait une objection à un site 300€ qui peut vous amener des clients ?",
+        "Elle gère les comptes ?",
+        "Elle veut un site aussi ?"
+      ],
+      "answer": 1,
+      "explanation": "On rend l'objection absurde : difficile d'imaginer une objection à 300€ qui ramène des clients.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-femme-ce-soir",
+      "skill": "obj_femme_associe",
+      "type": "trou",
+      "prompt": "On close malgré la femme/associé : 'On l'active maintenant et tu lui montres ce ___ ; si ça lui va pas, garantie 14 jours.'",
+      "answer": "soir",
+      "explanation": "La garantie 14 jours permet d'activer maintenant tout en laissant la possibilité de montrer à la femme/associé.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-trop-cher-defendre",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Face à 'c'est trop cher', quelle est la réaction à éviter ?",
+      "options": [
+        "Demander 'trop cher par rapport à quoi ?'",
+        "Se défendre et justifier nerveusement le prix",
+        "Comparer aux 1000-3000€ d'agence",
+        "Creuser la valeur d'un chantier"
+      ],
+      "answer": 1,
+      "explanation": "On ne se défend pas, on creuse : 'trop cher par rapport à quoi exactement ?'",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-trop-cher-recadrage",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Comment recadre-t-on la question du prix face à 'trop cher' ?",
+      "options": [
+        "Est-ce que 300€ c'est cher ?",
+        "La question c'est pas 'est-ce que 300€ c'est cher', c'est 'est-ce que ce site peut me ramener au moins un client ?'",
+        "Vous pouvez payer en plusieurs fois ?",
+        "C'est le prix du marché."
+      ],
+      "answer": 1,
+      "explanation": "On déplace le débat du coût vers le retour sur investissement (au moins un client), en s'appuyant sur ses propres dires.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-trop-cher-chantier",
+      "skill": "obj_trop_cher",
+      "type": "trou",
+      "prompt": "Argument anti 'trop cher' : un seul ___ trouvé via le site, ça vaut combien pour toi ?",
+      "answer": "chantier",
+      "explanation": "On compare la valeur d'un chantier au prix du site : un seul chantier dépasse largement les 300€.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-pas-maintenant-question",
+      "skill": "obj_pas_maintenant",
+      "type": "trou",
+      "prompt": "Face à 'pas maintenant', on trie : 'C'est un problème de timing ou de ___ ?'",
+      "answer": "budget",
+      "explanation": "On distingue timing vs budget pour adapter la réponse (chacun a son traitement).",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-pas-maintenant-budget",
+      "skill": "obj_pas_maintenant",
+      "type": "qcm",
+      "prompt": "Si l'objection 'pas maintenant' est un problème de budget, que propose-t-on ?",
+      "options": [
+        "On annule",
+        "Payer en plusieurs fois, et rappeler qu'un seul chantier le rembourse (il se finance tout seul dès le 1er mois)",
+        "Un prix doublé",
+        "Un site gratuit"
+      ],
+      "answer": 1,
+      "explanation": "Pour le budget : paiement en plusieurs fois + rappel que le site se finance tout seul dès le 1er chantier.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-pas-maintenant-arriere-plan",
+      "skill": "obj_pas_maintenant",
+      "type": "qcm",
+      "prompt": "Quel argument lève l'objection de timing 'pas maintenant' ?",
+      "options": [
+        "Le site est urgent",
+        "Pendant que tu bosses, le site travaille en arrière-plan ; le mettre maintenant c'est récupérer des demandes plus tôt",
+        "Il faut signer aujourd'hui sinon c'est mort",
+        "On supprime votre fiche Google"
+      ],
+      "answer": 1,
+      "explanation": "Le site ne demande pas de temps à l'artisan et travaille en arrière-plan ; reporter c'est perdre des demandes.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-deja-essaye-ecoute",
+      "skill": "obj_deja_essaye",
+      "type": "qcm",
+      "prompt": "Pourquoi l'objection 'j'ai déjà essayé, ça n'a rien donné' est-elle la plus délicate ?",
+      "options": [
+        "Parce qu'elle est rare",
+        "Parce qu'il faut vraiment écouter et commencer par 'Qu'est-ce que t'avais essayé ?'",
+        "Parce qu'il faut baisser le prix",
+        "Parce qu'on doit raccrocher"
+      ],
+      "answer": 1,
+      "explanation": "La plus délicate : on écoute vraiment et on demande ce qu'il avait essayé avant de répondre.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-deja-essaye-visibilite",
+      "skill": "obj_deja_essaye",
+      "type": "qcm",
+      "prompt": "Quelle question distingue l'échec passé d'un site ?",
+      "options": [
+        "C'était cher ?",
+        "C'était le site lui-même ou il n'était pas visible sur Google ?",
+        "Qui l'avait fait ?",
+        "Vous l'avez gardé ?"
+      ],
+      "answer": 1,
+      "explanation": "On distingue le problème : souvent le site n'était pas visible. Notre site est 'conçu pour être trouvé', pas une simple vitrine.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-deja-essaye-outil",
+      "skill": "obj_deja_essaye",
+      "type": "qcm",
+      "prompt": "Comment positionne-t-on le site face à un échec passé ?",
+      "options": [
+        "C'est exactement le même produit",
+        "C'est pas une vitrine, c'est un outil conçu pour apparaître quand quelqu'un cherche [activité] à [ville]",
+        "C'est un site plus joli",
+        "C'est moins cher que l'ancien"
+      ],
+      "answer": 1,
+      "explanation": "On différencie : un outil conçu pour être trouvé sur Google, pas une vitrine passive, avec garantie 14 jours.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-rappelle-non-poli",
+      "skill": "obj_rappelle",
+      "type": "trou",
+      "prompt": "Quand l'artisan dit 'je te rappelle', c'est presque toujours un ___ poli.",
+      "answer": "non",
+      "explanation": "'Je te rappelle' est presque toujours un non poli ; on cherche le vrai blocage caché.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-rappelle-honnete",
+      "skill": "obj_rappelle",
+      "type": "qcm",
+      "prompt": "Quelle question fait sortir le vrai blocage derrière 'je te rappelle' ?",
+      "options": [
+        "Quand exactement ?",
+        "Entre nous — c'est vraiment que t'as besoin de temps ou y'a quelque chose qui te bloque et que t'as pas dit ?",
+        "Vous avez mon numéro ?",
+        "Vous préférez le matin ?"
+      ],
+      "answer": 1,
+      "explanation": "On crée la complicité ('entre nous') pour faire admettre le vrai blocage et le traiter.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-rappelle-tarif",
+      "skill": "obj_rappelle",
+      "type": "qcm",
+      "prompt": "S'il insiste sur 'je te rappelle', quel levier honnête utilise-t-on ?",
+      "options": [
+        "On le menace",
+        "Je maintiens pas le tarif 300€ après cet appel ; je l'active maintenant, garantie 14 jours, zéro risque",
+        "On double le prix sur-le-champ",
+        "On raccroche"
+      ],
+      "answer": 1,
+      "explanation": "On crée une urgence honnête (tarif non maintenu) couplée à la garantie 14 jours pour un 'zéro risque'.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-bao-formule-ou",
+      "skill": "obj_bouche_a_oreille",
+      "type": "trou",
+      "prompt": "Dans la formule anti bouche-à-oreille, on utilise le mot '___' (et pas 'ET') pour offrir 2 scénarios.",
+      "answer": "OU",
+      "explanation": "'S'il vient à diminuer OU que vous voulez attirer plus de clients' : le 'OU' empêche le prospect de s'échapper.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-bao-eviter",
+      "skill": "obj_bouche_a_oreille",
+      "type": "qcm",
+      "prompt": "Quelle formule faut-il éviter face au bouche-à-oreille ?",
+      "options": [
+        "Si jamais il vient à diminuer OU que vous voulez plus de clients…",
+        "Si le bouche-à-oreille s'arrête…",
+        "Vous êtes dépendant de ce que les gens racontent ?",
+        "Vous pouvez activer un levier en particulier ?"
+      ],
+      "answer": 1,
+      "explanation": "'Si le bouche-à-oreille s'arrête' provoque 'ça fait 10 ans que ça marche, pourquoi ça s'arrêterait ?'. On préfère 'diminuer OU plus de clients'.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-bao-dependance",
+      "skill": "obj_bouche_a_oreille",
+      "type": "qcm",
+      "prompt": "Quel angle psychologique utilise la formule bouche-à-oreille ?",
+      "options": [
+        "La peur du gendarme",
+        "La dépendance : 'vous êtes dépendant de ce que les gens racontent, ou vous pouvez activer un levier ?'",
+        "La culpabilité",
+        "La flatterie pure"
+      ],
+      "answer": 1,
+      "explanation": "On souligne la dépendance et la perte de maîtrise pour ouvrir la porte à un levier qu'on maîtrise (le site).",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-bao-positif",
+      "skill": "obj_bouche_a_oreille",
+      "type": "qcm",
+      "prompt": "Comment commence-t-on idéalement la réponse au bouche-à-oreille ?",
+      "options": [
+        "C'est dépassé le bouche-à-oreille.",
+        "C'est très bien le bouche-à-oreille, mais…",
+        "Le bouche-à-oreille ne marche jamais.",
+        "Personne ne vous recommande."
+      ],
+      "answer": 1,
+      "explanation": "On valide d'abord ('c'est très bien') avant de poser les 2 scénarios avec 'OU' : on ne contredit pas frontalement.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-seul-challenge",
+      "skill": "obj_seul",
+      "type": "qcm",
+      "prompt": "Face à 'je travaille seul, ça me suffit', comment challenge-t-on ?",
+      "options": [
+        "Vous devriez embaucher.",
+        "Félicitations. Donc vous n'avez pas vraiment l'ambition de développer votre boîte ?",
+        "Vous gagnez combien ?",
+        "Vous êtes sûr ?"
+      ],
+      "answer": 1,
+      "explanation": "On félicite puis on pique l'ambition : 'pas vraiment l'ambition de développer ?' → il se défend → ouverture.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-seul-hiver",
+      "skill": "obj_seul",
+      "type": "trou",
+      "prompt": "Argument saisonnier : pour avoir des résultats en ___, faut commencer maintenant.",
+      "answer": "hiver",
+      "explanation": "On projette sur la saison creuse : pour avoir des résultats en hiver, il faut s'y prendre maintenant.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-seul-defendre",
+      "skill": "obj_seul",
+      "type": "qcm",
+      "prompt": "Quel est l'effet recherché quand on dit à l'artisan seul 'donc pas d'ambition de développer ?'",
+      "options": [
+        "Le vexer pour qu'il raccroche",
+        "Le faire se défendre, ce qui crée une ouverture",
+        "Lui vendre une formation",
+        "Le faire douter du prix"
+      ],
+      "answer": 1,
+      "explanation": "La provocation douce le pousse à se défendre ('si, j'aimerais bien...') ce qui rouvre la conversation.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-deja-appele-panique",
+      "skill": "obj_deja_appele",
+      "type": "qcm",
+      "prompt": "Face à 'on m'a déjà appelé pour ça', comment réagir ?",
+      "options": [
+        "Paniquer et raccrocher",
+        "Ne pas paniquer : 'Ça ne m'étonne pas. Mais qu'est-ce qui a fait que vous n'avez pas dit oui à l'autre ?'",
+        "Baisser le prix immédiatement",
+        "Critiquer le concurrent"
+      ],
+      "answer": 1,
+      "explanation": "On ne panique pas et on fait sortir sa vraie objection : pourquoi n'a-t-il pas dit oui à l'autre ?",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-deja-appele-paye",
+      "skill": "obj_deja_appele",
+      "type": "qcm",
+      "prompt": "Que faire si l'artisan a déjà PAYÉ pour un site chez quelqu'un d'autre ?",
+      "options": [
+        "Insister plus fort",
+        "Arrêter de creuser, c'est mort ; et ne jamais demander soi-même 's'il a déjà payé'",
+        "Proposer un remboursement de l'autre",
+        "Doubler la garantie"
+      ],
+      "answer": 1,
+      "explanation": "S'il a déjà payé, c'est mort : on arrête. Et on ne demande JAMAIS soi-même 'vous avez déjà payé ?' (on donne l'échappatoire).",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-deja-appele-echappatoire",
+      "skill": "obj_deja_appele",
+      "type": "trou",
+      "prompt": "Demander soi-même 'vous avez déjà payé ?' revient à donner au prospect une ___.",
+      "answer": "échappatoire",
+      "explanation": "Poser cette question fournit au prospect une excuse toute faite pour clore la discussion.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-prix-mail-saliver",
+      "skill": "obj_prix_mail",
+      "type": "qcm",
+      "prompt": "Face à 'c'est quoi le prix ?', que fait-on ?",
+      "options": [
+        "On donne le prix exact tout de suite",
+        "On fait saliver : 'voyons d'abord si le site vous plaît, ensuite on discute des modifs et du prix'",
+        "On annonce un prix très bas",
+        "On raccroche"
+      ],
+      "answer": 1,
+      "explanation": "On ne donne pas tout : on fait saliver et on diffère le prix pour garder l'intérêt.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-prix-mail-gratuit",
+      "skill": "obj_prix_mail",
+      "type": "trou",
+      "prompt": "Pour lever la pression du prix au téléphone : 'Pour l'instant c'est totalement ___ de regarder.'",
+      "answer": "gratuit",
+      "explanation": "'Pour l'instant c'est totalement gratuit de regarder' enlève la pression et incite à voir le site.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-prix-mail-pas-en-ligne",
+      "skill": "obj_prix_mail",
+      "type": "qcm",
+      "prompt": "Quelle bonne formule justifie qu'on ne peut pas envoyer le site par mail ?",
+      "options": [
+        "Le mail est trop lourd à envoyer.",
+        "Je suis pas chez moi, le site est sur mon ordi, pas en ligne : la seule chose c'est un RDV 10 min en partage d'écran.",
+        "Mon email est en panne.",
+        "C'est confidentiel."
+      ],
+      "answer": 1,
+      "explanation": "Cette formule (même un petit mensonge) rend le RDV obligatoire au lieu d'un envoi mail vite oublié.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-prix-mail-resistance",
+      "skill": "obj_prix_mail",
+      "type": "qcm",
+      "prompt": "Quelle erreur évite-t-on quand l'artisan dit 'envoyez-moi ça par mail' ?",
+      "options": [
+        "Imposer un RDV en partage d'écran",
+        "Accepter sans résistance (il oublie en 30 min)",
+        "Faire saliver sur le site",
+        "Justifier qu'il n'est pas en ligne"
+      ],
+      "answer": 1,
+      "explanation": "Accepter sans résistance = oubli en 30 min. On impose toujours le RDV 10 min en partage d'écran.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-prix-mail-bat-3fois",
+      "skill": "obj_prix_mail",
+      "type": "qcm",
+      "prompt": "Quelle erreur commet-on en se battant 3 fois pour le RDV ?",
+      "options": [
+        "On gagne le RDV à coup sûr",
+        "Sans expliquer pourquoi on ne peut pas envoyer, on passe pour un vendeur qui force",
+        "On obtient le prénom",
+        "On rassure le prospect"
+      ],
+      "answer": 1,
+      "explanation": "Se battre 3× sans justifier (site pas en ligne) fait passer pour un vendeur qui force ; il faut donner la raison.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-site-sans-trafic-sens",
+      "skill": "obj_site_sans_trafic",
+      "type": "qcm",
+      "prompt": "Face à 'un site sans trafic ça sert à rien', comment répond-on ?",
+      "options": [
+        "On nie : 'mais si ça sert'",
+        "On va dans son sens puis on retourne : 'Certes… mais vous avez du bouche-à-oreille, des gens cherchent déjà votre nom'",
+        "On baisse le prix",
+        "On change de sujet"
+      ],
+      "answer": 1,
+      "explanation": "On ne nie pas : on valide puis on retourne en s'appuyant sur le bouche-à-oreille existant.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-site-sans-trafic-maps",
+      "skill": "obj_site_sans_trafic",
+      "type": "trou",
+      "prompt": "Aujourd'hui, les gens qui cherchent son nom tombent juste sur une fiche Google ___ avec 3 photos.",
+      "answer": "Maps",
+      "explanation": "Aujourd'hui ils tombent sur une fiche Maps minimale ; un vrai site convertit beaucoup mieux ces recherches existantes.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-site-sans-trafic-pluguer",
+      "skill": "obj_site_sans_trafic",
+      "type": "trou",
+      "prompt": "Principe clé : tu ne vends pas du nouveau, tu ___ ton offre sur ce qu'il a déjà.",
+      "answer": "plugues",
+      "explanation": "On 'plugue' l'offre sur l'existant (bouche-à-oreille, recherches du nom) : suite logique, pas contrainte.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-site-sans-trafic-logique",
+      "skill": "obj_site_sans_trafic",
+      "type": "qcm",
+      "prompt": "Comment le site doit-il être perçu par l'artisan, selon le principe du 'plug' ?",
+      "options": [
+        "Comme une contrainte nouvelle",
+        "Comme une suite logique de ce qu'il a déjà, pas une contrainte",
+        "Comme un risque",
+        "Comme un luxe"
+      ],
+      "answer": 1,
+      "explanation": "Le site se présente comme une suite logique de l'existant, jamais comme une contrainte imposée.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-demasque-fatale",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "S'il démasque la prospection, quelle est l'erreur FATALE ?",
+      "options": [
+        "Enchaîner avec humour",
+        "Dire 'C'était pour un appel de prospection monsieur' → il raccroche",
+        "Repartir sur le Base Script",
+        "Utiliser la Pizza"
+      ],
+      "answer": 1,
+      "explanation": "Confirmer platement la prospection fait raccrocher. On rebondit plutôt avec humour (la Pizza) ou on relance le Base Script.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-demasque-pizza",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quelle option de rattrapage utilise l'humour s'il démasque la prospection ?",
+      "options": [
+        "Raccrocher",
+        "La Pizza : 'je voulais vous commander une Margarita pour 19h' → il rit → Tech 1 + Base Script",
+        "Demander pardon",
+        "Promettre une remise"
+      ],
+      "answer": 1,
+      "explanation": "Option 1 'La Pizza' fait rire et permet d'enchaîner Tech 1 + Base Script ; option 2 = repartir sur le Base Script complet.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-tech1-verrouillage",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Dans 'Inaction vs Action', quelle est l'étape de verrouillage ?",
+      "options": [
+        "Annoncer la garantie",
+        "Si rien ne change, rien ne change — on est d'accord ?",
+        "Donner le prix",
+        "Faire la démo"
+      ],
+      "answer": 1,
+      "explanation": "Le verrouillage fait valider 'si rien ne change, rien ne change' avant de projeter le futur positif.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech1-phrase-impact",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quelle est la phrase d'impact de la technique 'Inaction vs Action' ?",
+      "options": [
+        "Vous allez le regretter.",
+        "Tu préfères rester dans une situation que tu subis… ou tenter quelque chose pour en sortir ?",
+        "C'est maintenant ou jamais.",
+        "Tout le monde achète."
+      ],
+      "answer": 1,
+      "explanation": "La phrase d'impact oppose subir vs tenter, créant un contraste qui force la décision.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech1-energie",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quelle énergie adopter pour la technique 'Inaction vs Action' ?",
+      "options": [
+        "Agressive",
+        "Plus directe / assertive, mais PAS agressive",
+        "Hésitante",
+        "Soumise"
+      ],
+      "answer": 1,
+      "explanation": "Plus direct et assertif, mais jamais agressif : on crée un contraste et on bloque la fuite mentale ('je réfléchis').",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech2-300euros",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Dans la technique de détachement, que dit-on à propos des 300€ ?",
+      "options": [
+        "C'est une grosse somme pour moi.",
+        "Tu te doutes que 300€, c'est pas ça qui va changer ma vie.",
+        "C'est négociable.",
+        "C'est un acompte."
+      ],
+      "answer": 1,
+      "explanation": "Le détachement : '300€ ne change pas ma vie, mais pour toi ça peut tout changer' → reprend le pouvoir.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech2-intention",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Quelle intention adopter pour la technique de détachement ?",
+      "options": [
+        "Arrogante et nerveuse",
+        "Détaché, confiant, calme, posé (pas arrogant ni nerveux)",
+        "Suppliante",
+        "Pressée"
+      ],
+      "answer": 1,
+      "explanation": "Détaché, confiant, calme et posé : ni arrogant ni nerveux, pour reprendre le pouvoir sans agressivité.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech3-astuce-debit",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Quelle astuce maximise l'effet de l'escalier de projection ?",
+      "options": [
+        "Parler vite et fort",
+        "Ralentir le débit, parler calmement, faire des micro-silences pour qu'il visualise",
+        "Lister beaucoup de chiffres",
+        "Couper la parole"
+      ],
+      "answer": 1,
+      "explanation": "On ralentit le débit avec des micro-silences : il doit visualiser, pas juste écouter.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech3-1mois",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Dans l'escalier de projection, que se passe-t-il à l'étape '1 mois' ?",
+      "options": [
+        "Le site est juste en ligne",
+        "Premier client venu du site, l'investissement est rentabilisé",
+        "Plus rien ne marche",
+        "On baisse le prix"
+      ],
+      "answer": 1,
+      "explanation": "À 1 mois : premier client venu du site et investissement rentabilisé ; à 3 mois ça tourne régulièrement.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-script1-confreres",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Sur quoi repose le 'Script 1' (preuve sociale + saturation) ?",
+      "options": [
+        "Menacer de prévenir la concurrence",
+        "Dire qu'on a contacté 3 confrères qui débordent de travail, puis demander s'il peut encore prendre des chantiers",
+        "Offrir un cadeau",
+        "Imiter une voix robotique"
+      ],
+      "answer": 1,
+      "explanation": "Le Script 1 utilise la preuve sociale (confrères débordés) et teste sa capacité avant de proposer 5-10 clients/mois.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-script1-contre-ecouter",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quelle tournure d'engagement utilise le Script 1 ?",
+      "options": [
+        "Vous voulez acheter un site ?",
+        "Vous seriez contre le fait d'écouter ce que j'ai à proposer ?",
+        "Vous avez un budget ?",
+        "C'est urgent, décidez vite."
+      ],
+      "answer": 1,
+      "explanation": "La formulation 'vous seriez contre le fait de…' rend le refus difficile et obtient un micro-oui.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-script2-criminel",
+      "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Le script de l'inspecteur dramatise en trouvant ___ qu'une si bonne entreprise n'ait pas de site en 2026.",
+      "answer": "criminel",
+      "explanation": "L'inspecteur dramatise ('la situation est grave', 'criminel') pour intriguer puis propose de jeter un œil au site.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-objection-isoler-autre-chose",
+      "skill": "obj_reflechir",
+      "type": "trou",
+      "prompt": "Pour isoler une objection on demande : 'À part ça, est-ce qu'il y a autre ___ qui te ferait hésiter ?'",
+      "answer": "chose",
+      "explanation": "Isoler l'objection ('à part ça, autre chose ?') permet de la traiter puis de closer directement si rien d'autre.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-prix-defi-rembourse",
+      "skill": "obj_deja_essaye",
+      "type": "qcm",
+      "prompt": "Quelle promesse accompagne la garantie 14 jours pour un sceptique ?",
+      "options": [
+        "On double le prix sinon",
+        "Si t'as pas eu au moins une demande, on rembourse : t'as rien à perdre",
+        "On offre un second site",
+        "On forme gratuitement"
+      ],
+      "answer": 1,
+      "explanation": "À 300€ avec garantie 14 jours, si aucune demande on rembourse : 'zéro risque', 'rien à perdre'.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-close-jamais-redemander",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quelle règle régit les closes finaux ?",
+      "options": [
+        "Toujours redemander l'avis global",
+        "Ne jamais redemander l'avis : poser UNE question fermée (carte/virement, WhatsApp/email...)",
+        "Lister tous les avantages",
+        "Proposer une remise finale"
+      ],
+      "answer": 1,
+      "explanation": "Les closes finaux posent UNE question fermée sur le 'comment', jamais une question ouverte qui rouvre la décision.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-brise-glace-mindset",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quel est le mindset de la phase 0 (brise-glace) ?",
+      "options": [
+        "Tu es un commercial pressé",
+        "Tu n'es pas un commercial qui appelle, tu es quelqu'un qui a déjà travaillé pour lui avant l'appel",
+        "Tu dois vendre en 1 minute",
+        "Tu dois parler le plus possible"
+      ],
+      "answer": 1,
+      "explanation": "Mindset phase 0 : tu as déjà bossé pour lui (le site est prêt), donc décontracte-toi et laisse-le répondre.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-brise-glace-deborde",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Si l'artisan est débordé en phase 0, que dit-on ?",
+      "options": [
+        "Je rappelle plus tard.",
+        "Ah t'es en plein boulot — respect. Je vais pas te garder longtemps, on va à l'essentiel.",
+        "Vous n'avez jamais le temps.",
+        "C'est important, écoutez-moi."
+      ],
+      "answer": 1,
+      "explanation": "On respecte son temps ('respect, je vais à l'essentiel') tout en gardant le lead de la conversation.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-transition-prepare",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Comment fait-on la transition vers la découverte (phase 1) ?",
+      "options": [
+        "Voici mon prix.",
+        "J'ai pris du temps pour regarder ton activité et préparé un exemple de site ; mais avant, quelques questions pour que ça colle à ta situation",
+        "Vous avez un budget ?",
+        "On signe ?"
+      ],
+      "answer": 1,
+      "explanation": "On annonce qu'on a préparé un exemple mais qu'on pose d'abord des questions pour s'assurer que ça colle.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-type-site-agence",
+      "skill": "prix_close",
+      "type": "trou",
+      "prompt": "Annonce du prix : 'Normalement ce type de site chez une agence c'est entre 1000 et ___ €.'",
+      "answer": "3000",
+      "explanation": "On ancre 1000-3000€ en agence avant d'annoncer 300€, site complet et mis en ligne.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-douleurs-suggere-rien",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Quand on demande le plus gros problème en phase 2, que fait-on ?",
+      "options": [
+        "On propose plusieurs réponses possibles",
+        "On ne suggère rien et on laisse le silence",
+        "On donne notre avis",
+        "On enchaîne sur le prix"
+      ],
+      "answer": 1,
+      "explanation": "'Ne suggère rien' : on laisse l'artisan formuler lui-même sa douleur, en silence.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-chargé-hiver",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Si l'artisan dit être bien chargé en ce moment, quelle relance saisonnière utilise-t-on ?",
+      "options": [
+        "Tant mieux pour vous.",
+        "C'était pareil l'hiver dernier ?",
+        "Vous gagnez combien ?",
+        "Vous embauchez ?"
+      ],
+      "answer": 1,
+      "explanation": "On creuse la saisonnalité ('c'était pareil l'hiver dernier ?') pour révéler l'irrégularité cachée.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-pas-maintenant-finance",
+      "skill": "obj_pas_maintenant",
+      "type": "qcm",
+      "prompt": "Quel argument montre que le site 'se finance tout seul' ?",
+      "options": [
+        "Il est gratuit la première année",
+        "Un seul chantier le rembourse, et avec de la capacité dispo il se finance dès le 1er mois",
+        "L'hébergement est offert à vie",
+        "On paie après 6 mois"
+      ],
+      "answer": 1,
+      "explanation": "Avec de la capacité disponible (munition), un seul chantier rembourse le site dès le 1er mois.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-obj-femme-qui-est",
+      "skill": "obj_femme_associe",
+      "type": "qcm",
+      "prompt": "Quelle est la toute première relance face à 'je dois en parler à quelqu'un' ?",
+      "options": [
+        "Donnez-moi son numéro.",
+        "Bien sûr. C'est ta femme ? ton associé ?",
+        "On annule alors.",
+        "Vous décidez seul normalement."
+      ],
+      "answer": 1,
+      "explanation": "On identifie d'abord qui est la personne avant de qualifier qui tranche réellement la décision.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-decouverte-meet-arnaque",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Pourquoi le closing en visio rassure-t-il le prospect ?",
+      "options": [
+        "Parce que c'est plus rapide",
+        "Parce que voir un visage rassure sur l'arnaque et réduit les raccrochages",
+        "Parce que c'est gratuit",
+        "Parce que c'est enregistré"
+      ],
+      "answer": 1,
+      "explanation": "La visio (Google Meet) humanise l'échange, rassure sur l'arnaque et limite les raccrochages.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-presentation-pourrait-aider-suite",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Si l'artisan répond 'oui ça pourrait aider' après la démo, que fait-on ?",
+      "options": [
+        "On creuse encore les douleurs",
+        "On passe au prix et au close",
+        "On raccroche",
+        "On envoie un mail"
+      ],
+      "answer": 1,
+      "explanation": "'Oui ça pourrait aider' = feu vert → on enchaîne directement prix et close.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-rappelle-besoin-temps",
+      "skill": "obj_rappelle",
+      "type": "qcm",
+      "prompt": "Que cherche-t-on à révéler avec 'entre nous, c'est vraiment besoin de temps ou un blocage ?'",
+      "options": [
+        "Son agenda",
+        "L'objection réelle cachée derrière le 'je te rappelle'",
+        "Son budget exact",
+        "Son métier"
+      ],
+      "answer": 1,
+      "explanation": "On vise à faire admettre le vrai blocage non dit, pour pouvoir le traiter au lieu de subir un non poli.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-trop-cher-isoler",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Quelle première question creuse l'objection 'c'est trop cher' ?",
+      "options": [
+        "Vous avez combien ?",
+        "Trop cher par rapport à quoi exactement ?",
+        "Vous voulez une remise ?",
+        "Vous comparez avec qui ?"
+      ],
+      "answer": 1,
+      "explanation": "On creuse 'par rapport à quoi exactement ?' avant de comparer aux 1000-3000€ et de parler ROI.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-decouverte-source-previsible",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Si l'artisan n'a 'rien de précis' pour trouver ses clients, quelle relance utilise-t-on ?",
+      "options": [
+        "Vous devriez faire de la pub.",
+        "Donc c'est vraiment de l'informel… T'as jamais eu de source prévisible de clients ?",
+        "Combien gagnez-vous ?",
+        "Vous voulez un site ?"
+      ],
+      "answer": 1,
+      "explanation": "On nomme l'absence de source prévisible de clients, ce qui fait émerger l'insécurité.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-prix-direct-confiant",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Quel ton adopter à la phase prix et close (phase 5) ?",
+      "options": [
+        "Hésitant et prudent",
+        "Direct, confiant, sans hésiter",
+        "Désolé d'annoncer un prix",
+        "En s'excusant"
+      ],
+      "answer": 1,
+      "explanation": "Phase 5 : direct, confiant, sans hésiter ; toute hésitation sur le prix trahit un manque de conviction.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-deja-essaye-trois-cas",
+      "skill": "obj_deja_essaye",
+      "type": "qcm",
+      "prompt": "Quel angle final sécurise l'artisan qui a déjà essayé sans succès ?",
+      "options": [
+        "Promettre la première place Google",
+        "À 300€ avec garantie 14 jours, si pas une seule demande on rembourse : rien à perdre",
+        "Offrir 3 mois gratuits",
+        "Garantir 10 clients"
+      ],
+      "answer": 1,
+      "explanation": "On ne survend pas de résultat : on sécurise avec la garantie 14 jours et le 'rien à perdre'.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-seul-deleguer",
+      "skill": "obj_seul",
+      "type": "qcm",
+      "prompt": "Quelle question pose-t-on à l'artisan qui dit travailler seul ?",
+      "options": [
+        "Vous gagnez bien ?",
+        "Vous travaillez seul ou vous avez des gens à déléguer ?",
+        "Vous voulez embaucher ?",
+        "Vous êtes débordé ?"
+      ],
+      "answer": 1,
+      "explanation": "On qualifie ('seul ou des gens à déléguer ?') avant de challenger son ambition de développement.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-obj-bouche-a-oreille-levier",
+      "skill": "obj_bouche_a_oreille",
+      "type": "qcm",
+      "prompt": "Quel terme oppose-t-on à la dépendance dans la formule bouche-à-oreille ?",
+      "options": [
+        "Une remise",
+        "Un levier qu'on peut activer en particulier",
+        "Une garantie",
+        "Une publicité payante"
+      ],
+      "answer": 1,
+      "explanation": "On oppose la dépendance ('ce que les gens racontent') à un levier maîtrisable qu'on peut activer (le site).",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-tech-detachement-switch",
+      "skill": "obj_trop_cher",
+      "type": "qcm",
+      "prompt": "Quel est le 'switch' clé de la technique de détachement ?",
+      "options": [
+        "Par contre, pour toi… ça peut clairement faire une différence.",
+        "Achetez maintenant.",
+        "C'est trop tard sinon.",
+        "Vous n'avez pas le choix."
+      ],
+      "answer": 0,
+      "explanation": "Après avoir détaché ('ça ne change rien pour moi'), le switch renvoie l'enjeu vers le prospect : 'pour toi ça peut tout changer'.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-tech1-version-courte",
+      "skill": "obj_reflechir",
+      "type": "qcm",
+      "prompt": "Quelle est l'idée de la version courte de 'Inaction vs Action' ?",
+      "options": [
+        "Énumérer les fonctionnalités",
+        "Si tu continues, rien ne change ; si tu le mets en place, ça peut t'apporter des clients : tu veux tester ou rester comme maintenant ?",
+        "Donner trois prix différents",
+        "Promettre un résultat garanti"
+      ],
+      "answer": 1,
+      "explanation": "La version courte enchaîne verrouillage + futur positif + close binaire (tester ou rester comme maintenant).",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-ambitions-moins-tu-parles",
+      "skill": "ambitions",
+      "type": "trou",
+      "prompt": "Phase ambitions : 'Moins tu ___, plus il se vend le site tout seul.'",
+      "answer": "parles",
+      "explanation": "Les ambitions sont le carburant émotionnel : moins tu parles, plus il se convainc lui-même.",
+      "difficulty": 1
+    },
+    {
+      "id": "quiz-obj-pas-maintenant-timing-budget",
+      "skill": "obj_pas_maintenant",
+      "type": "trou",
+      "prompt": "Face à 'pas maintenant', on trie entre un problème de ___ ou de budget.",
+      "answer": "timing",
+      "explanation": "On distingue timing vs budget : chaque cas a son traitement (mise en ligne 48h pour le timing, paiement en plusieurs fois pour le budget).",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-decouverte-relance-calme",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Exemple type de relance qui creuse plutôt que de changer de sujet :",
+      "options": [
+        "Bon, passons au prix.",
+        "C'est calme… tu te sens comment par rapport à ça ?",
+        "Vous êtes sur Google ?",
+        "On signe maintenant ?"
+      ],
+      "answer": 1,
+      "explanation": "On reste sur le sujet et on creuse le ressenti ('tu te sens comment par rapport à ça ?').",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-close-hesite-regle",
+      "skill": "prix_close",
+      "type": "qcm",
+      "prompt": "Si l'artisan hésite après le close, que fait-on ?",
+      "options": [
+        "On baisse le prix",
+        "Je t'entends. Qu'est-ce qui te ferait hésiter exactement ? puis 'À part ça, autre chose ?'",
+        "On raccroche",
+        "On répète la garantie en boucle"
+      ],
+      "answer": 1,
+      "explanation": "On accueille l'hésitation et on isole l'objection avant de la traiter et de re-closer.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-spe-secteur",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "La spécialisation par secteur est-elle obligatoire selon la formation ?",
+      "options": [
+        "Oui, indispensable",
+        "Non, mais utile pour industrialiser à grande échelle",
+        "Oui, sinon on ne vend rien",
+        "Non, et totalement inutile"
+      ],
+      "answer": 1,
+      "explanation": "La spécialisation par secteur n'est pas obligatoire mais aide à industrialiser à grande échelle.",
+      "difficulty": 3
+    },
+    {
+      "id": "quiz-ouverture-pas-tunnel-10min",
+      "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Il ne faut JAMAIS laisser l'artisan t'embarquer dans un tunnel de ___ min.",
+      "answer": "10",
+      "explanation": "On reprend toujours le lead et on ne se laisse pas enfermer dans un tunnel de 10 min par l'artisan.",
+      "difficulty": 2
+    },
+    {
+      "id": "quiz-presentation-google-tape",
+      "skill": "presentation",
+      "type": "trou",
+      "prompt": "On rend le site concret : quand quelqu'un tape [activité] [ville] sur ___, il tombe sur le site et te contacte.",
+      "answer": "Google",
+      "explanation": "On rend concret : recherche Google [activité] [ville] → arrivée sur le site → contact en 30 secondes.",
       "difficulty": 1
     }
   ]

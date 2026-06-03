@@ -1,0 +1,391 @@
+{
+  "items": [
+    {
+      "id": "ouverture-10-techniques",
+      "category": "ouverture",
+      "title": "Les 10 techniques d'ouverture",
+      "summary": "Panorama des 10 accroches de cold call pour passer les 10 premières secondes et enchaîner sur le Base Script.",
+      "points": [
+        "Standard : avouer la prospection en proposant 10 secondes pour s'expliquer.",
+        "Jingle radio puis question cadeau 1000€, voix robotique assurance auto, accent africain panneaux solaires, voix stagiaire : briser la glace puis 'Non je plaisante'.",
+        "La Pizza : commander une margarita et une royale, la plus simple, fait rire, marche aussi quand l'artisan rappelle.",
+        "Loto : 'excellente nouvelle… non vous n'avez pas gagné au loto, mais un appel de prospection'.",
+        "Félicitations site discret : 'votre site est le plus discret d'internet, impossible à trouver'.",
+        "Marre qu'on vous appelle : retourner l'agacement avec un site déjà fait. Quelque chose qui vous appartient : un site neuf prêt à activer, puis Partie 2 du Base Script.",
+        "S'il démasque la prospection : ne jamais confirmer platement (il raccroche) → enchaîner La Pizza ou repartir sur le Base Script complet."
+      ],
+      "example": "\"Si je vous dis que c'est un appel de prospection, vous balancez le téléphone par la fenêtre ou vous me laissez 10 secondes pour expliquer ?\""
+    },
+    {
+      "id": "ouverture-base-script",
+      "category": "ouverture",
+      "title": "Le Base Script (cold call site web)",
+      "summary": "Structure de référence de l'appel à froid : avouer la prospection, pointer l'absence de site, annoncer qu'il est déjà créé.",
+      "points": [
+        "Partie 1 : 'Je suis tombé sur votre profil et j'ai vu que vous n'avez pas de site web.'",
+        "Partie 2 : normaliser ('on vous appelle souvent pour ça…') puis silence.",
+        "La différence : 'j'ai pris la liberté de vous en créer un directement au lieu de vous promettre beaucoup de choses'.",
+        "Proposer de le montrer pour qu'il juge lui-même : 'comme ça vous voyez si vous le trouvez bien ou pas'.",
+        "Enchaîner vers la prise de RDV, ne jamais tout dérouler au téléphone."
+      ],
+      "example": "\"J'ai pris la liberté de vous en créer un directement. Si ça vous intéresse je peux vous le montrer, comme ça vous voyez si vous le trouvez bien ou pas ?\""
+    },
+    {
+      "id": "ouverture-scripts-bonus",
+      "category": "ouverture",
+      "title": "Scripts bonus : preuve sociale & l'inspecteur",
+      "summary": "Deux ouvertures alternatives basées sur la saturation du secteur et sur un personnage qui crée l'urgence.",
+      "points": [
+        "Preuve sociale : 'j'ai déjà contacté 3 de vos confrères, tout le monde déborde, vous pouvez encore prendre des chantiers ?'",
+        "Annoncer un volume concret : 'la capacité de vous attirer 5 à 10 nouveaux clients par mois'.",
+        "Se présenter avec des résultats : 'je bosse déjà avec des dizaines de paysagistes, on a de très bons résultats'.",
+        "L'inspecteur : poser un personnage dramatique puis 'criminel qu'une entreprise comme la vôtre n'ait pas de site web en 2026'.",
+        "Toujours conclure par la projection : 'seriez-vous contre le fait de prendre 5 min pour y jeter un œil ?'"
+      ],
+      "example": "\"Vous seriez contre le fait de prendre 5 min pour savoir si c'est quelque chose avec lequel vous pourriez vous projeter ?\""
+    },
+    {
+      "id": "mindset-posture-mec",
+      "category": "mindset",
+      "title": "Posture physique & vocale (MEC)",
+      "summary": "Régler son corps et sa voix avant et pendant l'appel pour transmettre l'énergie qui convertit.",
+      "points": [
+        "Rester debout pendant les appels pour l'énergie vocale.",
+        "Casque sans fil pour bouger librement.",
+        "Sourire forcé : change physiquement la résonance de la voix.",
+        "Mentalité : tu es là pour aider, pas pour vendre ; l'artisan a un problème, tu as la solution.",
+        "Ne jamais dire à l'artisan quoi penser : pose des questions, laisse-le conclure. Sa conviction vaut 10x la tienne."
+      ]
+    },
+    {
+      "id": "mec-prenom-tutoiement-tunnel",
+      "category": "ouverture",
+      "title": "MEC : prénom, tutoiement & couper un tunnel",
+      "summary": "Trois réflexes MEC pour rendre le RDV naturel, instaurer la complicité et garder le lead.",
+      "points": [
+        "Récupérer le prénom pendant ou en fin de call rend le RDV naturel ('Salut Mathieu, ça va depuis notre appel ?').",
+        "Si oublié : 'on est allé vite, j'ai oublié de me présenter, moi c'est [Prénom]. C'est quoi le vôtre ?' (il ne peut que répondre). À éviter : 'c'est quoi votre prénom ?' → tu passes pour quelqu'un qui n'écoutait pas.",
+        "Si l'artisan te tutoie, tutoie-le immédiatement ; sinon 'On peut se tutoyer ?' (efficace avec profils jeunes/familiaux).",
+        "Ne JAMAIS laisser l'artisan t'enfermer dans un tunnel de 10 min.",
+        "Couper proprement avec un rebond : 'C'est super intéressant, mais justement par rapport à ça…' → il ne se rend pas compte qu'il a été coupé, tu reprends le lead."
+      ],
+      "example": "\"C'est super intéressant, mais justement par rapport à ça…\""
+    },
+    {
+      "id": "phase-prise-rdv",
+      "category": "phase",
+      "title": "Prise de RDV (anti no-show)",
+      "summary": "Verrouiller le rendez-vous de closing en justifiant pourquoi on ne peut pas envoyer le site par mail.",
+      "points": [
+        "Ne jamais accepter 'envoyez par mail' sans résistance : il oublie en 30 min.",
+        "Bonne formule (même si tu mens) : le site est sur ton ordi, pas encore en ligne, la seule option est un RDV 10 min en partage d'écran.",
+        "Confirmer le créneau avant de raccrocher et faire promettre 10 min au calme.",
+        "Justifier : 'J'ai passé du temps sur le site, j'ai pas envie que vous loupiez le RDV.'",
+        "Erreur : se battre 3x pour le RDV sans expliquer pourquoi tu ne peux pas envoyer → tu passes pour un vendeur qui force."
+      ],
+      "example": "\"C'est noté pour [heure]. Vous me confirmez que vous aurez bien 10 min dans un endroit tranquille ?\""
+    },
+    {
+      "id": "objection-bouche-a-oreille",
+      "category": "objection",
+      "title": "Objection : 'j'ai le bouche-à-oreille'",
+      "summary": "Retourner le bouche-à-oreille sans le nier, en pointant la dépendance et le manque de levier.",
+      "points": [
+        "Utiliser 'OU' et pas 'ET' : deux scénarios pour qu'il ne puisse pas s'échapper.",
+        "Pointer la dépendance : 'vous êtes dépendant de ce que les gens racontent, ou vous pouvez activer un levier ?'",
+        "Ne pas dire 'si le bouche-à-oreille s'arrête' → réponse : 'ça fait 10 ans que ça marche, pourquoi ça s'arrêterait ?'",
+        "Aller dans son sens d'abord, valoriser, puis ouvrir la brèche."
+      ],
+      "example": "\"C'est très bien le bouche-à-oreille, mais s'il vient à diminuer OU que vous voulez attirer plus de clients, vous faites comment ?\""
+    },
+    {
+      "id": "objection-travaille-seul",
+      "category": "objection",
+      "title": "Objection : 'je travaille seul / ça me suffit'",
+      "summary": "Challenger doucement le manque d'ambition pour réveiller le désir de développer l'activité.",
+      "points": [
+        "Féliciter d'abord, puis demander : 'vous travaillez seul ou vous avez des gens à déléguer ?'",
+        "Pousser : 'Donc vous n'avez pas vraiment l'ambition de développer votre boîte ?' → il se défend → ouverture.",
+        "Si c'est l'été : 'Pour avoir des résultats en hiver, faut commencer maintenant.'",
+        "Le faire se défendre crée l'ouverture, sans agresser."
+      ],
+      "example": "\"Félicitations. Vous travaillez seul ou vous avez des gens à déléguer ?\""
+    },
+    {
+      "id": "objection-deja-appele",
+      "category": "objection",
+      "title": "Objection : 'on m'a déjà appelé pour ça'",
+      "summary": "Ne pas paniquer et faire sortir la vraie raison du refus précédent.",
+      "points": [
+        "Normaliser : 'Ça ne m'étonne pas.'",
+        "Faire ressortir la vraie objection : 'qu'est-ce qui a fait que vous n'avez pas dit oui à l'autre personne ?'",
+        "S'il a déjà payé : arrête de creuser, c'est mort.",
+        "Ne JAMAIS demander toi-même 'vous avez déjà payé ?' → tu lui donnes l'échappatoire."
+      ],
+      "example": "\"Ça ne m'étonne pas. Mais qu'est-ce qui a fait que vous n'avez pas dit oui à l'autre personne ?\""
+    },
+    {
+      "id": "objection-prix-cold",
+      "category": "objection",
+      "title": "Objection : 'c'est quoi le prix' (au téléphone)",
+      "summary": "Lever la pression prix au cold call et faire saliver pour décrocher le RDV.",
+      "points": [
+        "Ne pas tout donner, faire saliver : on voit ensemble si le site plaît, ensuite les modifs et le prix.",
+        "Rappeler que regarder est gratuit : 'Pour l'instant c'est totalement gratuit de regarder.'",
+        "Ramener vers l'intérêt : 'déjà, ça vous intéresse de jeter un œil ?'",
+        "Le prix se discute après la présentation, jamais au téléphone à froid."
+      ],
+      "example": "\"L'intérêt c'est qu'on voie ensemble si le site vous plaît. Pour l'instant c'est totalement gratuit de regarder.\""
+    },
+    {
+      "id": "objection-site-sans-trafic",
+      "category": "objection",
+      "title": "Objection : 'un site sans trafic ça sert à rien'",
+      "summary": "Ne pas nier, aller dans son sens puis montrer que le site convertit le trafic qu'il a déjà.",
+      "points": [
+        "Concéder : 'Certes, un site sans trafic c'est vrai.'",
+        "Retourner : 'vous avez du bouche-à-oreille, donc des gens cherchent déjà votre nom.'",
+        "Pointer le présent : aujourd'hui ils tombent sur une fiche Google Maps avec 3 photos.",
+        "Principe : tu ne vends pas du nouveau, tu plugues ton offre sur ce qu'il a déjà → suite logique, pas contrainte."
+      ],
+      "example": "\"Là ils tombent sur quoi ? Une fiche Google Maps avec 3 photos. Avec un site, vous convertissez beaucoup plus.\""
+    },
+    {
+      "id": "closing-inaction-action",
+      "category": "closing",
+      "title": "Closing 1 : Inaction vs Action",
+      "summary": "Forcer la décision en opposant le futur sans changement au futur avec la solution.",
+      "points": [
+        "Futur négatif : 'Si tu continues exactement comme aujourd'hui, il se passe quoi dans 3 mois ?' (laisser répondre).",
+        "Verrouillage : 'si rien ne change, rien ne change' (faire valider).",
+        "Futur positif : 'si on met ça en place aujourd'hui, ça donne quoi dans 2-3 mois ?'",
+        "Confrontation douce puis phrase d'impact, et close : 'On avance ou on laisse comme ça ?'",
+        "Énergie plus directe et assertive, PAS agressive : crée un contraste et bloque la fuite mentale du 'je réfléchis'."
+      ],
+      "example": "\"La vraie question : tu préfères rester dans une situation que tu subis… ou tenter quelque chose pour en sortir ?\""
+    },
+    {
+      "id": "closing-detachement",
+      "category": "closing",
+      "title": "Closing 2 : Détachement + recadrage",
+      "summary": "Enlever la pression de vente en se montrant détaché, puis basculer l'enjeu sur le prospect.",
+      "points": [
+        "Honnêteté détachée : 'que tu le fasses ou pas, ça ne change rien pour moi' (pause).",
+        "Assise par les résultats : 'je sais ce que j'apporte à mes clients, ça tourne très bien de leur côté'.",
+        "Désamorcer le prix : 'tu te doutes que 300€ ce n'est pas ça qui va changer ma vie' (pause).",
+        "Switch : 'Par contre, pour toi, ça peut clairement faire une différence.'",
+        "Intention détachée, confiante, calme, posée. PAS arrogant ni nerveux : reprend le pouvoir et force la décision."
+      ],
+      "example": "\"Honnêtement, que tu le fasses ou pas, ça ne change rien pour moi. Par contre pour toi, ça peut tout changer.\""
+    },
+    {
+      "id": "closing-escalier-projection",
+      "category": "closing",
+      "title": "Closing 3 : Escalier de projection",
+      "summary": "Faire vivre le futur dans sa tête en montant les marches du court terme au long terme émotionnel.",
+      "points": [
+        "Lancer : 'Projette-toi avec moi deux secondes…' (pause).",
+        "Court terme : site en ligne, les gens tombent dessus ; 1-2 semaines : premiers appels qui rentrent.",
+        "1 mois : premier client venu du site, investissement rentabilisé ; 3 mois : ça tourne régulièrement.",
+        "6 mois (émotionnel) : 'tu te dis que t'as bien fait de passer à l'action'.",
+        "Ralentir le débit, micro-silences : le cerveau distingue mal imagination et réalité, il doit visualiser, pas juste écouter."
+      ],
+      "example": "\"La vraie question : tu veux que ça devienne ta réalité, ou rester comme aujourd'hui ?\""
+    },
+    {
+      "id": "mindset-le-pont",
+      "category": "mindset",
+      "title": "Le concept du Pont",
+      "summary": "Creuser l'écart entre situation actuelle (douleurs) et désirée (rêves), puis positionner le site comme le pont entre les deux.",
+      "points": [
+        "Règle d'or : on ne présente JAMAIS le site tant qu'on n'a pas compris les deux côtés du pont.",
+        "Côté 1 : situation initiale et douleurs (comment il trouve ses clients, régularité, visibilité).",
+        "Côté 2 : situation désirée et rêves (où il se voit dans 6 mois / 2 ans, ce qui l'empêche d'y arriver).",
+        "Le site arrive comme réponse naturelle, pas comme produit imposé.",
+        "Phrase clé, à prononcer UNE seule fois après validation : 'tu souffres de X, tu veux vraiment Y, et c'est pour ça que je t'ai préparé ce site.'"
+      ],
+      "example": "\"Aujourd'hui tu souffres de X, ce que tu veux vraiment c'est Y, et justement, c'est pour ça que je t'ai préparé ce site.\""
+    },
+    {
+      "id": "decouverte-techniques",
+      "category": "decouverte",
+      "title": "Techniques de découverte",
+      "summary": "Faire parler le prospect en profondeur pour ne pitcher qu'au bon moment.",
+      "points": [
+        "Ne pas changer de sujet dès qu'il donne une info : creuser de plus en plus profond avec des relances.",
+        "Reformuler avec ses mots avant de présenter.",
+        "Affirmations déguisées en questions : 'Tu penses pas que là, concrètement, ça sert à rien ?' (il conclut lui-même).",
+        "Faire parler sur le ressenti : 'Tu te sens comment par rapport à ça ?' débloque plus que le factuel.",
+        "Commencer par sa vie / sa journée lance naturellement la conversation sur son travail.",
+        "Erreur n°1 des débutants : pitcher trop tôt, avant d'avoir assez d'infos."
+      ],
+      "example": "\"C'est calme… tu te sens comment par rapport à ça ?\""
+    },
+    {
+      "id": "phase-0-1-briseglace-situation",
+      "category": "phase",
+      "title": "Phases 0 & 1 : Brise-glace + découverte situation",
+      "summary": "Décontracter en se posant comme quelqu'un qui a déjà bossé pour lui, puis comprendre sans juger comment il trouve ses clients.",
+      "points": [
+        "Mindset : tu n'es pas un commercial, tu es quelqu'un qui a déjà bossé pour lui avant l'appel. Ouvrir : 'Salut [prénom] ! C'est [ton prénom]. Ça se passe comment pour toi aujourd'hui ?' et le laisser répondre.",
+        "S'il est débordé : 'Je vais pas te garder longtemps, on va à l'essentiel.' S'il est calme : 'Tu bosses sur quoi en ce moment ?'",
+        "Transition découverte : 'J'ai pris du temps pour regarder ton activité, j'ai même préparé un exemple de site. Mais avant, quelques questions.'",
+        "Question d'ouverture : 'Aujourd'hui, les clients ils te trouvent comment principalement ?' puis silence.",
+        "'J'ai déjà un site' : 'il sort à quelle position sur Google ?' (s'il ne sait pas, il ne sort pas).",
+        "Toujours finir par la charge : 'tu as de la capacité pour de nouveaux chantiers ou tu es bien chargé ?' (chargé → 'C'était pareil l'hiver dernier ?')."
+      ],
+      "example": "\"Salut [prénom] ! C'est [ton prénom]. Ça se passe comment pour toi aujourd'hui ?\""
+    },
+    {
+      "id": "phase-2-douleurs",
+      "category": "phase",
+      "title": "Phase 2 : Creuser les douleurs",
+      "summary": "Phase critique à ne jamais sauter : faire sortir la douleur réelle avec ses mots exacts avant toute présentation.",
+      "points": [
+        "Règle : tu ne présentes rien avant d'avoir fait sortir la douleur réelle. Note ses mots exacts.",
+        "Question pivot : 'c'est quoi ton plus gros problème côté activité en ce moment ?' sans rien suggérer.",
+        "Mois irréguliers : 'Quand c'est calme, concrètement ça se passe comment ?', 'Ça dure depuis combien de temps ?'",
+        "Concurrence : 'Quand un client cherche [activité] à [ville], c'est qui qui sort ?', 'Ça te fait quoi que ces demandes partent ailleurs ?'",
+        "'Pas de problème' : normaliser puis creuser ('y'a des mois où ils se demandent d'où viendra le prochain chantier, tu ressens ça ?')."
+      ],
+      "example": "\"Et si tu devais me dire c'est quoi ton plus gros problème côté activité en ce moment, ce serait quoi ?\""
+    },
+    {
+      "id": "phase-3-ambitions",
+      "category": "phase",
+      "title": "Phase 3 : Creuser les ambitions",
+      "summary": "Récupérer le carburant émotionnel : moins tu parles, plus il se vend le site tout seul.",
+      "points": [
+        "Question pivot : 'si t'avais une vraie source de clients réguliers sans courir après, ça changerait quoi pour toi concrètement ?' puis silence.",
+        "Stabilité : 'C'est quoi pour toi une activité qui tourne bien ?'",
+        "Choisir ses chantiers : 'T'aimerais choisir sur quels chantiers tu dis oui ?'",
+        "Image pro : 'Si t'avais un site pro avec tes réalisations, ça changerait la dynamique ?'",
+        "Check : tu dois pouvoir compléter 'il souffre de ___' et 'ce qu'il veut vraiment c'est ___'. Sinon, continue de creuser."
+      ],
+      "example": "\"Si t'avais une vraie source de clients réguliers sans courir après, ça changerait quoi pour toi concrètement ?\""
+    },
+    {
+      "id": "phase-4-pont-presentation",
+      "category": "phase",
+      "title": "Phase 4 : Le Pont puis la présentation",
+      "summary": "Acter le problème avec ses mots, faire surgir la vraie question, puis présenter le site comme réponse.",
+      "points": [
+        "Check mental : complète sa douleur et son ambition avec SES mots exacts.",
+        "Reformuler + valider : 'Aujourd'hui [douleur], et ce que tu voudrais vraiment c'est [ambition]. C'est bien ça ?'",
+        "Le pont : 'la vraie question c'est pas est-ce que j'ai besoin d'un site, c'est : veux-tu continuer à [douleur] ou enfin [ambition] ?' Laisse flotter.",
+        "Présentation en partage d'écran : exemple pour [activité] à [ville], services, photos, avis, bouton appeler.",
+        "Puis : 'si c'était ton site, ça pourrait t'amener des demandes en plus ?' → 'Oui' = prix et close ; 'peut-être' = pas assez creusé, retour douleur/ambition."
+      ],
+      "example": "\"La vraie question c'est : est-ce que tu veux continuer à [sa douleur]… ou enfin [son ambition] ?\""
+    },
+    {
+      "id": "phase-5-prix-close",
+      "category": "phase",
+      "title": "Phase 5 : Prix et Close",
+      "summary": "Annoncer le prix avec confiance, ancrer la valeur agence, puis poser le close et se taire.",
+      "points": [
+        "Ancrage : 'ce type de site chez une agence c'est entre 1000 et 3000€. Nous on est à 300€, site complet, mis en ligne.'",
+        "Rentabilité : 'Un seul client trouvé grâce au site et il est déjà remboursé.'",
+        "Close direct : 'On l'active pour ton activité ?' puis silence absolu, la prochaine personne qui parle a perdu.",
+        "'Oui' : ne célèbre pas, passe direct au paiement (carte ou virement, lien WhatsApp ou email, numéro actuel ou dédié).",
+        "Règle d'or objections : isoler avant de répondre, 'À part ça, est-ce qu'il y a autre chose qui te ferait hésiter ?' (si non → traite et close direct)."
+      ],
+      "example": "\"On l'active pour ton activité ?\""
+    },
+    {
+      "id": "objection-je-reflechis",
+      "category": "objection",
+      "title": "Objection : 'je dois réfléchir' / 'je te rappelle'",
+      "summary": "Isoler le vrai frein (souvent un non poli), ne jamais dire 'prends le temps', créer l'urgence du test à 300€.",
+      "points": [
+        "Ne JAMAIS dire 'prends le temps' : 'je te rappelle' est presque toujours un non poli.",
+        "Isoler : 'Qu'est-ce qui te ferait hésiter exactement ?' puis valider que sinon le site plaît.",
+        "Démasquer : 'quand tu dis ça, c'est vraiment que t'as besoin de temps ou y'a quelque chose qui te bloque et que t'as pas dit ?'",
+        "Recadrer + urgence : 'est-ce que ça vaut le coup de tester à 300€ ? Pendant que tu réfléchis, tes concurrents qui ont un site reçoivent ces demandes.'",
+        "Lever le risque : 'je l'active maintenant, et si dans 14 jours t'es pas satisfait je rembourse. Je maintiens pas le tarif 300€ après cet appel.'"
+      ],
+      "example": "\"La vraie question : est-ce que ça vaut le coup de tester à 300€ ? On le met en place aujourd'hui et tu vois dans 30 jours.\""
+    },
+    {
+      "id": "objection-en-parler-conjoint",
+      "category": "objection",
+      "title": "Objection : 'je dois en parler à ma femme / mon associé'",
+      "summary": "Vérifier qui décide vraiment, neutraliser l'objection imaginaire et proposer la garantie.",
+      "points": [
+        "Vérifier le décideur : 'Pour ce type de décision c'est toi qui tranches ou vous décidez ensemble ?'",
+        "Si 'c'est moi' : la vraie objection est ailleurs, 'Alors qu'est-ce qui te retient ?'",
+        "Projeter l'avis : 'Si elle était là maintenant, elle aurait une objection à un site 300€ qui peut vous amener des clients ?'",
+        "Lever le risque : 'On l'active maintenant et tu lui montres ce soir. Si ça lui va pas, garantie 14 jours.'"
+      ],
+      "example": "\"On l'active maintenant et tu lui montres ce soir. Si ça lui va pas, garantie 14 jours.\""
+    },
+    {
+      "id": "objection-trop-cher",
+      "category": "objection",
+      "title": "Objection : 'c'est trop cher'",
+      "summary": "Ne pas se défendre, creuser le 'par rapport à quoi', et ramener à la valeur d'un seul chantier.",
+      "points": [
+        "Ne te défends pas, creuse : 'Trop cher par rapport à quoi exactement ?'",
+        "Ancrage agence : 'Un site comme ça chez une agence c'est 1000 à 3000€. Là 300€.'",
+        "Valeur d'usage : 'Un seul chantier trouvé via le site, ça vaut combien pour toi ?'",
+        "Recadrer la question : pas 'est-ce que 300€ c'est cher', mais 'est-ce que ce site peut me ramener au moins un client ?'",
+        "Rappeler qu'il a dit lui-même pouvoir prendre plus de clients."
+      ],
+      "example": "\"La question c'est pas est-ce que 300€ c'est cher, c'est est-ce que ce site peut me ramener au moins un client ?\""
+    },
+    {
+      "id": "objection-pas-maintenant",
+      "category": "objection",
+      "title": "Objection : 'je ne peux pas maintenant'",
+      "summary": "Trancher entre frein de timing et de budget, puis lever chacun spécifiquement.",
+      "points": [
+        "Qualifier : 'C'est un problème de timing ou de budget ?'",
+        "Timing : 'La mise en ligne prend 48h, ça te prend pas de temps. Pendant que tu bosses, le site travaille en arrière-plan.'",
+        "Timing : le mettre maintenant, c'est récupérer des demandes le plus tôt possible.",
+        "Budget : proposer le paiement en plusieurs fois.",
+        "Budget : 'Un seul chantier et il est remboursé, il se finance tout seul dès le 1er mois.'"
+      ],
+      "example": "\"La mise en ligne prend 48h. Pendant que tu bosses, le site travaille en arrière-plan. On l'active ?\""
+    },
+    {
+      "id": "objection-deja-essaye",
+      "category": "objection",
+      "title": "Objection : 'j'ai déjà essayé, ça n'a rien donné'",
+      "summary": "La plus délicate : écouter vraiment, distinguer le site du référencement, rassurer avec la garantie.",
+      "points": [
+        "Écouter vraiment : 'Qu'est-ce que t'avais essayé ?' puis silence.",
+        "Distinguer : 'C'était le site lui-même ou il était pas visible sur Google ?'",
+        "Repositionner : 'Ce qu'on fait c'est un site conçu pour apparaître quand quelqu'un cherche [activité] à [ville]. C'est pas une vitrine, c'est un outil fait pour être trouvé.'",
+        "Lever le risque : '300€ avec garantie 14 jours, si t'as pas eu au moins une demande on rembourse. T'as rien à perdre.'"
+      ],
+      "example": "\"C'est pas une vitrine, c'est un outil fait pour être trouvé.\""
+    },
+    {
+      "id": "mindset-pricing",
+      "category": "mindset",
+      "title": "Pricing & offre",
+      "summary": "Mémoriser les chiffres clés pour ancrer la valeur et lever les freins financiers.",
+      "points": [
+        "Prix : 300€ unique + 10€/mois d'hébergement.",
+        "Ancrage agence : un site équivalent coûte entre 1000 et 3000€.",
+        "Garantie 14 jours : remboursé si pas au moins une demande, zéro risque.",
+        "Rentabilité : un seul client trouvé via le site rembourse l'investissement.",
+        "Encaissement : éviter les frais Sendpage, privilégier virement direct ou Stripe.",
+        "Le tarif 300€ n'est pas maintenu après l'appel (levier d'urgence)."
+      ],
+      "example": "\"On est à 300€, site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà remboursé.\""
+    },
+    {
+      "id": "mindset-creneaux-canal",
+      "category": "mindset",
+      "title": "Meilleurs créneaux & canal de closing",
+      "summary": "Optimiser quand appeler et comment closer pour maximiser les chances.",
+      "points": [
+        "Meilleurs créneaux d'appel : 9h-10h (top), 11h-12h, 13h-14h, 17h-19h.",
+        "Closing en visio (Google Meet) recommandé : moins de raccrochage, rassure sur l'arnaque.",
+        "Qualité du site secondaire si la découverte est bien faite : à ce moment-là il veut juste un site.",
+        "Spécialisation par secteur : pas obligatoire, utile pour industrialiser à grande échelle."
+      ]
+    }
+  ]
+}

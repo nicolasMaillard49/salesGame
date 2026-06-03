@@ -13,6 +13,8 @@ const PATHS: Record<string, React.ReactNode> = {
   lock: (<><rect x="5" y="11" width="14" height="9" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></>),
   trophy: (<><path d="M7 4h10v4a5 5 0 0 1-10 0z" /><path d="M7 6H4v1a3 3 0 0 0 3 3" /><path d="M17 6h3v1a3 3 0 0 1-3 3" /><path d="M9 20h6" /><path d="M12 14v6" /></>),
   target: (<><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /></>),
+  book: (<><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" /><path d="M19 17H6a2 2 0 0 0-2 2" /></>),
+  dumbbell: (<><path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12" /></>),
 };
 
 export type IconName = keyof typeof PATHS;

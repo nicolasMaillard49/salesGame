@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Icon from "@/components/Icon";
+
+function trainHref(skill: string): string {
+  return skill.startsWith("obj_") ? `/drill?skill=${skill}` : `/quiz?skill=${skill}`;
+}
 
 export type MasteryRow = { skill: string; label: string; score: number; attempts: number; weak: boolean };
 
@@ -55,13 +60,16 @@ export default function MasterySection({ rows }: { rows: MasteryRow[] }) {
         weak.length > 0 ? (
           <div className="grid sm:grid-cols-2 gap-3">
             {weak.map((r) => (
-              <div key={r.skill} className="weak-cell">
+              <Link key={r.skill} href={trainHref(r.skill)} className="weak-cell hover:border-[var(--green)] transition group">
                 <MiniRing score={r.score} />
-                <div>
+                <div className="flex-1">
                   <div className="font-semibold text-sm">{r.label}</div>
                   <div className="mono text-[10.5px] uppercase tracking-wide text-[var(--bad)] mt-0.5">point faible</div>
                 </div>
-              </div>
+                <span className="mono text-[11px] text-[var(--ink-faint)] group-hover:text-[var(--green-deep)] flex items-center gap-1 transition">
+                  S&apos;entraîner <Icon name="arrowRight" size={13} strokeWidth={2.5} />
+                </span>
+              </Link>
             ))}
           </div>
         ) : (

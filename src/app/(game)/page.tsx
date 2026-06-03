@@ -52,6 +52,15 @@ export default async function HubPage() {
 
   return (
     <div className="flex flex-col gap-[18px]">
+      {/* Suivi mémoire */}
+      {store.backend === "memory" && (
+        <p className="mono text-[11px] text-[#9a6a00] bg-[var(--ok-wash)] border border-[rgba(232,163,23,.3)] rounded-xl px-3 py-2">
+          Suivi local (Supabase non connecté) — la progression repart à zéro au redémarrage.
+        </p>
+      )}
+
+      {/* HERO + CONVERSATION (2 colonnes sur desktop) */}
+      <div className="grid lg:grid-cols-2 gap-[18px] items-stretch">
       {/* HERO */}
       <section className="glass hero reveal" style={{ animationDelay: "0.05s" }}>
         <div className="ring-wrap">
@@ -63,9 +72,9 @@ export default async function HubPage() {
             </div>
           </div>
         </div>
-        <div className="flex-1 min-w-[220px] relative z-[1]">
+        <div className="flex-1 min-w-[200px] relative z-[1]">
           <p className="eyebrow">Rang actuel</p>
-          <h1 className="display text-[clamp(30px,6vw,46px)]">{rank.name}</h1>
+          <h1 className="display text-[clamp(30px,5vw,42px)]">{rank.name}</h1>
           <p className="text-[var(--ink-soft)] text-sm mt-2">
             {next.next ? (
               <>Plus que <b className="text-[var(--green-deep)]">{next.remaining} XP</b> pour atteindre <b>{next.next}</b>.</>
@@ -80,16 +89,9 @@ export default async function HubPage() {
         </div>
       </section>
 
-      {/* Suivi mémoire */}
-      {store.backend === "memory" && (
-        <p className="mono text-[11px] text-[#9a6a00] bg-[var(--ok-wash)] border border-[rgba(232,163,23,.3)] rounded-xl px-3 py-2">
-          Suivi local (Supabase non connecté) — la progression repart à zéro au redémarrage.
-        </p>
-      )}
-
       {/* CONVERSATION FEATURE */}
       {teaser && teaserGood && (
-        <section className="glass reveal !p-0 overflow-hidden" style={{ animationDelay: "0.12s" }}>
+        <section className="glass reveal !p-0 overflow-hidden flex flex-col" style={{ animationDelay: "0.12s" }}>
           <div className="flex items-center justify-between px-[22px] py-[18px] border-b border-[var(--glass-edge)]">
             <span className="flex items-center gap-2.5 display text-base">
               <Icon name="chat" size={18} className="text-[var(--green-deep)]" />
@@ -97,7 +99,7 @@ export default async function HubPage() {
             </span>
             <span className="phase-dots"><i className="on" /><i className="on" /><i /><i /><i /></span>
           </div>
-          <div className="px-[22px] py-5 flex flex-col gap-3 bg-[linear-gradient(180deg,rgba(255,255,255,.25),transparent)]">
+          <div className="px-[22px] py-5 flex flex-col justify-center gap-3 flex-1 bg-[linear-gradient(180deg,rgba(255,255,255,.25),transparent)]">
             <div className="convo-msg convo-them">
               <span className="convo-who"><Icon name="worker" size={16} /></span>
               <div className="convo-body"><span className="block mono text-[9px] tracking-[.14em] uppercase opacity-60 mb-0.5">Artisan</span>{teaser.artisanLine}</div>
@@ -113,6 +115,7 @@ export default async function HubPage() {
           </div>
         </section>
       )}
+      </div>
 
       {/* MODES */}
       <section className="grid sm:grid-cols-3 gap-3.5 reveal" style={{ animationDelay: "0.18s" }}>
@@ -131,6 +134,16 @@ export default async function HubPage() {
 
       {/* MAÎTRISE */}
       <MasterySection rows={rows} />
+
+      {/* BIBLIOTHÈQUE */}
+      <Link href="/fiches" className="glass mode reveal flex-row items-center gap-4 !flex" style={{ animationDelay: "0.3s" }}>
+        <span className="mode-ic"><Icon name="book" size={24} /></span>
+        <div className="flex-1">
+          <h3 className="display text-lg">Bibliothèque de fiches</h3>
+          <p className="text-[var(--ink-soft)] text-[13.5px] mt-0.5">Tous les scripts, techniques et réponses aux objections — à réviser entre deux parties.</p>
+        </div>
+        <span className="mode-arr"><Icon name="arrowRight" size={18} strokeWidth={2.5} /></span>
+      </Link>
     </div>
   );
 }

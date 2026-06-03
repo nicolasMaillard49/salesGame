@@ -5,6 +5,7 @@ import {
   QuizFileSchema,
   ObjectionsFileSchema,
   ScenariosFileSchema,
+  FichesFileSchema,
 } from "@/lib/content/schema";
 import { OBJECTION_SKILLS, PHASE_SKILLS } from "@/lib/types";
 
@@ -52,5 +53,11 @@ describe("contenu — schémas", () => {
       const phases = s.phases.map((p) => p.phase);
       for (const ph of PHASE_SKILLS) expect(phases.includes(ph), `${s.id}:${ph}`).toBe(true);
     }
+  });
+
+  it("fiches.json est valide et les ids sont uniques", () => {
+    const { items } = FichesFileSchema.parse(read("fiches.json"));
+    expect(items.length).toBeGreaterThan(0);
+    expect(new Set(items.map((f) => f.id)).size).toBe(items.length);
   });
 });

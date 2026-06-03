@@ -50,11 +50,22 @@ export const ScenarioSchema = z.object({
   phases: z.array(PhaseNodeSchema).min(1),
 });
 
+export const FicheSchema = z.object({
+  id: z.string(),
+  category: z.enum(["ouverture", "decouverte", "closing", "objection", "phase", "mindset"]),
+  title: z.string(),
+  summary: z.string(),
+  points: z.array(z.string()).min(1),
+  example: z.string().optional(),
+});
+
 export const QuizFileSchema = z.object({ items: z.array(QuizItemSchema) });
 export const ObjectionsFileSchema = z.object({ items: z.array(ObjectionSchema) });
 export const ScenariosFileSchema = z.object({ items: z.array(ScenarioSchema) });
+export const FichesFileSchema = z.object({ items: z.array(FicheSchema) });
 
 export type QuizItem = z.infer<typeof QuizItemSchema>;
+export type Fiche = z.infer<typeof FicheSchema>;
 export type Objection = z.infer<typeof ObjectionSchema>;
 export type ObjectionOption = z.infer<typeof ObjectionOptionSchema>;
 export type Scenario = z.infer<typeof ScenarioSchema>;

@@ -30,8 +30,9 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   const obj = round ? round[i] : undefined;
 
   useEffect(() => {
+    // sous-ensemble aléatoire (max 12) pour des manches courtes et rejouables
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setRound(shuffle(items));
+    setRound(shuffle(items).slice(0, Math.min(12, items.length)));
     startSession("drill").then(setSessionId);
   }, [items]);
 

@@ -29,6 +29,62 @@
       ]
     },
     {
+      "id": "obj_reflechir",
+      "label": "Je dois réfléchir",
+      "artisanLine": "Bon... faut que je laisse décanter tout ça, je vais y penser quelques jours.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Je t'entends. Concrètement, qu'est-ce qui te ferait hésiter exactement ? Parce que si le site te plaît, on n'a pas vraiment besoin de plusieurs jours.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on isole le vrai frein plutôt que d'accepter le délai flou, fidèle au 'qu'est-ce qui te ferait hésiter exactement ?'."
+        },
+        {
+          "text": "Très bien, je vous laisse penser à tête reposée et je reviens vers vous.",
+          "quality": "bad",
+          "feedback": "À éviter : laisser 'décanter' c'est accepter le non poli. On ne propose pas de revenir plus tard, on creuse maintenant."
+        },
+        {
+          "text": "Pendant que tu y penses, tes concurrents qui ont déjà un site, eux, ils reçoivent les demandes. On le met en place aujourd'hui et tu juges sur 30 jours.",
+          "quality": "ok",
+          "feedback": "Bon argument du script (urgence + test 30 jours), mais on gagne à d'abord faire sortir le vrai blocage."
+        },
+        {
+          "text": "Pas de problème, je vous rappelle dans une semaine pour voir où vous en êtes.",
+          "quality": "bad",
+          "feedback": "Mauvais : on reporte et on perd la chaleur du moment. Le 'je réfléchis' doit être traité dans l'appel."
+        }
+      ]
+    },
+    {
+      "id": "obj_reflechir",
+      "label": "Je dois réfléchir",
+      "artisanLine": "Je suis pas du genre à décider sur un coup de tête, faut que je réfléchisse.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Et c'est tout à ton honneur. Du coup, sur quoi exactement tu as besoin de réfléchir — le site, le prix, ou autre chose ? Dis-moi et on en parle tout de suite.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valorise sa prudence puis on isole le vrai sujet, au lieu de laisser le 'je réfléchis' clore l'appel."
+        },
+        {
+          "text": "Je respecte ça, prenez votre temps pour bien faire les choses.",
+          "quality": "bad",
+          "feedback": "À éviter : 'prenez votre temps' valide la fuite. Une décision à 300€ avec garantie 14 jours ne demande pas des jours."
+        },
+        {
+          "text": "Justement, comme la garantie 14 jours te couvre, tu ne décides pas vraiment sur un coup de tête : tu testes sans risque et tu te rétractes si ça te va pas.",
+          "quality": "ok",
+          "feedback": "Bon usage de la garantie pour lever le risque, mais le script recommande d'abord d'isoler ce qui le fait hésiter."
+        },
+        {
+          "text": "Vous savez, tous mes clients ont réfléchi aussi et ils ont tous dit oui.",
+          "quality": "bad",
+          "feedback": "Mauvais : argument creux et pression sociale qui sonne faux, sans traiter son frein réel."
+        }
+      ]
+    },
+    {
       "id": "obj_femme_associe",
       "label": "Je dois en parler à ma femme / mon associé",
       "artisanLine": "Je dois en parler à ma femme avant de décider, c'est elle qui gère les comptes.",
@@ -53,6 +109,62 @@
           "text": "On peut l'activer maintenant et vous lui montrez ce soir ; si ça ne lui va pas, garantie 14 jours, vous êtes remboursé.",
           "quality": "ok",
           "feedback": "Bon argument issu du script, mais idéalement on vérifie d'abord s'il est vraiment décisionnaire avant de proposer ça."
+        }
+      ]
+    },
+    {
+      "id": "obj_femme_associe",
+      "label": "Je dois en parler à ma femme / mon associé",
+      "artisanLine": "Faut que je voie ça avec mon associé, on prend pas ce genre de décision tout seul.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Logique. Sur un investissement comme ça c'est toi qui tranches ou vous décidez vraiment à deux ? Parce que s'il était là, qu'est-ce qu'il objecterait à un site 300€ qui peut vous ramener des chantiers ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on clarifie le pouvoir de décision et on fait projeter l'objection de l'associé pour la désamorcer."
+        },
+        {
+          "text": "Bon, voyez ça entre vous et tenez-moi au courant.",
+          "quality": "bad",
+          "feedback": "Mauvais : on relâche le lead sans savoir si l'associé est un vrai décideur ou un prétexte."
+        },
+        {
+          "text": "Vous êtes deux à gérer, donc deux fois plus de chantiers à remplir : un site qui ramène des demandes, ça parle aussi à ton associé, non ?",
+          "quality": "ok",
+          "feedback": "Bon angle ROI adapté au duo, mais le script veut d'abord savoir qui décide réellement avant d'argumenter."
+        },
+        {
+          "text": "Votre associé, il dit toujours non à tout de toute façon ?",
+          "quality": "bad",
+          "feedback": "Mauvais : on dénigre son associé, il se braque et défend son partenaire au lieu de t'écouter."
+        }
+      ]
+    },
+    {
+      "id": "obj_femme_associe",
+      "label": "Je dois en parler à ma femme / mon associé",
+      "artisanLine": "À la maison c'est ma femme qui valide les dépenses, je peux pas signer là comme ça.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Je comprends. Sur une dépense à 300€ avec garantie 14 jours, c'est vraiment elle qui doit valider ou tu peux décider et lui montrer après ? Si elle voyait que ça peut ramener des clients, elle dirait quoi ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on teste s'il est décisionnaire et on neutralise l'objection de la femme grâce au montant faible et à la garantie."
+        },
+        {
+          "text": "D'accord, demandez-lui ce soir et on se rappelle demain.",
+          "quality": "bad",
+          "feedback": "Mauvais : on reporte. Souvent 'ma femme' est un paravent ; il faut isoler le vrai frein dans l'appel."
+        },
+        {
+          "text": "On l'active maintenant, tu lui montres ce soir, et si elle n'est pas d'accord la garantie 14 jours te rembourse intégralement. Zéro risque pour le couple.",
+          "quality": "ok",
+          "feedback": "Bon usage de la garantie, mais le script conseille de vérifier d'abord s'il est réellement le décideur."
+        },
+        {
+          "text": "Bah écoutez, c'est vous le chef à la maison non ? Prenez la décision.",
+          "quality": "bad",
+          "feedback": "Mauvais : on le pousse à se braquer ou à mentir sur son rôle ; ton condescendant qui casse la confiance."
         }
       ]
     },
@@ -85,6 +197,62 @@
       ]
     },
     {
+      "id": "obj_trop_cher",
+      "label": "C'est trop cher",
+      "artisanLine": "Franchement c'est pas dans mon budget en ce moment, 300 balles ça fait beaucoup.",
+      "difficulty": 1,
+      "options": [
+        {
+          "text": "Cher par rapport à quoi exactement ? Parce qu'un seul chantier décroché grâce au site, ça te rapporte combien ? Là on parle de 300€ une fois, pas tous les mois.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on creuse la référence du 'cher' puis on ancre le ROI d'un seul chantier, sans se défendre."
+        },
+        {
+          "text": "Si c'est une question de budget, je peux descendre un peu le tarif.",
+          "quality": "bad",
+          "feedback": "Mauvais : brader confirme que le prix était gonflé et détruit la valeur perçue de l'offre."
+        },
+        {
+          "text": "Tu m'as dit que tu pouvais prendre plus de chantiers : un seul trouvé via le site et il est déjà remboursé, donc il se finance tout seul.",
+          "quality": "ok",
+          "feedback": "Bon recadrage ROI fidèle au script, mais on commence idéalement par 'trop cher par rapport à quoi ?'."
+        },
+        {
+          "text": "300€ c'est rien du tout enfin, faut arrêter.",
+          "quality": "bad",
+          "feedback": "Mauvais : on minimise son ressenti et on le juge, il se ferme immédiatement."
+        }
+      ]
+    },
+    {
+      "id": "obj_trop_cher",
+      "label": "C'est trop cher",
+      "artisanLine": "J'ai un cousin qui me ferait un site gratos, alors 300€ ça me paraît élevé.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Carrément, et s'il te le fait bien tant mieux. Mais dis-moi : il est conçu pour ressortir sur Google quand on cherche ton activité dans ta ville, ou c'est juste une vitrine ? Parce que c'est ça qui ramène les chantiers, et ça vaut bien plus que 300€.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on ne brade pas, on déplace le débat de 'gratuit vs 300€' vers 'site trouvable qui rapporte', en ancrant la valeur."
+        },
+        {
+          "text": "Un site gratuit c'est de la camelote, ça ne marchera jamais.",
+          "quality": "bad",
+          "feedback": "Mauvais : on dénigre son cousin et son choix, il se braque et défend son entourage."
+        },
+        {
+          "text": "Si tu as une solution gratuite, je comprends — mais un seul chantier décroché ici et les 300€ sont remboursés ; un site mal fait peut te coûter bien plus en clients perdus.",
+          "quality": "ok",
+          "feedback": "Bon recadrage ROI, mais le script préfère d'abord requalifier ce que le 'gratuit' offre vraiment avant de comparer."
+        },
+        {
+          "text": "Bon, vu que vous avez le gratuit, je vais pas insister, bonne journée.",
+          "quality": "bad",
+          "feedback": "Mauvais : on abandonne sans tester si le 'gratuit' est réel ou un simple prétexte de prix."
+        }
+      ]
+    },
+    {
       "id": "obj_pas_maintenant",
       "label": "Pas maintenant",
       "artisanLine": "Là c'est pas le bon moment, je ne peux pas faire ça maintenant.",
@@ -109,6 +277,62 @@
           "text": "Si vous ne le prenez pas maintenant, l'offre disparaît pour toujours.",
           "quality": "bad",
           "feedback": "Pression artificielle non prévue par le script : ça sonne faux et fait perdre la confiance."
+        }
+      ]
+    },
+    {
+      "id": "obj_pas_maintenant",
+      "label": "Pas maintenant",
+      "artisanLine": "Je suis débordé en ce moment, j'ai pas le temps de m'occuper d'un site.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Justement, c'est un souci de temps ou de budget ? Parce que côté temps : la mise en ligne prend 48h et c'est nous qui gérons. Pendant que tu bosses, le site bosse pour toi en arrière-plan.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on qualifie (timing vs budget) puis, sur le timing, on lève l'effort demandé. C'est nous qui faisons le travail."
+        },
+        {
+          "text": "Pas de souci, je vous rappelle quand vous serez moins chargé.",
+          "quality": "bad",
+          "feedback": "Mauvais : on reporte sans qualifier ; 'débordé' peut justement être l'argument (le site travaille à ta place)."
+        },
+        {
+          "text": "Être débordé aujourd'hui c'est bien, mais le site te prépare les chantiers de demain quand ça sera plus calme. Ça t'évite les creux. On l'active ?",
+          "quality": "ok",
+          "feedback": "Bon angle (lisser l'activité), mais le script veut d'abord trancher entre timing et budget avant d'argumenter."
+        },
+        {
+          "text": "Tout le monde est débordé, ça c'est pas une vraie raison.",
+          "quality": "bad",
+          "feedback": "Mauvais : on balaie son ressenti et on le contredit, il se braque."
+        }
+      ]
+    },
+    {
+      "id": "obj_pas_maintenant",
+      "label": "Pas maintenant",
+      "artisanLine": "On vient de passer une grosse dépense, faut que je laisse passer quelques mois.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Je comprends, donc c'est plutôt une question de budget que de timing ? Si c'est ça, on peut voir un paiement en plusieurs fois — et surtout, un seul chantier trouvé via le site et il est déjà remboursé. Il se finance tout seul dès le 1er mois.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on qualifie, on identifie le budget et on lève le frein (paiement échelonné + ROI au 1er chantier)."
+        },
+        {
+          "text": "Ok, recontactez-moi dans quelques mois alors.",
+          "quality": "bad",
+          "feedback": "Mauvais : on lâche le lead et on perd le momentum, sans avoir traité le frein budget."
+        },
+        {
+          "text": "Attendre quelques mois, c'est aussi quelques mois de demandes qui partent chez tes concurrents qui ont déjà un site. Là, à 300€, le site se rembourse au 1er chantier.",
+          "quality": "ok",
+          "feedback": "Bon argument coût d'opportunité, mais le script recommande d'abord de confirmer que c'est bien le budget puis de proposer l'échelonné."
+        },
+        {
+          "text": "Une grosse dépense de plus ou de moins, à 300€ ça change rien franchement.",
+          "quality": "bad",
+          "feedback": "Mauvais : on minimise sa situation financière, ça sonne méprisant et il se ferme."
         }
       ]
     },
@@ -141,6 +365,62 @@
       ]
     },
     {
+      "id": "obj_deja_essaye",
+      "label": "J'ai déjà essayé",
+      "artisanLine": "J'avais payé une boîte une fortune pour un site, résultat : zéro, jamais rappelé.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "Ça me parle, et c'est exactement ce qu'on veut éviter. Dis-moi : il était visible sur Google quand on cherchait ton activité dans ta ville, ou c'était une jolie vitrine que personne ne trouvait ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on compatit puis on diagnostique la cause réelle (visibilité) avant d'argumenter. C'est la plus délicate, on écoute."
+        },
+        {
+          "text": "Ah, vous vous êtes fait avoir, ils vous ont arnaqué.",
+          "quality": "bad",
+          "feedback": "Mauvais : dramatiser ravive sa mauvaise expérience et le rend méfiant envers tous les vendeurs, dont toi."
+        },
+        {
+          "text": "Nous on est à 300€ tout compris avec garantie 14 jours : si tu n'as pas eu au moins une demande, on rembourse. Tu ne peux pas te refaire avoir.",
+          "quality": "ok",
+          "feedback": "Bonne réassurance via la garantie, mais le script demande d'abord de comprendre ce qui avait échoué avant de proposer."
+        },
+        {
+          "text": "C'est pour ça qu'il faut bosser avec nous et pas avec n'importe qui.",
+          "quality": "bad",
+          "feedback": "Mauvais : auto-promotion creuse sans diagnostic, on lui demande de croire sur parole après une déception."
+        }
+      ]
+    },
+    {
+      "id": "obj_deja_essaye",
+      "label": "J'ai déjà essayé",
+      "artisanLine": "J'ai testé un truc tout fait genre Wix, j'ai laissé tomber, ça servait à rien.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "Et qu'est-ce qui a fait que t'as laissé tomber — c'était trop compliqué à gérer, ou il ne ramenait personne ? Parce que souvent ces sites-là ne sont jamais conçus pour ressortir sur Google.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on creuse le vécu exact puis on pointe la vraie cause (pas pensé pour être trouvé), sans le rabaisser."
+        },
+        {
+          "text": "Wix c'est nul, c'est normal que ça n'ait pas marché.",
+          "quality": "bad",
+          "feedback": "Mauvais : on juge son choix passé, il se sent visé et se ferme."
+        },
+        {
+          "text": "Nous on s'occupe de tout et le site est conçu pour être trouvé, pas une vitrine que tu dois bricoler. À 300€ avec garantie 14 jours, tu testes sans risque.",
+          "quality": "ok",
+          "feedback": "Bon contraste avec le bricolage, mais le script veut d'abord comprendre pourquoi il a abandonné avant de présenter."
+        },
+        {
+          "text": "Si tu n'y arrives pas tout seul c'est normal, c'est pas ton métier.",
+          "quality": "bad",
+          "feedback": "Mauvais : condescendant, on souligne son incompétence supposée et il se braque."
+        }
+      ]
+    },
+    {
       "id": "obj_rappelle",
       "label": "Je te rappelle",
       "artisanLine": "Laissez-moi votre numéro, je vous rappelle.",
@@ -165,6 +445,62 @@
           "text": "Vous me faites perdre mon temps là.",
           "quality": "bad",
           "feedback": "Mauvais : agressif, on perd toute chance et on dégrade l'image."
+        }
+      ]
+    },
+    {
+      "id": "obj_rappelle",
+      "label": "Je te rappelle",
+      "artisanLine": "Écoutez, je note votre numéro et je reviens vers vous d'ici la fin de semaine.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "Franchement, entre nous : la fin de semaine c'est souvent une façon polie de dire non. Y'a un truc précis qui te bloque et que t'as pas osé me dire ? Dis-moi, on le règle tout de suite.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on nomme gentiment le 'non poli' pour faire sortir l'objection réelle et la traiter dans l'appel."
+        },
+        {
+          "text": "Super, je bloque une note pour vendredi alors, j'attends votre retour.",
+          "quality": "bad",
+          "feedback": "Mauvais : on accepte le report ; dans la quasi-totalité des cas le rappel n'arrive jamais."
+        },
+        {
+          "text": "Pas de souci, mais je préfère être transparent : je ne garantis pas le tarif 300€ après l'appel. On peut l'activer maintenant avec garantie 14 jours, zéro risque.",
+          "quality": "ok",
+          "feedback": "Bon levier (tarif non maintenu + garantie) s'il insiste, mais le script conseille d'abord de faire admettre le vrai frein."
+        },
+        {
+          "text": "Vous savez que 9 personnes sur 10 qui disent ça ne rappellent jamais ?",
+          "quality": "bad",
+          "feedback": "Mauvais : on le culpabilise et on le prend de haut, il se braque et raccroche."
+        }
+      ]
+    },
+    {
+      "id": "obj_rappelle",
+      "label": "Je te rappelle",
+      "artisanLine": "Là je peux pas parler, je suis sur un chantier, je vous rappelle plus tard.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "Pas de souci, je te prends 30 secondes pas plus. Dis-moi juste : si je te recontacte ce soir tranquille, c'est vraiment pour qu'on aille au bout, ou y'a déjà un truc qui te fait dire non ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on respecte le terrain mais on teste si le 'rappel' est sincère ou un non poli, pour faire sortir le vrai blocage."
+        },
+        {
+          "text": "Ok, je vous rappelle plus tard alors, bon courage sur le chantier.",
+          "quality": "bad",
+          "feedback": "Mauvais : on lâche sans verrouiller ni qualifier ; le rappel risque de ne jamais aboutir."
+        },
+        {
+          "text": "Je comprends que tu sois occupé. Le souci c'est que je ne maintiens pas le tarif 300€ après l'appel ; on peut faire un partage d'écran de 10 min ce soir, ça te va ?",
+          "quality": "ok",
+          "feedback": "Bon verrouillage de RDV avec levier tarif, mais on gagne d'abord à s'assurer que ce n'est pas une fuite déguisée."
+        },
+        {
+          "text": "Un chantier ça attend, là c'est important ce que j'ai à vous dire.",
+          "quality": "bad",
+          "feedback": "Mauvais : on méprise son travail en cours, c'est irrespectueux et il raccroche."
         }
       ]
     },
@@ -197,6 +533,62 @@
       ]
     },
     {
+      "id": "obj_bouche_a_oreille",
+      "label": "J'ai le bouche-à-oreille",
+      "artisanLine": "Mes clients me ramènent d'autres clients, j'ai jamais eu besoin de pub ou d'internet.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "C'est la meilleure preuve que tu fais du bon boulot, sincèrement. Mais dis-moi : si un mois le bouche-à-oreille ralentit OU que tu veux carrément plus de chantiers, tu peux actionner quelque chose, ou tu subis ce que les gens décident de raconter ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valide sa réussite puis on applique le 'OU' à deux scénarios pour révéler sa dépendance sans le braquer."
+        },
+        {
+          "text": "Oui mais le bouche-à-oreille ça finit toujours par s'essouffler, croyez-moi.",
+          "quality": "bad",
+          "feedback": "À éviter : un seul scénario catastrophe ; il répond 'pourquoi ça s'arrêterait ?' et l'objection se renforce."
+        },
+        {
+          "text": "Justement, ces gens qui te recommandent, le nouveau client va chercher ton nom sur Google avant d'appeler. Là il tombe sur quoi ? Un site pro renforce la recommandation.",
+          "quality": "ok",
+          "feedback": "Bon angle (pluguer sur l'existant), mais le script privilégie d'abord la question en 'OU' qui crée l'ouverture."
+        },
+        {
+          "text": "Le bouche-à-oreille, à l'heure d'internet, ça ne suffit plus pour personne.",
+          "quality": "bad",
+          "feedback": "Mauvais : on contredit frontalement ce qui le fait vivre, il se ferme."
+        }
+      ]
+    },
+    {
+      "id": "obj_bouche_a_oreille",
+      "label": "J'ai le bouche-à-oreille",
+      "artisanLine": "Dans mon village tout le monde me connaît, j'ai pas besoin d'être sur internet.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Et c'est une vraie force d'être connu localement. La question c'est : si demain tu veux des chantiers dans les communes à côté OU si la concurrence s'installe, tu peux aller chercher ces clients, ou tu restes dépendant de qui te connaît déjà ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valorise le local puis on utilise le 'OU' (expansion / concurrence) pour ouvrir sans nier sa notoriété."
+        },
+        {
+          "text": "Oui mais le village ça suffira jamais pour vraiment se développer.",
+          "quality": "bad",
+          "feedback": "À éviter : un seul angle négatif, il se braque ('je m'en sors très bien comme ça'). Le 'OU' du script évite ça."
+        },
+        {
+          "text": "Même connu, les nouveaux arrivants et les jeunes te cherchent sur Google avant d'appeler : un site capte ceux qui ne te connaissent pas encore.",
+          "quality": "ok",
+          "feedback": "Bon angle (capter le non-connu), mais le script veut d'abord poser la question en 'OU' pour créer l'ouverture."
+        },
+        {
+          "text": "Un village ça suffit pas, faut voir plus grand quand même.",
+          "quality": "bad",
+          "feedback": "Mauvais : on juge ses ambitions et on impose son point de vue, il se ferme."
+        }
+      ]
+    },
+    {
       "id": "obj_seul",
       "label": "Je travaille seul",
       "artisanLine": "Je travaille tout seul et ça me suffit largement comme ça.",
@@ -221,6 +613,62 @@
           "text": "Même seul, avoir plus de demandes vous permet de choisir vos meilleurs chantiers plutôt que de prendre tout ce qui passe.",
           "quality": "ok",
           "feedback": "Argument pertinent, mais le challenge direct sur l'ambition du script provoque une ouverture plus puissante."
+        }
+      ]
+    },
+    {
+      "id": "obj_seul",
+      "label": "Je travaille seul",
+      "artisanLine": "Je suis qu'une petite entreprise, moi, un homme et sa camionnette, ça suffit.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Respect, c'est déjà beau de faire tourner ça seul. Du coup tu comptes rester un homme et sa camionnette, ou t'aimerais à terme développer un peu la boîte ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on félicite puis on challenge l'ambition pour le faire se positionner, ce qui ouvre la discussion."
+        },
+        {
+          "text": "Une camionnette en 2026 ça fait un peu juste pour être crédible non ?",
+          "quality": "bad",
+          "feedback": "Mauvais : on rabaisse sa structure, il se sent attaqué et se ferme."
+        },
+        {
+          "text": "Même seul, un site te permet de choisir les chantiers qui paient le mieux au lieu d'accepter tout pour remplir l'agenda.",
+          "quality": "ok",
+          "feedback": "Argument pertinent (sélectivité), mais le script obtient une meilleure ouverture en challengeant d'abord l'ambition."
+        },
+        {
+          "text": "Tout seul vous n'irez jamais bien loin, il faut grandir.",
+          "quality": "bad",
+          "feedback": "Mauvais : on impose un jugement sur son projet de vie, il se braque."
+        }
+      ]
+    },
+    {
+      "id": "obj_seul",
+      "label": "Je travaille seul",
+      "artisanLine": "J'ai déjà assez de boulot tout seul, j'arrive même pas à tout faire.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "C'est une bonne position d'être chargé. Mais entre nous : t'aimerais pas pouvoir choisir tes chantiers — garder les plus rentables et refuser les galères — plutôt que de prendre tout ce qui tombe ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on transforme le 'trop de boulot' en levier de sélectivité et d'ambition, ce qui le fait réfléchir et s'ouvrir."
+        },
+        {
+          "text": "Si vous êtes débordé, c'est qu'un site ne vous servirait à rien.",
+          "quality": "bad",
+          "feedback": "Mauvais : on lui donne soi-même la sortie et on tue la vente sans creuser."
+        },
+        {
+          "text": "Un site te ramène des demandes en continu, donc même chargé tu prépares les périodes plus calmes et tu lisses ton activité.",
+          "quality": "ok",
+          "feedback": "Bon angle (lisser les creux), mais le script crée une ouverture plus forte en le challengeant sur le fait de choisir ses chantiers."
+        },
+        {
+          "text": "Bah si vous croulez sous le travail, embauchez et appelez-moi après.",
+          "quality": "bad",
+          "feedback": "Mauvais : on reporte et on abandonne le lead au lieu d'utiliser la charge comme argument de sélectivité."
         }
       ]
     },
@@ -253,6 +701,62 @@
       ]
     },
     {
+      "id": "obj_deja_appele",
+      "label": "On m'a déjà appelé pour ça",
+      "artisanLine": "Vous êtes le troisième cette semaine à m'appeler pour un site, franchement.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Ça ne m'étonne pas, vous êtes visiblement repéré. Mais du coup, qu'est-ce qui a fait que vous n'avez pas dit oui aux deux autres ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on reste calme et on fait sortir le vrai frein. On ne demande surtout pas soi-même s'il a déjà payé."
+        },
+        {
+          "text": "Et vous en avez pris un avec l'un d'eux, ou pas encore ?",
+          "quality": "bad",
+          "feedback": "Mauvais : c'est lui tendre l'échappatoire ('oui j'ai déjà signé'). On ne demande jamais soi-même s'il a payé."
+        },
+        {
+          "text": "Trois en une semaine, c'est bien la preuve que ne pas avoir de site, ça se remarque, non ?",
+          "quality": "ok",
+          "feedback": "Bonne pique qui plante le besoin, mais le script va plus vite en creusant ce qui l'a bloqué avec les autres."
+        },
+        {
+          "text": "Les autres c'est sûrement des arnaqueurs, moi je suis sérieux.",
+          "quality": "bad",
+          "feedback": "Mauvais : on dénigre les concurrents sans rien apprendre, ça sonne défensif et peu crédible."
+        }
+      ]
+    },
+    {
+      "id": "obj_deja_appele",
+      "label": "On m'a déjà appelé pour ça",
+      "artisanLine": "Des commerciaux qui veulent me vendre un site, j'en ai déjà eu dix, ça m'intéresse pas.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Je comprends la lassitude. Mais juste par curiosité : sur les dix, y'en a bien eu un qui t'a presque convaincu — qu'est-ce qui a fait que t'as quand même dit non ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on désamorce la lassitude et on fait remonter la vraie objection passée, sans paniquer ni demander s'il a payé."
+        },
+        {
+          "text": "Justement, vous en avez signé un parmi les dix ?",
+          "quality": "bad",
+          "feedback": "Mauvais : on lui sert l'échappatoire ('oui j'en ai déjà un'). Ne jamais demander soi-même s'il a payé."
+        },
+        {
+          "text": "Dix appels, c'est dix personnes qui voient un truc que toi tu vois peut-être pas : sans site, tu perds des clients tous les jours. Qu'est-ce qui t'a retenu jusqu'ici ?",
+          "quality": "ok",
+          "feedback": "Correct et finit par creuser, mais la pression initiale peut braquer ; le script va droit au frein passé plus en douceur."
+        },
+        {
+          "text": "Si ça vous intéresse pas, pourquoi vous avez décroché alors ?",
+          "quality": "bad",
+          "feedback": "Mauvais : on le prend de haut, ton de reproche, il raccroche."
+        }
+      ]
+    },
+    {
       "id": "obj_site_sans_trafic",
       "label": "Un site sans trafic ça sert à rien",
       "artisanLine": "Un site sans visiteurs ça sert à rien, personne ne va le voir de toute façon.",
@@ -281,6 +785,62 @@
       ]
     },
     {
+      "id": "obj_site_sans_trafic",
+      "label": "Un site sans trafic ça sert à rien",
+      "artisanLine": "Faire un site c'est bien beau, mais faut le faire connaître après, et ça personne le fait.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "T'as raison, un site qu'on ne fait pas connaître ça dort. C'est pour ça que celui-là est pensé pour ressortir sur Google quand on cherche ton métier dans ta ville. Et tes clients de bouche-à-oreille, eux, te cherchent déjà par ton nom : aujourd'hui ils tombent sur quoi ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valide son point, on le rassure sur la visibilité puis on s'appuie sur le trafic existant du bouche-à-oreille."
+        },
+        {
+          "text": "Vous inquiétez pas pour ça, le site se fera connaître tout seul.",
+          "quality": "bad",
+          "feedback": "Mauvais : promesse vague qui nie justement le souci qu'il vient de soulever, perte totale de crédibilité."
+        },
+        {
+          "text": "Détrompe-toi, le référencement on s'en occupe pour qu'il soit trouvé sur les bonnes recherches dans ta zone.",
+          "quality": "ok",
+          "feedback": "Bon point sur le SEO, mais le script va dans son sens d'abord et appuie sur le bouche-à-oreille existant pour être plus convaincant."
+        },
+        {
+          "text": "C'est pas vrai ça, un site se fait toujours connaître.",
+          "quality": "bad",
+          "feedback": "Mauvais : on contredit frontalement un point en partie juste, il se braque."
+        }
+      ]
+    },
+    {
+      "id": "obj_site_sans_trafic",
+      "label": "Un site sans trafic ça sert à rien",
+      "artisanLine": "Personne tape mon nom sur Google, j'vois pas qui irait sur mon site.",
+      "difficulty": 3,
+      "options": [
+        {
+          "text": "C'est juste, peu de gens tapent ton nom directement. Mais quand quelqu'un cherche 'ton métier + ta ville', là il y a du monde — et aujourd'hui c'est tes concurrents qui sortent. Le site est fait pour que ce soit toi qu'on trouve sur ces recherches-là.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valide son point puis on déplace vers les recherches génériques métier+ville, là où est le vrai trafic. On plugue sur la réalité."
+        },
+        {
+          "text": "Bien sûr que des gens tapent votre nom, vous sous-estimez votre notoriété.",
+          "quality": "bad",
+          "feedback": "Mauvais : on le contredit sur un fait qu'il connaît mieux que toi, il se braque."
+        },
+        {
+          "text": "Même sans recherche de nom, ceux que tu croises ou qui ont ta carte vont vérifier que t'existes en ligne ; là ils tombent sur quoi ?",
+          "quality": "ok",
+          "feedback": "Angle valable (réassurance), mais le levier le plus fort reste les recherches métier+ville où se trouve le vrai volume."
+        },
+        {
+          "text": "De toute façon aujourd'hui tout se passe sur internet, point.",
+          "quality": "bad",
+          "feedback": "Mauvais : généralité qui balaie son objection sans y répondre, ça sonne creux."
+        }
+      ]
+    },
+    {
       "id": "obj_prix_mail",
       "label": "Envoyez-moi le prix / le site par mail",
       "artisanLine": "Envoyez-moi tout ça par mail avec le prix, je regarderai tranquillement.",
@@ -305,6 +865,62 @@
           "text": "Je préfère ne pas donner le prix, c'est confidentiel.",
           "quality": "bad",
           "feedback": "Mauvais : 'confidentiel' crée de la méfiance ; le script lève la pression prix ('gratuit de regarder') et impose le RDV."
+        }
+      ]
+    },
+    {
+      "id": "obj_prix_mail",
+      "label": "Envoyez-moi le prix / le site par mail",
+      "artisanLine": "Vous avez pas un lien que vous pouvez m'envoyer par SMS pour que je regarde le site ?",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "J'aimerais bien, mais le site est sur mon ordi, pas encore mis en ligne — y'a rien à t'envoyer pour l'instant. Le mieux c'est qu'on prenne 10 min en partage d'écran, je te le montre en direct et tu me dis ce que t'en penses.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on justifie qu'il n'y a rien à envoyer et on bascule sur le RDV partage d'écran obligatoire."
+        },
+        {
+          "text": "Oui tenez, je vous envoie le lien par SMS tout de suite.",
+          "quality": "bad",
+          "feedback": "Mauvais : il regardera distraitement puis oubliera. On perd le moment et le contrôle de la présentation."
+        },
+        {
+          "text": "Regarder le site c'est totalement gratuit et sans engagement, mais c'est mieux ensemble pour que je te montre les bons points : on cale 10 min ?",
+          "quality": "ok",
+          "feedback": "Bon (lever la pression + proposer le RDV), mais il faut clairement expliquer qu'il n'y a pas de lien envoyable pour fermer la porte au SMS."
+        },
+        {
+          "text": "Non, je n'envoie jamais de lien, c'est ma politique.",
+          "quality": "bad",
+          "feedback": "Mauvais : un 'non' sec et arbitraire crée de la méfiance au lieu de donner une vraie raison et une alternative."
+        }
+      ]
+    },
+    {
+      "id": "obj_prix_mail",
+      "label": "Envoyez-moi le prix / le site par mail",
+      "artisanLine": "Donnez-moi juste le prix au téléphone, comme ça je sais si ça vaut le coup de continuer.",
+      "difficulty": 2,
+      "options": [
+        {
+          "text": "Je comprends, mais le prix tout seul ne veut rien dire tant que t'as pas vu le site. L'intérêt c'est qu'on regarde ensemble si ça te plaît, ensuite on parle modifs et tarif. Et regarder, c'est gratuit. On cale 10 min en partage d'écran ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on ne lâche pas le prix sec, on fait saliver, on lève la pression ('gratuit de regarder') et on verrouille le RDV."
+        },
+        {
+          "text": "C'est 300€, voilà, vous voulez ou pas ?",
+          "quality": "bad",
+          "feedback": "Mauvais : donner le prix sec hors contexte, sans valeur perçue, le pousse à juger uniquement sur le chiffre et à dire non."
+        },
+        {
+          "text": "Disons que c'est bien plus abordable qu'une agence classique à 1000-3000€, mais le vrai sujet c'est de voir si le site te plaît : on regarde ça en 10 min ?",
+          "quality": "ok",
+          "feedback": "Bon ancrage de valeur, mais on frôle le fait de donner une fourchette ; le script préfère faire saliver et basculer sur le RDV sans chiffrer."
+        },
+        {
+          "text": "Le prix je le garde pour le rendez-vous, c'est comme ça que je travaille.",
+          "quality": "bad",
+          "feedback": "Mauvais : refus rigide qui crée de la méfiance ; le script lève plutôt la pression en disant que regarder est gratuit."
         }
       ]
     }
