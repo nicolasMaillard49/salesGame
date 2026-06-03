@@ -33,7 +33,7 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
             className={`mono text-[12px] px-3.5 py-2 rounded-full border transition ${
               cat === c.key
                 ? "bg-[var(--green-deep)] text-white border-transparent"
-                : "bg-[rgba(255,255,255,.5)] border-[var(--glass-line)] text-[var(--ink-soft)] hover:text-[var(--ink)]"
+                : "bg-[var(--glass)] border-[var(--glass-line)] text-[var(--ink-soft)] hover:text-[var(--ink)]"
             }`}
           >
             {c.label}

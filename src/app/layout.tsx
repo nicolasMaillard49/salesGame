@@ -27,9 +27,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="fr"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${bricolage.variable} ${hanken.variable} ${jetbrains.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('sg-theme')||'dark';document.documentElement.dataset.theme=t;}catch(e){}`,
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

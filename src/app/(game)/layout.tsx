@@ -4,6 +4,7 @@ import { isAuthenticated } from "@/lib/auth";
 import LogoutButton from "@/components/LogoutButton";
 import Icon from "@/components/Icon";
 import Orbs from "@/components/Orbs";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV = [
   { href: "/", label: "Hub" },
@@ -32,6 +33,7 @@ export default async function GameLayout({ children }: { children: React.ReactNo
               </Link>
             ))}
             <LogoutButton />
+            <ThemeToggle />
             <span className="ava">N</span>
           </nav>
         </header>
