@@ -1,0 +1,166 @@
+{
+  "items": [
+    {
+      "id": "scenario-paysagiste-facile",
+      "persona": {
+        "metier": "Paysagiste",
+        "ville": "Pau",
+        "humeur": "Détendu et plutôt ouvert",
+        "contexte": "Travaille au bouche-à-oreille depuis 5 ans, une accalmie en ce moment, pas de site web. Curieux mais pas pressé."
+      },
+      "difficulty": 1,
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer l'appel par l'honnêteté/l'humour, obtenir les 10 secondes d'attention et annoncer que le site est déjà créé.",
+          "artisanSeed": "Allô ? Oui c'est bien moi, qu'est-ce que c'est ?",
+          "bonneIntention": "Annoncer franchement que c'est de la prospection avec une accroche qui fait sourire, puis dire qu'on a déjà créé un site au lieu de promettre, sans pitcher tout de suite."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre sans juger comment il trouve ses clients aujourd'hui et s'il a de la capacité pour de nouveaux chantiers.",
+          "artisanSeed": "Mes clients ? Bah surtout du bouche-à-oreille, les voisins, les gens qui ont vu mes jardins.",
+          "bonneIntention": "Creuser le bouche-à-oreille avec une question ouverte ('t'as une maîtrise là-dessus ? si demain t'as besoin de plus de chantiers, tu peux actionner quelque chose ou t'es dépendant ?') sans changer de sujet."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire sortir la douleur réelle avec ses mots, notamment l'irrégularité et la dépendance, sans rien suggérer.",
+          "artisanSeed": "C'est vrai qu'en ce moment c'est calme, l'hiver y'a moins de demandes...",
+          "bonneIntention": "Relancer sur le ressenti ('quand c'est calme, ça se passe comment ? tu te sens comment par rapport à ça ?') et noter ses mots exacts pour le pont."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut vraiment (stabilité, chantiers réguliers, choisir) pour avoir le carburant émotionnel.",
+          "artisanSeed": "Ce que j'aimerais ? Avoir des chantiers réguliers sans avoir à attendre que le téléphone sonne.",
+          "bonneIntention": "Le laisser se projeter ('si t'avais ça tous les mois sans te battre, ça te libèrerait quoi ?') et compléter mentalement 'il souffre de X' / 'il veut Y'."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler douleur + ambition avec ses mots, faire valider, puis poser la vraie question (continuer comme ça ou enfin...).",
+          "artisanSeed": "Oui c'est exactement ça, j'en ai marre de subir les saisons.",
+          "bonneIntention": "Reformuler ('si je comprends bien, aujourd'hui tu subis les saisons, et tu voudrais des chantiers réguliers, c'est ça ?') et poser le pont avant de montrer le site."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter le site comme la réponse naturelle au problème validé et faire confirmer qu'il pourrait amener des demandes.",
+          "artisanSeed": "Ah oui montrez-moi à quoi ça ressemble.",
+          "bonneIntention": "Décrire le site (services, photos, avis, bouton appeler, visible quand on cherche paysagiste à Pau) puis demander 'si c'était ton site, ça pourrait t'amener des demandes en plus ?'."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "Annoncer 300€ avec l'ancrage agence, fermer avec 'on l'active ?' puis silence et enchaîner sur le paiement.",
+          "artisanSeed": "Bon, et ça coûte combien tout ça ?",
+          "bonneIntention": "Ancrer (1000-3000€ en agence, nous 300€, un seul client = remboursé), conclure par 'On l'active pour ton activité ?', garder le silence puis proposer carte ou virement."
+        }
+      ]
+    },
+    {
+      "id": "scenario-plombier-moyen",
+      "persona": {
+        "metier": "Plombier",
+        "ville": "Toulouse",
+        "humeur": "Pressé et un peu méfiant",
+        "contexte": "Débordé de travail, déjà appelé plusieurs fois pour des sites web, pense ne pas en avoir besoin. Veut une réponse rapide."
+      },
+      "difficulty": 2,
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Capter l'attention malgré son impatience, montrer qu'on respecte son temps et créer une accroche mémorable.",
+          "artisanSeed": "Écoutez je suis sur un chantier là, c'est pour quoi ? Faites vite.",
+          "bonneIntention": "Reconnaître qu'il est débordé ('t'es en plein boulot, respect, je vais à l'essentiel'), désamorcer la prospection et annoncer qu'on a déjà créé le site."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre comment il trouve ses clients et gérer le fait qu'il soit chargé sans lâcher la qualification.",
+          "artisanSeed": "Des clients j'en ai assez, on m'a déjà appelé dix fois pour des sites, ça m'intéresse pas.",
+          "bonneIntention": "Ne pas paniquer face au 'déjà appelé', creuser ('qu'est-ce qui a fait que vous n'avez pas dit oui à l'autre personne ?') sans demander s'il a déjà payé."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger une douleur malgré son 'tout va bien' (qualité des clients, dépendance, périodes creuses).",
+          "artisanSeed": "Franchement j'ai pas de problème, le boulot rentre tout seul.",
+          "bonneIntention": "Normaliser puis creuser ('beaucoup d'artisans s'en sortent bien et pourtant se demandent d'où viendra le prochain chantier... tu ressens ça parfois ? c'était pareil l'hiver dernier ?')."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Lui faire dire ce qu'il voudrait vraiment (choisir ses chantiers, meilleure qualité de clients, image pro).",
+          "artisanSeed": "Si je pouvais, je prendrais surtout des grosses rénovations plutôt que des dépannages au rabais.",
+          "bonneIntention": "Creuser le type de clients idéal ('c'est quoi le profil de chantier qui t'intéresse vraiment ? aujourd'hui t'y as accès ?') pour cerner son ambition."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler avec ses mots et poser la vraie question pour qu'il s'engage sur le problème avant le site.",
+          "artisanSeed": "Ouais c'est vrai que je voudrais des chantiers plus intéressants et moins de dépannages urgents.",
+          "bonneIntention": "Reformuler douleur+ambition ('aujourd'hui tu prends ce qui passe, et tu voudrais choisir des chantiers de rénovation, c'est ça ?') puis poser le pont."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter le site comme l'outil pour être trouvé sur les bonnes recherches et valider l'intérêt.",
+          "artisanSeed": "Bon, montrez vite alors, j'ai cinq minutes.",
+          "bonneIntention": "Décrire un site visible quand on tape 'plombier Toulouse', positionner pro pour attirer les bons clients, puis demander si ça pourrait lui amener des demandes."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "Annoncer le prix avec assurance et gérer une probable objection (déjà appelé / trop cher) avant de closer.",
+          "artisanSeed": "300€... j'ai déjà eu des propositions, pourquoi je prendrais la vôtre ?",
+          "bonneIntention": "Ancrer la valeur (1000-3000€ en agence), rappeler qu'un seul chantier = remboursé + garantie 14 jours, isoler toute objection puis closer 'On l'active ?'."
+        }
+      ]
+    },
+    {
+      "id": "scenario-electricien-difficile",
+      "persona": {
+        "metier": "Électricien",
+        "ville": "Lille",
+        "humeur": "Sceptique et fermé",
+        "contexte": "A déjà eu un site qui n'a rien donné, persuadé qu'un site sans trafic ne sert à rien. Veut qu'on lui envoie tout par mail. Décision partagée avec son associé."
+      },
+      "difficulty": 3,
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Franchir un barrage de scepticisme et créer assez de curiosité pour qu'il accorde du temps.",
+          "artisanSeed": "Encore un site web ? J'en ai déjà eu un, ça sert à rien, vous perdez votre temps.",
+          "bonneIntention": "Désamorcer avec honnêteté/humour, ne pas se justifier, et intriguer en disant qu'on a déjà créé quelque chose de différent au lieu de promettre."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre son expérience passée et comment il trouve ses clients sans le braquer davantage.",
+          "artisanSeed": "J'avais un site il y a deux ans, personne ne l'a jamais vu, j'ai jeté l'argent par les fenêtres.",
+          "bonneIntention": "Écouter vraiment, diagnostiquer ('c'était le site lui-même ou il était pas visible sur Google ?') sans le contredire ni rejeter la faute sur lui."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Transformer sa frustration passée en douleur actuelle exploitable (visibilité, concurrence, demandes qui partent ailleurs).",
+          "artisanSeed": "De toute façon les clients me trouvent pas sur internet, c'est les concurrents qui sortent en premier.",
+          "bonneIntention": "Creuser la concurrence et le ressenti ('quand un client cherche électricien à Lille c'est qui qui sort ? ça te fait quoi que ces demandes partent ailleurs ?') et noter ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il voudrait (être visible, récupérer ces demandes, image pro) malgré sa méfiance.",
+          "artisanSeed": "Ce que je voudrais ? Que ce soit moi qui sorte sur Google et pas toujours les autres.",
+          "bonneIntention": "Le laisser se projeter ('si t'étais celui qui sort quand on cherche électricien à Lille, ça changerait quoi pour toi ?') pour cerner le rêve."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler le contraste passé/désiré avec ses mots et poser la vraie question avant de montrer quoi que ce soit.",
+          "artisanSeed": "Oui voilà, j'en ai marre de voir les concurrents capter tous les clients du coin.",
+          "bonneIntention": "Reformuler ('aujourd'hui tu vois les demandes partir chez les concurrents, et tu voudrais être celui qu'on trouve, c'est ça ?') puis poser le pont."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter un site conçu pour être trouvé (pas une vitrine) et lever l'objection 'sans trafic' en s'appuyant sur l'existant.",
+          "artisanSeed": "Ouais mais un site sans visiteurs ça sert à rien, on en revient toujours là.",
+          "bonneIntention": "Aller dans son sens puis retourner ('certes sans trafic c'est vrai, mais des gens cherchent déjà ton nom et tombent sur une fiche Maps avec 3 photos'), montrer un site fait pour ressortir sur 'électricien Lille'."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "Annoncer le prix, gérer les objections cumulées (déjà essayé, associé, envoyer par mail) et closer avec la garantie comme levier.",
+          "artisanSeed": "Écoutez, envoyez-moi tout ça par mail et j'en parle à mon associé, je vous rappelle.",
+          "bonneIntention": "Refuser le mail (site sur l'ordi, RDV 10 min en partage d'écran), vérifier qui décide vraiment, s'appuyer sur la garantie 14 jours ('zéro risque, si t'as pas une demande on rembourse'), puis closer."
+        }
+      ]
+    }
+  ]
+}

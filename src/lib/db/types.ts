@@ -1,0 +1,40 @@
+import type { GameType, Quality, SkillId } from "../types";
+
+export type AnswerInput = {
+  skill: SkillId;
+  itemRef?: string;
+  quality: Quality;
+  chosen?: string;
+  difficulty?: number;
+  timeMs?: number;
+};
+
+export type MasteryEntry = { score: number; attempts: number };
+export type MasteryMap = Partial<Record<SkillId, MasteryEntry>>;
+
+export type ProgressState = {
+  xpTotal: number;
+  rank: string;
+  unlocked: string[];
+};
+
+export type Snapshot = {
+  progress: ProgressState;
+  mastery: MasteryMap;
+};
+
+export type SessionRow = {
+  id: string;
+  gameType: GameType;
+  scenarioId?: string | null;
+  score: number;
+  xp: number;
+};
+
+export interface Store {
+  readonly backend: "supabase" | "memory";
+  createSession(gameType: GameType, scenarioId?: string): Promise<SessionRow>;
+  finishSession(id: string, score: number, xp: number): Promise<void>;
+  recordAnswer(sessionId: string, input: AnswerInput): Promise<{ xpGained: number }>;
+  getSnapshot(): Promise<Snapshot>;
+}

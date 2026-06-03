@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0a10;
+  --color-surface: #15131d;
+  --color-surface-2: #1d1a28;
+  --color-border: #2a2735;
+  --color-fg: #ece9f5;
+  --color-muted: #9a93ad;
+
+  --color-violet: #7b4fe0;
+  --color-violet-bright: #9a72f0;
+  --color-violet-dim: #4a3380;
+
+  --color-good: #34d399;
+  --color-ok: #fbbf24;
+  --color-bad: #fb7185;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(123, 79, 224, 0.18), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(123, 79, 224, 0.1), transparent 55%),
+    var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .card {
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    backdrop-filter: blur(6px);
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-violet), var(--color-violet-bright));
+    color: white;
+    transition: filter 0.15s ease, transform 0.1s ease;
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+  }
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+}
