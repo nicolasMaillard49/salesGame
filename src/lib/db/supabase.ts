@@ -1,7 +1,7 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import { rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
+import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType, SkillId } from "../types";
-import type { AnswerInput, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
 
 function difficultiesUnlocked(xp: number): string[] {
   const d = unlockedDifficulty(xp);
@@ -81,16 +81,40 @@ export class SupabaseStore implements Store {
     return { xpGained };
   }
 
+  async recordDaily(today: string, yesterday: string): Promise<DailyResult> {
+    const { data: pRow } = await this.c
+      .from("progress")
+      .select("streak, best_streak, last_day")
+      .eq("id", 1)
+      .maybeSingle();
+    const prev = { streak: pRow?.streak ?? 0, lastDay: (pRow?.last_day as string | null) ?? null };
+    const { streak, alreadyDone } = nextStreak(prev, today, yesterday);
+    const bestStreak = Math.max(pRow?.best_streak ?? 0, streak);
+    if (!alreadyDone) {
+      await this.c.from("progress").upsert({
+        id: 1,
+        streak,
+        best_streak: bestStreak,
+        last_day: today,
+        updated_at: new Date().toISOString(),
+      });
+    }
+    return { streak, bestStreak, alreadyDone };
+  }
+
   async getSnapshot(): Promise<Snapshot> {
     const { data: pRow } = await this.c
       .from("progress")
-      .select("xp_total, rank, unlocked")
+      .select("xp_total, rank, unlocked, streak, best_streak, last_day")
       .eq("id", 1)
       .maybeSingle();
     const progress: ProgressState = {
       xpTotal: pRow?.xp_total ?? 0,
       rank: pRow?.rank ?? "Débutant",
       unlocked: (pRow?.unlocked as string[]) ?? [],
+      streak: pRow?.streak ?? 0,
+      bestStreak: pRow?.best_streak ?? 0,
+      lastDay: (pRow?.last_day as string | null) ?? null,
     };
     const { data: mRows } = await this.c.from("mastery").select("skill, score, attempts");
     const mastery: MasteryMap = {};

@@ -16,7 +16,12 @@ export type ProgressState = {
   xpTotal: number;
   rank: string;
   unlocked: string[];
+  streak: number;
+  bestStreak: number;
+  lastDay: string | null;
 };
+
+export type DailyResult = { streak: number; bestStreak: number; alreadyDone: boolean };
 
 export type Snapshot = {
   progress: ProgressState;
@@ -36,5 +41,6 @@ export interface Store {
   createSession(gameType: GameType, scenarioId?: string): Promise<SessionRow>;
   finishSession(id: string, score: number, xp: number): Promise<void>;
   recordAnswer(sessionId: string, input: AnswerInput): Promise<{ xpGained: number }>;
+  recordDaily(today: string, yesterday: string): Promise<DailyResult>;
   getSnapshot(): Promise<Snapshot>;
 }

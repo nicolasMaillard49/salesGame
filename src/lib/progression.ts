@@ -78,6 +78,26 @@ export function isUnlocked(difficulty: number, xp: number): boolean {
   return difficulty <= unlockedDifficulty(xp);
 }
 
+// --- Défi quotidien / streak ---
+/** Calcule la nouvelle série selon le dernier jour joué. */
+export function nextStreak(
+  prev: { streak: number; lastDay: string | null },
+  today: string,
+  yesterday: string
+): { streak: number; alreadyDone: boolean } {
+  if (prev.lastDay === today) return { streak: prev.streak, alreadyDone: true };
+  const streak = prev.lastDay === yesterday ? prev.streak + 1 : 1;
+  return { streak, alreadyDone: false };
+}
+
+/** Index déterministe (par date) pour choisir l'élément du jour dans une liste. */
+export function dailyIndex(dateStr: string, len: number): number {
+  if (len <= 0) return 0;
+  let h = 0;
+  for (let i = 0; i < dateStr.length; i++) h = (h * 31 + dateStr.charCodeAt(i)) >>> 0;
+  return h % len;
+}
+
 /** Compétences faibles triées (la plus faible en premier). */
 export function weakSkills(
   mastery: Record<string, { score: number; attempts: number }>

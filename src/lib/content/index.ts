@@ -57,3 +57,11 @@ export function getFiches(): Fiche[] {
   if (!_fiches) _fiches = loadFile("fiches.json", (r) => FichesFileSchema.parse(r));
   return _fiches;
 }
+
+export function getDailyObjection(dateStr: string): Objection | undefined {
+  const objs = getObjections();
+  if (!objs.length) return undefined;
+  let h = 0;
+  for (let i = 0; i < dateStr.length; i++) h = (h * 31 + dateStr.charCodeAt(i)) >>> 0;
+  return objs[h % objs.length];
+}

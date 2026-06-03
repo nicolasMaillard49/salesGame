@@ -30,6 +30,9 @@ create table if not exists progress (
   unlocked jsonb default '[]'::jsonb,
   updated_at timestamptz default now()
 );
+alter table progress add column if not exists streak int default 0;
+alter table progress add column if not exists best_streak int default 0;
+alter table progress add column if not exists last_day text;
 insert into progress (id) values (1) on conflict (id) do nothing;
 
 create table if not exists mastery (

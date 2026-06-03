@@ -1,6 +1,6 @@
-import { rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
+import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType } from "../types";
-import type { AnswerInput, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
 
 type Mem = {
   sessions: Map<string, SessionRow>;
@@ -15,7 +15,7 @@ function mem(): Mem {
   if (!g.__sgMem) {
     g.__sgMem = {
       sessions: new Map(),
-      progress: { xpTotal: 0, rank: "Débutant", unlocked: [] },
+      progress: { xpTotal: 0, rank: "Débutant", unlocked: [], streak: 0, bestStreak: 0, lastDay: null },
       mastery: {},
       seq: 0,
     };
@@ -56,6 +56,21 @@ export class MemoryStore implements Store {
     const row = m.sessions.get(sessionId);
     if (row) row.xp += xpGained;
     return { xpGained };
+  }
+
+  async recordDaily(today: string, yesterday: string): Promise<DailyResult> {
+    const m = mem();
+    const { streak, alreadyDone } = nextStreak(
+      { streak: m.progress.streak, lastDay: m.progress.lastDay },
+      today,
+      yesterday
+    );
+    if (!alreadyDone) {
+      m.progress.streak = streak;
+      m.progress.bestStreak = Math.max(m.progress.bestStreak, streak);
+      m.progress.lastDay = today;
+    }
+    return { streak, bestStreak: m.progress.bestStreak, alreadyDone };
   }
 
   async getSnapshot(): Promise<Snapshot> {

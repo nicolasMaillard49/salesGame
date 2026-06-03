@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getStore } from "@/lib/db";
-import { getObjections, getQuiz, getScenarios } from "@/lib/content";
+import { getDailyObjection, getObjections, getQuiz, getScenarios } from "@/lib/content";
 import { RANKS, progressToNextRank, rankForXp, weakSkills } from "@/lib/progression";
 import { SKILL_LABELS, type SkillId } from "@/lib/types";
 import Icon, { type IconName } from "@/components/Icon";
@@ -43,6 +43,10 @@ export default async function HubPage() {
   const objs = getObjections();
   const teaser = objs.find((o) => o.id === "obj_bouche_a_oreille") ?? objs[0];
   const teaserGood = teaser?.options.find((o) => o.quality === "good");
+
+  const today = new Date().toISOString().slice(0, 10);
+  const daily = getDailyObjection(today);
+  const dailyDone = progress.lastDay === today;
 
   const modes: { href: string; title: string; desc: string; count: string; icon: IconName }[] = [
     { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain" },
@@ -116,6 +120,31 @@ export default async function HubPage() {
         </section>
       )}
       </div>
+
+      {/* DÉFI DU JOUR */}
+      {daily && (
+        <Link href="/quotidien" className="glass mode reveal !flex flex-row items-center gap-4" style={{ animationDelay: "0.16s" }}>
+          <span className="mode-ic" style={{ color: "var(--bad)", background: "linear-gradient(135deg, rgba(255,93,108,.16), rgba(255,157,46,.1))", borderColor: "rgba(255,93,108,.25)" }}>
+            <Icon name="flame" size={24} />
+          </span>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h3 className="display text-lg">Défi du jour</h3>
+              {progress.streak > 0 && (
+                <span className="combo-badge" style={{ fontSize: "12px", padding: "4px 10px" }}>
+                  <Icon name="flame" size={12} /> {progress.streak} j
+                </span>
+              )}
+            </div>
+            <p className="text-[var(--ink-soft)] text-[13.5px] mt-0.5">
+              {dailyDone ? "Relevé aujourd'hui — reviens demain pour entretenir ta série." : `Relève l'objection du jour : ${SKILL_LABELS[daily.id]}.`}
+            </p>
+          </div>
+          <span className="mono text-[12px] shrink-0" style={{ color: dailyDone ? "var(--green-deep)" : "var(--ink-faint)" }}>
+            {dailyDone ? "✓ Fait" : "Relever →"}
+          </span>
+        </Link>
+      )}
 
       {/* MODES */}
       <section className="grid sm:grid-cols-3 gap-3.5 reveal" style={{ animationDelay: "0.18s" }}>
