@@ -209,3 +209,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .opt-b.bad .opt-key { background: var(--bad); color: #fff; border-color: var(--bad); }
   .opt-b.dim { opacity: 0.5; }
 }
+
+@layer components {
+  .combo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    color: #fff;
+    background: linear-gradient(135deg, #ff9d2e, #ff5d6c);
+    box-shadow: 0 6px 18px -6px rgba(255, 93, 108, 0.7);
+    animation: pop 0.32s var(--ease-spring);
+  }
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+}

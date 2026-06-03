@@ -25,7 +25,30 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   const [xp, setXp] = useState(0);
   const [time, setTime] = useState(TIME_S);
   const [done, setDone] = useState(false);
+  const [combo, setCombo] = useState(0);
+  const [bestCombo, setBestCombo] = useState(0);
+  const [lastFast, setLastFast] = useState(false);
   const startedAt = useRef(0);
+  const comboRef = useRef(0);
+  const acRef = useRef<AudioContext | null>(null);
+
+  function tone(freq: number, dur = 0.12, type: OscillatorType = "sine") {
+    try {
+      acRef.current ??= new AudioContext();
+      const ac = acRef.current;
+      const o = ac.createOscillator();
+      const g = ac.createGain();
+      o.type = type;
+      o.frequency.value = freq;
+      g.gain.setValueAtTime(0.0001, ac.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.16, ac.currentTime + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + dur);
+      o.connect(g);
+      g.connect(ac.destination);
+      o.start();
+      o.stop(ac.currentTime + dur);
+    } catch {}
+  }
 
   const obj = round ? round[i] : undefined;
 
@@ -53,12 +76,26 @@ export default function DrillGame({ items }: { items: Objection[] }) {
       setRevealed(true);
       setPicked(idx);
       const quality = opt?.quality ?? "bad";
-      if (quality === "good") setScore((s) => s + 1);
+      const elapsedMs = Math.round(performance.now() - startedAt.current);
+      const fast = quality === "good" && elapsedMs < 5000;
+      setLastFast(fast);
+      if (quality === "good") {
+        setScore((s) => s + 1);
+        const n = comboRef.current + 1;
+        comboRef.current = n;
+        setCombo(n);
+        setBestCombo((b) => Math.max(b, n));
+        tone(440 + Math.min(n, 8) * 70, 0.12);
+        if (fast) tone(1180, 0.08, "triangle");
+      } else {
+        comboRef.current = 0;
+        setCombo(0);
+        tone(150, 0.2, "sawtooth");
+      }
       if (sessionId) {
         const r = await recordAnswer({
           sessionId, skill: obj.id, quality, itemRef: obj.id,
-          difficulty: obj.difficulty, chosen: opt?.text,
-          timeMs: Math.round(performance.now() - startedAt.current),
+          difficulty: obj.difficulty, chosen: opt?.text, timeMs: elapsedMs,
         });
         if (r) setXp((x) => x + r.xpGained);
       }
@@ -94,6 +131,11 @@ export default function DrillGame({ items }: { items: Objection[] }) {
         <h1 className="display text-2xl">Drill terminé</h1>
         <p className="display text-6xl text-[var(--green-deep)]">{score}<span className="text-[var(--ink-faint)] text-3xl">/{round.length}</span></p>
         <p className="mono text-[var(--ink-soft)]">+{xp} XP</p>
+        {bestCombo >= 2 && (
+          <p className="mono text-sm text-[var(--green-deep)] flex items-center gap-1.5">
+            <Icon name="flame" size={14} /> Meilleur combo ×{bestCombo}
+          </p>
+        )}
         <div className="flex gap-3 mt-2">
           <Link href="/" className="btn btn-glass">← Hub</Link>
           <button onClick={() => window.location.reload()} className="btn btn-primary">Rejouer</button>
@@ -111,7 +153,14 @@ export default function DrillGame({ items }: { items: Objection[] }) {
           <span className="hud-chip"><Icon name="shield" size={15} /> Drill</span>
           <span className="counter-label">Objection <b>{i + 1}</b>/{round.length}</span>
         </div>
-        <span className="score-chip"><Icon name="target" size={15} /> {score} · {xp} XP</span>
+        <div className="flex items-center gap-2.5">
+          {combo >= 2 && (
+            <span key={combo} className="combo-badge">
+              <Icon name="flame" size={14} /> ×{combo}{lastFast && revealed ? " · rapide" : ""}
+            </span>
+          )}
+          <span className="score-chip"><Icon name="target" size={15} /> {score} · {xp} XP</span>
+        </div>
       </div>
 
       <div>
