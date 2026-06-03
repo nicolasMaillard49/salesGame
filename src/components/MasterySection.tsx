@@ -62,24 +62,25 @@ export default function MasterySection({ rows }: { rows: MasteryRow[] }) {
       </div>
 
       {!showAll ? (
-        weak.length > 0 ? (
-          <div className="grid sm:grid-cols-2 gap-3">
-            {weak.map((r) => (
+        <div className="grid sm:grid-cols-2 gap-3">
+          {attempted.slice(0, 4).map((r) => {
+            const isW = r.weak;
+            const hint = isW ? "point faible" : r.score >= 0.7 ? "maîtrisé" : "à consolider";
+            const hintColor = isW ? "var(--bad)" : r.score >= 0.7 ? "var(--green-deep)" : "var(--ok)";
+            return (
               <Link key={r.skill} href={trainHref(r.skill)} className="weak-cell hover:border-[var(--green)] transition group">
                 <MiniRing score={r.score} />
                 <div className="flex-1">
                   <div className="font-semibold text-sm">{r.label}</div>
-                  <div className="mono text-[10.5px] uppercase tracking-wide text-[var(--bad)] mt-0.5">point faible</div>
+                  <div className="mono text-[10.5px] uppercase tracking-wide mt-0.5" style={{ color: hintColor }}>{hint}</div>
                 </div>
                 <span className="mono text-[11px] text-[var(--ink-faint)] group-hover:text-[var(--green-deep)] flex items-center gap-1 transition">
                   S&apos;entraîner <Icon name="arrowRight" size={13} strokeWidth={2.5} />
                 </span>
               </Link>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-[var(--ink-soft)]">Aucun point faible — du solide.</p>
-        )
+            );
+          })}
+        </div>
       ) : (
         <div className="flex flex-col">
           {attempted.map((r, idx) => (
