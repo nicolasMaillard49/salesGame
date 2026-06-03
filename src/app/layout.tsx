@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Archivo, Chivo, Chivo_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
+});
+const chivo = Chivo({
+  variable: "--font-chivo",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+const chivoMono = Chivo_Mono({
+  variable: "--font-chivo-mono",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Sales Game — Entraînement vente & closing",
@@ -11,7 +25,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${geistSans.variable} h-full antialiased`}>
+    <html
+      lang="fr"
+      className={`${archivo.variable} ${chivo.variable} ${chivoMono.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

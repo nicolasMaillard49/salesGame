@@ -12,7 +12,7 @@ export default function LogoutButton() {
   return (
     <button
       onClick={logout}
-      className="text-sm text-[var(--color-muted)] hover:text-[var(--color-fg)] transition"
+      className="mono text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] transition"
     >
       Déconnexion
     </button>

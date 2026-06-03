@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SalesGame — Option C — Premium SaaS gamifié</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Greens — refined emerald */
+    --green-900: #0b3b2e;
+    --green-800: #11503d;
+    --green-700: #15614a;
+    --green-600: #1a7a5e;
+    --green-500: #20916f;
+    --green-400: #38ad88;
+    --green-300: #7fceb3;
+    --green-100: #d8f0e6;
+    --green-50:  #eef8f3;
+
+    /* Neutrals — warm paper */
+    --ink:       #122019;
+    --ink-soft:  #2c3b34;
+    --muted:     #62736b;
+    --faint:     #93a39b;
+    --line:      #e6ece9;
+    --line-soft: #eff3f1;
+    --paper:     #ffffff;
+    --canvas:    #f6f9f7;
+
+    /* Semantic */
+    --good:      #1a7a5e;
+    --good-bg:   #e7f4ee;
+    --good-line: #b6dfca;
+    --ok:        #b07908;
+    --ok-bg:     #fbf3e0;
+    --ok-line:   #ecd9a7;
+    --bad:       #c0453b;
+    --bad-bg:    #fbeae8;
+    --bad-line:  #f0c4be;
+
+    --shadow-sm: 0 1px 2px rgba(18,32,25,.05), 0 1px 3px rgba(18,32,25,.04);
+    --shadow-md: 0 4px 16px -4px rgba(18,32,25,.10), 0 2px 6px -2px rgba(18,32,25,.06);
+    --shadow-lg: 0 24px 50px -16px rgba(11,59,46,.20), 0 8px 18px -8px rgba(18,32,25,.08);
+
+    --r-sm: 10px;
+    --r-md: 16px;
+    --r-lg: 24px;
+    --r-xl: 32px;
+
+    --display: 'Fraunces', Georgia, serif;
+    --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background:
+      radial-gradient(900px 520px at 88% -8%, rgba(56,173,136,.10), transparent 60%),
+      radial-gradient(720px 480px at -6% 4%, rgba(32,145,111,.07), transparent 55%),
+      var(--canvas);
+    background-attachment: fixed;
+    line-height: 1.55;
+    padding: 40px 20px 80px;
+  }
+
+  ::selection { background: var(--green-100); color: var(--green-900); }
+
+  a { color: inherit; text-decoration: none; }
+
+  :focus-visible {
+    outline: 2.5px solid var(--green-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* ---------- Screen scaffolding ---------- */
+  .screen-label {
+    max-width: 1080px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--display);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--green-700);
+    letter-spacing: .2px;
+  }
+  .screen-label::before,
+  .screen-label::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+  .screen-label span {
+    font-style: normal;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+  }
+
+  .app {
+    max-width: 1080px;
+    margin: 0 auto 64px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line-soft);
+    background: linear-gradient(180deg, #ffffff, #fcfdfc);
+  }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand .mark {
+    width: 38px; height: 38px;
+    border-radius: 11px;
+    background: linear-gradient(145deg, var(--green-500), var(--green-800));
+    display: grid; place-items: center;
+    box-shadow: 0 6px 14px -4px rgba(17,80,61,.45), inset 0 1px 0 rgba(255,255,255,.25);
+    position: relative;
+  }
+  .brand .mark svg { width: 21px; height: 21px; }
+  .brand .name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -.3px;
+    color: var(--ink);
+  }
+  .brand .name b { color: var(--green-600); font-weight: 600; }
+
+  .topbar-right { display: flex; align-items: center; gap: 14px; }
+  .streak {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 13px; font-weight: 600; color: var(--ink-soft);
+    padding: 7px 13px;
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    border-radius: 999px;
+  }
+  .streak .dot { color: var(--ok); font-size: 14px; }
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--green-300), var(--green-600));
+    color: #fff;
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 14px;
+    border: 2px solid #fff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ---------- Layout ---------- */
+  .content { padding: 36px 32px 40px; }
+  @media (max-width: 720px) { .content { padding: 26px 18px 32px; } }
+
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--green-600);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: ""; width: 18px; height: 2px; border-radius: 2px;
+    background: var(--green-400);
+  }
+  h1.page-title {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(28px, 4.4vw, 40px);
+    letter-spacing: -.6px;
+    line-height: 1.08;
+    margin: 12px 0 0;
+    color: var(--ink);
+  }
+  h1.page-title em { font-style: italic; color: var(--green-700); }
+
+  .section-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 16px; margin: 40px 0 18px;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 21px;
+    letter-spacing: -.3px;
+    color: var(--ink);
+  }
+  .section-head .hint { font-size: 13px; color: var(--muted); }
+
+  /* ---------- Progress hero ---------- */
+  .progress-hero {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: 32px;
+    align-items: center;
+    padding: 26px 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background:
+      radial-gradient(420px 200px at 100% 0%, rgba(56,173,136,.08), transparent 70%),
+      linear-gradient(180deg, #ffffff, #fbfdfc);
+    box-shadow: var(--shadow-md);
+  }
+  @media (max-width: 720px) {
+    .progress-hero { grid-template-columns: 1fr; gap: 22px; text-align: center; }
+  }
+
+  .ring-wrap { position: relative; width: 168px; height: 168px; margin: 0 auto; }
+  .ring-wrap svg { transform: rotate(-90deg); display: block; }
+  .ring-bg { fill: none; stroke: var(--green-100); stroke-width: 13; }
+  .ring-fg {
+    fill: none; stroke: url(#ringGrad); stroke-width: 13; stroke-linecap: round;
+    stroke-dasharray: 471;
+    stroke-dashoffset: 471;
+    animation: ring 1.4s cubic-bezier(.16,1,.3,1) .25s forwards;
+  }
+  @keyframes ring { to { stroke-dashoffset: 244; } } /* ~49.3% of 471 */
+  .ring-center {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1px;
+  }
+  .ring-center .xp {
+    font-family: var(--display);
+    font-weight: 600; font-size: 30px; letter-spacing: -.5px; color: var(--ink);
+    line-height: 1;
+  }
+  .ring-center .xp-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.3px;
+    text-transform: uppercase; color: var(--faint);
+  }
+
+  .rank-rows { display: flex; flex-direction: column; gap: 14px; }
+  .rank-now { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .rank-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; letter-spacing: .2px;
+    color: var(--green-800);
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    padding: 7px 14px 7px 10px;
+    border-radius: 999px;
+  }
+  .rank-badge .pip {
+    width: 22px; height: 22px; border-radius: 7px;
+    background: linear-gradient(145deg, var(--green-400), var(--green-700));
+    display: grid; place-items: center; color: #fff; font-size: 12px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+  }
+  .rank-now .sep { color: var(--faint); font-size: 13px; }
+  .rank-next { font-size: 13px; color: var(--muted); }
+  .rank-next b { color: var(--ink-soft); font-weight: 700; }
+
+  .track {
+    height: 12px; border-radius: 999px;
+    background: var(--green-100);
+    position: relative; overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(11,59,46,.10);
+  }
+  .track .fill {
+    position: absolute; inset: 0; width: 49.3%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--green-600), var(--green-400));
+    box-shadow: 0 0 0 1px rgba(255,255,255,.4) inset;
+    animation: grow 1.3s cubic-bezier(.16,1,.3,1) .3s backwards;
+  }
+  .track .fill::after {
+    content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 30px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.55));
+  }
+  @keyframes grow { from { width: 0; } }
+  .track-labels {
+    display: flex; justify-content: space-between;
+    margin-top: 8px; font-size: 12px; color: var(--muted);
+  }
+  .track-labels b { color: var(--green-700); }
+
+  /* ---------- Game cards ---------- */
+  .games {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 720px) { .games { grid-template-columns: 1fr; } }
+
+  .game {
+    position: relative;
+    display: flex; flex-direction: column;
+    padding: 22px 22px 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, #ffffff, #fcfefd);
+    box-shadow: var(--shadow-sm);
+    transition: transform .25s cubic-bezier(.2,.8,.3,1), box-shadow .25s, border-color .25s;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 188px;
+  }
+  .game::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: linear-gradient(90deg, var(--green-400), var(--green-600));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s cubic-bezier(.2,.8,.3,1);
+  }
+  .game:hover, .game:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--green-100);
+  }
+  .game:hover::before, .game:focus-visible::before { transform: scaleX(1); }
+  .game-ico {
+    width: 50px; height: 50px; border-radius: 14px;
+    display: grid; place-items: center; font-size: 25px;
+    background: var(--green-50);
+    border: 1px solid var(--green-100);
+    margin-bottom: 16px;
+    transition: transform .3s cubic-bezier(.2,.8,.3,1);
+  }
+  .game:hover .game-ico { transform: scale(1.06) rotate(-3deg); }
+  .game h3 {
+    font-family: var(--display);
+    font-weight: 600; font-size: 18px; letter-spacing: -.2px; color: var(--ink);
+  }
+  .game p { font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+  .game-foot {
+    margin-top: auto; padding-top: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .game-count {
+    font-size: 12px; font-weight: 600; color: var(--green-700);
+    background: var(--green-50); border: 1px solid var(--green-100);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .play {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 13px; font-weight: 700; color: var(--green-700);
+  }
+  .play svg { width: 14px; height: 14px; transition: transform .25s; }
+  .game:hover .play svg { transform: translateX(3px); }
+
+  /* ---------- Mastery ---------- */
+  .mastery {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: linear-gradient(180deg, #ffffff, #fbfdfc);
+    box-shadow: var(--shadow-sm);
+    padding: 8px 24px 18px;
+  }
+  .skill {
+    display: grid;
+    grid-template-columns: 150px 1fr 56px;
+    align-items: center; gap: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .skill:last-child { border-bottom: none; }
+  @media (max-width: 560px) {
+    .skill { grid-template-columns: 1fr 44px; grid-template-areas: "name val" "bar bar"; gap: 6px 14px; }
+    .skill .skill-name { grid-area: name; }
+    .skill .bar { grid-area: bar; }
+    .skill .skill-pct { grid-area: val; }
+  }
+  .skill-name {
+    font-size: 14px; font-weight: 600; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-name .flag {
+    font-size: 10px; font-weight: 700; letter-spacing: .3px;
+    color: var(--ok); background: var(--ok-bg);
+    border: 1px solid var(--ok-line);
+    padding: 1px 7px; border-radius: 999px;
+  }
+  .bar {
+    height: 9px; border-radius: 999px; background: var(--line);
+    position: relative; overflow: hidden;
+  }
+  .bar i {
+    position: absolute; inset: 0; border-radius: 999px;
+    background: linear-gradient(90deg, var(--green-500), var(--green-400));
+    transform-origin: left;
+    animation: bargrow 1.1s cubic-bezier(.16,1,.3,1) backwards;
+  }
+  .bar.low i { background: linear-gradient(90deg, #cf9a26, var(--ok)); }
+  @keyframes bargrow { from { transform: scaleX(0); } }
+  .skill-pct {
+    font-family: var(--display);
+    font-weight: 600; font-size: 16px; text-align: right; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .skill-pct.low { color: var(--ok); }
+
+  /* =========================================================
+     SCREEN 2 — IN GAME
+  ========================================================= */
+  .game-top {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .gt-left { display: flex; align-items: center; gap: 14px; }
+  .back {
+    width: 40px; height: 40px; border-radius: 12px;
+    border: 1px solid var(--line); background: #fff;
+    display: grid; place-items: center; color: var(--ink-soft);
+    box-shadow: var(--shadow-sm); transition: background .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .back:hover { background: var(--green-50); border-color: var(--green-100); }
+  .gt-title {
+    display: flex; flex-direction: column;
+  }
+  .gt-title .lbl {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.3px;
+    text-transform: uppercase; color: var(--green-600);
+  }
+  .gt-title .ctr {
+    font-family: var(--display); font-weight: 600; font-size: 19px;
+    letter-spacing: -.2px; color: var(--ink);
+  }
+  .gt-right { display: flex; align-items: center; gap: 12px; }
+  .score {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    background: var(--paper); border: 1px solid var(--line);
+    padding: 8px 14px; border-radius: 999px; box-shadow: var(--shadow-sm);
+  }
+  .score .star { color: var(--ok); }
+  .score .xp-chip { color: var(--green-700); }
+  .score .div { width: 1px; height: 14px; background: var(--line); }
+
+  /* progress dots */
+  .dots { display: flex; gap: 6px; margin: 22px 0 0; }
+  .dots i {
+    height: 6px; flex: 1; border-radius: 999px; background: var(--line);
+  }
+  .dots i.done { background: var(--green-400); }
+  .dots i.now {
+    background: var(--green-600);
+    box-shadow: 0 0 0 3px var(--green-100);
+  }
+
+  /* timer */
+  .timer-row {
+    display: flex; align-items: center; gap: 12px; margin-top: 22px;
+    font-size: 12px; font-weight: 600; color: var(--muted);
+  }
+  .timer-row .clk { color: var(--green-600); }
+  .timer-bar {
+    flex: 1; height: 6px; border-radius: 999px; background: var(--line);
+    overflow: hidden; position: relative;
+  }
+  .timer-bar i {
+    position: absolute; inset: 0; transform-origin: left;
+    background: linear-gradient(90deg, var(--green-500), var(--green-300));
+    animation: tick 8s linear forwards;
+  }
+  @keyframes tick { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+  .timer-row .secs { font-variant-numeric: tabular-nums; color: var(--green-700); }
+
+  /* objection bubble */
+  .bubble-wrap { margin-top: 28px; display: flex; gap: 14px; align-items: flex-start; }
+  .bubble-av {
+    flex: none;
+    width: 46px; height: 46px; border-radius: 14px;
+    background: linear-gradient(150deg, #e8d9b8, #c9a36a);
+    display: grid; place-items: center; font-size: 23px;
+    border: 1px solid rgba(150,120,70,.25);
+    box-shadow: var(--shadow-sm);
+  }
+  .bubble {
+    position: relative;
+    background: var(--canvas);
+    border: 1px solid var(--line);
+    border-radius: 6px var(--r-md) var(--r-md) var(--r-md);
+    padding: 18px 22px;
+    box-shadow: var(--shadow-sm);
+    flex: 1;
+  }
+  .bubble .who {
+    font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+    color: var(--faint); margin-bottom: 5px;
+  }
+  .bubble .said {
+    font-family: var(--display);
+    font-weight: 500; font-size: 23px; line-height: 1.3;
+    letter-spacing: -.3px; color: var(--ink);
+  }
+  .bubble::before {
+    content: ""; position: absolute; left: -8px; top: 16px;
+    width: 14px; height: 14px; background: var(--canvas);
+    border-left: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    transform: rotate(45deg); border-radius: 0 0 0 4px;
+  }
+
+  .prompt {
+    margin: 24px 0 14px;
+    font-size: 13px; font-weight: 600; color: var(--muted);
+  }
+
+  /* answer options */
+  .options { display: flex; flex-direction: column; gap: 12px; }
+  .opt {
+    position: relative;
+    text-align: left;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s, transform .15s;
+    box-shadow: var(--shadow-sm);
+  }
+  .opt:hover { border-color: var(--green-300); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+  .opt-head { display: flex; align-items: center; gap: 12px; }
+  .opt-key {
+    flex: none;
+    width: 28px; height: 28px; border-radius: 9px;
+    border: 1px solid var(--line);
+    display: grid; place-items: center;
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    background: var(--canvas);
+  }
+  .opt-text { font-size: 14.5px; font-weight: 500; color: var(--ink-soft); line-height: 1.45; }
+  .opt-mark {
+    flex: none; margin-left: auto;
+    width: 24px; height: 24px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 14px; color: #fff;
+  }
+  .opt-fb {
+    font-size: 13px; line-height: 1.5;
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+    display: flex; gap: 8px;
+  }
+  .opt-fb b { font-weight: 700; }
+
+  /* revealed states */
+  .opt.good {
+    border-color: var(--good-line); background: var(--good-bg);
+    box-shadow: 0 8px 22px -10px rgba(26,122,94,.35);
+  }
+  .opt.good .opt-key { background: var(--good); color: #fff; border-color: var(--good); }
+  .opt.good .opt-text { color: var(--green-900); }
+  .opt.good .opt-mark { background: var(--good); }
+  .opt.good .opt-fb { border-top-color: var(--good-line); }
+  .opt.good .opt-fb b { color: var(--good); }
+
+  .opt.ok { border-color: var(--ok-line); background: var(--ok-bg); }
+  .opt.ok .opt-key { background: var(--ok); color: #fff; border-color: var(--ok); }
+  .opt.ok .opt-mark { background: var(--ok); }
+  .opt.ok .opt-fb { border-top-color: var(--ok-line); }
+  .opt.ok .opt-fb b { color: var(--ok); }
+
+  .opt.bad { border-color: var(--bad-line); background: var(--bad-bg); }
+  .opt.bad .opt-key { background: var(--bad); color: #fff; border-color: var(--bad); }
+  .opt.bad .opt-mark { background: var(--bad); }
+  .opt.bad .opt-fb { border-top-color: var(--bad-line); }
+  .opt.bad .opt-fb b { color: var(--bad); }
+
+  .opt.revealed { cursor: default; }
+  .opt.revealed:hover { transform: none; }
+
+  /* footer / next */
+  .game-foot-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-top: 26px; padding-top: 22px;
+    border-top: 1px solid var(--line-soft);
+    flex-wrap: wrap;
+  }
+  .gain {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--green-700);
+  }
+  .gain .pill {
+    background: var(--good-bg); border: 1px solid var(--good-line);
+    color: var(--good); font-weight: 700; padding: 3px 10px; border-radius: 999px;
+    font-size: 12px;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--sans); font-size: 15px; font-weight: 700;
+    color: #fff; cursor: pointer;
+    background: linear-gradient(135deg, var(--green-600), var(--green-800));
+    border: none; border-radius: 14px;
+    padding: 14px 24px;
+    box-shadow: 0 10px 22px -8px rgba(17,80,61,.55), inset 0 1px 0 rgba(255,255,255,.18);
+    transition: transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .18s, filter .18s;
+    min-height: 48px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(17,80,61,.6); filter: brightness(1.04); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary svg { width: 16px; height: 16px; transition: transform .2s; }
+  .btn-primary:hover svg { transform: translateX(3px); }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 18px; font-size: 12px; color: var(--muted);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+  .legend .g { background: var(--good); }
+  .legend .a { background: var(--ok); }
+  .legend .b { background: var(--bad); }
+</style>
+</head>
+<body>
+
+  <!-- ============================ SCREEN 1 ============================ -->
+  <div class="screen-label">— Écran 1 <span>Hub</span></div>
+
+  <main class="app" aria-label="Écran Hub">
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 14.5 10 9.5l3.2 3.2L19 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 7H19v4.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="name">Sales<b>Game</b></span>
+      </div>
+      <div class="topbar-right">
+        <span class="streak"><span class="dot">●</span> Série 6 jours</span>
+        <span class="avatar" aria-hidden="true">NM</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <p class="eyebrow">Tableau de bord</p>
+      <h1 class="page-title">Bonjour Nicolas, prêt à <em>closer</em> ?</h1>
+
+      <!-- Progress hero -->
+      <section class="progress-hero" aria-label="Progression">
+        <div class="ring-wrap" role="img" aria-label="740 XP, 49% vers le rang Top Closer">
+          <svg width="168" height="168" viewBox="0 0 168 168">
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#38ad88"/>
+                <stop offset="100%" stop-color="#11503d"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="84" cy="84" r="75"/>
+            <circle class="ring-fg" cx="84" cy="84" r="75"/>
+          </svg>
+          <div class="ring-center">
+            <span class="xp">740</span>
+            <span class="xp-label">XP</span>
+          </div>
+        </div>
+
+        <div class="rank-rows">
+          <div class="rank-now">
+            <span class="rank-badge"><span class="pip">★</span> Rang actuel · Closer</span>
+            <span class="sep">→</span>
+            <span class="rank-next">Prochain rang : <b>Top Closer</b></span>
+          </div>
+          <div>
+            <div class="track"><span class="fill"></span></div>
+            <div class="track-labels">
+              <span>740 XP</span>
+              <span>Plus que <b>760 XP</b></span>
+              <span>1 500 XP</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Game cards -->
+      <div class="section-head">
+        <h2>Modes d'entraînement</h2>
+        <span class="hint">Choisis un terrain de jeu</span>
+      </div>
+      <section class="games" aria-label="Modes de jeu">
+
+        <a class="game" href="#" role="button">
+          <div class="game-ico">🧠</div>
+          <h3>Quiz</h3>
+          <p>Mémorise scripts &amp; prix</p>
+          <div class="game-foot">
+            <span class="game-count">34 questions</span>
+            <span class="play">Jouer
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="game" href="#" role="button">
+          <div class="game-ico">🛡️</div>
+          <h3>Drill objections</h3>
+          <p>Réponds vite et juste</p>
+          <div class="game-foot">
+            <span class="game-count">11 objections</span>
+            <span class="play">Jouer
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="game" href="#" role="button">
+          <div class="game-ico">📞</div>
+          <h3>Simulateur d'appel</h3>
+          <p>Mène un appel complet</p>
+          <div class="game-foot">
+            <span class="game-count">3 scénarios</span>
+            <span class="play">Jouer
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </section>
+
+      <!-- Mastery -->
+      <div class="section-head">
+        <h2>Maîtrise par compétence</h2>
+        <span class="hint">Phases d'un appel de vente</span>
+      </div>
+      <section class="mastery" aria-label="Maîtrise par compétence">
+
+        <div class="skill">
+          <span class="skill-name">Ouverture</span>
+          <div class="bar"><i style="width:82%; animation-delay:.20s"></i></div>
+          <span class="skill-pct">82%</span>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Découverte <span class="flag">à renforcer</span></span>
+          <div class="bar low"><i style="width:47%; animation-delay:.30s"></i></div>
+          <span class="skill-pct low">47%</span>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Douleurs</span>
+          <div class="bar"><i style="width:65%; animation-delay:.40s"></i></div>
+          <span class="skill-pct">65%</span>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Le Pont <span class="flag">à renforcer</span></span>
+          <div class="bar low"><i style="width:38%; animation-delay:.50s"></i></div>
+          <span class="skill-pct low">38%</span>
+        </div>
+
+        <div class="skill">
+          <span class="skill-name">Prix &amp; Close</span>
+          <div class="bar"><i style="width:71%; animation-delay:.60s"></i></div>
+          <span class="skill-pct">71%</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============================ SCREEN 2 ============================ -->
+  <div class="screen-label">— Écran 2 <span>En jeu · Drill objections</span></div>
+
+  <main class="app" aria-label="Écran En jeu">
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 14.5 10 9.5l3.2 3.2L19 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 7H19v4.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="name">Sales<b>Game</b></span>
+      </div>
+      <div class="topbar-right">
+        <span class="streak"><span class="dot">🛡️</span> Drill objections</span>
+        <span class="avatar" aria-hidden="true">NM</span>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="game-top">
+        <div class="gt-left">
+          <button class="back" aria-label="Quitter le drill">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="gt-title">
+            <span class="lbl">Objection</span>
+            <span class="ctr">3 <span style="color:var(--faint);font-weight:500">/ 11</span></span>
+          </div>
+        </div>
+        <div class="gt-right">
+          <span class="score">
+            <span class="star">★ 5</span>
+            <span class="div"></span>
+            <span class="xp-chip">120 XP</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- progress dots -->
+      <div class="dots" aria-hidden="true">
+        <i class="done"></i><i class="done"></i><i class="now"></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <!-- timer -->
+      <div class="timer-row">
+        <span class="clk">⏱</span>
+        <span>Réponds vite</span>
+        <span class="timer-bar"><i></i></span>
+        <span class="secs">~8s</span>
+      </div>
+
+      <!-- objection bubble -->
+      <div class="bubble-wrap">
+        <span class="bubble-av" aria-hidden="true">🧑‍🔧</span>
+        <div class="bubble">
+          <div class="who">L'artisan</div>
+          <p class="said">« C'est trop cher. »</p>
+        </div>
+      </div>
+
+      <p class="prompt">Choisis ta meilleure réponse —</p>
+
+      <!-- options (revealed state) -->
+      <div class="options" aria-label="Réponses possibles">
+
+        <!-- GOOD -->
+        <div class="opt good revealed">
+          <div class="opt-head">
+            <span class="opt-key">A</span>
+            <span class="opt-text">« Je comprends. Par rapport à quoi le trouvez-vous cher ? Aujourd'hui, combien vous rapporte un seul nouveau client ? »</span>
+            <span class="opt-mark" aria-label="Bonne réponse">✓</span>
+          </div>
+          <p class="opt-fb"><b>Excellent.</b> Tu isoles l'objection et tu recadres sur le retour sur investissement, pas sur le coût.</p>
+        </div>
+
+        <!-- OK / NEUTRE -->
+        <div class="opt ok revealed">
+          <div class="opt-head">
+            <span class="opt-key">B</span>
+            <span class="opt-text">« Je peux vous faire un petit geste sur le prix si on signe aujourd'hui. »</span>
+            <span class="opt-mark" aria-label="Réponse passable">≈</span>
+          </div>
+          <p class="opt-fb"><b>Passable.</b> La remise ferme la vente parfois, mais tu dévalues l'offre et tu n'as pas traité la vraie raison.</p>
+        </div>
+
+        <!-- BAD -->
+        <div class="opt bad revealed">
+          <div class="opt-head">
+            <span class="opt-key">C</span>
+            <span class="opt-text">« Ce n'est pas si cher, tous mes clients paient ce tarif sans problème. »</span>
+            <span class="opt-mark" aria-label="Mauvaise réponse">✕</span>
+          </div>
+          <p class="opt-fb"><b>À éviter.</b> Tu contredis le prospect et tu le mets sur la défensive. L'objection se durcit.</p>
+        </div>
+      </div>
+
+      <div class="legend" aria-hidden="true">
+        <span><i class="g"></i> Réponse gagnante</span>
+        <span><i class="a"></i> Acceptable</span>
+        <span><i class="b"></i> À éviter</span>
+      </div>
+
+      <!-- footer -->
+      <div class="game-foot-bar">
+        <span class="gain">Tu gagnes <span class="pill">+40 XP</span> pour la réponse A</span>
+        <button class="btn-primary">
+          Objection suivante
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

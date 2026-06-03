@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { QuizItem } from "@/lib/content/schema";
 import { finishSession, recordAnswer, shuffle, startSession } from "@/lib/client";
@@ -17,7 +17,8 @@ function normalize(s: string): string {
 }
 
 export default function QuizGame({ items }: { items: QuizItem[] }) {
-  const round = useMemo(() => shuffle(items).slice(0, Math.min(ROUND, items.length)), [items]);
+  // round tiré au montage (client uniquement) → évite tout mismatch d'hydratation.
+  const [round, setRound] = useState<QuizItem[] | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [i, setI] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -30,22 +31,25 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   const startedAt = useRef<number>(0);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRound(shuffle(items).slice(0, Math.min(ROUND, items.length)));
     startSession("quiz").then(setSessionId);
-  }, []);
+  }, [items]);
   useEffect(() => {
     startedAt.current = performance.now();
   }, [i]);
 
-  const item = round[i];
-
   function correctFor(it: QuizItem, sel: number | null, txt: string): boolean {
     if (it.type === "qcm") return sel === Number(it.answer);
-    return normalize(txt) === normalize(String(it.answer)) ||
-      (normalize(txt).length > 2 && normalize(String(it.answer)).includes(normalize(txt)));
+    return (
+      normalize(txt) === normalize(String(it.answer)) ||
+      (normalize(txt).length > 2 && normalize(String(it.answer)).includes(normalize(txt)))
+    );
   }
 
   async function answer(sel: number | null) {
-    if (revealed) return;
+    if (revealed || !round) return;
+    const item = round[i];
     const ok = correctFor(item, sel, typed);
     setSelected(sel);
     setWasCorrect(ok);
@@ -58,7 +62,6 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
         quality: ok ? "good" : "bad",
         itemRef: item.id,
         difficulty: item.difficulty,
-        // performance.now() : mesure de temps en handler (usage hors render, volontaire)
         // eslint-disable-next-line react-hooks/purity
         timeMs: Math.round(performance.now() - startedAt.current),
       });
@@ -67,6 +70,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   }
 
   function next() {
+    if (!round) return;
     if (i + 1 >= round.length) {
       if (sessionId) finishSession(sessionId, score, xp);
       setDone(true);
@@ -78,100 +82,84 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
     }
   }
 
-  if (done) {
-    return (
-      <div className="card p-8 text-center flex flex-col items-center gap-4">
-        <h1 className="text-2xl font-bold">Quiz terminé</h1>
-        <p className="text-5xl font-bold text-[var(--color-violet-bright)]">
-          {score}/{round.length}
-        </p>
-        <p className="text-[var(--color-muted)]">+{xp} XP</p>
-        <div className="flex gap-3 mt-2">
-          <Link href="/" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-fg)] px-4 py-2">
-            ← Hub
-          </Link>
-          <button
-            onClick={() => window.location.reload()}
-            className="btn-primary rounded-lg px-5 py-2.5 font-semibold"
-          >
-            Rejouer
-          </button>
-        </div>
-      </div>
-    );
-  }
+  if (!round) return <p className="mono text-[var(--ink-faint)] animate-pulse">Chargement…</p>;
+  if (done) return <EndScreen label="Quiz terminé" score={score} total={round.length} xp={xp} />;
+
+  const item = round[i];
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex items-center justify-between text-sm text-[var(--color-muted)]">
-        <span>Question {i + 1}/{round.length}</span>
-        <span>Score {score} · {xp} XP</span>
+      <div className="flex items-center justify-between">
+        <span className="counter-label">Question <b>{i + 1}</b>/{round.length}</span>
+        <span className="score-chip">🎯 {score} <span className="text-[#9bd9b3]">·</span> <span className="text-[var(--green-deep)]">{xp} XP</span></span>
       </div>
-      <div className="h-1.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
-        <div className="h-full btn-primary" style={{ width: `${(i / round.length) * 100}%` }} />
+      <div className="timer-bar">
+        <div className="timer-fill !bg-[var(--green)]" style={{ width: `${(i / round.length) * 100}%` }} />
       </div>
 
       <div className="card p-6">
-        <h2 className="text-lg font-semibold leading-snug">{item.prompt}</h2>
+        <h2 className="display text-xl leading-snug">{item.prompt}</h2>
 
         {item.type === "qcm" ? (
-          <div className="mt-5 flex flex-col gap-2.5">
+          <div className="mt-6 flex flex-col gap-3">
             {(item.options ?? []).map((opt, idx) => {
               const isAnswer = idx === Number(item.answer);
               const isPicked = idx === selected;
-              let cls = "border-[var(--color-border)] hover:border-[var(--color-violet)]";
-              if (revealed && isAnswer) cls = "border-[var(--color-good)] bg-[color-mix(in_srgb,var(--color-good)_12%,transparent)]";
-              else if (revealed && isPicked) cls = "border-[var(--color-bad)] bg-[color-mix(in_srgb,var(--color-bad)_12%,transparent)]";
+              let state = "";
+              if (revealed) {
+                if (isAnswer) state = "opt-good";
+                else if (isPicked) state = "opt-bad";
+                else state = "opt-dim";
+              }
               return (
-                <button
-                  key={idx}
-                  disabled={revealed}
-                  onClick={() => answer(idx)}
-                  className={`text-left rounded-lg border px-4 py-3 transition ${cls}`}
-                >
-                  {opt}
+                <button key={idx} disabled={revealed} onClick={() => answer(idx)} className={`opt ${state}`}>
+                  <span className="text-[15px] font-medium leading-snug">{opt}</span>
                 </button>
               );
             })}
           </div>
         ) : (
-          <form
-            className="mt-5 flex gap-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              answer(null);
-            }}
-          >
+          <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); answer(null); }}>
             <input
               autoFocus
               disabled={revealed}
               value={typed}
               onChange={(e) => setTyped(e.target.value)}
               placeholder="Ta réponse…"
-              className="flex-1 rounded-lg bg-[var(--color-surface-2)] border border-[var(--color-border)] px-4 py-3 outline-none focus:border-[var(--color-violet)]"
+              className="field flex-1"
             />
-            {!revealed && (
-              <button type="submit" className="btn-primary rounded-lg px-5 font-semibold">
-                Valider
-              </button>
-            )}
+            {!revealed && <button type="submit" className="btn-arcade">Valider</button>}
           </form>
         )}
 
         {revealed && (
-          <div className="mt-5 border-t border-[var(--color-border)] pt-4">
-            <p className={`font-semibold ${wasCorrect ? "text-[var(--color-good)]" : "text-[var(--color-bad)]"}`}>
-              {wasCorrect ? "✅ Correct" : "❌ Raté"}
-            </p>
+          <div className="mt-6 border-t border-[var(--line)] pt-4 flex flex-col gap-3">
+            <span className={`verdict ${wasCorrect ? "verdict-good" : "verdict-bad"} self-start`}>
+              {wasCorrect ? "✓ Correct" : "✕ Raté"}
+            </span>
             {item.type === "trou" && !wasCorrect && (
-              <p className="text-sm mt-1">Réponse attendue : <strong>{String(item.answer)}</strong></p>
+              <p className="text-sm">Réponse attendue : <strong>{String(item.answer)}</strong></p>
             )}
-            <p className="text-sm text-[var(--color-muted)] mt-2">{item.explanation}</p>
-            <button onClick={next} className="btn-primary rounded-lg px-5 py-2.5 font-semibold mt-4">
+            <p className="text-sm text-[var(--ink-soft)]">{item.explanation}</p>
+            <button onClick={next} className="btn-arcade self-start mt-1">
               {i + 1 >= round.length ? "Voir le résultat" : "Suivant"}
             </button>
           </div>
         )}
+      </div>
+    </div>
+  );
+}
+
+function EndScreen({ label, score, total, xp }: { label: string; score: number; total: number; xp: number }) {
+  return (
+    <div className="card p-10 text-center flex flex-col items-center gap-4">
+      <h1 className="display text-2xl">{label}</h1>
+      <p className="display text-6xl text-[var(--green-deep)]">{score}<span className="text-[var(--ink-faint)] text-3xl">/{total}</span></p>
+      <p className="mono text-[var(--ink-soft)]">+{xp} XP</p>
+      <div className="flex gap-3 mt-2">
+        <Link href="/" className="mono text-sm text-[var(--ink-faint)] hover:text-[var(--ink)] px-4 py-3">← Hub</Link>
+        <button onClick={() => window.location.reload()} className="btn-arcade">Rejouer</button>
       </div>
     </div>
   );

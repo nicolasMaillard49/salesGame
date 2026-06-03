@@ -6,22 +6,20 @@ import { SKILL_LABELS, type SkillId } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-function MasteryBar({ skill, score, attempts }: { skill: SkillId; score: number; attempts: number }) {
-  const pct = Math.round(score * 100);
-  const color = score >= 0.7 ? "var(--color-good)" : score >= 0.5 ? "var(--color-ok)" : "var(--color-bad)";
+function Arrow() {
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-sm w-56 shrink-0 truncate text-[var(--color-muted)]">
-        {SKILL_LABELS[skill]}
-      </span>
-      <div className="flex-1 h-2 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
-        <div className="h-full rounded-full" style={{ width: `${pct}%`, background: color }} />
-      </div>
-      <span className="text-xs w-14 text-right tabular-nums text-[var(--color-muted)]">
-        {pct}% · {attempts}
-      </span>
-    </div>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14" />
+      <path d="M13 6l6 6-6 6" />
+    </svg>
   );
+}
+
+function meterClass(score: number): string {
+  return score >= 0.7 ? "m-good" : score >= 0.5 ? "m-mid" : "m-low";
+}
+function pctColor(score: number): string {
+  return score >= 0.7 ? "var(--green-deep)" : score >= 0.5 ? "var(--ok)" : "var(--bad)";
 }
 
 export default async function HubPage() {
@@ -29,83 +27,126 @@ export default async function HubPage() {
   const { progress, mastery } = await store.getSnapshot();
   const rank = rankForXp(progress.xpTotal);
   const next = progressToNextRank(progress.xpTotal);
-  const weak = weakSkills(mastery as Record<string, { score: number; attempts: number }>);
+  const weak = new Set(weakSkills(mastery as Record<string, { score: number; attempts: number }>));
   const attempted = (Object.entries(mastery) as [SkillId, { score: number; attempts: number }][])
     .filter(([, m]) => m.attempts > 0)
     .sort((a, b) => a[1].score - b[1].score);
 
   const games = [
-    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts, ouvertures, étapes & prix.", count: `${getQuiz().length} questions`, emoji: "🧠" },
-    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste aux objections.", count: `${getObjections().length} objections`, emoji: "🛡️" },
-    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet, l'artisan réagit.", count: `${getScenarios().length} scénarios`, emoji: "📞" },
+    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, emoji: "🧠" },
+    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${getObjections().length} objections`, emoji: "🛡️" },
+    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, emoji: "📞" },
   ];
 
   return (
-    <div className="flex flex-col gap-8">
-      {/* Bandeau progression */}
-      <section className="card p-6">
-        <div className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <p className="text-[var(--color-muted)] text-sm">Rang actuel</p>
-            <h1 className="text-3xl font-bold tracking-tight">{rank.name}</h1>
+    <div className="flex flex-col gap-10">
+      {/* Progression */}
+      <section className="progress-card">
+        <div className="flex items-start justify-between gap-5 flex-wrap relative z-[1]">
+          <div className="flex items-center gap-4">
+            <span className="rank-hex" aria-hidden="true">
+              {rank.name.charAt(0)}
+            </span>
+            <div>
+              <p className="eyebrow">Rang actuel</p>
+              <h1 className="display text-3xl sm:text-4xl mt-0.5">{rank.name}</h1>
+            </div>
           </div>
           <div className="text-right">
-            <p className="text-3xl font-bold tabular-nums text-[var(--color-violet-bright)]">
-              {progress.xpTotal} <span className="text-base text-[var(--color-muted)]">XP</span>
-            </p>
-            {next.next && (
-              <p className="text-xs text-[var(--color-muted)]">
-                {next.remaining} XP → {next.next}
-              </p>
-            )}
+            <div className="rank-xp-big">{progress.xpTotal}</div>
+            <div className="eyebrow">XP total</div>
           </div>
         </div>
-        <div className="mt-4 h-2.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
-          <div
-            className="h-full btn-primary rounded-full"
-            style={{ width: `${Math.round(next.ratio * 100)}%` }}
-          />
+
+        <div className="mt-8 relative z-[1]">
+          {next.next && (
+            <div className="flex justify-between mono text-[13px] mb-2 text-[var(--ink-soft)]">
+              <span>{rank.name}</span>
+              <span className="font-bold text-[var(--ink)]">{next.next} · {next.remaining + progress.xpTotal} XP</span>
+            </div>
+          )}
+          <div className="xp-bar" role="progressbar" aria-valuenow={progress.xpTotal} aria-valuemin={0}>
+            <div className="xp-fill" style={{ width: `${Math.round(next.ratio * 100)}%` }} />
+          </div>
+          <p className="mt-3 mono text-[13px] text-[var(--ink-soft)]">
+            {next.next ? (
+              <>Plus que <b className="text-[var(--green-deep)]">{next.remaining} XP</b> pour débloquer le rang <b className="text-[var(--green-deep)]">{next.next}</b>.</>
+            ) : (
+              <>Rang maximum atteint 🏆</>
+            )}
+          </p>
         </div>
+
         {store.backend === "memory" && (
-          <p className="mt-3 text-xs text-[var(--color-ok)]">
-            ⚠️ Suivi local (Supabase non connecté) — la progression repart à zéro au redémarrage du serveur.
+          <p className="mt-4 relative z-[1] text-xs text-[#92590a] bg-[var(--ok-wash)] border border-[#f1d493] rounded-lg px-3 py-2 inline-block">
+            ⚠️ Suivi local (Supabase non connecté) — repart à zéro au redémarrage du serveur.
           </p>
         )}
       </section>
 
-      {/* Jeux */}
-      <section className="grid sm:grid-cols-3 gap-4">
-        {games.map((g) => (
-          <Link key={g.href} href={g.href} className="card p-5 hover:border-[var(--color-violet)] transition group">
-            <div className="text-2xl">{g.emoji}</div>
-            <h2 className="mt-3 font-semibold group-hover:text-[var(--color-violet-bright)] transition">
-              {g.title}
-            </h2>
-            <p className="text-sm text-[var(--color-muted)] mt-1">{g.desc}</p>
-            <p className="text-xs text-[var(--color-muted)] mt-3">{g.count}</p>
-          </Link>
-        ))}
+      {/* Modes */}
+      <section>
+        <div className="flex items-baseline justify-between mb-5">
+          <h2 className="display text-xl">Modes d&apos;entraînement</h2>
+          <span className="eyebrow">{games.length} disponibles</span>
+        </div>
+        <div className="grid sm:grid-cols-3 gap-4">
+          {games.map((g) => (
+            <Link key={g.href} href={g.href} className="game-card">
+              <span className="game-icon" aria-hidden="true">{g.emoji}</span>
+              <h3 className="display text-lg mt-5">{g.title}</h3>
+              <p className="text-sm text-[var(--ink-soft)] mt-1">{g.desc}</p>
+              <span className="mt-auto pt-5 flex items-center justify-between">
+                <span className="count-pill">{g.count}</span>
+                <span className="w-[34px] h-[34px] rounded-full grid place-items-center bg-[var(--ink)] text-[var(--green)]">
+                  <Arrow />
+                </span>
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Maîtrise */}
-      <section className="card p-6">
-        <h2 className="font-semibold mb-1">Maîtrise par compétence</h2>
-        {weak.length > 0 && (
-          <p className="text-sm text-[var(--color-bad)] mb-4">
-            À bosser en priorité : {weak.slice(0, 3).map((s) => SKILL_LABELS[s]).join(" · ")}
-          </p>
-        )}
-        {attempted.length === 0 ? (
-          <p className="text-sm text-[var(--color-muted)]">
-            Joue une partie pour voir ta maîtrise apparaître ici.
-          </p>
-        ) : (
-          <div className="flex flex-col gap-2.5">
-            {attempted.map(([skill, m]) => (
-              <MasteryBar key={skill} skill={skill} score={m.score} attempts={m.attempts} />
-            ))}
-          </div>
-        )}
+      <section>
+        <div className="flex items-baseline justify-between mb-5">
+          <h2 className="display text-xl">Maîtrise par compétence</h2>
+          <span className="eyebrow">Cycle de vente</span>
+        </div>
+        <div className="card p-6">
+          {attempted.length === 0 ? (
+            <p className="text-sm text-[var(--ink-soft)]">
+              Joue une partie pour voir ta maîtrise apparaître ici.
+            </p>
+          ) : (
+            <div className="flex flex-col">
+              {attempted.map(([skill, m], idx) => {
+                const pct = Math.round(m.score * 100);
+                return (
+                  <div
+                    key={skill}
+                    className={`flex flex-col gap-2 py-4 ${idx === 0 ? "pt-0" : ""} ${
+                      idx < attempted.length - 1 ? "border-b border-[var(--line)]" : "pb-0"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="font-bold text-[15px] flex items-center gap-3">
+                        {SKILL_LABELS[skill]}
+                        {weak.has(skill) && <span className="tag-todo">à bosser</span>}
+                      </span>
+                      <span className="mono font-bold text-[15px]" style={{ color: pctColor(m.score) }}>
+                        {pct}%
+                      </span>
+                    </div>
+                    <div className="meter">
+                      <i className={meterClass(m.score)} style={{ width: `${pct}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );

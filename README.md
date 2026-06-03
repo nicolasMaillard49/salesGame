@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sales Game
 
-## Getting Started
+Jeu d'entraînement à la vente (prospection + closing) basé sur la matière de formation.
+Next.js 16 · React 19 · Tailwind v4 · TypeScript.
 
-First, run the development server:
+## Lancer
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mot de passe d'accès : **0902** (variable `APP_PASSWORD` dans `.env.local`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Commande | Rôle |
+|---|---|
+| `npm run dev` | Serveur de dev |
+| `npm run build` / `npm run start` | Build + prod |
+| `npm test` | Tests Vitest (logique progression + validation contenu) |
+| `npm run lint` | ESLint |
 
-## Learn More
+## Contenu (extensible)
 
-To learn more about Next.js, take a look at the following resources:
+La matière pédagogique vit dans `content/` — **éditable sans toucher au code** :
+- `quiz.json` — questions QCM / textes à trous
+- `objections.json` — objections + réponses qualifiées (good/ok/bad)
+- `scenarios.json` — scénarios du simulateur (personas + 7 phases)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Schémas validés par Zod (`src/lib/content/schema.ts`). Source brute dans `source/`.
+Pour ajouter du contenu : ajoute des entrées dans ces JSON (les tests vérifient la validité).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Simulateur (Haiku)
 
-## Deploy on Vercel
+`/api/sim` appelle Anthropic Haiku (`ANTHROPIC_API_KEY` dans `.env.local`) pour jouer l'artisan
+et générer 3 options qualifiées. Sans clé ou en cas d'échec → fallback scripté (mode démo).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Suivi de progression (Supabase)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Par défaut : **fallback mémoire** (repart à zéro au redémarrage).
+Pour activer le suivi persistant :
+
+1. Crée un projet Supabase (ou local : `npx supabase init && npx supabase start`).
+2. Applique `supabase/migrations/0001_init.sql`.
+3. Renseigne `SUPABASE_URL` et `SUPABASE_SERVICE_ROLE_KEY` dans `.env.local`.
+
+L'app bascule automatiquement sur Supabase dès que ces deux variables sont remplies.
+
+## Sécurité
+
+- Auth = simple porte mot de passe (cookie signé HMAC), hors Supabase.
+- Clés (Anthropic, Supabase) **jamais exposées au client** : tout passe par des routes API serveur.
+- `.env.local` est gitignored.
