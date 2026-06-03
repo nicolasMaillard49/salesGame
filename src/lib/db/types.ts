@@ -23,6 +23,8 @@ export type ProgressState = {
 
 export type DailyResult = { streak: number; bestStreak: number; alreadyDone: boolean };
 
+export type BestReply = { skill: string; text: string; count: number };
+
 export type Snapshot = {
   progress: ProgressState;
   mastery: MasteryMap;
@@ -42,5 +44,6 @@ export interface Store {
   finishSession(id: string, score: number, xp: number): Promise<void>;
   recordAnswer(sessionId: string, input: AnswerInput): Promise<{ xpGained: number }>;
   recordDaily(today: string, yesterday: string): Promise<DailyResult>;
+  getBestReplies(): Promise<BestReply[]>;
   getSnapshot(): Promise<Snapshot>;
 }

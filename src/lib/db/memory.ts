@@ -1,11 +1,12 @@
 import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType } from "../types";
-import type { AnswerInput, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
 
 type Mem = {
   sessions: Map<string, SessionRow>;
   progress: ProgressState;
   mastery: MasteryMap;
+  good: Map<string, { skill: string; text: string; count: number }>;
   seq: number;
 };
 
@@ -17,6 +18,7 @@ function mem(): Mem {
       sessions: new Map(),
       progress: { xpTotal: 0, rank: "Débutant", unlocked: [], streak: 0, bestStreak: 0, lastDay: null },
       mastery: {},
+      good: new Map(),
       seq: 0,
     };
   }
@@ -52,6 +54,13 @@ export class MemoryStore implements Store {
     // maîtrise
     const prev = m.mastery[input.skill] ?? { score: 0, attempts: 0 };
     m.mastery[input.skill] = updateMastery(prev, input.quality);
+    // meilleures répliques (pour la fiche perso)
+    if (input.quality === "good" && input.chosen) {
+      const key = `${input.skill}|${input.chosen}`;
+      const e = m.good.get(key) ?? { skill: input.skill, text: input.chosen, count: 0 };
+      e.count += 1;
+      m.good.set(key, e);
+    }
     // total de session
     const row = m.sessions.get(sessionId);
     if (row) row.xp += xpGained;
@@ -71,6 +80,10 @@ export class MemoryStore implements Store {
       m.progress.lastDay = today;
     }
     return { streak, bestStreak: m.progress.bestStreak, alreadyDone };
+  }
+
+  async getBestReplies(): Promise<BestReply[]> {
+    return [...mem().good.values()].sort((a, b) => b.count - a.count);
   }
 
   async getSnapshot(): Promise<Snapshot> {

@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 import { getScenario } from "@/lib/content";
-import { hasAnthropic, simTurn, type SimHistoryItem, type SimTurn } from "@/lib/anthropic";
+import { customScenario, hasAnthropic, simTurn, type SimHistoryItem, type SimTurn } from "@/lib/anthropic";
 import type { PhaseNode } from "@/lib/content/schema";
 
 function fallbackTurn(node: PhaseNode): SimTurn {
@@ -36,7 +36,18 @@ export async function POST(req: NextRequest) {
   const phaseIndex = Number(body?.phaseIndex ?? 0);
   const history = (Array.isArray(body?.history) ? body.history : []) as SimHistoryItem[];
 
-  const scenario = getScenario(scenarioId);
+  let scenario;
+  if (scenarioId === "custom" && body?.persona?.metier && body?.persona?.ville) {
+    const p = body.persona;
+    scenario = customScenario({
+      metier: String(p.metier).slice(0, 60),
+      ville: String(p.ville).slice(0, 60),
+      humeur: String(p.humeur ?? "neutre").slice(0, 60),
+      contexte: String(p.contexte ?? "").slice(0, 200),
+    });
+  } else {
+    scenario = getScenario(scenarioId);
+  }
   if (!scenario)
     return NextResponse.json({ error: "scénario introuvable" }, { status: 404 });
   const node = scenario.phases[phaseIndex];

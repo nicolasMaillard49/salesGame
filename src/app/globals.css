@@ -90,8 +90,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .orbs { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
   .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.8; }
   .orb-a { width: 620px; height: 620px; background: radial-gradient(circle, #15e58a, transparent 68%); top: -200px; left: -140px; animation: float1 16s var(--ease) infinite; }
-  .orb-b { width: 540px; height: 540px; background: radial-gradient(circle, #00c06a, transparent 68%); top: 14%; right: -200px; animation: float2 20s var(--ease) infinite; }
-  .orb-c { width: 500px; height: 500px; background: radial-gradient(circle, #6cf0b6, transparent 68%); bottom: -200px; left: 24%; animation: float1 22s var(--ease) infinite reverse; }
+  .orb-b { width: 560px; height: 560px; background: radial-gradient(circle, #5b7bff, transparent 68%); top: 12%; right: -200px; animation: float2 20s var(--ease) infinite; }
+  .orb-c { width: 520px; height: 520px; background: radial-gradient(circle, #ff7ac0, transparent 68%); bottom: -200px; left: 22%; animation: float1 22s var(--ease) infinite reverse; }
+  .orb-d { width: 460px; height: 460px; background: radial-gradient(circle, #ffb44d, transparent 68%); top: 40%; left: -160px; animation: float2 24s var(--ease) infinite; opacity: 0.65; }
   @keyframes float1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40px, 50px) scale(1.1); } }
   @keyframes float2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-50px, 30px) scale(0.92); } }
 
@@ -230,4 +231,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     60% { transform: scale(1.15); }
     100% { transform: scale(1); opacity: 1; }
   }
+}
+
+@media print {
+  html {
+    --bg: #fff !important; --ink: #0a0a0a !important; --ink-soft: #444 !important; --ink-faint: #777 !important;
+    --glass: #fff !important; --glass-strong: #fff !important; --glass-line: #dcdcdc !important;
+    --glass-edge: #e4e4e4 !important; --shadow: none !important;
+  }
+  .orbs, header, .no-print, body::after { display: none !important; }
+  .glass { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 }

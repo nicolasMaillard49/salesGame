@@ -1,7 +1,7 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { nextStreak, rankForXp, unlockedDifficulty, updateMastery, xpForAnswer } from "../progression";
 import type { GameType, SkillId } from "../types";
-import type { AnswerInput, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
+import type { AnswerInput, BestReply, DailyResult, MasteryMap, ProgressState, SessionRow, Snapshot, Store } from "./types";
 
 function difficultiesUnlocked(xp: number): string[] {
   const d = unlockedDifficulty(xp);
@@ -100,6 +100,24 @@ export class SupabaseStore implements Store {
       });
     }
     return { streak, bestStreak, alreadyDone };
+  }
+
+  async getBestReplies(): Promise<BestReply[]> {
+    const { data } = await this.c
+      .from("answers")
+      .select("skill, chosen")
+      .eq("quality", "good")
+      .not("chosen", "is", null)
+      .limit(2000);
+    const map = new Map<string, BestReply>();
+    for (const r of data ?? []) {
+      if (!r.chosen) continue;
+      const key = `${r.skill}|${r.chosen}`;
+      const e = map.get(key) ?? { skill: r.skill as string, text: r.chosen as string, count: 0 };
+      e.count += 1;
+      map.set(key, e);
+    }
+    return [...map.values()].sort((a, b) => b.count - a.count);
   }
 
   async getSnapshot(): Promise<Snapshot> {

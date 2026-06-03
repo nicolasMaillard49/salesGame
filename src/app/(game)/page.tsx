@@ -5,6 +5,7 @@ import { RANKS, progressToNextRank, rankForXp, weakSkills } from "@/lib/progress
 import { SKILL_LABELS, type SkillId } from "@/lib/types";
 import Icon, { type IconName } from "@/components/Icon";
 import MasterySection, { type MasteryRow } from "@/components/MasterySection";
+import { BOSSES } from "@/lib/bosses";
 
 export const dynamic = "force-dynamic";
 
@@ -48,10 +49,13 @@ export default async function HubPage() {
   const daily = getDailyObjection(today);
   const dailyDone = progress.lastDay === today;
 
-  const modes: { href: string; title: string; desc: string; count: string; icon: IconName }[] = [
-    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain" },
-    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${objs.length} objections`, icon: "shield" },
-    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, icon: "phone" },
+  const modes: { href: string; title: string; desc: string; count: string; icon: IconName; color: string }[] = [
+    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain", color: "#7b4fe0" },
+    { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${objs.length} objections`, icon: "shield", color: "#ff5d6c" },
+    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, icon: "phone", color: "#19c3e4" },
+    { href: "/prospect", title: "Vrai prospect", desc: "Répète sur un artisan réel", count: "appel sur-mesure", icon: "worker", color: "#00c06a" },
+    { href: "/boss", title: "Boss d'objection", desc: "Bats les artisans coriaces", count: `${BOSSES.length} boss`, icon: "shield", color: "#ff9d2e" },
+    { href: "/duel", title: "Duel", desc: "Défie un collègue", count: "même tirage", icon: "target", color: "#4b7bff" },
   ];
 
   return (
@@ -150,7 +154,9 @@ export default async function HubPage() {
       <section className="grid sm:grid-cols-3 gap-3.5 reveal" style={{ animationDelay: "0.18s" }}>
         {modes.map((m) => (
           <Link key={m.href} href={m.href} className="glass mode">
-            <span className="mode-ic"><Icon name={m.icon} size={24} /></span>
+            <span className="mode-ic" style={{ color: m.color, background: `linear-gradient(135deg, ${m.color}28, ${m.color}10)`, borderColor: `${m.color}40` }}>
+              <Icon name={m.icon} size={24} />
+            </span>
             <h3 className="display text-lg mt-4">{m.title}</h3>
             <p className="text-[var(--ink-soft)] text-[13.5px] mt-1">{m.desc}</p>
             <span className="mt-[18px] flex items-center justify-between">

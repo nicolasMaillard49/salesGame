@@ -50,10 +50,15 @@ export default function MasterySection({ rows }: { rows: MasteryRow[] }) {
     <section className="glass p-6 reveal" style={{ animationDelay: "0.24s" }}>
       <div className="flex items-center justify-between mb-4">
         <h2 className="display text-lg">{weak.length ? "À travailler en priorité" : "Maîtrise"}</h2>
-        <button onClick={() => setShowAll((s) => !s)} className="mono text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] inline-flex items-center gap-1.5 transition">
-          {showAll ? "Réduire" : "Toutes les compétences"}
-          <Icon name="chevronRight" size={14} style={{ transform: showAll ? "rotate(90deg)" : "none" }} />
-        </button>
+        <div className="flex items-center gap-4">
+          <Link href="/ma-fiche" className="mono text-xs text-[var(--green-deep)] hover:opacity-80 inline-flex items-center gap-1.5 transition">
+            <Icon name="book" size={14} /> Ma fiche
+          </Link>
+          <button onClick={() => setShowAll((s) => !s)} className="mono text-xs text-[var(--ink-faint)] hover:text-[var(--ink)] inline-flex items-center gap-1.5 transition">
+            {showAll ? "Réduire" : "Toutes les compétences"}
+            <Icon name="chevronRight" size={14} style={{ transform: showAll ? "rotate(90deg)" : "none" }} />
+          </button>
+        </div>
       </div>
 
       {!showAll ? (
