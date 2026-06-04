@@ -24,9 +24,14 @@ Mot de passe d'accès : **0902** (variable `APP_PASSWORD` dans `.env.local`).
 ## Contenu (extensible)
 
 La matière pédagogique vit dans `content/` — **éditable sans toucher au code** :
-- `quiz.json` — questions QCM / textes à trous
-- `objections.json` — objections + réponses qualifiées (good/ok/bad)
+- `quiz.json` — 180 questions QCM / textes à trous
+- `objections.json` — **102 objections** (16 types × variantes) + réponses qualifiées (good/ok/bad)
 - `scenarios.json` — scénarios du simulateur (personas + 7 phases)
+- `fiches.json` — 33 fiches de révision (bibliothèque `/fiches`)
+
+Les **boss d'objection** sont définis dans `src/lib/bosses.ts` (7 boss : nom, métier, PV, pool d'objections).
+Ajouter un **nouveau type d'objection** = enregistrer son `SkillId` dans `src/lib/types.ts`
+(`OBJECTION_SKILLS` + `SKILL_LABELS`) **puis** ajouter ses items dans `objections.json`.
 
 Schémas validés par Zod (`src/lib/content/schema.ts`). Source brute dans `source/`.
 Pour ajouter du contenu : ajoute des entrées dans ces JSON (les tests vérifient la validité).

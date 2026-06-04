@@ -54,8 +54,16 @@ export default function DrillGame({ items }: { items: Objection[] }) {
 
   useEffect(() => {
     // sous-ensemble aléatoire (max 12) pour des manches courtes et rejouables
+    const base = shuffle(items).slice(0, Math.min(12, items.length));
+    // éviter deux items consécutifs de même id (swap avec le suivant si possible)
+    for (let k = 0; k < base.length - 1; k++) {
+      if (base[k].id === base[k + 1].id) {
+        const swapIdx = base.findIndex((x, j) => j > k + 1 && x.id !== base[k].id);
+        if (swapIdx !== -1) { [base[k + 1], base[swapIdx]] = [base[swapIdx], base[k + 1]]; }
+      }
+    }
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setRound(shuffle(items).slice(0, Math.min(12, items.length)));
+    setRound(base);
     startSession("drill").then(setSessionId);
   }, [items]);
 

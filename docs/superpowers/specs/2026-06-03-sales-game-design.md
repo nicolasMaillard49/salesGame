@@ -174,3 +174,32 @@ sales-game/
 - Vocal / audio.
 - Génération de contenu par IA hors simulateur.
 - Déploiement cloud (local d'abord ; migration Supabase cloud documentée pour plus tard).
+
+---
+
+## Addendum V1.1 — Enrichissement contenu objections + anti-répétition (2026-06-04)
+
+**Problème traité** : le Boss d'objection (et le Drill) tournaient sur un pool trop petit
+(11 types × 3 variantes = 33 items, 3 boss) → on revoyait vite les mêmes répliques.
+
+**Production** : batch IA (agents Claude Sonnet 4.6) → fragments JSON relus → fusion + dédup
+(`artisanLine` unique) dans `objections.json`, validés par les schémas Zod existants.
+
+**Livré** :
+- **Objections : 33 → 102 items.** Les 11 types existants passent à **7 variantes** chacun.
+- **5 nouveaux types d'objection** (minés dans `source/02-cold-call-scripts.md`), 5 variantes chacun :
+  `obj_demasque` (« c'est de la prospection ! »), `obj_pas_confiance` (payer en ligne),
+  `obj_jai_quelquun` (« j'ai déjà quelqu'un »), `obj_clientele_pas_internet` (clientèle âgée),
+  `obj_confirmer_rdv` (no-show / verrouiller le créneau). Enregistrés dans `lib/types.ts`
+  (`OBJECTION_SKILLS` + `SKILL_LABELS`) → **27 compétences trackées** (7+4+16).
+- **Boss : 3 → 7** (`lib/bosses.ts`), profils variés mêlant anciens et nouveaux types.
+- **5 fiches** bibliothèque (catégorie `objection`) pour les nouveaux types.
+- **Anti-répétition en combat** : `BossGame` pioche désormais sans remise (deck mélangé,
+  re-mélange à l'épuisement) avec garantie **jamais deux fois le même `id` d'affilée** ;
+  `DrillGame` évite les doublets consécutifs de même `id` dans la manche.
+- **UI** : navbar opaque au scroll (`NavScroll` + classe `#app-nav.is-scrolled`,
+  variable `--nav-solid` light/dark) — fini la transparence en cours de défilement.
+
+**Garde-fous** : fidélité stricte au script de vente (ancrages ROI 299€ / agence 1000-3000€ /
+« un chantier = rentabilisé », règles « OU pas ET », « jamais demander *vous avez payé ?* », etc.) ;
+relecture humaine ; `content.test.ts` valide tous les JSON. Tests 30/30, lint clean, build OK.

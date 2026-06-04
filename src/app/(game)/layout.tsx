@@ -5,6 +5,7 @@ import LogoutButton from "@/components/LogoutButton";
 import Icon from "@/components/Icon";
 import Orbs from "@/components/Orbs";
 import ThemeToggle from "@/components/ThemeToggle";
+import NavScroll from "@/components/NavScroll";
 
 const NAV = [
   { href: "/", label: "Hub" },
@@ -21,7 +22,8 @@ export default async function GameLayout({ children }: { children: React.ReactNo
     <div className="flex-1 flex flex-col relative">
       <Orbs />
       <div className="relative z-[1] flex-1 flex flex-col">
-        <header className="glass sticky top-4 z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-[1200px] flex items-center justify-between px-5 py-3 !rounded-full">
+        <NavScroll targetId="app-nav" />
+        <header id="app-nav" className="glass sticky top-4 z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-[1200px] flex items-center justify-between px-5 py-3 !rounded-full">
           <Link href="/" className="flex items-center gap-3" aria-label="SalesGame, accueil">
             <span className="brand-mark"><Icon name="logo" size={20} strokeWidth={2.2} /></span>
             <span className="brand-name">Sales<span>Game</span></span>

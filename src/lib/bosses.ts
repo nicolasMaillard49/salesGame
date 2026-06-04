@@ -34,6 +34,38 @@ export const BOSSES: Boss[] = [
     intro: "Regarde chaque euro à la loupe.",
     objections: ["obj_trop_cher", "obj_site_sans_trafic", "obj_seul", "obj_femme_associe"],
   },
+  {
+    id: "patrick",
+    name: "Patrick le Démasqueur",
+    metier: "électricien",
+    hp: 4,
+    intro: "Il flaire la prospection au quart de tour et joue à te déstabiliser.",
+    objections: ["obj_demasque", "obj_pas_confiance", "obj_deja_appele", "obj_rappelle"],
+  },
+  {
+    id: "gerard",
+    name: "Gérard l'Aigri",
+    metier: "peintre",
+    hp: 6,
+    intro: "30 ans de galère, il a une clientèle de quartier et s'en satisfait.",
+    objections: ["obj_clientele_pas_internet", "obj_bouche_a_oreille", "obj_deja_essaye", "obj_seul", "obj_reflechir"],
+  },
+  {
+    id: "thierry",
+    name: "Thierry le Fantôme",
+    metier: "menuisier",
+    hp: 5,
+    intro: "Il dit oui à tout pendant l'appel puis disparaît au moment du RDV.",
+    objections: ["obj_confirmer_rdv", "obj_pas_maintenant", "obj_prix_mail", "obj_rappelle"],
+  },
+  {
+    id: "didier",
+    name: "Didier le Possessif",
+    metier: "maçon",
+    hp: 7,
+    intro: "Il a déjà quelqu'un qui gère ça — ou du moins il le croit.",
+    objections: ["obj_jai_quelquun", "obj_pas_confiance", "obj_trop_cher", "obj_femme_associe"],
+  },
 ];
 
 export function getBoss(id: string): Boss | undefined {

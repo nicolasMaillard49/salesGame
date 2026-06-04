@@ -28,6 +28,7 @@
   --glass-strong: rgba(255, 255, 255, 0.8);
   --glass-line: rgba(255, 255, 255, 0.85);
   --glass-edge: rgba(7, 20, 14, 0.07);
+  --nav-solid: #ffffff;
 
   --r: 18px;
   --r-lg: 26px;
@@ -53,6 +54,7 @@ html[data-theme="dark"] {
   --glass-strong: rgba(255, 255, 255, 0.14);
   --glass-line: rgba(255, 255, 255, 0.14);
   --glass-edge: rgba(255, 255, 255, 0.1);
+  --nav-solid: #0c1a12;
   --shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 16px 36px -16px rgba(0, 0, 0, 0.65);
 }
 
@@ -101,6 +103,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
     border: 1px solid var(--glass-line);
     box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     border-radius: var(--r);
+  }
+
+  /* Navbar : fond translucide en haut de page, opaque dès qu'on scrolle */
+  #app-nav {
+    transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  #app-nav.is-scrolled {
+    background: var(--nav-solid);
+    border-color: var(--glass-edge);
+    box-shadow: 0 1px 1px rgba(7, 20, 14, 0.05), 0 18px 40px -18px rgba(7, 20, 14, 0.3);
   }
 
   .display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; line-height: 1; }

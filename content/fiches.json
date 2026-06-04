@@ -375,6 +375,71 @@
       "example": "\"On est à 299€, site complet, mis en ligne. Un seul client trouvé grâce au site et il est déjà rentabilisé.\""
     },
     {
+      "id": "objection-demasque",
+      "category": "objection",
+      "title": "Objection : il démasque la prospection",
+      "summary": "Ne jamais confirmer platement que c'est un appel de vente — il raccroche. Rebondir avec humour ou repartir sur le Base Script.",
+      "points": [
+        "Erreur fatale : 'Oui c'est bien un appel de prospection.' → raccroché immédiatement.",
+        "Option La Pizza : 'Je voulais commander une margarita pour 19h, ce serait prêt ?' → il rit → enchaîne Tech 1 + Base Script.",
+        "Option directe : repartir sur le Base Script complet sans valider le démasquage.",
+        "L'humour désarme, la confirmation tue. Ne jamais rompre le cadre avec un aveu plat."
+      ],
+      "example": "\"Bonjour, j'essayais de vous joindre — je voulais commander une margarita pour 19h, ce serait prêt ?\""
+    },
+    {
+      "id": "objection-pas-confiance",
+      "category": "objection",
+      "title": "Objection : méfiance / 'j'ai peur de me faire arnaquer'",
+      "summary": "La méfiance est souvent implicite — la lever en se positionnant en preuve concrète, pas en argumentation.",
+      "points": [
+        "Ne pas se défendre ni argumenter : valider sa méfiance ('C'est normal d'être prudent, il y a beaucoup d'arnaques dans ce secteur.').",
+        "Proposer une preuve concrète : montrer le site EN DIRECT en partage d'écran, pas juste en décrire les avantages.",
+        "Closing en visio Google Meet : réduit le sentiment d'arnaque, le prospect voit un vrai être humain.",
+        "Rappeler que regarder coûte 0€ : 'Pour l'instant c'est totalement gratuit de regarder. Vous ne prenez aucun risque.'"
+      ],
+      "example": "\"C'est normal d'être prudent. C'est pour ça qu'on fait tout en partage d'écran — vous voyez exactement ce que vous allez avoir.\""
+    },
+    {
+      "id": "objection-jai-quelquun",
+      "category": "objection",
+      "title": "Objection : 'j'ai déjà quelqu'un qui gère ça'",
+      "summary": "Vérifier ce que 'quelqu'un' fait vraiment, puis pointer ce qui manque sans attaquer le prestataire.",
+      "points": [
+        "Creuser sans attaquer : 'Il gère quoi exactement ? Le site, le référencement, les deux ?'",
+        "Tester la visibilité : 'Votre site sort à quelle position quand quelqu'un cherche [activité] à [ville] ?' — s'il ne sait pas, c'est qu'il ne sort pas.",
+        "Pointer le manque sans dévaloriser : 'C'est très bien. Notre approche c'est un site conçu pour être trouvé — peut-être complémentaire à ce que vous avez déjà.'",
+        "Si ça tourne vraiment bien pour lui : qualifier honnêtement et ne pas forcer. Chercher la brèche sur la régularité des chantiers."
+      ],
+      "example": "\"Il sort à quelle position sur Google quand on cherche [activité] à [ville] ?\""
+    },
+    {
+      "id": "objection-clientele-pas-internet",
+      "category": "objection",
+      "title": "Objection : 'ma clientèle n'est pas sur internet'",
+      "summary": "Retourner la croyance : sa clientèle actuelle cherche peut-être sur Google sans qu'il le sache.",
+      "points": [
+        "Aller dans son sens d'abord : 'Peut-être. Il y a des secteurs où c'est vrai.'",
+        "Retourner : 'Mais quand quelqu'un a besoin d'un [métier] en urgence, il cherche où ? Il demande à sa femme de chercher sur Google ou il appelle directement une fiche?'",
+        "Pointer la fiche Google Maps : 'Aujourd'hui vous existez quand même en ligne — une fiche avec 3 photos. Un site convertit 3 à 5 fois mieux.'",
+        "Ne pas vendre du nouveau : pluguer sur ce qu'il a déjà (bouche-à-oreille + fiche Maps → site qui capte ce trafic existant)."
+      ],
+      "example": "\"Quand quelqu'un cherche un [métier] en urgence le dimanche soir, il fait quoi ? Il demande à Google.\""
+    },
+    {
+      "id": "objection-confirmer-rdv",
+      "category": "objection",
+      "title": "Objection : no-show / RDV non confirmé",
+      "summary": "Verrouiller le RDV avant de raccrocher pour éviter le fantôme : confirmation + justification émotionnelle.",
+      "points": [
+        "Toujours confirmer le créneau avant de raccrocher : 'C'est noté pour [heure]. Vous confirmez que vous aurez bien 10 min dans un endroit tranquille ?'",
+        "Justifier avec une touche personnelle : 'J'ai passé du temps sur le site, j'ai pas envie que vous loupiez le RDV.'",
+        "Bonne formule pour bloquer 'envoyez par mail' : 'Le site est sur mon ordi, pas encore en ligne. La seule option c'est un partage d'écran 10 min.'",
+        "Si le prospect propose de rappeler lui-même : retourner doucement — 'Je préfère qu'on cale maintenant, j'ai un créneau [heure] qui est parfait pour vous.'"
+      ],
+      "example": "\"C'est noté pour [heure]. Vous me confirmez que vous aurez bien 10 min dans un endroit tranquille ?\""
+    },
+    {
       "id": "mindset-creneaux-canal",
       "category": "mindset",
       "title": "Meilleurs créneaux & canal de closing",

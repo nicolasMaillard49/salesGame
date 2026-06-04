@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
 import type { Boss } from "@/lib/bosses";
@@ -19,6 +19,8 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
   const [boss, setBoss] = useState<Boss | null>(null);
   const [pool, setPool] = useState<Objection[]>([]);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const deckRef = useRef<Objection[]>([]);
+  const lastIdRef = useRef<string | null>(null);
   const [hp, setHp] = useState(0);
   const [lives, setLives] = useState(MAX_LIVES);
   const [cur, setCur] = useState<Objection | null>(null);
@@ -29,8 +31,17 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
 
   function draw(p: Objection[]) {
     // appelé uniquement depuis des handlers (start/next), pas pendant le render
-    // eslint-disable-next-line react-hooks/purity
-    const o = p[Math.floor(Math.random() * p.length)];
+    if (deckRef.current.length === 0) {
+      // Re-mélange en garantissant que la 1ère carte ≠ dernière objection jouée
+      let next = shuffle([...p]);
+      if (p.length > 1 && lastIdRef.current !== null && next[0].id === lastIdRef.current) {
+        // Déplacer la 1ère carte en fin de deck pour éviter la répétition
+        next = [...next.slice(1), next[0]];
+      }
+      deckRef.current = next;
+    }
+    const o = deckRef.current.shift()!;
+    lastIdRef.current = o.id;
     setCur(o);
     setOptions(shuffle(o.options));
     setPicked(null);
@@ -45,6 +56,8 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
     setHp(b.hp);
     setLives(MAX_LIVES);
     setOutcome(null);
+    deckRef.current = [];
+    lastIdRef.current = null;
     startSession("drill", `boss:${b.id}`).then(setSessionId);
     draw(p);
   }

@@ -28,6 +28,11 @@ export const OBJECTION_SKILLS = [
   "obj_deja_appele",
   "obj_site_sans_trafic",
   "obj_prix_mail",
+  "obj_demasque",
+  "obj_pas_confiance",
+  "obj_jai_quelquun",
+  "obj_clientele_pas_internet",
+  "obj_confirmer_rdv",
 ] as const;
 
 export const ALL_SKILLS = [...PHASE_SKILLS, ...PROSPECTION_SKILLS, ...OBJECTION_SKILLS] as const;
@@ -62,6 +67,11 @@ export const SKILL_LABELS: Record<SkillId, string> = {
   obj_deja_appele: "« On m'a déjà appelé »",
   obj_site_sans_trafic: "« Un site sans trafic ça sert à rien »",
   obj_prix_mail: "« Envoyez-moi ça par mail »",
+  obj_demasque: "« C'est de la prospection ça ! »",
+  obj_pas_confiance: "« Payer sur internet, j'ai pas confiance »",
+  obj_jai_quelquun: "« J'ai déjà quelqu'un qui gère ça »",
+  obj_clientele_pas_internet: "« Ma clientèle n'est pas sur internet »",
+  obj_confirmer_rdv: "« Finalement j'ai pas le temps pour le RDV »",
 };
 
 export function isSkillId(v: string): v is SkillId {
