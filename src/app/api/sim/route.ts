@@ -2,30 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 import { getScenario } from "@/lib/content";
 import { customScenario, hasAnthropic, simTurn, type SimHistoryItem, type SimTurn } from "@/lib/anthropic";
-import type { PhaseNode } from "@/lib/content/schema";
-
-function fallbackTurn(node: PhaseNode): SimTurn {
-  return {
-    artisanLine: node.artisanSeed ?? "Ouais… je vous écoute, mais faites vite.",
-    options: [
-      {
-        text: `(Suivre l'objectif) ${node.bonneIntention}`,
-        quality: "good",
-        feedback: "C'est l'intention juste pour cette phase.",
-      },
-      {
-        text: "Je continue mon argumentaire sans creuser sa situation.",
-        quality: "ok",
-        feedback: "Acceptable mais tu n'avances pas vraiment l'appel.",
-      },
-      {
-        text: "Alors, ça vous intéresse un site ? C'est 300€, on signe ?",
-        quality: "bad",
-        feedback: "Trop direct, trop tôt : tu brûles les étapes.",
-      },
-    ],
-  };
-}
+import { fallbackTurn } from "@/lib/sim-fallback";
 
 export async function POST(req: NextRequest) {
   if (!(await isAuthenticated()))
@@ -63,12 +40,12 @@ export async function POST(req: NextRequest) {
       try {
         turn = await simTurn(scenario, node, history); // 1 retry
       } catch {
-        turn = fallbackTurn(node);
+        turn = fallbackTurn(scenario, node);
         fallback = true;
       }
     }
   } else {
-    turn = fallbackTurn(node);
+    turn = fallbackTurn(scenario, node);
     fallback = true;
   }
 
