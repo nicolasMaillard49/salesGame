@@ -27,14 +27,14 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   ouverture: {
     options: [
       {
-        good: "Je vais être franc avec vous, c'est un appel de prospection — mais deux secondes, parce que j'ai déjà monté un exemple de site pour un {metier} et j'aimerais juste vous poser deux questions avant de vous le montrer. Ça marche ?",
-        ok: "Bonjour, désolé de vous déranger en plein travail, je serai bref. Est-ce que vous m'accordez deux minutes pour vous expliquer la raison de mon appel ?",
-        bad: "Bonjour, je me présente, je travaille avec pas mal d'artisans dans votre région pour les aider à développer leur visibilité en ligne. Je voulais voir avec vous où vous en êtes là-dessus.",
+        good: "Je vais être franc avec vous, c'est un appel de prospection. Mais accordez-moi deux secondes : j'ai déjà monté un exemple de site pour un {metier}, et j'aimerais vous poser deux questions avant de vous le montrer.",
+        ok: "Bonjour, désolé de vous déranger en plein travail, je serai bref. Est-ce que vous m'accordez deux minutes pour que je vous explique tranquillement la raison exacte de mon appel aujourd'hui ?",
+        bad: "Bonjour, je me présente, je travaille avec beaucoup d'artisans de votre région pour les aider à développer leur visibilité en ligne, et je voulais voir un peu avec vous où vous en êtes là-dessus aujourd'hui.",
       },
       {
-        good: "Vous êtes en plein boulot, je respecte, je vais droit au but : j'ai regardé votre activité de {metier} et je vous ai déjà préparé quelque chose. Deux questions rapides et je vous montre, d'accord ?",
-        ok: "Bonjour ! J'espère que je ne tombe pas trop mal. Je voulais échanger un instant avec vous au sujet de votre présence sur internet, vous avez un moment ?",
-        bad: "Bonjour, vous êtes bien le {metier} à {ville} ? Parfait. Alors, est-ce que vous seriez intéressé pour avoir plus de clients grâce à un site internet ?",
+        good: "Vous êtes en plein boulot, je respecte, je vais droit au but : j'ai regardé votre activité de {metier} et je vous ai déjà préparé quelque chose. Deux questions rapides et je vous montre.",
+        ok: "Bonjour ! J'espère que je ne tombe pas trop mal. Je voulais échanger un moment avec vous au sujet de votre présence sur internet, vous avez deux minutes devant vous là ?",
+        bad: "Bonjour, vous êtes bien le {metier} à {ville} ? Parfait. Alors je vous explique en deux mots : est-ce que vous seriez intéressé pour avoir plus de clients grâce à un site internet bien référencé sur Google ?",
       },
     ],
     feedback: {
@@ -47,14 +47,14 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   decouverte: {
     options: [
       {
-        good: "Avant de vous montrer quoi que ce soit — aujourd'hui vos clients arrivent comment ? Et si demain vous vouliez plus de chantiers, vous pouvez actionner un levier ou vous attendez que ça tombe ?",
-        ok: "D'accord. Et aujourd'hui, vous diriez que vous avez assez de chantiers, ou vous en cherchez ?",
-        bad: "Et pour qu'on vous trouve, vous avez quoi en place aujourd'hui ? Un site, une fiche Google, quelque chose ?",
+        good: "Avant de vous montrer quoi que ce soit, aujourd'hui vos clients arrivent comment ? Et si demain vous vouliez plus de chantiers, vous pouvez actionner un levier ou vous attendez que ça tombe ?",
+        ok: "D'accord. Et aujourd'hui, vous diriez que vous avez plutôt assez de chantiers comme ça, ou vous en cherchez encore activement de votre côté ?",
+        bad: "Et aujourd'hui, pour qu'un nouveau client vous trouve facilement, vous avez quoi en place ? Un site internet, une fiche Google, une page sur les réseaux, ce genre de choses ?",
       },
       {
-        good: "Juste pour bien comprendre : le bouche-à-oreille, c'est régulier ou il y a des creux ? Vous avez la main dessus, ou ça dépend uniquement des autres ?",
-        ok: "Et vos clients, ils sont plutôt contents du travail j'imagine ? Ils vous recommandent ?",
-        bad: "Et est-ce que ça vous arrive de perdre des clients parce qu'ils ne vous trouvent pas sur Google ?",
+        good: "Le bouche-à-oreille, vous avez la main dessus, ou ça dépend uniquement des autres ?",
+        ok: "Et vos clients, ils sont plutôt contents du travail j'imagine ? Ils vous recommandent facilement autour d'eux ?",
+        bad: "Et ça vous arrive de perdre des clients parce qu'ils ne vous trouvent pas sur Google quand ils cherchent un {metier} dans le coin ?",
       },
     ],
     feedback: {
@@ -72,9 +72,9 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
         bad: "Donc si je comprends bien, le vrai problème c'est que vous dépendez trop du bouche-à-oreille et que ça vous met en insécurité, c'est ça ?",
       },
       {
-        good: "Vous dites que des fois les gens trouvent quelqu'un d'autre — ça vous fait quoi quand ça arrive ? C'est arrivé combien de fois cette année à votre avis ?",
-        ok: "Du coup les mois calmes, c'est un peu stressant pour vous j'imagine ?",
-        bad: "En fait ce qui vous manque c'est de la régularité et de la visibilité, voilà votre vrai souci — on est d'accord ?",
+        good: "Vous dites que des fois les gens trouvent quelqu'un d'autre. Ça vous fait quoi quand ça arrive ?",
+        ok: "Du coup les mois calmes, c'est un peu stressant pour vous, surtout pour les factures, j'imagine ?",
+        bad: "En fait ce qui vous manque vraiment, c'est de la régularité et un peu plus de visibilité dans le coin. Voilà votre vrai souci au fond, on est d'accord là-dessus ?",
       },
     ],
     feedback: {
@@ -87,14 +87,14 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   ambitions: {
     options: [
       {
-        good: "Et si vous aviez ces chantiers qui rentrent régulièrement, sans courir après — ça changerait quoi pour vous concrètement ?",
+        good: "Et si vous aviez ces chantiers qui rentrent régulièrement, sans courir après, ça changerait quoi pour vous concrètement ?",
         ok: "Donc dans l'idéal, vous aimeriez en avoir un peu plus, de ces chantiers ?",
-        bad: "Et si vous aviez un outil qui vous ramène des demandes en continu, automatiquement, ça vous parlerait ?",
+        bad: "Et si vous aviez un outil qui vous ramène des demandes en continu, automatiquement, sans que vous ayez à lever le petit doigt pour ça, ça vous parlerait comme idée ?",
       },
       {
         good: "Si demain c'était vous qu'on trouve en premier quand on cherche un {metier} à {ville}, ça ressemblerait à quoi votre quotidien ?",
-        ok: "Vous aimeriez gagner en visibilité, c'est ça le fond ?",
-        bad: "Imaginez un site qui travaille pour vous pendant que vous êtes sur le chantier — c'est exactement ça que vous voulez, non ?",
+        ok: "Vous aimeriez gagner en visibilité dans le secteur, c'est ça le fond ?",
+        bad: "Imaginez un site qui travaille pour vous pendant que vous êtes sur le chantier et qui vous ramène des demandes tout seul, c'est exactement ça que vous voulez au fond, non ?",
       },
     ],
     feedback: {
@@ -109,12 +109,12 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
       {
         good: "Si je résume avec vos mots : aujourd'hui vous subissez les creux, et vous voudriez des demandes régulières pour être tranquille. C'est bien ça ?",
         ok: "Donc en gros vous voulez plus de régularité dans le boulot. On est d'accord ?",
-        bad: "Donc vous voulez de la régularité et être trouvé en ligne — et c'est exactement ce que je vais vous montrer.",
+        bad: "Donc vous voulez de la régularité et être trouvé en ligne, et c'est exactement ce que je vais vous montrer tout de suite avec le site.",
       },
       {
-        good: "Donc si je comprends bien : ces demandes vous passent sous le nez, et vous voudriez être celui qu'on trouve. On est d'accord là-dessus ?",
+        good: "Donc si je comprends bien, ces demandes vous passent sous le nez, et vous voudriez être celui qu'on trouve. On est d'accord là-dessus ?",
         ok: "Si j'ai bien suivi, le souci c'est surtout les périodes creuses, c'est ça ?",
-        bad: "Parfait, tout ce que vous me dites confirme que vous avez besoin d'un site — laissez-moi vous le présenter.",
+        bad: "Parfait, tout ce que vous me dites confirme que vous avez clairement besoin d'un site, alors laissez-moi vous le présenter en détail.",
       },
     ],
     feedback: {
@@ -127,14 +127,14 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   presentation: {
     options: [
       {
-        good: "Du coup je vous ai préparé un site qui ressort quand on tape « {metier} {ville} », avec vos réalisations et un bouton appeler. Si c'était le vôtre, vous pensez que ça pourrait vous amener des demandes en plus ?",
-        ok: "Voilà le site : galerie de vos réalisations, vos coordonnées, un formulaire de contact et les avis clients. C'est propre et complet.",
-        bad: "Regardez : ce type de site, mes clients artisans captent en moyenne 3 à 4 demandes de plus par mois grâce à lui. C'est ça que ça va vous apporter.",
+        good: "Du coup je vous ai préparé un site qui ressort quand on tape « {metier} {ville} », avec vos réalisations et un bouton appeler. Si c'était le vôtre, ça pourrait vous amener des demandes en plus ?",
+        ok: "Voilà le site : une galerie de toutes vos réalisations, vos coordonnées bien visibles, un formulaire de contact simple et les avis de vos clients. C'est propre, moderne et vraiment complet.",
+        bad: "Regardez, ce type de site, mes clients artisans en captent en moyenne 3 à 4 demandes de plus par mois grâce à lui, c'est exactement ça que ça va vous apporter concrètement à vous aussi.",
       },
       {
-        good: "Concrètement : quelqu'un cherche un {metier} à {ville}, tombe sur votre site, voit vos chantiers et vous appelle en 30 secondes. Ça, ça collerait à ce que vous me décriviez tout à l'heure ?",
-        ok: "Le site est moderne, rapide, il s'affiche bien sur mobile et il y a le référencement Google inclus dans l'offre.",
-        bad: "Franchement c'est l'outil qu'il vous faut : visible, pro, et au-dessus de ce que font vos concurrents du coin.",
+        good: "Concrètement : quelqu'un cherche un {metier} à {ville}, tombe sur votre site, voit vos chantiers et vous appelle en 30 secondes. Ça collerait à ce que vous me décriviez tout à l'heure ?",
+        ok: "Le site est moderne, rapide, il s'affiche parfaitement sur mobile comme sur ordinateur, et le référencement Google est inclus directement dans l'offre, sans surcoût.",
+        bad: "Franchement c'est vraiment l'outil qu'il vous faut : visible, pro, parfaitement à jour, et clairement au-dessus de ce que font la plupart de vos concurrents du coin en ce moment, vous allez vite voir la différence.",
       },
     ],
     feedback: {
@@ -147,14 +147,14 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   prix_close: {
     options: [
       {
-        good: "En agence, un site comme ça c'est 1000 à 3000€. Nous, c'est 299€ — un seul chantier capté via le site et il est déjà rentabilisé. On l'active pour votre activité ?",
+        good: "En agence, un site comme ça c'est 1000 à 3000€. Nous, c'est 299€. Un seul chantier capté via le site et il est déjà rentabilisé. On l'active pour votre activité ?",
         ok: "Alors, c'est 299€, et franchement vu ce que ça peut vous rapporter c'est vite rentabilisé. Qu'est-ce que vous en dites ?",
-        bad: "C'est 299€ seulement, vous ne prenez vraiment aucun risque à ce prix-là, tous les artisans le prennent. On y va ?",
+        bad: "C'est 299€ seulement, vous ne prenez vraiment aucun risque à ce prix-là, et croyez-moi, tous les artisans à qui je le propose finissent par le prendre sans hésiter une seconde. Alors, on y va maintenant ?",
       },
       {
         good: "Le prix, c'est 299€, une fois, et le site vous appartient. Comparé à un seul chantier que vous décrochez grâce à lui, le calcul est vite fait. On le met en route ?",
         ok: "Ce sera 299€ tout compris, sans abonnement. Ça vous semble correct comme tarif ?",
-        bad: "299€. Et si jamais vous voulez y réfléchir, je vous laisse mon numéro et vous me rappelez quand vous êtes prêt, pas de pression.",
+        bad: "299€. Et écoutez, si jamais vous préférez y réfléchir tranquillement de votre côté, je vous laisse mon numéro et vous me rappelez dès que vous serez prêt, vraiment sans aucune pression de ma part.",
       },
     ],
     feedback: {
