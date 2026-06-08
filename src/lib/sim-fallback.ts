@@ -15,7 +15,10 @@ import type { SimOption, SimTurn } from "./anthropic";
  */
 
 type Tone = { good: string; ok: string; bad: string };
-type PhaseBank = { options: Tone[]; feedback: Tone };
+// `lead` = ce que l'artisan dit AVANT que le commercial choisisse sa réplique.
+// C'est sa réaction à la phase précédente — jamais la réponse à la question
+// que le commercial s'apprête à poser (sinon il aurait un temps d'avance).
+type PhaseBank = { lead: string; options: Tone[]; feedback: Tone };
 
 // Réplique avec le métier en minuscule ("plombier") et la ville telle quelle.
 function fill(line: string, p: Scenario["persona"]): string {
@@ -25,6 +28,7 @@ function fill(line: string, p: Scenario["persona"]): string {
 
 const BANK: Record<PhaseSkill, PhaseBank> = {
   ouverture: {
+    lead: "Allô ? Oui c'est moi. C'est pour quoi exactement ?",
     options: [
       {
         good: "Je vais être franc avec vous, c'est un appel de prospection. Mais accordez-moi deux secondes : j'ai déjà monté un exemple de site pour un {metier}, et j'aimerais vous poser deux questions avant de vous le montrer.",
@@ -45,6 +49,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   decouverte: {
+    lead: "Bon… vous avez déjà préparé un truc à ce qu'il paraît ? Allez-y, posez vos questions, mais je vous préviens, je suis pas un grand fan d'internet.",
     options: [
       {
         good: "Avant de vous montrer quoi que ce soit, aujourd'hui vos clients arrivent comment ? Et si demain vous vouliez plus de chantiers, vous pouvez actionner un levier ou vous attendez que ça tombe ?",
@@ -65,6 +70,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   douleurs: {
+    lead: "Comment je trouve mes clients ? Surtout le bouche-à-oreille, les gens du coin qui me connaissent. Après c'est sûr que c'est pas toujours très régulier.",
     options: [
       {
         good: "Quand c'est plus calme, ça se passe comment pour vous ? Vous le vivez comment, ces périodes-là ?",
@@ -85,6 +91,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   ambitions: {
+    lead: "Faut dire que les périodes plus creuses c'est jamais l'idéal, on sait jamais trop de quoi demain sera fait, ça met un peu la pression.",
     options: [
       {
         good: "Et si vous aviez ces chantiers qui rentrent régulièrement, sans courir après, ça changerait quoi pour vous concrètement ?",
@@ -105,6 +112,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   pont: {
+    lead: "Ce que je voudrais ? Surtout que ça rentre plus régulièrement, sans avoir à courir après le boulot tout le temps.",
     options: [
       {
         good: "Si je résume avec vos mots : aujourd'hui vous subissez les creux, et vous voudriez des demandes régulières pour être tranquille. C'est bien ça ?",
@@ -125,6 +133,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   presentation: {
+    lead: "Ouais… c'est assez ça en fait, vous résumez bien. Bon, vous vouliez me montrer quelque chose, non ?",
     options: [
       {
         good: "Du coup je vous ai préparé un site qui ressort quand on tape « {metier} {ville} », avec vos réalisations et un bouton appeler. Si c'était le vôtre, ça pourrait vous amener des demandes en plus ?",
@@ -145,6 +154,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
   },
 
   prix_close: {
+    lead: "Ah ouais, c'est pas mal ça en fait… et niveau prix, on parle de combien ?",
     options: [
       {
         good: "En agence, un site comme ça c'est 1000 à 3000€. Nous, c'est 299€. Un seul chantier capté via le site et il est déjà rentabilisé. On l'active pour votre activité ?",
@@ -188,8 +198,14 @@ export function fallbackTurn(scenario: Scenario, node: PhaseNode): SimTurn {
     { text: fill(variant.bad, p), quality: "bad", feedback: bank.feedback.bad },
   ];
 
+  // À l'ouverture, on décroche (le seed du scénario est un "allô", il ne spoile rien).
+  // Ensuite, on n'utilise PLUS le seed (qui contient la réponse de la phase) :
+  // `lead` est une réaction à la phase précédente, sans répondre à la question à venir.
+  const artisanLine =
+    node.phase === "ouverture" ? node.artisanSeed ?? bank.lead : bank.lead;
+
   return {
-    artisanLine: node.artisanSeed ?? "Ouais… je vous écoute, mais faites vite.",
+    artisanLine: fill(artisanLine, p),
     options: shuffle(options),
   };
 }

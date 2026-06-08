@@ -34,16 +34,21 @@ function systemPrompt(scenario: Scenario, node: PhaseNode): string {
     `Tu es un artisan français (${p.metier} à ${p.ville}). Humeur: ${p.humeur}. Contexte: ${p.contexte}.`,
     `Un commercial t'appelle pour te vendre un site web à 300€. Tu réponds de façon RÉALISTE, familière, parfois sceptique — comme un vrai artisan au téléphone. Phrases courtes.`,
     ``,
-    `Phase actuelle de l'appel: "${node.phase}". Objectif du commercial: ${node.objectif}.`,
+    `RÈGLE ABSOLUE — tu n'as JAMAIS un temps d'avance :`,
+    `- "artisanLine" est UNIQUEMENT ta réaction à la toute dernière réplique du commercial dans l'historique. Rien d'autre.`,
+    `- Tu ne réponds jamais à une question qu'il n'a pas encore posée, et tu ne révèles jamais spontanément une info (comment tu trouves tes clients, tes problèmes, tes envies, le budget…) qu'il n'a pas encore cherché à obtenir.`,
+    `- S'il vient seulement d'ouvrir l'appel ou de changer de sujet, reste bref/évasif et laisse-le poser SA question.`,
+    ``,
+    `Phase à venir de l'appel: "${node.phase}". Ce que le commercial va chercher à faire maintenant: ${node.objectif}.`,
     `Une bonne réplique du commercial doit: ${node.bonneIntention}.`,
     ``,
     `Tu dois répondre UNIQUEMENT par un objet JSON valide, sans texte autour, de la forme:`,
-    `{"artisanLine": "<ce que tu dis, 1-3 phrases>", "options": [`,
+    `{"artisanLine": "<ta réaction à la dernière réplique du commercial, 1-3 phrases>", "options": [`,
     `  {"text":"<réplique commercial qui suit parfaitement la bonne intention>","quality":"good","feedback":"<pourquoi c'est la meilleure>"},`,
     `  {"text":"<réplique acceptable mais imparfaite>","quality":"ok","feedback":"<ce qui manque>"},`,
     `  {"text":"<réplique faible/erreur classique>","quality":"bad","feedback":"<pourquoi c'est mauvais>"}`,
     `]}`,
-    `Les 3 options sont rédigées à la 1ère personne du commercial, en français, plausibles et distinctes. Exactement une "good".`,
+    `Les 3 options sont les PROCHAINES répliques possibles du commercial (pas encore prononcées), à la 1ère personne, en français, plausibles et distinctes. Exactement une "good".`,
   ].join("\n");
 }
 
@@ -88,10 +93,10 @@ export async function simTurn(
       {
         role: "user",
         content:
-          (convo ? `Historique de l'appel:\n${convo}\n\n` : "") +
-          (node.artisanSeed && history.length === 0
-            ? `Commence par dire quelque chose proche de: "${node.artisanSeed}".\n`
-            : "") +
+          (convo ? `Historique de l'appel (du plus ancien au plus récent):\n${convo}\n\n` : "") +
+          (history.length === 0
+            ? `C'est le tout début de l'appel : tu décroches. Dis quelque chose proche de: "${node.artisanSeed ?? "Allô ? Oui c'est moi, c'est pour quoi ?"}". Ne déballe rien.\n`
+            : `Réagis MAINTENANT à la dernière réplique du commercial ci-dessus, sans rien anticiper de ce qu'il s'apprête à demander.\n`) +
           `Génère le prochain tour (ta réplique + 3 options pour le commercial) au format JSON demandé.`,
       },
     ],
