@@ -198,14 +198,12 @@ export function fallbackTurn(scenario: Scenario, node: PhaseNode): SimTurn {
     { text: fill(variant.bad, p), quality: "bad", feedback: bank.feedback.bad },
   ];
 
-  // À l'ouverture, on décroche (le seed du scénario est un "allô", il ne spoile rien).
-  // Ensuite, on n'utilise PLUS le seed (qui contient la réponse de la phase) :
-  // `lead` est une réaction à la phase précédente, sans répondre à la question à venir.
-  const artisanLine =
-    node.phase === "ouverture" ? node.artisanSeed ?? bank.lead : bank.lead;
-
+  // L'artisan ne dit jamais la réponse de la phase à venir : `lead` est seulement
+  // sa réaction à la phase précédente — et à l'ouverture, un simple décroché.
+  // (Le `artisanSeed` du scénario n'est plus utilisé : il portait déjà l'attitude/
+  //  la réponse du persona, ce qui spoilait ou alourdissait le 1er tour.)
   return {
-    artisanLine: fill(artisanLine, p),
+    artisanLine: fill(bank.lead, p),
     options: shuffle(options),
   };
 }

@@ -95,7 +95,7 @@ export async function simTurn(
         content:
           (convo ? `Historique de l'appel (du plus ancien au plus récent):\n${convo}\n\n` : "") +
           (history.length === 0
-            ? `C'est le tout début de l'appel : tu décroches. Dis quelque chose proche de: "${node.artisanSeed ?? "Allô ? Oui c'est moi, c'est pour quoi ?"}". Ne déballe rien.\n`
+            ? `C'est le tout début de l'appel : tu viens de décrocher, tu ne sais pas encore qui t'appelle. Réponds SIMPLEMENT, juste un décroché du genre « Allô ? Oui, c'est pour quoi ? ». Aucune objection, aucun avis, aucune info sur ton activité : tu laisses le commercial se lancer. Ton attitude (${scenario.persona.humeur}) ne ressortira qu'APRÈS, en réaction à ce qu'il dira.\n`
             : `Réagis MAINTENANT à la dernière réplique du commercial ci-dessus, sans rien anticiper de ce qu'il s'apprête à demander.\n`) +
           `Génère le prochain tour (ta réplique + 3 options pour le commercial) au format JSON demandé.`,
       },
