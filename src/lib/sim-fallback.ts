@@ -57,7 +57,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
         bad: "Et aujourd'hui, pour qu'un nouveau client vous trouve facilement, vous avez quoi en place ? Un site internet, une fiche Google, une page sur les réseaux, ce genre de choses ?",
       },
       {
-        good: "Le bouche-à-oreille, vous avez la main dessus, ou ça dépend uniquement des autres ?",
+        good: "Et pour trouver de nouveaux clients, vous faites comment aujourd'hui ? Vous avez la main là-dessus ou ça dépend surtout des autres ?",
         ok: "Et vos clients, ils sont plutôt contents du travail j'imagine ? Ils vous recommandent facilement autour d'eux ?",
         bad: "Et ça vous arrive de perdre des clients parce qu'ils ne vous trouvent pas sur Google quand ils cherchent un {metier} dans le coin ?",
       },
@@ -78,7 +78,7 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
         bad: "Donc si je comprends bien, le vrai problème c'est que vous dépendez trop du bouche-à-oreille et que ça vous met en insécurité, c'est ça ?",
       },
       {
-        good: "Vous dites que des fois les gens trouvent quelqu'un d'autre. Ça vous fait quoi quand ça arrive ?",
+        good: "Et ne pas trop savoir d'où viendra le prochain chantier, ça vous pèse, ou vous êtes serein avec ça ?",
         ok: "Du coup les mois calmes, c'est un peu stressant pour vous, surtout pour les factures, j'imagine ?",
         bad: "En fait ce qui vous manque vraiment, c'est de la régularité et un peu plus de visibilité dans le coin. Voilà votre vrai souci au fond, on est d'accord là-dessus ?",
       },
