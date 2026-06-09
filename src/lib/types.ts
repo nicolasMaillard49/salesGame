@@ -1,13 +1,29 @@
 // Compétences trackées — clé de voûte du système de maîtrise.
-export const PHASE_SKILLS = [
+// Bloc 1 : la découverte (du décroché au pont/présentation).
+export const DISCOVERY_SKILLS = [
   "ouverture",
   "decouverte",
   "douleurs",
   "ambitions",
   "pont",
   "presentation",
-  "prix_close",
 ] as const;
+
+// Bloc 2 : le closing, décomposé en 6 étapes fines (la partie la plus dure).
+export const CLOSING_SKILLS = [
+  "pre_close",
+  "annonce_prix",
+  "close_direct",
+  "isoler_frein",
+  "relance_projection",
+  "verrou_paiement",
+] as const;
+
+export const PHASE_SKILLS = [...DISCOVERY_SKILLS, ...CLOSING_SKILLS] as const;
+
+// Anciennes compétences, plus jouées mais conservées pour ne pas casser
+// les sessions déjà enregistrées (labels + validation côté API).
+export const LEGACY_SKILLS = ["prix_close"] as const;
 
 export const PROSPECTION_SKILLS = [
   "ouverture_froide",
@@ -35,10 +51,16 @@ export const OBJECTION_SKILLS = [
   "obj_confirmer_rdv",
 ] as const;
 
-export const ALL_SKILLS = [...PHASE_SKILLS, ...PROSPECTION_SKILLS, ...OBJECTION_SKILLS] as const;
+export const ALL_SKILLS = [
+  ...PHASE_SKILLS,
+  ...PROSPECTION_SKILLS,
+  ...OBJECTION_SKILLS,
+  ...LEGACY_SKILLS,
+] as const;
 
 export type SkillId = (typeof ALL_SKILLS)[number];
 export type PhaseSkill = (typeof PHASE_SKILLS)[number];
+export type ClosingSkill = (typeof CLOSING_SKILLS)[number];
 
 export type Quality = "good" | "ok" | "bad";
 export type GameType = "quiz" | "drill" | "sim";
@@ -51,6 +73,12 @@ export const SKILL_LABELS: Record<SkillId, string> = {
   ambitions: "Ambitions",
   pont: "Le Pont",
   presentation: "Présentation",
+  pre_close: "Pré-close",
+  annonce_prix: "Annonce du prix",
+  close_direct: "Close + silence",
+  isoler_frein: "Isoler le frein",
+  relance_projection: "Relance (projection)",
+  verrou_paiement: "Verrou & paiement",
   prix_close: "Prix & Close",
   ouverture_froide: "Ouverture à froid",
   prise_rdv: "Prise de RDV",

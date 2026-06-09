@@ -153,24 +153,131 @@ const BANK: Record<PhaseSkill, PhaseBank> = {
     },
   },
 
-  prix_close: {
-    lead: "Ah ouais, c'est pas mal ça en fait… et niveau prix, on parle de combien ?",
+  // ——— CLOSING : 6 étapes fines (la partie la plus dure de l'appel) ———
+
+  pre_close: {
+    lead: "Ouais… franchement c'est plutôt bien foutu votre truc, ça donne envie je dois dire.",
     options: [
       {
-        good: "En agence, un site comme ça c'est 1000 à 3000€. Nous, c'est 299€. Un seul chantier capté via le site et il est déjà rentabilisé. On l'active pour votre activité ?",
-        ok: "Alors, c'est 299€, et franchement vu ce que ça peut vous rapporter c'est vite rentabilisé. Qu'est-ce que vous en dites ?",
-        bad: "C'est 299€ seulement, vous ne prenez vraiment aucun risque à ce prix-là, et croyez-moi, tous les artisans à qui je le propose finissent par le prendre sans hésiter une seconde. Alors, on y va maintenant ?",
+        good: "Si c'était le vôtre et qu'un client tombait dessus en cherchant un {metier} à {ville}, vous pensez que ça pourrait vous ramener des demandes en plus ?",
+        ok: "Donc il vous plaît ce site ? On peut partir là-dessus alors.",
+        bad: "Parfait. Alors je vous explique : c'est 299€ et on peut le mettre en ligne dès aujourd'hui, on y va ?",
       },
       {
-        good: "Le prix, c'est 299€, une fois, et le site vous appartient. Comparé à un seul chantier que vous décrochez grâce à lui, le calcul est vite fait. On le met en route ?",
-        ok: "Ce sera 299€ tout compris, sans abonnement. Ça vous semble correct comme tarif ?",
-        bad: "299€. Et écoutez, si jamais vous préférez y réfléchir tranquillement de votre côté, je vous laisse mon numéro et vous me rappelez dès que vous serez prêt, vraiment sans aucune pression de ma part.",
+        good: "Avant qu'on parle des détails — vous vous voyez l'utiliser au quotidien, ce site, pour capter les clients du coin ?",
+        ok: "Bon, ça a l'air de vous parler en tout cas. Je continue ?",
+        bad: "Génial, vu que ça vous plaît, le tarif c'est 299€, je vous envoie le lien de paiement tout de suite ?",
       },
     ],
     feedback: {
-      good: "Ancrage (agence vs 299€) + ROI + close direct, puis tu te tais : tu demandes l'engagement clairement et tu laisses le silence travailler.",
-      ok: "Le piège : tu évoques bien la rentabilité, mais sans ancrage chiffré, et tu finis sur une question ouverte (« qu'est-ce que vous en dites ? ») qui invite à temporiser plutôt qu'à signer.",
-      bad: "Le piège : ça paraît assuré, mais « aucun risque / tout le monde le prend » dévalorise l'offre et sonne pression bas de gamme — ou tu offres carrément une porte de sortie. L'appel meurt en « je vous rappelle ».",
+      good: "Tu fais valider l'intérêt AVANT de parler argent : un « oui, ça m'aiderait » arraché ici rend le prix presque acquis ensuite.",
+      ok: "Tu sens que ça plaît mais tu ne fais pas verbaliser le bénéfice : sans son « oui ça m'aiderait », tu annonceras le prix dans le vide.",
+      bad: "Le piège : tu sautes au prix sans avoir fait dire que le site lui sert. Tu brûles une étape — la valeur n'est pas posée, le chiffre tombe à nu.",
+    },
+  },
+
+  annonce_prix: {
+    lead: "Ouais, clairement ça pourrait m'aider à avoir plus de demandes… Bon, dites-moi tout : ça coûte combien votre truc ?",
+    options: [
+      {
+        good: "Un site comme ça en agence, c'est 1000 à 3000€. Nous, c'est 299€, complet et mis en ligne. Un seul chantier capté grâce à lui et il est déjà remboursé.",
+        ok: "C'est 299€. Franchement, pour ce que c'est, c'est donné, hein.",
+        bad: "Alors c'est 299€… mais bon, attendez, on peut voir, si c'est trop pour vous je peux peut-être faire un petit geste.",
+      },
+      {
+        good: "En agence on est sur du 1000 à 3000€ pour ce type de site. Là c'est 299€, une fois, et le site vous appartient. Le calcul est vite fait dès le premier chantier capté.",
+        ok: "Le prix c'est 299€, tout compris, sans abonnement. Voilà.",
+        bad: "Je vais être honnête, c'est 299€, je sais que ça peut faire beaucoup d'un coup pour un artisan, mais bon…",
+      },
+    ],
+    feedback: {
+      good: "Ancrage AVANT le chiffre (agence 1000-3000€) puis 299€ + ROI : le prix sonne comme une évidence rentable, pas comme une dépense.",
+      ok: "Tu lâches le chiffre nu, sans ancrage ni ROI : il n'a aucun repère de valeur, le prix flotte tout seul et appelle la négociation.",
+      bad: "Le piège : tu t'excuses du prix ou tu ouvres la négo toi-même. Tu signales que 299€ c'est cher — il s'engouffre dans la brèche.",
+    },
+  },
+
+  close_direct: {
+    lead: "Ok… 299€, d'accord. (un silence) Mouais, faut voir.",
+    options: [
+      {
+        good: "On l'active pour votre activité ?",
+        ok: "Alors, qu'est-ce que vous en pensez, ça vous tente ?",
+        bad: "Voilà, donc comme je disais c'est vraiment un super outil, en plus le référencement est inclus, et franchement les autres artisans en sont tous très contents, donc voilà…",
+      },
+      {
+        good: "Du coup, on le met en route pour {ville} ?",
+        ok: "Vous voulez qu'on parte là-dessus alors ?",
+        bad: "Bon, écoutez, je vous laisse réfléchir tranquillement et on en reparle quand vous voulez, y'a pas de souci hein, prenez votre temps.",
+      },
+    ],
+    feedback: {
+      good: "Une question d'action fermée, puis silence total : tu demandes clairement la vente et tu laisses la pression du vide travailler pour toi.",
+      ok: "Question molle et ouverte (« ça vous tente ? ») : elle invite à temporiser au lieu d'acter. Tu ne demandes pas vraiment l'engagement.",
+      bad: "Le piège : tu meubles le silence en re-pitchant (ou tu offres une porte de sortie). Tu casses la tension du close — il s'échappe en « je réfléchis ».",
+    },
+  },
+
+  isoler_frein: {
+    lead: "Écoutez… c'est intéressant, mais je sais pas, faut que j'y réfléchisse un peu là.",
+    options: [
+      {
+        good: "Je comprends. Juste pour être sûr : qu'est-ce qui vous ferait hésiter, exactement ? Et à part ça, le site vous plaît et vous voyez l'intérêt ?",
+        ok: "D'accord, mais qu'est-ce qu'il y a à réfléchir ? C'est pas si compliqué pourtant.",
+        bad: "Pas de souci, prenez le temps qu'il vous faut et rappelez-moi quand vous serez prêt.",
+      },
+      {
+        good: "Ça marche. Dites-moi franchement ce qui vous bloque — c'est le prix, le moment, ou un doute sur si ça marche pour vous ?",
+        ok: "Vous voulez réfléchir à quoi précisément, au prix ?",
+        bad: "Je sens que vous hésitez, mais croyez-moi, vous ne le regretterez pas, tous mes clients me remercient après, vraiment.",
+      },
+    ],
+    feedback: {
+      good: "Tu isoles le vrai frein (« qu'est-ce qui vous bloque ? ») et tu verrouilles le reste (« à part ça, c'est oui ? ») : tu sauras quoi traiter au lieu de tirer à l'aveugle.",
+      ok: "Tu cherches à isoler, mais sur un ton qui braque (« c'est pas compliqué ») : il se ferme au lieu de livrer sa vraie objection.",
+      bad: "Le piège : « prenez votre temps / rappelez-moi » valide la fuite. « Je réfléchis » est presque toujours un non poli — tu le laisses filer.",
+    },
+  },
+
+  relance_projection: {
+    lead: "C'est surtout que je sais pas si c'est le bon moment, je préfère réfléchir tranquille avant de me lancer.",
+    options: [
+      {
+        good: "Je vous pose la vraie question : si vous continuez exactement comme aujourd'hui, dans 3 mois il se passe quoi ? Et si on met ça en place maintenant, ça donne quoi ?",
+        ok: "Le truc, c'est que si vous attendez, vos concurrents qui ont un site continuent de prendre ces demandes. Autant s'y mettre, non ?",
+        bad: "Écoutez, c'est le moment ou jamais, c'est une offre exceptionnelle, si vous ne le prenez pas maintenant vous allez le regretter, croyez-moi.",
+      },
+      {
+        good: "Projetez-vous deux secondes : dans un mois le site est en ligne, vous avez déjà décroché un chantier grâce à lui, il est remboursé. Vous préférez vivre ça, ou rester comme aujourd'hui ?",
+        ok: "Franchement, que vous le preniez ou pas, ça change rien pour moi — mais pour vous, ça peut vraiment faire une différence.",
+        bad: "Bon, si je vous fais -50€ là tout de suite, à 249€, vous le prenez ? Allez, je peux faire ça pour vous, exceptionnellement.",
+      },
+    ],
+    feedback: {
+      good: "Tu fais vivre le contraste inaction/action (ou l'escalier de projection) : il décide en visualisant SA situation, pas sous ta pression. C'est ça qui débloque.",
+      ok: "Bonne intuition (urgence concurrence, détachement) mais survolée : tu énonces l'idée sans la faire vivre, l'impact émotionnel ne prend pas.",
+      bad: "Le piège : pression (« vous allez le regretter ») ou remise bradée. Tu casses la valeur et tu sens le vendeur aux abois — ça renforce l'hésitation.",
+    },
+  },
+
+  verrou_paiement: {
+    lead: "Bon… allez, c'est d'accord, on va le faire.",
+    options: [
+      {
+        good: "Parfait. Vous préférez régler par carte ou par virement ?",
+        ok: "Super, vous ne le regretterez pas ! Je suis vraiment content, on va faire du bon boulot ensemble, vous allez voir.",
+        bad: "Génial ! Alors laissez-moi vous réexpliquer tout ce que le site contient et comment ça va se passer, dans les moindres détails, avant qu'on aille plus loin.",
+      },
+      {
+        good: "Nickel. Je vous envoie le lien de paiement sur WhatsApp ou par mail ?",
+        ok: "Excellent choix, franchement bravo, c'est la meilleure décision que vous pouviez prendre aujourd'hui, vraiment.",
+        bad: "Top ! Bon, par contre je vous préviens, après le paiement il faudra remplir des trucs, m'envoyer vos photos, vos textes… ça peut vous prendre un peu de temps hein.",
+      },
+    ],
+    feedback: {
+      good: "Tu transformes le oui en acte par une question logistique fermée (carte ou virement / WhatsApp ou mail) : la vente est verrouillée sans laisser de blanc.",
+      ok: "Tu célèbres au lieu d'encaisser : chaque seconde de blabla après le « oui » rouvre la porte au doute. Acte d'abord, félicite après.",
+      bad: "Le piège : tu re-expliques ou tu charges la mule (« ça va vous prendre du temps »). Tu réintroduis de la friction juste après le oui — il peut se rétracter.",
     },
   },
 };
@@ -186,7 +293,9 @@ function shuffle<T>(arr: T[]): T[] {
 
 /** Un tour de simulateur scripté, riche et spécifique au persona — sans rien spoiler. */
 export function fallbackTurn(scenario: Scenario, node: PhaseNode): SimTurn {
-  const bank = BANK[node.phase];
+  // node.phase peut théoriquement valoir la phase héritée `prix_close` (type du
+  // schéma), mais simPhases ne produit jamais ce nœud : fallback de sûreté.
+  const bank = BANK[node.phase as PhaseSkill] ?? BANK.annonce_prix;
   const p = scenario.persona;
 
   // Une variante au hasard parmi celles de la phase → les parties diffèrent.

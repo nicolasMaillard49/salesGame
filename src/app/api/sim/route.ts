@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 import { getScenario } from "@/lib/content";
-import { customScenario, hasAnthropic, simTurn, type SimHistoryItem, type SimTurn } from "@/lib/anthropic";
+import { customScenario, hasAnthropic, simPhases, simTurn, type SimHistoryItem, type SimTurn } from "@/lib/anthropic";
 import { fallbackTurn } from "@/lib/sim-fallback";
 
 export async function POST(req: NextRequest) {
@@ -27,7 +27,8 @@ export async function POST(req: NextRequest) {
   }
   if (!scenario)
     return NextResponse.json({ error: "scénario introuvable" }, { status: 404 });
-  const node = scenario.phases[phaseIndex];
+  const phases = simPhases(scenario);
+  const node = phases[phaseIndex];
   if (!node) return NextResponse.json({ error: "phase invalide" }, { status: 400 });
 
   let turn: SimTurn;
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
     ...turn,
     phase: node.phase,
     phaseIndex,
-    totalPhases: scenario.phases.length,
+    totalPhases: phases.length,
     fallback,
   });
 }

@@ -1,8 +1,11 @@
 import { z } from "zod";
-import { ALL_SKILLS, PHASE_SKILLS } from "../types";
+import { ALL_SKILLS, LEGACY_SKILLS, PHASE_SKILLS } from "../types";
 
 const skillId = z.enum(ALL_SKILLS);
-const phaseSkill = z.enum(PHASE_SKILLS);
+// Un nœud de phase peut porter une compétence jouable (PHASE_SKILLS) ou la
+// compétence héritée `prix_close` : les scénarios la conservent comme dernier
+// nœud, d'où l'on extrait l'objection-clé du persona pour le closing détaillé.
+const phaseSkill = z.enum([...PHASE_SKILLS, ...LEGACY_SKILLS]);
 const difficulty = z.union([z.literal(1), z.literal(2), z.literal(3)]);
 const quality = z.enum(["good", "ok", "bad"]);
 

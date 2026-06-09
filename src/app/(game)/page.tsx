@@ -76,6 +76,7 @@ export default async function HubPage() {
     { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain", color: "#7b4fe0" },
     { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${objs.length} objections`, icon: "shield", color: "#ff5d6c" },
     { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, icon: "phone", color: "#19c3e4" },
+    { href: "/sim?closing=1", title: "Closing intensif", desc: "Le site est posé, à toi de closer", count: "6 étapes de closing", icon: "target", color: "#ff5d6c" },
     { href: "/prospect", title: "Vrai prospect", desc: "Répète sur un artisan réel", count: "appel sur-mesure", icon: "worker", color: "#00c06a" },
     { href: "/boss", title: "Boss d'objection", desc: "Bats les artisans coriaces", count: `${BOSSES.length} boss`, icon: "shield", color: "#ff9d2e" },
     { href: "/duel", title: "Duel", desc: "Défie un collègue", count: "même tirage", icon: "target", color: "#4b7bff" },
@@ -141,7 +142,7 @@ export default async function HubPage() {
             </div>
           </div>
           <div className="flex items-center justify-between px-[22px] py-4 gap-3 flex-wrap">
-            <span className="mono text-[12px] text-[var(--ink-faint)]">7 phases · l&apos;artisan réagit en live</span>
+            <span className="mono text-[12px] text-[var(--ink-faint)]">12 phases · closing détaillé · l&apos;artisan réagit en live</span>
             <Link href="/sim" className="btn btn-primary">Lancer un appel <Icon name="arrowRight" size={16} strokeWidth={2.5} /></Link>
           </div>
         </section>

@@ -279,18 +279,105 @@
       "example": "\"La vraie question c'est : est-ce que tu veux continuer à [sa douleur]… ou enfin [son ambition] ?\""
     },
     {
-      "id": "phase-5-prix-close",
-      "category": "phase",
-      "title": "Phase 5 : Prix et Close",
-      "summary": "Annoncer le prix avec confiance, ancrer la valeur agence, puis poser le close et se taire.",
+      "id": "closing-anatomie",
+      "category": "closing",
+      "title": "Anatomie du closing en 6 étapes",
+      "summary": "La partie la plus dure de l'appel, décomposée : chaque étape a un seul job, et on ne passe à la suivante qu'une fois la précédente gagnée.",
       "points": [
-        "Ancrage : 'ce type de site chez une agence c'est entre 1000 et 3000€. Nous on est à 299€, site complet, mis en ligne.'",
-        "Rentabilité : 'Un seul client trouvé grâce au site et il est déjà rentabilisé.'",
-        "Close direct : 'On l'active pour ton activité ?' puis silence absolu, la prochaine personne qui parle a perdu.",
-        "'Oui' : ne célèbre pas, passe direct au paiement (carte ou virement, lien WhatsApp ou email, numéro actuel ou dédié).",
-        "Règle d'or objections : isoler avant de répondre, 'À part ça, est-ce qu'il y a autre chose qui te ferait hésiter ?' (si non → traite et close direct)."
+        "1. Pré-close : faire valider l'intérêt AVANT le prix ('si c'était ton site, ça t'amènerait des demandes ?').",
+        "2. Annonce du prix : ancrer (agence 1000-3000€) PUIS dire 299€, et enchaîner sur le ROI.",
+        "3. Close direct : poser UNE question d'action ('on l'active ?') puis se taire totalement.",
+        "4. Isoler le frein : face à l'hésitation, sortir la vraie objection ('qu'est-ce qui te bloque ? à part ça c'est oui ?').",
+        "5. Relance projection : débloquer un tiède par l'émotion (Inaction/Action, Détachement, Escalier).",
+        "6. Verrou & paiement : transformer le 'oui' en acte immédiat, sans re-vendre ni célébrer.",
+        "Erreur n°1 : tout fusionner et balancer le prix trop tôt. Chaque étape se mérite — on n'avance que sur un 'oui'."
       ],
-      "example": "\"On l'active pour ton activité ?\""
+      "example": "\"Intérêt validé → prix ancré → 'on l'active ?' → silence → j'isole → je relance → carte ou virement ?\""
+    },
+    {
+      "id": "closing-pre-close",
+      "category": "closing",
+      "title": "Closing 1 — Le pré-close (valider l'intérêt)",
+      "summary": "Avant de parler d'argent, arracher un 'oui ça m'aiderait' : sans cette validation, le prix tombe dans le vide.",
+      "points": [
+        "Relier le site à SA situation, pas un argumentaire générique : reprends sa douleur/son ambition.",
+        "Question de validation : 'Si c'était ton site et qu'un client tombait dessus en cherchant [métier] à [ville], ça pourrait t'amener des demandes ?'",
+        "Tu attends un vrai 'oui' avant de lâcher le prix. Tant que c'est 'peut-être', tu n'as pas assez creusé : reviens à la douleur.",
+        "Ne saute jamais cette marche : annoncer le prix sans intérêt validé, c'est closer une étape trop tôt.",
+        "C'est un trial close : il t'autorise (ou non) à passer à l'argent."
+      ],
+      "example": "\"Si c'était le tien et qu'un client tombait dessus, tu penses que ça pourrait te ramener des demandes ?\""
+    },
+    {
+      "id": "closing-annonce-prix",
+      "category": "closing",
+      "title": "Closing 2 — Annonce du prix & ancrage",
+      "summary": "Ancrer la valeur AVANT de dire le chiffre, annoncer 299€ avec assurance, enchaîner sur le ROI — sans s'excuser.",
+      "points": [
+        "Ancrage d'abord : 'ce type de site en agence, c'est 1000 à 3000€.' Le 299€ sonne alors comme une évidence.",
+        "Annonce nette : '299€, complet et mis en ligne.' Pas de 'alors c'est, euh…' : l'hésitation se sent.",
+        "ROI immédiat : 'un seul chantier capté via le site et il est déjà remboursé.'",
+        "Ne JAMAIS s'excuser du prix ni ouvrir la négo toi-même ('je peux faire un geste') → tu signales que c'est cher.",
+        "Le site lui appartient (achat unique), ce n'est pas un abonnement sans fin : un actif, pas une charge."
+      ],
+      "example": "\"En agence c'est 1000 à 3000€. Nous, 299€, mis en ligne. Un seul chantier capté et il est remboursé.\""
+    },
+    {
+      "id": "closing-close-direct",
+      "category": "closing",
+      "title": "Closing 3 — Le close direct + le silence",
+      "summary": "Demander l'engagement par UNE question d'action fermée, puis se taire absolument : la prochaine personne qui parle a perdu.",
+      "points": [
+        "Une seule question d'action, fermée : 'On l'active pour ton activité ?' / 'On le met en route ?'",
+        "Puis SILENCE total. Ne meuble pas, ne re-pitche pas, ne rajoute pas un argument 'au cas où'.",
+        "Le silence met une pression saine : c'est à lui de répondre. Celui qui parle en premier cède.",
+        "Évite les questions molles ('ça vous tente ?', 'qu'en pensez-vous ?') : elles invitent à temporiser.",
+        "N'offre jamais de porte de sortie ('je vous laisse réfléchir') juste après avoir demandé la vente."
+      ],
+      "example": "\"On l'active pour ton activité ?\" (puis tu te tais, vraiment)"
+    },
+    {
+      "id": "closing-isoler-frein",
+      "category": "closing",
+      "title": "Closing 4 — Isoler le vrai frein",
+      "summary": "Face au 'je réfléchis', ne jamais dire 'prends ton temps' : faire sortir et isoler la vraie objection avant de répondre.",
+      "points": [
+        "'Je réfléchis' / 'je te rappelle' est presque toujours un non poli ou un frein caché.",
+        "Isoler : 'Je comprends. Qu'est-ce qui te ferait hésiter exactement ?' puis écoute.",
+        "Verrouiller le reste : 'Et à part ça, le site te plaît et tu vois l'intérêt ?' (si oui → il ne reste qu'UN frein à traiter).",
+        "Proposer les pistes s'il bloque : 'c'est le prix, le moment, ou un doute sur si ça marche pour toi ?'",
+        "Ne traite jamais une objection au hasard : d'abord la nommer et l'isoler, sinon tu tires à l'aveugle."
+      ],
+      "example": "\"Qu'est-ce qui te ferait hésiter exactement ? Et à part ça, tu vois l'intérêt ?\""
+    },
+    {
+      "id": "closing-relance",
+      "category": "closing",
+      "title": "Closing 5 — Relance par projection",
+      "summary": "Débloquer un prospect encore tiède par l'émotion, avec l'une des 3 techniques : Inaction/Action, Détachement, ou Escalier.",
+      "points": [
+        "Inaction vs Action : opposer le futur sans changement ('dans 3 mois il se passe quoi ?') au futur avec la solution.",
+        "Détachement + recadrage : 'que tu le fasses ou pas ça ne change rien pour moi… par contre pour toi, ça peut tout changer.'",
+        "Escalier de projection : lui faire vivre le futur marche par marche (site en ligne → 1er appel → 1er chantier → rentabilisé).",
+        "Calme et lent, micro-silences : il doit visualiser SA situation, pas subir ta pression.",
+        "Bannir la pression ('tu vas le regretter') et la remise bradée : ça casse la valeur et sent le vendeur aux abois.",
+        "Voir les fiches dédiées : Inaction/Action, Détachement, Escalier de projection."
+      ],
+      "example": "\"Si tu continues comme aujourd'hui, dans 3 mois il se passe quoi ? Et si on le met en place maintenant ?\""
+    },
+    {
+      "id": "closing-verrou-paiement",
+      "category": "closing",
+      "title": "Closing 6 — Verrou & passage au paiement",
+      "summary": "Transformer le 'oui' en acte immédiat par une question logistique fermée — ne pas re-vendre, ne pas rajouter de friction.",
+      "points": [
+        "Dès le 'oui', ne célèbre pas et ne re-justifie pas : chaque seconde de blabla rouvre la porte au doute.",
+        "Verrouiller par une question fermée d'intendance : 'Tu préfères régler par carte ou virement ?'",
+        "Enchaîner les micro-choix : 'Je t'envoie le lien sur WhatsApp ou par mail ?' / 'On le met avec ton numéro actuel ou dédié ?'",
+        "Ne réintroduis pas de friction ('après il faudra m'envoyer plein de trucs, ça prend du temps') → il peut se rétracter.",
+        "Acte d'abord, félicite après : le paiement engagé, tu peux le rassurer et le remercier."
+      ],
+      "example": "\"Parfait. Tu préfères régler par carte ou par virement ?\""
     },
     {
       "id": "objection-je-reflechis",

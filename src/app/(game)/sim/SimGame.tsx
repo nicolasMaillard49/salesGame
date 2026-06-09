@@ -11,6 +11,7 @@ type Card = {
   persona: { metier: string; ville: string; humeur: string; contexte: string };
   difficulty: number;
   phases: number;
+  closingStart: number;
   locked: boolean;
 };
 type SimOption = { text: string; quality: Quality; feedback: string };
@@ -24,8 +25,16 @@ const VERDICT: Record<Quality, { cls: string; label: string }> = {
 };
 const DIFF = ["", "Facile", "Moyen", "Difficile"];
 
-export default function SimGame({ scenarios }: { scenarios: Card[] }) {
+// Réplique de présentation jouée juste avant le closing, pour planter le décor
+// quand on s'entraîne directement sur le closing (l'artisan vient de voir le site).
+function presentationSeed(p: Card["persona"]): string {
+  const metier = p.metier.trim().toLowerCase();
+  return `Voilà, je vous ai préparé un site qui ressort quand on tape « ${metier} ${p.ville.trim()} », avec vos réalisations, les avis de vos clients et un bouton pour vous appeler directement.`;
+}
+
+export default function SimGame({ scenarios, closingOnly = false }: { scenarios: Card[]; closingOnly?: boolean }) {
   const [scenarioId, setScenarioId] = useState<string | null>(null);
+  const [startIndex, setStartIndex] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [turn, setTurn] = useState<Turn | null>(null);
   const [history, setHistory] = useState<Line[]>([]);
@@ -55,8 +64,13 @@ export default function SimGame({ scenarios }: { scenarios: Card[] }) {
     setScenarioId(card.id);
     const sid = await startSession("sim", card.id);
     setSessionId(sid);
-    const t = await fetchTurn(card.id, 0, []);
-    if (t) { setTurn(t); setHistory([{ role: "artisan", text: t.artisanLine }]); }
+    // Mode "closing intensif" : on démarre directement à la 1re étape de closing,
+    // en semant la présentation du site pour que l'artisan ait le contexte.
+    const begin = closingOnly ? card.closingStart : 0;
+    setStartIndex(begin);
+    const seed: Line[] = closingOnly ? [{ role: "commercial", text: presentationSeed(card.persona) }] : [];
+    const t = await fetchTurn(card.id, begin, seed);
+    if (t) { setTurn(t); setHistory([...seed, { role: "artisan", text: t.artisanLine }]); }
   }
 
   async function pick(idx: number, opt: SimOption) {
@@ -87,8 +101,12 @@ export default function SimGame({ scenarios }: { scenarios: Card[] }) {
     return (
       <div className="flex flex-col gap-5">
         <div>
-          <h1 className="display text-2xl">Simulateur d&apos;appel</h1>
-          <p className="text-[var(--ink-soft)] text-sm mt-1">Mène l&apos;appel du brise-glace au close. À chaque phase, choisis ta réplique.</p>
+          <h1 className="display text-2xl">{closingOnly ? "Closing intensif" : "Simulateur d'appel"}</h1>
+          <p className="text-[var(--ink-soft)] text-sm mt-1">
+            {closingOnly
+              ? "Le site est présenté : à toi de closer. Pré-close, prix, silence, objection, relance, paiement — l'étape la plus dure, répétée à fond."
+              : "Mène l'appel du décroché au paiement. À chaque phase, choisis ta réplique."}
+          </p>
         </div>
         <div className="grid sm:grid-cols-3 gap-3.5">
           {scenarios.map((s) => (
@@ -135,7 +153,7 @@ export default function SimGame({ scenarios }: { scenarios: Card[] }) {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <div className="flex items-center gap-4">
             <span className="hud-chip"><Icon name="phone" size={15} /> {SKILL_LABELS[turn.phase]}</span>
-            <span className="counter-label">Phase <b>{turn.phaseIndex + 1}</b>/{turn.totalPhases}</span>
+            <span className="counter-label">{closingOnly ? "Étape" : "Phase"} <b>{turn.phaseIndex - startIndex + 1}</b>/{turn.totalPhases - startIndex}</span>
           </div>
           <span className="score-chip"><Icon name="target" size={15} /> {goods}/{answers} · {xp} XP {turn.fallback && "· démo"}</span>
         </div>

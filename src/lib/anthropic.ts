@@ -1,6 +1,12 @@
 import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import type { PhaseNode, Scenario } from "./content/schema";
+import { DISCOVERY_RUBRICS } from "./sim-phases";
+
+// Ré-exports pour les consommateurs serveur (route, pages) qui importaient déjà
+// ces helpers depuis "@/lib/anthropic". La logique vit dans sim-phases (module
+// neutre, testable sans "server-only").
+export { CLOSING_RUBRICS, DISCOVERY_RUBRICS, closingNodes, firstClosingIndex, simPhases } from "./sim-phases";
 
 const MODEL = process.env.ANTHROPIC_MODEL ?? "claude-haiku-4-5";
 
@@ -11,19 +17,8 @@ export function hasAnthropic(): boolean {
   return !!process.env.ANTHROPIC_API_KEY;
 }
 
-// Rubrics génériques des 7 phases pour un prospect personnalisé (mode "vrai prospect").
-export const PHASE_RUBRICS: PhaseNode[] = [
-  { phase: "ouverture", objectif: "Créer le lien, détendre, ne pas vendre tout de suite.", bonneIntention: "ouvrir avec décontraction et capter son attention sans pitcher." },
-  { phase: "decouverte", objectif: "Comprendre comment il trouve ses clients aujourd'hui.", bonneIntention: "poser une question ouverte et écouter sans couper." },
-  { phase: "douleurs", objectif: "Faire émerger la vraie douleur (irrégularité, dépendance, manque de visibilité).", bonneIntention: "creuser la douleur avec ses mots, sans rien suggérer." },
-  { phase: "ambitions", objectif: "Faire exprimer ce qu'il veut vraiment (stabilité, choisir ses chantiers, image).", bonneIntention: "poser une question ouverte et le laisser se projeter." },
-  { phase: "pont", objectif: "Reformuler douleur + ambition avec ses mots et lui faire valider.", bonneIntention: "créer l'accord sur le problème avant de présenter le site." },
-  { phase: "presentation", objectif: "Présenter le site comme la réponse évidente à SA situation.", bonneIntention: "relier le site à sa douleur/ambition, pas un argumentaire générique." },
-  { phase: "prix_close", objectif: "Annoncer 299€ avec assurance et closer.", bonneIntention: "ancrer la valeur (vs agence 1000-3000€, ROI) et demander l'engagement clairement." },
-];
-
 export function customScenario(persona: Scenario["persona"]): Scenario {
-  return { id: "custom", persona, difficulty: 2, phases: PHASE_RUBRICS };
+  return { id: "custom", persona, difficulty: 2, phases: DISCOVERY_RUBRICS };
 }
 
 export type SimHistoryItem = { role: "artisan" | "commercial"; text: string };

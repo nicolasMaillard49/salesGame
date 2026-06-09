@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { getScenarios } from "@/lib/content";
+import { firstClosingIndex, simPhases } from "@/lib/anthropic";
 import { getStore } from "@/lib/db";
 import { unlockedDifficulty } from "@/lib/progression";
 import SimGame from "./SimGame";
 
 export const dynamic = "force-dynamic";
 
-export default async function SimPage() {
+export default async function SimPage({ searchParams }: { searchParams: Promise<{ closing?: string }> }) {
+  const { closing } = await searchParams;
+  const closingOnly = closing != null;
   const scenarios = getScenarios();
   if (scenarios.length === 0) {
     return (
@@ -23,8 +26,9 @@ export default async function SimPage() {
     id: s.id,
     persona: s.persona,
     difficulty: s.difficulty,
-    phases: s.phases.length,
+    phases: simPhases(s).length,
+    closingStart: firstClosingIndex(s),
     locked: s.difficulty > maxDiff,
   }));
-  return <SimGame scenarios={cards} />;
+  return <SimGame scenarios={cards} closingOnly={closingOnly} />;
 }

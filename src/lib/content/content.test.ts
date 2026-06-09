@@ -7,7 +7,8 @@ import {
   ScenariosFileSchema,
   FichesFileSchema,
 } from "@/lib/content/schema";
-import { OBJECTION_SKILLS, PHASE_SKILLS } from "@/lib/types";
+import { CLOSING_SKILLS, DISCOVERY_SKILLS, OBJECTION_SKILLS } from "@/lib/types";
+import { simPhases } from "@/lib/sim-phases";
 
 const dir = path.join(process.cwd(), "content");
 const read = (n: string) => JSON.parse(fs.readFileSync(path.join(dir, n), "utf8"));
@@ -46,12 +47,27 @@ describe("contenu — schémas", () => {
     for (const skill of OBJECTION_SKILLS) expect(ids.has(skill), skill).toBe(true);
   });
 
-  it("scenarios.json est valide et chaque scénario couvre les 7 phases", () => {
+  it("scenarios.json est valide et chaque scénario couvre la découverte + un nœud de closing", () => {
     const { items } = ScenariosFileSchema.parse(read("scenarios.json"));
     expect(items.length).toBeGreaterThan(0);
     for (const s of items) {
       const phases = s.phases.map((p) => p.phase);
-      for (const ph of PHASE_SKILLS) expect(phases.includes(ph), `${s.id}:${ph}`).toBe(true);
+      for (const ph of DISCOVERY_SKILLS) expect(phases.includes(ph), `${s.id}:${ph}`).toBe(true);
+      // L'ancien nœud `prix_close` est conservé : il porte l'objection-clé du persona.
+      expect(phases.includes("prix_close"), `${s.id}:prix_close`).toBe(true);
+    }
+  });
+
+  it("simPhases déroule la découverte puis les 6 étapes de closing détaillées", () => {
+    const { items } = ScenariosFileSchema.parse(read("scenarios.json"));
+    for (const s of items) {
+      const phases = simPhases(s).map((p) => p.phase);
+      for (const ph of DISCOVERY_SKILLS) expect(phases.includes(ph), `${s.id}:${ph}`).toBe(true);
+      for (const ph of CLOSING_SKILLS) expect(phases.includes(ph), `${s.id}:${ph}`).toBe(true);
+      // plus aucune trace de la phase héritée dans les phases jouées
+      expect(phases.includes("prix_close" as never), `${s.id}:no-legacy`).toBe(false);
+      // le closing arrive bien en fin d'appel
+      expect(phases.slice(-6)).toEqual([...CLOSING_SKILLS]);
     }
   });
 
