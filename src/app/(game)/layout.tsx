@@ -25,7 +25,7 @@ export default async function GameLayout({ children }: { children: React.ReactNo
         <header id="app-nav" className="glass sticky top-4 z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-[1200px] flex items-center justify-between px-5 py-3 !rounded-full">
           <Link href="/" className="flex items-center gap-3" aria-label="SalesGame, accueil">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" className="w-full h-full object-cover" /></span>
+            <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" width={36} height={36} decoding="async" className="w-full h-full object-cover" /></span>
             <span className="brand-name">Sales<span>Game</span></span>
           </Link>
           <nav className="flex items-center gap-4 text-sm">

@@ -32,7 +32,7 @@ export default function LoginForm() {
     <form onSubmit={submit} className="glass w-full max-w-sm p-8 flex flex-col gap-6 !rounded-[26px]">
       <div className="flex items-center gap-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" className="w-full h-full object-cover" /></span>
+        <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" width={36} height={36} decoding="async" className="w-full h-full object-cover" /></span>
         <div>
           <div className="brand-name text-xl">Sales<span>Game</span></div>
           <p className="text-[var(--ink-faint)] text-xs mono">Entraînement vente &amp; closing</p>

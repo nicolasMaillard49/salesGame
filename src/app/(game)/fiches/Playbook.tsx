@@ -106,7 +106,7 @@ export default function Playbook({ startId = START, metier = "plombier" }: { sta
       {node.win ? (
         <div className="flex items-center gap-4 flex-wrap pt-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/hero-closer.webp" alt="" className="w-20 h-20 rounded-2xl object-cover ring-1 ring-[var(--glass-line)]" />
+          <img src="/brand/hero-closer.webp" alt="" loading="lazy" decoding="async" className="w-20 h-20 rounded-2xl object-cover ring-1 ring-[var(--glass-line)]" />
           <span className="display text-2xl text-[var(--green-deep)]">Vendu ! 🎉</span>
           <button onClick={restart} className="btn btn-primary">Rejouer <Icon name="arrowRight" size={16} strokeWidth={2.5} /></button>
         </div>

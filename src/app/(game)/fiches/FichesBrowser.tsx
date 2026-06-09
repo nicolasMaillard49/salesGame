@@ -129,7 +129,7 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
       <div className="glass overflow-hidden relative flex flex-col sm:flex-row reveal">
         <div className="relative sm:w-48 h-28 sm:h-auto shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/hero-closer.webp" alt="" className="absolute inset-0 w-full h-full object-cover img-kenburns" />
+          <img src="/brand/hero-closer.webp" alt="" decoding="async" className="absolute inset-0 w-full h-full object-cover img-kenburns" />
           <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(7,20,14,.35))] sm:bg-[linear-gradient(90deg,transparent,var(--glass))]" />
         </div>
         <div className="p-5 flex-1 flex items-center justify-between gap-3 flex-wrap">

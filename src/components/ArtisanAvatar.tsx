@@ -54,6 +54,8 @@ export default function ArtisanAvatar({
       alt=""
       width={size}
       height={size}
+      loading="lazy"
+      decoding="async"
       className={`object-cover ${className}`}
       style={{ width: size, height: size }}
     />
