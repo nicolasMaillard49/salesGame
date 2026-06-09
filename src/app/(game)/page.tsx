@@ -4,6 +4,7 @@ import { getDailyObjection, getObjections, getQuiz, getScenarios } from "@/lib/c
 import { RANKS, decayedScore, isRusty, masteryLevel, progressToNextRank, rankForXp } from "@/lib/progression";
 import { SKILL_LABELS, type SkillId } from "@/lib/types";
 import Icon, { type IconName } from "@/components/Icon";
+import ArtisanAvatar from "@/components/ArtisanAvatar";
 import MasterySection, { type MasteryRow } from "@/components/MasterySection";
 import { BOSSES } from "@/lib/bosses";
 
@@ -133,7 +134,7 @@ export default async function HubPage() {
           </div>
           <div className="px-[22px] py-5 flex flex-col justify-center gap-3 flex-1 bg-[linear-gradient(180deg,rgba(255,255,255,.25),transparent)]">
             <div className="convo-msg convo-them">
-              <span className="convo-who"><Icon name="worker" size={16} /></span>
+              <span className="convo-who overflow-hidden"><ArtisanAvatar metier="plombier" size={30} className="rounded-[9px]" /></span>
               <div className="convo-body"><span className="block mono text-[9px] tracking-[.14em] uppercase opacity-60 mb-0.5">Artisan</span>{teaser.artisanLine}</div>
             </div>
             <div className="convo-msg convo-me">
@@ -142,7 +143,14 @@ export default async function HubPage() {
             </div>
           </div>
           <div className="flex items-center justify-between px-[22px] py-4 gap-3 flex-wrap">
-            <span className="mono text-[12px] text-[var(--ink-faint)]">12 phases · closing détaillé · l&apos;artisan réagit en live</span>
+            <span className="flex items-center gap-2.5">
+              <span className="face-stack flex -space-x-2">
+                {["plombier", "couvreur", "paysagiste"].map((m) => (
+                  <ArtisanAvatar key={m} metier={m} size={26} className="rounded-full ring-2 ring-[var(--glass)]" />
+                ))}
+              </span>
+              <span className="mono text-[12px] text-[var(--ink-faint)]">12 phases · l&apos;artisan réagit en live</span>
+            </span>
             <Link href="/sim" className="btn btn-primary">Lancer un appel <Icon name="arrowRight" size={16} strokeWidth={2.5} /></Link>
           </div>
         </section>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { finishSession, recordAnswer, startSession } from "@/lib/client";
 import { SKILL_LABELS, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
+import ArtisanAvatar from "@/components/ArtisanAvatar";
 
 type Persona = { metier: string; ville: string; humeur: string; contexte: string };
 type SimOption = { text: string; quality: Quality; feedback: string };
@@ -143,7 +144,7 @@ export default function ProspectGame() {
             <button onClick={() => window.location.reload()} className="btn btn-primary">Autre prospect</button>
           </div>
         </div>
-        <Transcript history={history} />
+        <Transcript history={history} metier={persona.metier} />
       </div>
     );
   }
@@ -159,7 +160,7 @@ export default function ProspectGame() {
           <span className="score-chip"><Icon name="target" size={15} /> {goods}/{answers} · {xp} XP{turn.fallback && " · démo"}</span>
         </div>
       )}
-      <Transcript history={history} />
+      <Transcript history={history} metier={persona.metier} />
       {error && (
         <div className="glass p-4 text-sm text-[var(--bad)] flex items-center justify-between gap-3">
           {error}
@@ -201,13 +202,13 @@ export default function ProspectGame() {
   );
 }
 
-function Transcript({ history }: { history: Line[] }) {
+function Transcript({ history, metier }: { history: Line[]; metier?: string }) {
   if (history.length === 0) return null;
   return (
     <div className="glass p-5 flex flex-col gap-3">
       {history.map((l, idx) => (
         <div key={idx} className={`convo-msg ${l.role === "commercial" ? "convo-me" : "convo-them"}`}>
-          <span className="convo-who">{l.role === "artisan" ? <Icon name="worker" size={16} /> : null}</span>
+          <span className="convo-who overflow-hidden">{l.role === "artisan" ? <ArtisanAvatar metier={metier} size={30} className="rounded-[9px]" /> : null}</span>
           <div className="convo-body">
             <span className="block mono text-[9px] tracking-[.14em] uppercase opacity-70 mb-0.5">{l.role === "commercial" ? "Toi" : "Artisan"}</span>
             {l.text}

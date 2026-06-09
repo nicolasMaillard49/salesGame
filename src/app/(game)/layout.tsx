@@ -2,7 +2,6 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { isAuthenticated } from "@/lib/auth";
 import LogoutButton from "@/components/LogoutButton";
-import Icon from "@/components/Icon";
 import Orbs from "@/components/Orbs";
 import ThemeToggle from "@/components/ThemeToggle";
 import NavScroll from "@/components/NavScroll";
@@ -25,7 +24,8 @@ export default async function GameLayout({ children }: { children: React.ReactNo
         <NavScroll targetId="app-nav" />
         <header id="app-nav" className="glass sticky top-4 z-20 mx-auto mt-4 w-[calc(100%-2rem)] max-w-[1200px] flex items-center justify-between px-5 py-3 !rounded-full">
           <Link href="/" className="flex items-center gap-3" aria-label="SalesGame, accueil">
-            <span className="brand-mark"><Icon name="logo" size={20} strokeWidth={2.2} /></span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" className="w-full h-full object-cover" /></span>
             <span className="brand-name">Sales<span>Game</span></span>
           </Link>
           <nav className="flex items-center gap-4 text-sm">

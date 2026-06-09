@@ -5,6 +5,7 @@ import Link from "next/link";
 import { finishSession, recordAnswer, startSession } from "@/lib/client";
 import { SKILL_LABELS, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
+import ArtisanAvatar from "@/components/ArtisanAvatar";
 
 type Card = {
   id: string;
@@ -34,6 +35,7 @@ function presentationSeed(p: Card["persona"]): string {
 
 export default function SimGame({ scenarios, closingOnly = false }: { scenarios: Card[]; closingOnly?: boolean }) {
   const [scenarioId, setScenarioId] = useState<string | null>(null);
+  const [metier, setMetier] = useState<string>("");
   const [startIndex, setStartIndex] = useState(0);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [turn, setTurn] = useState<Turn | null>(null);
@@ -62,6 +64,7 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
   async function start(card: Card) {
     if (card.locked) return;
     setScenarioId(card.id);
+    setMetier(card.persona.metier);
     const sid = await startSession("sim", card.id);
     setSessionId(sid);
     // Mode "closing intensif" : on démarre directement à la 1re étape de closing,
@@ -115,8 +118,13 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
                 <span className="mono text-[12px] text-[var(--green-deep)] font-semibold px-2.5 py-1 rounded-full bg-[rgba(0,192,106,.1)]">{DIFF[s.difficulty]}</span>
                 {s.locked && <Icon name="lock" size={16} className="text-[var(--ink-faint)]" />}
               </span>
-              <h2 className="display text-lg mt-4 capitalize">{s.persona.metier}</h2>
-              <p className="text-sm text-[var(--ink-soft)]">{s.persona.ville}</p>
+              <span className="flex items-center gap-3 mt-4">
+                <ArtisanAvatar metier={s.persona.metier} size={46} className="rounded-2xl ring-1 ring-[var(--glass-line)] shadow-sm" />
+                <span className="min-w-0">
+                  <h2 className="display text-lg capitalize leading-tight truncate">{s.persona.metier}</h2>
+                  <p className="text-sm text-[var(--ink-soft)]">{s.persona.ville}</p>
+                </span>
+              </span>
               <p className="text-xs text-[var(--ink-faint)] mt-2">{s.persona.contexte}</p>
               {s.locked && <p className="mono text-[11px] text-[#9a6a00] mt-2">Gagne de l&apos;XP pour débloquer</p>}
             </button>
@@ -141,7 +149,7 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
             <button onClick={() => window.location.reload()} className="btn btn-primary">Nouvel appel</button>
           </div>
         </div>
-        <Transcript history={history} />
+        <Transcript history={history} metier={metier} />
       </div>
     );
   }
@@ -159,7 +167,7 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
         </div>
       )}
 
-      <Transcript history={history} />
+      <Transcript history={history} metier={metier} />
 
       {error && (
         <div className="glass p-4 text-sm text-[var(--bad)] flex items-center justify-between gap-3">
@@ -204,13 +212,13 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
   );
 }
 
-function Transcript({ history }: { history: Line[] }) {
+function Transcript({ history, metier }: { history: Line[]; metier?: string }) {
   if (history.length === 0) return null;
   return (
     <div className="glass p-5 flex flex-col gap-3">
       {history.map((l, idx) => (
         <div key={idx} className={`convo-msg ${l.role === "commercial" ? "convo-me" : "convo-them"}`}>
-          <span className="convo-who">{l.role === "artisan" ? <Icon name="worker" size={16} /> : null}</span>
+          <span className="convo-who overflow-hidden">{l.role === "artisan" ? <ArtisanAvatar metier={metier} size={30} className="rounded-[9px]" /> : null}</span>
           <div className="convo-body">
             <span className="block mono text-[9px] tracking-[.14em] uppercase opacity-70 mb-0.5">{l.role === "commercial" ? "Toi" : "Artisan"}</span>
             {l.text}

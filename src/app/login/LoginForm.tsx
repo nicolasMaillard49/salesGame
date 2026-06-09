@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Icon from "@/components/Icon";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -32,7 +31,8 @@ export default function LoginForm() {
   return (
     <form onSubmit={submit} className="glass w-full max-w-sm p-8 flex flex-col gap-6 !rounded-[26px]">
       <div className="flex items-center gap-3">
-        <span className="brand-mark"><Icon name="logo" size={20} strokeWidth={2.2} /></span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <span className="brand-mark overflow-hidden"><img src="/brand/logo.png" alt="" className="w-full h-full object-cover" /></span>
         <div>
           <div className="brand-name text-xl">Sales<span>Game</span></div>
           <p className="text-[var(--ink-faint)] text-xs mono">Entraînement vente &amp; closing</p>
