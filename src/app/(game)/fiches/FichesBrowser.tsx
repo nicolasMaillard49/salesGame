@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import type { Fiche } from "@/lib/content/schema";
+import Icon from "@/components/Icon";
+import ClosingPlaybook from "./ClosingPlaybook";
 
 const CATS: { key: Fiche["category"] | "all"; label: string }[] = [
   { key: "all", label: "Tout" },
@@ -15,21 +17,38 @@ const CATS: { key: Fiche["category"] | "all"; label: string }[] = [
 
 export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
   const [cat, setCat] = useState<Fiche["category"] | "all">("all");
+  const [playbook, setPlaybook] = useState(false);
   const present = useMemo(() => new Set(fiches.map((f) => f.category)), [fiches]);
   const list = cat === "all" ? fiches : fiches.filter((f) => f.category === cat);
 
+  function selectCat(key: Fiche["category"] | "all") {
+    setCat(key);
+    if (key === "closing") setPlaybook(true); // le closing s'ouvre direct en interactif
+  }
+
   return (
     <div className="flex flex-col gap-5">
-      <div>
-        <h1 className="display text-2xl">Bibliothèque</h1>
-        <p className="text-[var(--ink-soft)] text-sm mt-1">{fiches.length} fiches pour réviser scripts, techniques et objections.</p>
+      <div className="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <h1 className="display text-2xl">Bibliothèque</h1>
+          <p className="text-[var(--ink-soft)] text-sm mt-1">{fiches.length} fiches pour réviser scripts, techniques et objections.</p>
+        </div>
+        <button
+          onClick={() => setPlaybook((v) => !v)}
+          className="btn btn-primary self-start"
+        >
+          <Icon name="target" size={16} strokeWidth={2.4} />
+          {playbook ? "Masquer le closing interactif" : "Closing interactif"}
+        </button>
       </div>
+
+      {playbook && <ClosingPlaybook />}
 
       <div className="flex flex-wrap gap-2">
         {CATS.filter((c) => c.key === "all" || present.has(c.key as Fiche["category"])).map((c) => (
           <button
             key={c.key}
-            onClick={() => setCat(c.key)}
+            onClick={() => selectCat(c.key)}
             className={`mono text-[12px] px-3.5 py-2 rounded-full border transition ${
               cat === c.key
                 ? "bg-[var(--green-deep)] text-white border-transparent"
@@ -57,10 +76,15 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
                 </li>
               ))}
             </ul>
-            {f.example && (
-              <p className="mono text-[13px] text-[var(--ink)] bg-[var(--good-wash)] border border-[rgba(0,184,107,.25)] rounded-xl px-3 py-2.5 leading-relaxed">
-                {f.example}
-              </p>
+            {(f.examples?.length || f.example) && (
+              <div className="flex flex-col gap-1.5 mt-auto">
+                <span className="mono text-[9px] uppercase tracking-[.14em] text-[var(--ink-faint)]">À dire</span>
+                {(f.examples ?? (f.example ? [f.example] : [])).map((ex, i) => (
+                  <p key={i} className="mono text-[12.5px] text-[var(--ink)] bg-[var(--good-wash)] border border-[rgba(0,184,107,.25)] rounded-xl px-3 py-2 leading-relaxed">
+                    {ex}
+                  </p>
+                ))}
+              </div>
             )}
           </article>
         ))}

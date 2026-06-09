@@ -162,7 +162,11 @@
         "Confrontation douce puis phrase d'impact, et close : 'On avance ou on laisse comme ça ?'",
         "Énergie plus directe et assertive, PAS agressive : crée un contraste et bloque la fuite mentale du 'je réfléchis'."
       ],
-      "example": "\"La vraie question : tu préfères rester dans une situation que tu subis… ou tenter quelque chose pour en sortir ?\""
+      "examples": [
+        "\"Si tu continues exactement comme aujourd'hui, selon toi il se passe quoi dans 3 mois ?\" (laisse répondre)",
+        "\"Donc on est d'accord : si rien ne change, rien ne change.\"",
+        "\"La vraie question : tu préfères rester dans une situation que tu subis… ou tenter quelque chose pour en sortir ? On avance ou on laisse comme ça ?\""
+      ]
     },
     {
       "id": "closing-detachement",
@@ -176,7 +180,11 @@
         "Switch : 'Par contre, pour toi, ça peut clairement faire une différence.'",
         "Intention détachée, confiante, calme, posée. PAS arrogant ni nerveux : reprend le pouvoir et force la décision."
       ],
-      "example": "\"Honnêtement, que tu le fasses ou pas, ça ne change rien pour moi. Par contre pour toi, ça peut tout changer.\""
+      "examples": [
+        "\"Je vais être honnête : que tu le fasses ou pas, ça ne change rien pour moi.\" (pause)",
+        "\"Je sais ce que j'apporte à mes clients, ça tourne très bien. Donc 299€, c'est pas ça qui va changer ma vie.\"",
+        "\"Par contre, pour toi… ça peut clairement faire une différence. C'est pas le moment de faire un premier pas ?\""
+      ]
     },
     {
       "id": "closing-escalier-projection",
@@ -190,7 +198,11 @@
         "6 mois (émotionnel) : 'tu te dis que t'as bien fait de passer à l'action'.",
         "Ralentir le débit, micro-silences : le cerveau distingue mal imagination et réalité, il doit visualiser, pas juste écouter."
       ],
-      "example": "\"La vraie question : tu veux que ça devienne ta réalité, ou rester comme aujourd'hui ?\""
+      "examples": [
+        "\"Projette-toi avec moi deux secondes… Dans les prochains jours, le site est en ligne, les gens tombent dessus.\"",
+        "\"Dans 1 mois, ton premier client venu du site — t'as rentabilisé. Dans 3 mois, ça tourne régulièrement.\"",
+        "\"Dans 6 mois tu te dis que t'as bien fait. La vraie question : tu veux que ça devienne ta réalité, ou rester comme aujourd'hui ?\""
+      ]
     },
     {
       "id": "mindset-le-pont",
@@ -306,7 +318,11 @@
         "Ne saute jamais cette marche : annoncer le prix sans intérêt validé, c'est closer une étape trop tôt.",
         "C'est un trial close : il t'autorise (ou non) à passer à l'argent."
       ],
-      "example": "\"Si c'était le tien et qu'un client tombait dessus, tu penses que ça pourrait te ramener des demandes ?\""
+      "examples": [
+        "\"Si c'était le tien et qu'un client tombait dessus en cherchant un [métier] à [ville]… ça pourrait t'amener des demandes en plus ?\"",
+        "\"Avant qu'on parle des détails — tu te vois l'utiliser au quotidien, ce site, pour capter les clients du coin ?\"",
+        "(s'il hésite) \"Qu'est-ce qui te ferait douter que ça marche pour toi ?\""
+      ]
     },
     {
       "id": "closing-annonce-prix",
@@ -320,7 +336,11 @@
         "Ne JAMAIS s'excuser du prix ni ouvrir la négo toi-même ('je peux faire un geste') → tu signales que c'est cher.",
         "Le site lui appartient (achat unique), ce n'est pas un abonnement sans fin : un actif, pas une charge."
       ],
-      "example": "\"En agence c'est 1000 à 3000€. Nous, 299€, mis en ligne. Un seul chantier capté et il est remboursé.\""
+      "examples": [
+        "\"Un site comme ça en agence, c'est 1000 à 3000€. Nous, c'est 299€, complet et mis en ligne.\"",
+        "\"Un seul chantier capté grâce à lui et il est déjà remboursé.\"",
+        "\"C'est 299€, une fois, et le site t'appartient. Le calcul est vite fait dès le premier chantier.\""
+      ]
     },
     {
       "id": "closing-close-direct",
@@ -334,7 +354,11 @@
         "Évite les questions molles ('ça vous tente ?', 'qu'en pensez-vous ?') : elles invitent à temporiser.",
         "N'offre jamais de porte de sortie ('je vous laisse réfléchir') juste après avoir demandé la vente."
       ],
-      "example": "\"On l'active pour ton activité ?\" (puis tu te tais, vraiment)"
+      "examples": [
+        "\"On l'active pour ton activité ?\" — puis tu te tais, vraiment.",
+        "\"Du coup, on le met en route ?\"",
+        "\"On y va ?\" (et silence absolu : le premier qui parle a perdu)"
+      ]
     },
     {
       "id": "closing-isoler-frein",
@@ -348,7 +372,11 @@
         "Proposer les pistes s'il bloque : 'c'est le prix, le moment, ou un doute sur si ça marche pour toi ?'",
         "Ne traite jamais une objection au hasard : d'abord la nommer et l'isoler, sinon tu tires à l'aveugle."
       ],
-      "example": "\"Qu'est-ce qui te ferait hésiter exactement ? Et à part ça, tu vois l'intérêt ?\""
+      "examples": [
+        "\"Je comprends. Qu'est-ce qui te ferait hésiter exactement ?\"",
+        "\"Et à part ça, le site te plaît et tu vois l'intérêt ?\" (si oui → il ne reste qu'UN frein)",
+        "\"Dis-moi franchement ce qui te bloque — c'est le prix, le moment, ou un doute sur si ça marche pour toi ?\""
+      ]
     },
     {
       "id": "closing-relance",
@@ -363,7 +391,11 @@
         "Bannir la pression ('tu vas le regretter') et la remise bradée : ça casse la valeur et sent le vendeur aux abois.",
         "Voir les fiches dédiées : Inaction/Action, Détachement, Escalier de projection."
       ],
-      "example": "\"Si tu continues comme aujourd'hui, dans 3 mois il se passe quoi ? Et si on le met en place maintenant ?\""
+      "examples": [
+        "Inaction/Action : \"Si tu continues exactement comme aujourd'hui, dans 3 mois il se passe quoi ? Et si on met ça en place maintenant ?\"",
+        "Détachement : \"Que tu le fasses ou pas, ça ne change rien pour moi. Par contre, pour toi, ça peut tout changer.\"",
+        "Escalier : \"Projette-toi : dans un mois le site est en ligne, t'as ton premier chantier, il est remboursé. Tu veux que ça devienne ta réalité ?\""
+      ]
     },
     {
       "id": "closing-verrou-paiement",
@@ -377,7 +409,11 @@
         "Ne réintroduis pas de friction ('après il faudra m'envoyer plein de trucs, ça prend du temps') → il peut se rétracter.",
         "Acte d'abord, félicite après : le paiement engagé, tu peux le rassurer et le remercier."
       ],
-      "example": "\"Parfait. Tu préfères régler par carte ou par virement ?\""
+      "examples": [
+        "\"Parfait. Tu préfères régler par carte ou par virement ?\"",
+        "\"Je t'envoie le lien de paiement sur WhatsApp ou par mail ?\"",
+        "\"On le met avec ton numéro actuel ou un numéro dédié ?\""
+      ]
     },
     {
       "id": "objection-je-reflechis",

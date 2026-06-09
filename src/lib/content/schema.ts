@@ -60,6 +60,8 @@ export const FicheSchema = z.object({
   summary: z.string(),
   points: z.array(z.string()).min(1),
   example: z.string().optional(),
+  // Plusieurs phrases-exemples prêtes à dire (mot-à-mot), affichées en liste.
+  examples: z.array(z.string()).optional(),
 });
 
 export const QuizFileSchema = z.object({ items: z.array(QuizItemSchema) });
