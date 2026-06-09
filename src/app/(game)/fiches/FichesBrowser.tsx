@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Fiche } from "@/lib/content/schema";
 import Icon, { type IconName } from "@/components/Icon";
-import ClosingPlaybook from "./ClosingPlaybook";
+import Playbook from "./Playbook";
 
 const CATS: { key: Fiche["category"] | "all"; label: string }[] = [
   { key: "all", label: "Tout" },
@@ -76,8 +76,16 @@ const ICON_BY_ID: Record<string, IconName> = {
   "objection-confirmer-rdv": "calendar",
 };
 
-// Fiches de closing → nœud du playbook interactif (pour « jouer cette étape »).
+// Fiches → nœud du playbook interactif (pour « jouer cette étape »), phases ET closing.
 const PLAYBOOK_NODE: Record<string, string> = {
+  // Phases de découverte
+  "phase-0-1-briseglace-situation": "ouverture",
+  "decouverte-techniques": "decouverte",
+  "phase-2-douleurs": "douleurs",
+  "phase-3-ambitions": "ambitions",
+  "mindset-le-pont": "pont",
+  "phase-4-pont-presentation": "pont",
+  // Closing
   "closing-anatomie": "pre_close",
   "closing-pre-close": "pre_close",
   "closing-annonce-prix": "annonce_prix",
@@ -130,11 +138,11 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
             <p className="text-[var(--ink-soft)] text-sm mt-1">{fiches.length} fiches dépliantes — scripts, techniques, objections.</p>
           </div>
           <button
-            onClick={() => (playbookStart ? setPlaybookStart(null) : launchPlaybook("pre_close"))}
+            onClick={() => (playbookStart ? setPlaybookStart(null) : launchPlaybook("ouverture"))}
             className="btn btn-primary self-start"
           >
             <Icon name="target" size={16} strokeWidth={2.4} />
-            {playbookStart ? "Masquer le closing" : "Closing interactif"}
+            {playbookStart ? "Masquer l'appel" : "Appel interactif"}
           </button>
         </div>
       </div>
@@ -143,10 +151,10 @@ export default function FichesBrowser({ fiches }: { fiches: Fiche[] }) {
       {playbookStart && (
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
-            <span className="eyebrow">Closing interactif — tu peux le prendre en cours de route</span>
+            <span className="eyebrow">Appel interactif — tu peux le prendre en cours de route</span>
             <button onClick={() => setPlaybookStart(null)} className="mono text-[12px] text-[var(--ink-faint)] hover:text-[var(--ink)] transition">Fermer ✕</button>
           </div>
-          <ClosingPlaybook key={playbookStart} startId={playbookStart} />
+          <Playbook key={playbookStart} startId={playbookStart} />
         </div>
       )}
 
