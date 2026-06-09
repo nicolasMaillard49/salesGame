@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Icon from "@/components/Icon";
+import ArtisanAvatar from "@/components/ArtisanAvatar";
 
 // Playbook interactif du closing : un arbre de décision jouable. À chaque étape
 // on voit la (ou les) phrase(s) exacte(s) à dire, l'intention, le piège, puis on
@@ -210,14 +211,15 @@ const TREE: Record<string, Node> = {
 
 const START = "pre_close";
 
-export default function ClosingPlaybook() {
-  const [path, setPath] = useState<string[]>([START]);
+export default function ClosingPlaybook({ startId = START, metier = "plombier" }: { startId?: string; metier?: string }) {
+  const entry = TREE[startId] ? startId : START;
+  const [path, setPath] = useState<string[]>([entry]);
   const current = path[path.length - 1];
   const node = TREE[current];
 
   const go = (to: string) => setPath((p) => [...p, to]);
   const back = () => setPath((p) => (p.length > 1 ? p.slice(0, -1) : p));
-  const restart = () => setPath([START]);
+  const restart = () => setPath([entry]);
 
   return (
     <div className="glass p-5 sm:p-6 flex flex-col gap-4 reveal">
@@ -273,7 +275,7 @@ export default function ClosingPlaybook() {
 
         {node.prospect && (
           <div className="convo-msg convo-them">
-            <span className="convo-who"><Icon name="worker" size={16} /></span>
+            <span className="convo-who overflow-hidden"><ArtisanAvatar metier={metier} size={30} className="rounded-[9px]" /></span>
             <div className="convo-body">
               <span className="block mono text-[9px] tracking-[.14em] uppercase opacity-60 mb-0.5">Prospect</span>
               {node.prospect}
@@ -307,9 +309,11 @@ export default function ClosingPlaybook() {
 
       {/* Réactions du prospect */}
       {node.win ? (
-        <div className="flex items-center gap-3 flex-wrap pt-1">
+        <div className="flex items-center gap-4 flex-wrap pt-1">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/hero-closer.webp" alt="" className="w-20 h-20 rounded-2xl object-cover ring-1 ring-[var(--glass-line)]" />
           <span className="display text-2xl text-[var(--green-deep)]">Vendu ! 🎉</span>
-          <button onClick={restart} className="btn btn-primary">Rejouer le closing <Icon name="arrowRight" size={16} strokeWidth={2.5} /></button>
+          <button onClick={restart} className="btn btn-primary">Rejouer <Icon name="arrowRight" size={16} strokeWidth={2.5} /></button>
         </div>
       ) : (
         <div className="flex flex-col gap-2">

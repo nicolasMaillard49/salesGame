@@ -17,6 +17,25 @@ const PATHS: Record<string, React.ReactNode> = {
   dumbbell: (<><path d="M6 7v10M3 9v6M18 7v10M21 9v6M6 12h12" /></>),
   sun: (<><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>),
   moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />,
+  // — Icônes descriptives des situations (fiches / closing) —
+  clock: (<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>),
+  euro: (<><path d="M17 6a6 6 0 1 0 0 12" /><path d="M5 10h8M5 14h8" /></>),
+  users: (<><circle cx="9" cy="8" r="3" /><path d="M3 19a6 6 0 0 1 12 0" /><path d="M16 6a3 3 0 0 1 0 6M21 19a6 6 0 0 0-5-5.9" /></>),
+  calendar: (<><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M3 9h18M8 2v4M16 2v4" /></>),
+  alert: (<><path d="M12 3l9 16H3z" /><path d="M12 10v4M12 17h.01" /></>),
+  star: <path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.9z" />,
+  search: (<><circle cx="11" cy="11" r="7" /><path d="M21 21l-4.3-4.3" /></>),
+  checkCircle: (<><circle cx="12" cy="12" r="9" /><path d="M8 12l3 3 5-6" /></>),
+  repeat: (<><path d="M3 12a6 6 0 0 1 6-6h9" /><path d="M15 3l3 3-3 3" /><path d="M21 12a6 6 0 0 1-6 6H6" /><path d="M9 21l-3-3 3-3" /></>),
+  mapPin: (<><path d="M12 21s7-6.3 7-11a7 7 0 0 0-14 0c0 4.7 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></>),
+  trendingUp: (<><path d="M3 17l6-6 4 4 8-8" /><path d="M15 7h6v6" /></>),
+  key: (<><circle cx="8" cy="8" r="4" /><path d="M11 11l9 9M17 17l2-2M14 14l2-2" /></>),
+  zap: <path d="M13 2L4 14h7l-1 8 9-12h-7z" />,
+  mail: (<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M4 7l8 6 8-6" /></>),
+  heart: <path d="M12 20s-7-4.5-9.5-9A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9z" />,
+  handshake: (<><path d="M8 13l3 3 2-2 3 3" /><path d="M3 9l4-3 5 2 5-2 4 3-5 5-2-2" /></>),
+  eye: (<><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" /></>),
+  bridge: (<><path d="M3 8c4 4 14 4 18 0" /><path d="M3 8v9M21 8v9M9 13v4M15 13v4M3 13h18" /></>),
 };
 
 export type IconName = keyof typeof PATHS;

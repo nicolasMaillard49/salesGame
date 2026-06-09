@@ -2,16 +2,24 @@ import Icon from "@/components/Icon";
 
 // De vraies photos d'artisans (générées) pour donner un visage aux prospects.
 const PHOTOS = [
-  "/artisans/plombier.webp",
-  "/artisans/couvreur.webp",
-  "/artisans/paysagiste.webp",
+  "/artisans/plombier.webp", // 0
+  "/artisans/couvreur.webp", // 1
+  "/artisans/paysagiste.webp", // 2
+  "/artisans/electricien.webp", // 3
+  "/artisans/macon.webp", // 4
+  "/artisans/serrurier.webp", // 5
+  "/artisans/peintre.webp", // 6
 ] as const;
 
 // Association métier → photo la plus cohérente ; sinon choix déterministe stable.
 const KEYWORDS: { match: string[]; idx: number }[] = [
-  { match: ["plomb", "chauffag", "serrur", "électric", "electric"], idx: 0 },
-  { match: ["couvr", "toiture", "maçon", "macon", "façad", "facad", "carrel", "menuis"], idx: 1 },
-  { match: ["paysag", "jardin", "peintre", "élagu", "elagu"], idx: 2 },
+  { match: ["plomb", "chauffag"], idx: 0 },
+  { match: ["couvr", "toiture", "menuis"], idx: 1 },
+  { match: ["paysag", "jardin", "élagu", "elagu"], idx: 2 },
+  { match: ["électric", "electric"], idx: 3 },
+  { match: ["maçon", "macon", "façad", "facad", "carrel"], idx: 4 },
+  { match: ["serrur"], idx: 5 },
+  { match: ["peintre"], idx: 6 },
 ];
 
 function photoFor(metier: string): string {
