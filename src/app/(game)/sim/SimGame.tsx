@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { finishSession, recordAnswer, startSession } from "@/lib/client";
+import { finishSession, recordAnswer, scoreVoiceReply, startSession } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import { SKILL_LABELS, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
 import ArtisanAvatar from "@/components/ArtisanAvatar";
@@ -48,6 +50,33 @@ export default function SimGame({ scenarios, closingOnly = false, offer = "web" 
   const [answers, setAnswers] = useState(0);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Mode vocal
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
+  const [voiceQuality, setVoiceQuality] = useState<Quality | null>(null);
+  const [voiceFeedback, setVoiceFeedback] = useState<string | null>(null);
+  const [voiceReply, setVoiceReply] = useState("");
+
+  async function submitVoice(spoken: string) {
+    if (revealed || !turn || !scenarioId) return;
+    setVoiceErr(null);
+    setVoiceReply(spoken);
+    setVoiceScoring(true);
+    const res = await scoreVoiceReply({ scenarioId, phaseIndex: turn.phaseIndex, artisanLine: turn.artisanLine, userReply: spoken, offer });
+    setVoiceScoring(false);
+    if (res === null || res.fallback) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
+    const quality: Quality = res.quality ?? "ok";
+    setVoiceQuality(quality);
+    setVoiceFeedback(res.feedback ?? "Réplique enregistrée.");
+    setRevealed(true);
+    setAnswers((a) => a + 1);
+    if (quality === "good") setGoods((g) => g + 1);
+    if (sessionId) {
+      const r = await recordAnswer({ sessionId, skill: turn.phase, quality, itemRef: `${scenarioId}:${turn.phase}`, chosen: spoken });
+      if (r) setXp((x) => x + r.xpGained);
+    }
+  }
 
   async function fetchTurn(id: string, phaseIndex: number, hist: Line[]): Promise<Turn | null> {
     setLoading(true); setError(null);
@@ -88,15 +117,19 @@ export default function SimGame({ scenarios, closingOnly = false, offer = "web" 
 
   async function next() {
     if (!turn || !scenarioId) return;
-    const chosen = turn.options[picked ?? 0];
-    const newHistory: Line[] = [...history, { role: "commercial", text: chosen.text }];
+    const chosenText = voiceMode ? voiceReply.trim() : turn.options[picked ?? 0].text;
+    const newHistory: Line[] = [...history, { role: "commercial", text: chosenText }];
     const nextIndex = turn.phaseIndex + 1;
     if (nextIndex >= turn.totalPhases) {
       if (sessionId) finishSession(sessionId, goods, xp);
       setHistory(newHistory); setDone(true); return;
     }
     const t = await fetchTurn(scenarioId, nextIndex, newHistory);
-    if (t) { setTurn(t); setPicked(null); setRevealed(false); setHistory([...newHistory, { role: "artisan", text: t.artisanLine }]); }
+    if (t) {
+      setTurn(t); setPicked(null); setRevealed(false);
+      setVoiceReply(""); setVoiceQuality(null); setVoiceFeedback(null); setVoiceErr(null);
+      setHistory([...newHistory, { role: "artisan", text: t.artisanLine }]);
+    }
   }
 
   // Sélection
@@ -110,6 +143,9 @@ export default function SimGame({ scenarios, closingOnly = false, offer = "web" 
               ? "Le site est présenté : à toi de closer. Pré-close, prix, silence, objection, relance, paiement — l'étape la plus dure, répétée à fond."
               : "Mène l'appel du décroché au paiement. À chaque phase, choisis ta réplique."}
           </p>
+        </div>
+        <div className="glass p-4 max-w-md">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
         </div>
         <div className="grid sm:grid-cols-3 gap-3.5">
           {scenarios.map((s) => (
@@ -178,7 +214,42 @@ export default function SimGame({ scenarios, closingOnly = false, offer = "web" 
 
       {loading && <p className="mono text-sm text-[var(--ink-faint)] animate-pulse">L&apos;artisan réfléchit…</p>}
 
-      {turn && !loading && (
+      {turn && !loading && voiceMode && (
+        <>
+          {!revealed && (
+            <VoiceAnswer
+              key={`${scenarioId}-${turn.phaseIndex}`}
+              prompt={turn.artisanLine}
+              hints={turn.options.map((o) => o.text)}
+              submitting={voiceScoring}
+              error={voiceErr}
+              onSubmit={submitVoice}
+            />
+          )}
+          {revealed && voiceQuality && (
+            <div className="glass p-5 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className={`verdict ${VERDICT[voiceQuality].cls}`}>{VERDICT[voiceQuality].label}</span>
+                <span className="mono text-xs text-[var(--ink-faint)]">ce que tu as dit</span>
+              </div>
+              <p className="text-[var(--ink)]">« {voiceReply.trim()} »</p>
+              {voiceFeedback && <p className="text-sm text-[var(--ink-soft)] leading-snug">{voiceFeedback}</p>}
+              {voiceQuality !== "good" && turn.options.find((o) => o.quality === "good") && (
+                <div className="border-t border-[var(--glass-edge)] pt-3">
+                  <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">Réplique modèle</span>
+                  <p className="text-sm text-[var(--good)] leading-snug mt-1">« {turn.options.find((o) => o.quality === "good")!.text} »</p>
+                </div>
+              )}
+              <button onClick={next} className="btn-arcade self-start mt-1">
+                {turn.phaseIndex + 1 >= turn.totalPhases ? "Terminer l'appel" : "Phase suivante"}
+                <Icon name="arrowRight" size={16} strokeWidth={2.5} />
+              </button>
+            </div>
+          )}
+        </>
+      )}
+
+      {turn && !loading && !voiceMode && (
         <>
           <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)]">Ta réplique</p>
           <div className="flex flex-col gap-3">
