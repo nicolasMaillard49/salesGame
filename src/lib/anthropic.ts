@@ -161,7 +161,8 @@ export async function voiceMatch(prompt: string, spoken: string, options: string
   const list = options.map((o, i) => `${i}. ${o}`).join("\n");
   const msg = await client.messages.create({
     model: MODEL,
-    max_tokens: 80,
+    max_tokens: 16,
+    stop_sequences: ["}"],
     system: [
       `Tu corriges un exercice de vente. On te donne une question/objection, la réponse DITE À L'ORAL par l'apprenant, et une liste de réponses-candidates numérotées (à partir de 0).`,
       `Choisis l'index de la candidate dont le sens correspond le mieux à ce que l'apprenant a dit.`,
@@ -182,11 +183,13 @@ export async function voiceMatch(prompt: string, spoken: string, options: string
           `Quel index ?`,
         ].filter(Boolean).join("\n"),
       },
+      // Prefill : force une sortie JSON pure (pas de ```json ni de prose).
+      { role: "assistant", content: `{"index":` },
     ],
   });
   const text = msg.content.filter((b): b is Anthropic.TextBlock => b.type === "text").map((b) => b.text).join("");
-  const raw = extractJson(text) as { index?: unknown };
-  const idx = Number(raw?.index);
+  // On reconstruit le JSON à partir du prefill + la continuation (avant le stop "}").
+  const idx = Number(text.replace(/[^\d-]/g, ""));
   return Number.isInteger(idx) && idx >= -1 && idx < options.length ? idx : -1;
 }
 
@@ -198,7 +201,8 @@ export async function voiceCheck(prompt: string, spoken: string, expected: strin
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
   const msg = await client.messages.create({
     model: MODEL,
-    max_tokens: 50,
+    max_tokens: 16,
+    stop_sequences: ["}"],
     system: [
       `Tu corriges un exercice. On te donne la question, la réponse attendue, et la réponse DITE À L'ORAL par l'apprenant.`,
       `Dis si la réponse de l'apprenant est correcte, c'est-à-dire si elle a le MÊME SENS que la réponse attendue.`,
@@ -216,11 +220,12 @@ export async function voiceCheck(prompt: string, spoken: string, expected: strin
           `Correcte ?`,
         ].filter(Boolean).join("\n"),
       },
+      // Prefill : force une sortie JSON pure.
+      { role: "assistant", content: `{"correct":` },
     ],
   });
   const text = msg.content.filter((b): b is Anthropic.TextBlock => b.type === "text").map((b) => b.text).join("");
-  const raw = extractJson(text) as { correct?: unknown };
-  return raw?.correct === true;
+  return /true/i.test(text);
 }
 
 /** Un tour de simulateur via Haiku. Lance une exception en cas d'échec (le caller gère le fallback). */
