@@ -33,6 +33,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   const [voiceMode, setVoiceMode] = useVoicePref();
   const [started, setStarted] = useState(false);
   const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
   const startedAt = useRef<number>(0);
 
   useEffect(() => {
@@ -82,9 +83,11 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   async function submitVoiceQcm(spoken: string) {
     if (revealed || !round) return;
     const item = round[i];
+    setVoiceErr(null);
     setVoiceScoring(true);
     const idx = await voiceMatchOption({ prompt: item.prompt, spoken, options: item.options ?? [] });
     setVoiceScoring(false);
+    if (idx === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     reveal(idx, idx === Number(item.answer));
   }
 
@@ -93,9 +96,11 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
     if (revealed || !round) return;
     const item = round[i];
     setTyped(spoken);
+    setVoiceErr(null);
     setVoiceScoring(true);
     const ok = await voiceCheckAnswer({ prompt: item.prompt, spoken, expected: String(item.answer) });
     setVoiceScoring(false);
+    if (ok === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     reveal(null, ok === true);
   }
 
@@ -152,7 +157,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
         {item.type === "qcm" ? (
           voiceMode && !revealed ? (
             <div className="mt-6">
-              <VoiceAnswer key={item.id} prompt={item.prompt} hints={item.options ?? []} submitting={voiceScoring} onSubmit={submitVoiceQcm} />
+              <VoiceAnswer key={item.id} prompt={item.prompt} hints={item.options ?? []} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceQcm} />
             </div>
           ) : (
             <div className="mt-6 flex flex-col gap-3">
@@ -172,7 +177,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
           )
         ) : voiceMode && !revealed ? (
           <div className="mt-6">
-            <VoiceAnswer key={item.id} prompt={item.prompt} submitting={voiceScoring} onSubmit={submitVoiceTrou} />
+            <VoiceAnswer key={item.id} prompt={item.prompt} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceTrou} />
           </div>
         ) : (
           <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); answer(null); }}>

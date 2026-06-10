@@ -38,6 +38,7 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   const [voiceMode, setVoiceMode] = useVoicePref();
   const [started, setStarted] = useState(false);
   const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
   const startedAt = useRef(0);
   const comboRef = useRef(0);
   const acRef = useRef<AudioContext | null>(null);
@@ -135,9 +136,11 @@ export default function DrillGame({ items }: { items: Objection[] }) {
 
   async function submitVoice(spoken: string) {
     if (revealed || !obj) return;
+    setVoiceErr(null);
     setVoiceScoring(true);
     const idx = await voiceMatchOption({ prompt: obj.artisanLine, spoken, options: options.map((o) => o.text) });
     setVoiceScoring(false);
+    if (idx === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     const k = idx >= 0 ? idx : worstIdx(options);
     reveal(k, options[k]);
   }
@@ -236,6 +239,7 @@ export default function DrillGame({ items }: { items: Objection[] }) {
           prompt={obj.artisanLine}
           hints={options.map((o) => o.text)}
           submitting={voiceScoring}
+          error={voiceErr}
           onSubmit={submitVoice}
         />
       ) : (

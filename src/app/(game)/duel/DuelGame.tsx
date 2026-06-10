@@ -50,15 +50,18 @@ export default function DuelGame({ objections, challenge }: { objections: Object
   const [started, setStarted] = useState(false);
   const [voiceMode, setVoiceMode] = useVoicePref();
   const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
 
   const obj = round[i];
   const options = useMemo(() => (obj && seed != null ? seededShuffle(obj.options, seed + i + 99) : []), [obj, seed, i]);
 
   async function submitVoice(spoken: string) {
     if (revealed || !obj) return;
+    setVoiceErr(null);
     setVoiceScoring(true);
     const idx = await voiceMatchOption({ prompt: obj.artisanLine, spoken, options: options.map((o) => o.text) });
     setVoiceScoring(false);
+    if (idx === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     const k = idx >= 0 ? idx : worstIdx(options);
     pick(k, options[k]);
   }
@@ -164,6 +167,7 @@ export default function DuelGame({ objections, challenge }: { objections: Object
           prompt={obj.artisanLine}
           hints={options.map((o) => o.text)}
           submitting={voiceScoring}
+          error={voiceErr}
           onSubmit={submitVoice}
         />
       ) : (

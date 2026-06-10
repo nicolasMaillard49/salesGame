@@ -11,12 +11,14 @@ export function VoiceAnswer({
   prompt,
   hints,
   submitting,
+  error,
   onSubmit,
   label = "Ta réponse — à l'oral",
 }: {
   prompt: string;
   hints?: string[];
   submitting?: boolean;
+  error?: string | null;
   onSubmit: (text: string) => void;
   label?: string;
 }) {
@@ -85,6 +87,7 @@ export function VoiceAnswer({
         />
 
         {voice.error && <p className="text-xs text-[var(--bad)]">{voice.error}</p>}
+        {error && <p className="text-xs text-[var(--bad)]">{error}</p>}
 
         <div className="flex items-center gap-3 flex-wrap">
           <button type="button" onClick={submit} disabled={!reply.trim() || submitting} className="btn-arcade">

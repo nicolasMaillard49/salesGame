@@ -59,23 +59,25 @@ export async function scoreVoiceReply(payload: {
 }
 
 // Match sémantique tolérant d'une réponse dite à l'oral à une option de QCM.
-// Retourne l'index de la meilleure correspondance, ou -1 si aucune / erreur.
+// Retourne l'index de la meilleure correspondance (-1 = aucune), ou `null` si
+// l'évaluation IA a échoué (réseau / clé absente) — à NE PAS confondre avec un raté.
 export async function voiceMatchOption(payload: {
   prompt: string;
   spoken: string;
   options: string[];
-}): Promise<number> {
-  const res = await fetch("/api/voice-match", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  if (!res.ok) {
-    const d = await res.json().catch(() => ({}));
-    return typeof d?.index === "number" ? d.index : -1;
+}): Promise<number | null> {
+  try {
+    const res = await fetch("/api/voice-match", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) return null;
+    const d = await res.json();
+    return typeof d?.index === "number" ? d.index : null;
+  } catch {
+    return null;
   }
-  const d = await res.json();
-  return typeof d?.index === "number" ? d.index : -1;
 }
 
 // Vrai/faux tolérant (Quiz à trou). Renvoie null si l'IA n'a pas pu trancher.

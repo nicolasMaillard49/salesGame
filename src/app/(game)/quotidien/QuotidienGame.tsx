@@ -40,12 +40,15 @@ export default function QuotidienGame({
   const [result, setResult] = useState<{ streak: number; bestStreak: number; alreadyDone: boolean } | null>(null);
   const [voiceMode, setVoiceMode] = useVoicePref();
   const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
 
   async function submitVoice(spoken: string) {
     if (revealed) return;
+    setVoiceErr(null);
     setVoiceScoring(true);
     const idx = await voiceMatchOption({ prompt: objection.artisanLine, spoken, options: options.map((o) => o.text) });
     setVoiceScoring(false);
+    if (idx === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     const i = idx >= 0 ? idx : worstIdx(options);
     pick(i, options[i]);
   }
@@ -102,6 +105,7 @@ export default function QuotidienGame({
           prompt={objection.artisanLine}
           hints={options.map((o) => o.text)}
           submitting={voiceScoring}
+          error={voiceErr}
           onSubmit={submitVoice}
         />
       ) : (

@@ -37,12 +37,15 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
   const [outcome, setOutcome] = useState<"win" | "lose" | null>(null);
   const [voiceMode, setVoiceMode] = useVoicePref();
   const [voiceScoring, setVoiceScoring] = useState(false);
+  const [voiceErr, setVoiceErr] = useState<string | null>(null);
 
   async function submitVoice(spoken: string) {
     if (revealed || !cur || !boss) return;
+    setVoiceErr(null);
     setVoiceScoring(true);
     const idx = await voiceMatchOption({ prompt: cur.artisanLine, spoken, options: options.map((o) => o.text) });
     setVoiceScoring(false);
+    if (idx === null) { setVoiceErr("Évaluation IA indisponible — réessaie."); return; }
     const k = idx >= 0 ? idx : worstIdx(options);
     pick(k, options[k]);
   }
@@ -180,6 +183,7 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
           prompt={cur.artisanLine}
           hints={options.map((o) => o.text)}
           submitting={voiceScoring}
+          error={voiceErr}
           onSubmit={submitVoice}
         />
       ) : (
