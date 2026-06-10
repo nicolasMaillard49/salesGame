@@ -3,9 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
-import { finishSession, recordAnswer, shuffle, startSession } from "@/lib/client";
+import { finishSession, recordAnswer, shuffle, startSession, voiceMatchOption } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import { SKILL_LABELS } from "@/lib/types";
 import Icon from "@/components/Icon";
+
+function worstIdx(opts: ObjectionOption[]): number {
+  const b = opts.findIndex((o) => o.quality === "bad");
+  return b >= 0 ? b : opts.length - 1;
+}
 
 const TIME_S = 15;
 const VERDICT: Record<ObjectionOption["quality"], { cls: string; label: string }> = {
@@ -28,6 +35,9 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   const [combo, setCombo] = useState(0);
   const [bestCombo, setBestCombo] = useState(0);
   const [lastFast, setLastFast] = useState(false);
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [started, setStarted] = useState(false);
+  const [voiceScoring, setVoiceScoring] = useState(false);
   const startedAt = useRef(0);
   const comboRef = useRef(0);
   const acRef = useRef<AudioContext | null>(null);
@@ -112,7 +122,8 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   );
 
   useEffect(() => {
-    if (revealed || done || !obj) return;
+    // En mode vocal, pas de chrono (parler + faire évaluer ne tient pas en 15 s).
+    if (!started || voiceMode || revealed || done || !obj) return;
     if (time <= 0) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       reveal(null, null);
@@ -120,7 +131,16 @@ export default function DrillGame({ items }: { items: Objection[] }) {
     }
     const t = setTimeout(() => setTime((s) => s - 1), 1000);
     return () => clearTimeout(t);
-  }, [time, revealed, done, obj, reveal]);
+  }, [time, started, voiceMode, revealed, done, obj, reveal]);
+
+  async function submitVoice(spoken: string) {
+    if (revealed || !obj) return;
+    setVoiceScoring(true);
+    const idx = await voiceMatchOption({ prompt: obj.artisanLine, spoken, options: options.map((o) => o.text) });
+    setVoiceScoring(false);
+    const k = idx >= 0 ? idx : worstIdx(options);
+    reveal(k, options[k]);
+  }
 
   function next() {
     if (!round) return;
@@ -131,6 +151,28 @@ export default function DrillGame({ items }: { items: Objection[] }) {
   }
 
   if (!round) return <p className="mono text-[var(--ink-faint)] animate-pulse">Chargement…</p>;
+
+  if (!started) {
+    return (
+      <div className="flex flex-col gap-5 max-w-xl">
+        <div>
+          <h1 className="display text-2xl">Drill</h1>
+          <p className="text-[var(--ink-soft)] text-sm mt-1">
+            {voiceMode
+              ? "En vocal : pas de chrono, prends le temps de formuler ta réponse à l'oral."
+              : "15 s par objection — enchaîne et monte ton combo."}
+          </p>
+        </div>
+        <div className="glass p-4">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
+        </div>
+        <button onClick={() => setStarted(true)} className="btn btn-primary self-start">
+          Lancer le drill <Icon name="arrowRight" size={16} strokeWidth={2.5} />
+        </button>
+        <Link href="/" className="mono text-sm text-[var(--ink-faint)] hover:text-[var(--ink)]">← Hub</Link>
+      </div>
+    );
+  }
 
   if (done) {
     return (
@@ -171,12 +213,14 @@ export default function DrillGame({ items }: { items: Objection[] }) {
         </div>
       </div>
 
-      <div>
-        <div className="flex justify-between mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mb-1.5">
-          <span>Temps restant</span><span>{time}s</span>
+      {!voiceMode && (
+        <div>
+          <div className="flex justify-between mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mb-1.5">
+            <span>Temps restant</span><span>{time}s</span>
+          </div>
+          <div className="timer-bar"><div className="timer-fill" style={{ width: `${(time / TIME_S) * 100}%` }} /></div>
         </div>
-        <div className="timer-bar"><div className="timer-fill" style={{ width: `${(time / TIME_S) * 100}%` }} /></div>
-      </div>
+      )}
 
       <div className="flex items-start gap-4 mt-2">
         <span className="face"><Icon name="worker" size={22} /></span>
@@ -186,27 +230,39 @@ export default function DrillGame({ items }: { items: Objection[] }) {
         </div>
       </div>
 
-      <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mt-2">Choisis ta meilleure réponse</p>
+      {voiceMode && !revealed ? (
+        <VoiceAnswer
+          key={`${i}-${obj.id}`}
+          prompt={obj.artisanLine}
+          hints={options.map((o) => o.text)}
+          submitting={voiceScoring}
+          onSubmit={submitVoice}
+        />
+      ) : (
+        <>
+          <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mt-2">Choisis ta meilleure réponse</p>
 
-      <div className="flex flex-col gap-3">
-        {options.map((opt, idx) => {
-          const isPicked = idx === picked;
-          let state = "";
-          if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
-          return (
-            <button key={idx} disabled={revealed} onClick={() => reveal(idx, opt)} className={`opt-b ${state}`}>
-              <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
-              <span className="txt">{opt.text}</span>
-              {revealed && (
-                <span className="fb">
-                  <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
-                  <span>{opt.feedback}</span>
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+          <div className="flex flex-col gap-3">
+            {options.map((opt, idx) => {
+              const isPicked = idx === picked;
+              let state = "";
+              if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
+              return (
+                <button key={idx} disabled={revealed} onClick={() => reveal(idx, opt)} className={`opt-b ${state}`}>
+                  <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                  <span className="txt">{opt.text}</span>
+                  {revealed && (
+                    <span className="fb">
+                      <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
+                      <span>{opt.feedback}</span>
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       {revealed && (
         <button onClick={next} className="btn-arcade self-start mt-2">

@@ -1,0 +1,1490 @@
+{
+  "items": [
+    {
+      "id": "ads_q1_001",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Quel est le hook d'ouverture de l'appel à froid Google Ads ?",
+      "options": [
+        "Bonjour, je vous appelle pour vous vendre de la publicité Google.",
+        "Allo, je suis bien avec [entreprise] ? Si je vous dis que c'est un appel de prospection, vous jetez le téléphone par la fenêtre… ou vous me laissez 30 secondes chrono pour vous expliquer ?",
+        "Bonjour, avez-vous quelques minutes pour répondre à un questionnaire ?",
+        "Je vous appelle de la part de Google pour optimiser votre référencement."
+      ],
+      "answer": 1,
+      "explanation": "Le hook désamorce la méfiance en 5 secondes avec humour et honnêteté (on annonce que c'est de la prospection), puis on fait silence.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_002",
+      "skill": "ouverture",
+      "type": "qcm",
+      "prompt": "Que fait-on juste après avoir lancé le hook d'ouverture ?",
+      "options": [
+        "On enchaîne immédiatement sur le prix",
+        "On fait silence et on laisse le prospect réagir",
+        "On demande son adresse mail",
+        "On répète le hook une deuxième fois"
+      ],
+      "answer": 1,
+      "explanation": "Après le hook, on se tait : le silence laisse le prospect réagir et c'est sa réaction qui guide la suite.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_003",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Le prospect réagit froidement : 'C'est quoi ça ?'. Quelle est la bonne relance ?",
+      "options": [
+        "Insister : 'C'est très important, écoutez-moi.'",
+        "'C'est simple — j'ai juste une question sur comment vous trouvez vos clients. 30 secondes.'",
+        "Raccrocher immédiatement",
+        "Donner tout le pitch d'un coup avant qu'il raccroche"
+      ],
+      "answer": 1,
+      "explanation": "Sur une réaction froide, on rassure en réduisant l'enjeu à une simple question de 30 secondes sur comment il trouve ses clients.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_004",
+      "skill": "ouverture_froide",
+      "type": "qcm",
+      "prompt": "Le prospect dit 'j'ai pas le temps'. Quelle est la bonne réaction ?",
+      "options": [
+        "Insister pour qu'il écoute quand même",
+        "Proposer un rappel avec un choix matin/après-midi, puis raccrocher proprement sans insister",
+        "Le mettre en attente",
+        "Lui envoyer un mail tout de suite"
+      ],
+      "answer": 1,
+      "explanation": "Sur un refus 'pas le temps', on propose un rappel avec choix matin/après-midi et on raccroche proprement, sans insistance.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_005",
+      "skill": "ouverture",
+      "type": "trou",
+      "prompt": "Dans le hook, on demande au prospect de nous laisser ___ secondes chrono pour expliquer.",
+      "answer": "30",
+      "explanation": "Le hook propose 30 secondes chrono : un engagement minime qui réduit la résistance.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_006",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Quelle est la question d'entrée après une réaction positive à l'ouverture ?",
+      "options": [
+        "Quel est votre budget mensuel ?",
+        "Une question sur comment vous trouvez / d'où viennent vos clients aujourd'hui",
+        "Avez-vous déjà un site internet ?",
+        "Combien de salariés avez-vous ?"
+      ],
+      "answer": 1,
+      "explanation": "La question d'entrée vise à comprendre d'où viennent ses clients aujourd'hui, pour ancrer la suite sur sa réalité.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_007",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Pendant que le prospect répond à la question d'entrée, que faut-il faire ?",
+      "options": [
+        "Le couper dès qu'on a compris pour gagner du temps",
+        "Suggérer les réponses pour l'aider",
+        "Ne pas couper, ne pas suggérer, le laisser répondre",
+        "Prendre la parole pour présenter l'offre"
+      ],
+      "answer": 2,
+      "explanation": "On ne coupe pas et on ne suggère pas : on laisse le prospect répondre librement pour vraiment comprendre sa situation.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_008",
+      "skill": "decouverte",
+      "type": "qcm",
+      "prompt": "Comment valide-t-on la réponse du prospect à la question d'entrée ?",
+      "options": [
+        "'D'accord, c'est noté.'",
+        "'OK, donc principalement comme ça aujourd'hui.'",
+        "'Ce n'est pas suffisant, il faut faire mieux.'",
+        "'On va tout changer alors.'"
+      ],
+      "answer": 1,
+      "explanation": "On reformule pour valider : 'OK, donc principalement comme ça aujourd'hui' — ça montre qu'on a écouté et ancre sa situation actuelle.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_009",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Comment doit-on expliquer le mécanisme à l'étape 3 ?",
+      "options": [
+        "En détaillant les enchères CPC et le Quality Score",
+        "En 20 secondes, de façon visuelle et simple, sans jargon",
+        "En envoyant une documentation technique par mail",
+        "En listant tous les mots-clés possibles"
+      ],
+      "answer": 1,
+      "explanation": "Le mécanisme s'explique en 20 secondes, visuel et simple, sans jargon : le prospect doit visualiser, pas être noyé.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_010",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Quelle phrase illustre le mécanisme Google Ads pendant la prospection ?",
+      "options": [
+        "'On va refaire entièrement votre site internet.'",
+        "'Vous voyez quand quelqu'un tape sur Google : [métier] + [ville] ? Notre travail c'est de faire apparaître votre entreprise devant ces personnes-là.'",
+        "'On va vous créer une page Facebook et Instagram.'",
+        "'On gère votre comptabilité et vos devis.'"
+      ],
+      "answer": 1,
+      "explanation": "Le mécanisme se résume par l'image du prospect qui tape '[métier] + [ville]' sur Google et de l'entreprise qui apparaît devant lui.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_011",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Quel est l'argument central de la promesse Google Ads ?",
+      "options": [
+        "Faire apparaître l'entreprise en haut de Google quand on tape 'métier + ville'",
+        "Augmenter le nombre d'abonnés sur les réseaux sociaux",
+        "Créer un nouveau logo et une charte graphique",
+        "Réduire le prix de l'hébergement du site"
+      ],
+      "answer": 0,
+      "explanation": "La promesse est d'apparaître EN HAUT de Google quand un client tape '[métier] + [ville]'.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_012",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Pourquoi cible-t-on uniquement des artisans qui ONT DÉJÀ un site ?",
+      "options": [
+        "Parce que c'est obligatoire pour Google Ads et le marché est 4x plus grand que ceux qui n'en ont pas",
+        "Parce qu'ils ont plus d'argent",
+        "Parce qu'ils ne connaissent pas la concurrence",
+        "Parce qu'ils n'ont jamais fait de pub"
+      ],
+      "answer": 0,
+      "explanation": "On cible les artisans qui ont déjà un site : c'est nécessaire pour envoyer le trafic Ads quelque part, et ce marché est 4x plus grand que ceux sans site.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_013",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Quels sont les 4 piliers de la proposition de valeur (étape 4) ?",
+      "options": [
+        "Cher, lent, complexe, engageant",
+        "1 semaine test gratuite, clients en automatique, zéro risque, vous faites tout pour eux",
+        "Site refait, SEO, réseaux sociaux, logo",
+        "Devis, facture, relance, comptabilité"
+      ],
+      "answer": 1,
+      "explanation": "La proposition de valeur : semaine test gratuite, prospects en automatique chaque jour, zéro risque, 'c'est nous qui faisons tout'.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_014",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Quelle est la durée de la semaine test proposée ?",
+      "options": [
+        "3 jours",
+        "1 semaine",
+        "1 mois",
+        "1 trimestre"
+      ],
+      "answer": 1,
+      "explanation": "On propose de tester le dispositif gratuitement pendant 1 semaine.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_015",
+      "skill": "presentation",
+      "type": "trou",
+      "prompt": "Le budget pub Google à prévoir sur la semaine test est d'environ ___ € au total.",
+      "answer": "100",
+      "explanation": "Le budget pub est d'environ 10-15€/jour, soit ~100€ sur la semaine test.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_016",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "À qui le client paie-t-il le budget pub d'environ 100€ ?",
+      "options": [
+        "Au commercial",
+        "Directement à Google",
+        "À une agence externe",
+        "À une banque"
+      ],
+      "answer": 1,
+      "explanation": "Le budget pub est payé DIRECTEMENT à Google, pas au commercial — point clé pour lever la méfiance.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_017",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Pendant la semaine test, combien coûte le service du commercial au client ?",
+      "options": [
+        "750€",
+        "100€",
+        "C'est gratuit / offert",
+        "29€/mois"
+      ],
+      "answer": 2,
+      "explanation": "Pendant la semaine test, le service du commercial est entièrement gratuit ; seul le budget pub Google (~100€) est à prévoir.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_018",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Comment cadrer le budget pub pour éviter la confusion ?",
+      "options": [
+        "Présenter les 100€ comme des frais de gestion",
+        "Préciser que c'est un budget pub Google (10 à 20€/jour), pas des frais de gestion",
+        "Ne pas en parler du tout",
+        "Dire que c'est offert par Google"
+      ],
+      "answer": 1,
+      "explanation": "On précise que les ~100€ sont un budget pub Google (10-20€/jour), pas des frais de gestion — sinon le prospect croit qu'il nous paie.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_019",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Quelle est la phrase de projection (étape 5) avant le CTA ?",
+      "options": [
+        "'Vous verrez des résultats dans 6 mois.'",
+        "'Si on lance demain, vous pouvez commencer à recevoir des contacts dès après-demain.'",
+        "'On ne peut rien garantir.'",
+        "'Il faut attendre que Google valide le compte sous 30 jours.'"
+      ],
+      "answer": 1,
+      "explanation": "La projection rend le résultat concret et immédiat : 'Si on lance demain, vous pouvez recevoir des contacts dès après-demain.'",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_020",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Que fait-on juste après la phrase de projection / CTA ?",
+      "options": [
+        "On parle du prix mensuel",
+        "On fait silence pour amener la prise de RDV",
+        "On raccroche",
+        "On envoie un mail récapitulatif"
+      ],
+      "answer": 1,
+      "explanation": "Après la projection et le CTA, on fait silence : c'est ce silence qui pousse le prospect vers la prise de RDV.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_021",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Comment proposer le créneau du RDV visio ?",
+      "options": [
+        "'Quand êtes-vous disponible ?'",
+        "'Vous êtes plus dispo le matin ou l'après-midi en général ?'",
+        "'Donnez-moi votre agenda complet.'",
+        "'On verra ça plus tard.'"
+      ],
+      "answer": 1,
+      "explanation": "On utilise toujours une question fermée ('matin ou après-midi ?'), jamais une question ouverte du type 'quand êtes-vous dispo ?'.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_022",
+      "skill": "prise_rdv",
+      "type": "trou",
+      "prompt": "Pour caler le créneau, on pose toujours une question ___ (matin ou après-midi ?) plutôt que 'quand êtes-vous dispo ?'.",
+      "answer": "fermée",
+      "explanation": "La question fermée réduit les options à un choix simple et facilite l'engagement ; la question ouverte laisse trop de portes de sortie.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_023",
+      "skill": "prise_rdv",
+      "type": "qcm",
+      "prompt": "Comment positionne-t-on le RDV visio au prospect ?",
+      "options": [
+        "Comme une longue réunion technique d'une heure",
+        "'Le plus simple, c'est qu'on vous montre ça rapidement en visio. En 10 minutes vous verrez exactement comment ça fonctionne.'",
+        "Comme un rendez-vous physique chez lui",
+        "Comme un appel pour signer un contrat"
+      ],
+      "answer": 1,
+      "explanation": "Le RDV est présenté comme une démo rapide de 10 minutes en visio : faible engagement, forte valeur perçue.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_024",
+      "skill": "prise_rdv",
+      "type": "trou",
+      "prompt": "On annonce que la visio dure environ ___ minutes pour montrer comment ça fonctionne.",
+      "answer": "10",
+      "explanation": "On présente la visio comme une démo de 10 minutes : c'est rapide et rassurant pour décrocher le RDV.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_025",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Objection 'C'est de la pub'. Quelle est la bonne réponse ?",
+      "options": [
+        "'Non, ce n'est pas de la pub du tout.'",
+        "'Oui, mais la différence c'est qu'on vise uniquement les gens qui cherchent déjà votre service. On ne les convainc pas — ils cherchent déjà.'",
+        "'La pub c'est dépassé, parlons d'autre chose.'",
+        "'Vous avez raison, laissez tomber.'"
+      ],
+      "answer": 1,
+      "explanation": "On ne débat pas : on recadre sur le fait qu'on cible des gens qui cherchent déjà activement le service, donc on ne convainc personne.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_026",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Objection 'Je suis déjà sur Google'. Comment recadrer ?",
+      "options": [
+        "'Alors vous n'avez besoin de rien.'",
+        "'Parfait, ça veut dire qu'on peut simplement vous rendre plus visible pendant une semaine pour voir la différence.'",
+        "'Non, vous n'y êtes pas vraiment.'",
+        "'Google ne suffit pas, il faut Facebook.'"
+      ],
+      "answer": 1,
+      "explanation": "On transforme l'objection en opportunité : être déjà présent permet de tester une meilleure visibilité sur une semaine.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_027",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Objection 'Envoyez-moi un mail'. Quelle est la bonne réponse ?",
+      "options": [
+        "'D'accord, je vous envoie tout et on ne se rappelle pas.'",
+        "'Je peux vous envoyer un résumé, mais ça ne remplacera pas les 10 minutes où on regarde ensemble votre cas. On cale un créneau rapide et ensuite je vous envoie tout par mail.'",
+        "'Non, je n'envoie jamais de mail.'",
+        "'Le mail, c'est trop long à lire.'"
+      ],
+      "answer": 1,
+      "explanation": "On accepte le mail mais on le subordonne au RDV : le mail seul ne remplace pas la visio personnalisée de 10 minutes.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_028",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Objection 'Pas le budget'. Quelle est la bonne réponse ?",
+      "options": [
+        "'Désolé, sans budget c'est impossible.'",
+        "'Justement, on démarre avec un petit budget pour tester sans engager de grosses sommes. L'idée n'est pas d'investir, c'est de vérifier si ça peut vous apporter quelque chose.'",
+        "'On peut le faire gratuitement à vie.'",
+        "'Empruntez à la banque.'"
+      ],
+      "answer": 1,
+      "explanation": "On recadre 'pas le budget' sur le faible montant du test : il ne s'agit pas d'investir mais de vérifier si ça marche.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_029",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Objection 'Je fonctionne au bouche-à-oreille'. Comment répondre ?",
+      "options": [
+        "'Le bouche-à-oreille, c'est dépassé.'",
+        "'C'est très bien, ça ne remplace pas ça. On ajoute juste une source en plus quand les gens cherchent directement sur Google.'",
+        "'Vous avez tort de vous fier au bouche-à-oreille.'",
+        "'Arrêtez le bouche-à-oreille, passez à Google.'"
+      ],
+      "answer": 1,
+      "explanation": "On ne dévalorise pas le bouche-à-oreille : on se positionne comme une source complémentaire, pas un remplacement.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_030",
+      "skill": "douleurs",
+      "type": "qcm",
+      "prompt": "Quelle est la bonne posture face aux objections en phase de prospection ?",
+      "options": [
+        "Débattre point par point jusqu'à avoir raison",
+        "Traiter sans débat et recadrer sur le test gratuit",
+        "Abandonner dès la première objection",
+        "Baisser le prix immédiatement"
+      ],
+      "answer": 1,
+      "explanation": "On traite les objections sans débat et on recadre systématiquement sur le test gratuit et sans risque.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_031",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Quel est l'objectif unique du RDV1 (prospection) ?",
+      "options": [
+        "Faire signer le contrat mensuel à 750€",
+        "Décrocher un 2e RDV en visio (le closing)",
+        "Faire remplir le formulaire Google Ads",
+        "Encaisser le budget pub de 100€"
+      ],
+      "answer": 1,
+      "explanation": "Le RDV1 sert uniquement à décrocher le RDV2 (closing visio) ; on ne vend ni ne fait remplir le formulaire au téléphone.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_032",
+      "skill": "ambitions",
+      "type": "trou",
+      "prompt": "Selon les stats de Léo, environ ___ % des RDV acceptent la semaine test.",
+      "answer": "70",
+      "explanation": "70% des RDV acceptent la semaine test, et 50% des semaines test finissent en closing.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_033",
+      "skill": "reprendre_lead",
+      "type": "qcm",
+      "prompt": "Que se passe-t-il après le RDV2 (closing) une fois le formulaire rempli ?",
+      "options": [
+        "Le commercial crée lui-même le compte Google Ads",
+        "On transmet le formulaire à l'expert qui crée le compte et lance les campagnes",
+        "Le client gère seul ses campagnes",
+        "On attend 30 jours avant de lancer"
+      ],
+      "answer": 1,
+      "explanation": "Le formulaire est transmis à l'expert, qui crée le compte Google Ads et lance les campagnes ; le commercial ne gère pas la technique.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q1_034",
+      "skill": "ambitions",
+      "type": "qcm",
+      "prompt": "Quel est le modèle de rémunération du commercial sur cette offre ?",
+      "options": [
+        "Un paiement unique à la signature",
+        "Une commission mensuelle récurrente par client actif",
+        "Un pourcentage du budget pub Google",
+        "Un salaire fixe sans commission"
+      ],
+      "answer": 1,
+      "explanation": "Le commercial touche une commission mensuelle récurrente par client (par paliers : ~125 / 150 / 225€ selon le nombre de clients).",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_001",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Au début du RDV visio de closing, comment aborder le tutoiement avec l'artisan ?",
+      "options": [
+        "Vouvoyer tant qu'il n'a pas proposé de se tutoyer",
+        "Demander poliment 'on peut se tutoyer ?' avant de commencer",
+        "Tutoyer naturellement dès le début, sans demander la permission",
+        "Tutoyer seulement après avoir annoncé le prix"
+      ],
+      "answer": 2,
+      "explanation": "Le brise-glace passe par un tutoiement naturel dès le début, sans demander la permission, pour installer la proximité et détendre l'artisan.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_002",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Combien de temps doit durer le small talk de brise-glace en visio ?",
+      "options": [
+        "Le plus longtemps possible pour créer du lien",
+        "1 à 2 minutes maximum",
+        "Au moins 10 minutes",
+        "On le saute, on entre direct dans le sujet"
+      ],
+      "answer": 1,
+      "explanation": "Le small talk dure 1 à 2 minutes max : l'objectif est qu'il soit détendu avant d'entrer dans le sujet, pas de meubler.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_003",
+      "skill": "pre_close",
+      "type": "trou",
+      "prompt": "Phrase d'ouverture détente : 'Salut [prénom] ! Comment tu vas ? T'es où là, t'es sur un ___ ou au bureau ?'",
+      "answer": "chantier",
+      "explanation": "On ouvre par une question concrète sur son quotidien d'artisan ('sur un chantier ou au bureau ?') pour créer du lien rapidement.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_004",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Quel est le bon cadrage d'appel juste après le brise-glace ?",
+      "options": [
+        "'Je vais te présenter toutes nos offres en détail pendant 30 minutes.'",
+        "'On va voir ensemble si on peut t'amener des demandes de clients en plus via Google. Si ça a du sens on lance le test, sinon on perd pas plus de temps — ça te va ?'",
+        "'Avant de commencer, il faut que tu signes un engagement.'",
+        "'Combien tu es prêt à investir dans la pub ce mois-ci ?'"
+      ],
+      "answer": 1,
+      "explanation": "Le cadrage pose un objectif clair et une porte de sortie ('sinon on perd pas plus de temps'), ce qui baisse la pression et obtient un premier oui.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_005",
+      "skill": "pre_close",
+      "type": "trou",
+      "prompt": "Le cadrage se termine toujours par une mini-validation : 'Si ça a du sens on lance le test. Sinon on ne perd pas plus de temps — ça te ___ ?'",
+      "answer": "va",
+      "explanation": "On termine le cadrage par 'ça te va ?' pour obtenir un micro-engagement et un cadre accepté avant d'entrer dans le diagnostic.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_006",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Comment se positionner face à l'artisan (étape positionnement) ?",
+      "options": [
+        "'Je suis le meilleur du marché, fais-moi confiance.'",
+        "'Je suis de la team de d'abord te démontrer ma valeur, t'apporter des résultats… et puis après te demander de t'investir.'",
+        "'Si tu ne signes pas aujourd'hui, le tarif augmente.'",
+        "'On a déjà des centaines de clients, tu serais bête de refuser.'"
+      ],
+      "answer": 1,
+      "explanation": "Le positionnement renverse la logique : prouver la valeur d'abord, demander l'investissement ensuite. Ça désamorce la méfiance et justifie le test gratuit.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_007",
+      "skill": "isoler_frein",
+      "type": "qcm",
+      "prompt": "L'artisan dit avoir déjà été déçu par une agence. Quelle est la bonne réaction ?",
+      "options": [
+        "Critiquer l'agence concurrente pour se valoriser",
+        "Ignorer et passer au prix",
+        "Valider son expérience, puis recadrer : 'c'est justement pour ça qu'on teste d'abord'",
+        "Lui dire qu'il a sûrement mal choisi"
+      ],
+      "answer": 2,
+      "explanation": "On valide l'expérience passée (sans dénigrer) puis on recadre sur le test gratuit : 'c'est pour ça qu'on teste d'abord', ce qui transforme l'objection en argument.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_008",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Quand faut-il visiter le site de l'artisan ?",
+      "options": [
+        "Pendant l'appel, en partageant l'écran",
+        "Jamais, ce n'est pas utile",
+        "AVANT l'appel, pour pouvoir le commenter",
+        "Après l'appel, pour préparer le devis"
+      ],
+      "answer": 2,
+      "explanation": "On visite le site AVANT l'appel pour pouvoir le diagnostiquer en direct et rassurer ('ça ira largement pour tester') ou valider ('la base est là').",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_009",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Le site de l'artisan est basique. Comment le commenter ?",
+      "options": [
+        "'Ton site est nul, il faut tout refaire avant.'",
+        "'Je vais être honnête, il est pas exceptionnel, mais ça ira largement pour tester et avoir tes premiers résultats.'",
+        "'On ne peut rien faire tant que tu n'as pas un meilleur site.'",
+        "Ne rien dire pour ne pas le vexer"
+      ],
+      "answer": 1,
+      "explanation": "On reste honnête mais rassurant : un site basique 'ira largement pour tester'. On ne bloque pas la vente sur la qualité du site, qui n'est pas l'objet du test.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_010",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Quelles sont les 3 questions clés du diagnostic ?",
+      "options": [
+        "Ton chiffre d'affaires ? Tes charges ? Ta marge nette ?",
+        "Tu as de la marge pour de nouveaux clients ? Ton rayon d'intervention ? Ton service le plus rentable ?",
+        "Tu as un comptable ? Une assurance ? Un local ?",
+        "Tu es sur Facebook ? Instagram ? LinkedIn ?"
+      ],
+      "answer": 1,
+      "explanation": "Les 3 questions du diagnostic : capacité à absorber de nouveaux clients, rayon d'intervention, service le plus rentable. Elles servent à cibler la stratégie mots-clés.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_011",
+      "skill": "pre_close",
+      "type": "trou",
+      "prompt": "Image du mécanisme : 'Un site web sans trafic dessus, c'est une ___ vide. C'est joli, mais s'il n'y a personne qui passe dessus, il te ramène aucun client.'",
+      "answer": "coquille",
+      "explanation": "La métaphore de la 'coquille vide' fait comprendre que le site seul ne suffit pas : c'est le trafic qualifié de Google Ads qui crée la valeur.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_012",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Comment expliquer le mécanisme Google Ads de façon non agressive ?",
+      "options": [
+        "'On va spammer un maximum de gens avec ta pub.'",
+        "'On convainc les gens d'acheter même s'ils n'ont besoin de rien.'",
+        "'On se positionne sur les mots clés de recherche : les gens qui tapent déjà [service] + [ville]. On ne convainc personne, on capte des gens qui cherchent déjà.'",
+        "'On achète des listes d'emails pour te démarcher des clients.'"
+      ],
+      "answer": 2,
+      "explanation": "Le mécanisme repose sur l'intention : on capte des gens qui cherchent déjà activement le service, on ne 'convainc' personne. C'est l'argument zéro-pression du closing.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_013",
+      "skill": "pre_close",
+      "type": "qcm",
+      "prompt": "Quelle stratégie de mots-clés proposer au démarrage du test ?",
+      "options": [
+        "Tous ses services en même temps, dans toute la France",
+        "Commencer par LE service le plus rentable, dans SON rayon, puis faire grandir au rythme de sa boîte",
+        "Le service le moins cher pour limiter le budget",
+        "Uniquement des mots-clés de marque (son nom d'entreprise)"
+      ],
+      "answer": 1,
+      "explanation": "On démarre focalisé : le service le plus rentable dans son rayon. 'On fait grandir ça au même rythme que ta boîte' — pas tout en même temps.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_014",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Pendant la semaine test, que paie l'artisan pour ton service ?",
+      "options": [
+        "750€ d'avance",
+        "100€ de frais de service",
+        "Rien : le service est entièrement gratuit pendant le test",
+        "Une commission de 125€"
+      ],
+      "answer": 2,
+      "explanation": "Pendant la semaine test, le service du commercial est entièrement GRATUIT. Le seul budget à prévoir est la pub Google (~100€), payée directement à Google.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_015",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Comment présenter le budget pub de ~100€ sur la semaine ?",
+      "options": [
+        "'C'est 100€ que tu me verses à moi pour lancer.'",
+        "'Y'a un petit budget pub à prévoir, c'est pas nous que tu payes, c'est directement Google. Environ 10 à 15€ par jour, soit ~100€ sur la semaine.'",
+        "'Le budget pub est de 750€ minimum.'",
+        "'Tu paieras Google après le premier mois seulement.'"
+      ],
+      "answer": 1,
+      "explanation": "Clé : dissocier le budget pub (payé à Google, ~10-15€/jour ≈ 100€/semaine) du service (gratuit). On insiste 'c'est pas nous que tu payes, c'est Google'.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_016",
+      "skill": "annonce_prix",
+      "type": "trou",
+      "prompt": "Décomposition du budget pub : 'environ 10 à 15€ par jour, donc sur une semaine ça fait à peu près ___ € en tout.'",
+      "answer": "100",
+      "explanation": "10-15€/jour sur 7 jours ≈ 100€. On chiffre le coût quotidien pour le rendre dérisoire avant d'annoncer le total.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_017",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "À qui l'artisan paie-t-il les ~100€ de budget pub ?",
+      "options": [
+        "Au commercial, en espèces",
+        "Directement à Google",
+        "À l'agence par virement",
+        "À l'expert qui lance les campagnes"
+      ],
+      "answer": 1,
+      "explanation": "Le budget pub est payé DIRECTEMENT à Google, pas au commercial. C'est un argument de confiance : l'argent ne transite pas par toi.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_018",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Quel est le forfait mensuel de gestion si l'artisan continue après le test ?",
+      "options": [
+        "125€/mois TTC",
+        "299€/mois TTC",
+        "750€/mois TTC",
+        "5000€/mois TTC"
+      ],
+      "answer": 2,
+      "explanation": "Le forfait de gestion mensuel est de 750€/mois TTC, et il ne s'applique que si l'artisan décide de continuer après avoir vu les résultats du test.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_019",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Quand faut-il annoncer le forfait mensuel de 750€ ?",
+      "options": [
+        "Au tout début de l'appel, pour cadrer le budget",
+        "Après avoir présenté le test gratuit, en précisant qu'il se décide seulement après avoir vu les résultats",
+        "On ne l'annonce jamais avant la signature",
+        "Avant même de parler du test"
+      ],
+      "answer": 1,
+      "explanation": "Le 750€ vient après le test gratuit, présenté comme une décision conditionnelle : 'tu le décides seulement après avoir vu les résultats'. Ça désamorce l'objection prix.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_020",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Juste après avoir annoncé le prix mensuel de 750€, que faut-il faire ?",
+      "options": [
+        "Justifier longuement pourquoi ça vaut ce prix",
+        "Faire silence et ne pas justifier",
+        "Proposer immédiatement une remise",
+        "Demander pardon pour le tarif"
+      ],
+      "answer": 1,
+      "explanation": "Règle du closing : silence après le prix, ne pas justifier. Se justifier trahit un doute. On laisse le prix poser et on enchaîne sur la preuve / le recadrage valeur.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_021",
+      "skill": "relance_projection",
+      "type": "trou",
+      "prompt": "Preuve sociale : 'Notre expert a fait la même chose avec un paysagiste. Sur la semaine de test, on a sorti ___ € de chiffre d'affaires.'",
+      "answer": "15 000",
+      "explanation": "L'exemple paysagiste (15 000€ de CA sur la semaine test) sert de preuve concrète et projette l'artisan dans un résultat possible avant le recadrage valeur.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_022",
+      "skill": "relance_projection",
+      "type": "qcm",
+      "prompt": "Comment recadrer la valeur des 100€ de budget pub ?",
+      "options": [
+        "'100€ c'est rien pour toi, tu peux te le permettre.'",
+        "'100€ = le prix de savoir. Le pire scénario : ça ne donne rien, t'es fixé pour 100€. Si tu ne testes pas, ta situation reste exactement comme aujourd'hui.'",
+        "'Si tu refuses, tu rates le coche de ta vie.'",
+        "'Tu rembourseras les 100€ avec ton premier client.'"
+      ],
+      "answer": 1,
+      "explanation": "Recadrage : les 100€ ne sont pas un risque mais 'le prix de savoir'. On oppose le pire scénario (fixé pour 100€) à l'inaction (situation inchangée).",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_023",
+      "skill": "relance_projection",
+      "type": "trou",
+      "prompt": "La vraie question du recadrage n'est pas le prix : 'C'est : est-ce que je veux ___ ma situation ou pas.'",
+      "answer": "changer",
+      "explanation": "On déplace la décision du prix vers l'enjeu réel : 'est-ce que je veux changer ma situation ou pas'. Ça transforme un coût en choix de vie.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_024",
+      "skill": "relance_projection",
+      "type": "qcm",
+      "prompt": "Quelle projection d'inaction utiliser pour pousser à tester ?",
+      "options": [
+        "'Tes concurrents vont te détruire d'ici un mois.'",
+        "'Si tu ne testes pas, la situation reste exactement comme aujourd'hui.'",
+        "'Tu vas le regretter toute ta vie.'",
+        "'Google va bientôt interdire ce type de pub.'"
+      ],
+      "answer": 1,
+      "explanation": "La projection d'inaction est factuelle et non menaçante : ne pas tester = statu quo. On oppose un changement possible (action) à l'immobilisme (inaction).",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_025",
+      "skill": "close_direct",
+      "type": "qcm",
+      "prompt": "Quelle est la question de close à poser, suivie d'un silence total ?",
+      "options": [
+        "'Alors, qu'est-ce que tu en penses globalement, tu as des questions, des doutes ?'",
+        "'C'est bon pour toi tout ça ?'",
+        "'Tu veux que je te rappelle la semaine prochaine ?'",
+        "'Est-ce que tu préfères réfléchir avant de décider ?'"
+      ],
+      "answer": 1,
+      "explanation": "Le close est une seule question fermée et simple : 'C'est bon pour toi tout ça ?' puis silence total. Empiler les questions ou ouvrir au doute affaiblit le close.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_026",
+      "skill": "close_direct",
+      "type": "trou",
+      "prompt": "Règle du close : après la question, silence total. 'La prochaine personne qui ___ a perdu.'",
+      "answer": "parle",
+      "explanation": "Après le close, celui qui parle en premier 'perd'. Le silence met la balle dans le camp de l'artisan et l'amène à se décider.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_027",
+      "skill": "close_direct",
+      "type": "qcm",
+      "prompt": "L'artisan répond 'oui' à la question de close. Que fais-tu immédiatement ?",
+      "options": [
+        "Tu raccroches et tu envoies le formulaire le lendemain",
+        "Tu enchaînes sur le formulaire tout de suite, pendant l'appel",
+        "Tu reprends toute la présentation pour confirmer",
+        "Tu proposes de réfléchir encore quelques jours"
+      ],
+      "answer": 1,
+      "explanation": "Dès le oui, on enchaîne immédiatement sur le formulaire. Tout délai fait retomber le momentum : l'idéal est qu'il remplisse en live.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_028",
+      "skill": "isoler_frein",
+      "type": "qcm",
+      "prompt": "Objection 'J'ai déjà essayé Google Ads, ça n'a pas marché.' Quelle réponse ?",
+      "options": [
+        "'Alors c'est que ton métier ne marche pas sur Google.'",
+        "'C'est exactement pour ça qu'on fait un test court : voir si ça réagit différemment quand c'est configuré par un expert dédié.'",
+        "'Tu as dû mal t'y prendre, mais bon.'",
+        "'Oublie, ce n'est pas pour toi alors.'"
+      ],
+      "answer": 1,
+      "explanation": "On isole le frein (mauvaise config passée) sans dénigrer, et on recadre sur le test court avec expert dédié. L'échec passé devient une raison de retester correctement.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_029",
+      "skill": "isoler_frein",
+      "type": "qcm",
+      "prompt": "Objection sur les 750€/mois ('c'est cher'). Quelle est la bonne réponse ?",
+      "options": [
+        "'Je peux te faire 500€ si tu signes maintenant.'",
+        "'Je comprends que ça fasse grimacer, c'est normal, tu sais pas encore ce que ça rapporte. C'est l'idée du test : tu vois les résultats, on fait les calculs, et tu décides. Le prix s'applique seulement si tu continues.'",
+        "'750€ c'est donné, arrête de te plaindre.'",
+        "'On en reparlera plus tard, ce n'est pas le moment.'"
+      ],
+      "answer": 1,
+      "explanation": "On valide l'émotion ('ça fait grimacer'), on isole le vrai frein (il ne connaît pas encore le retour) et on renvoie au test : le 750€ ne s'applique que s'il continue.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_030",
+      "skill": "isoler_frein",
+      "type": "qcm",
+      "prompt": "Objection 'Je dois réfléchir / en parler.' Quelle réponse permet quand même d'avancer ?",
+      "options": [
+        "'Pas de souci, je te rappelle dans 6 mois.'",
+        "'On prend pas de décision long terme, c'est juste une semaine pour voir. Je te laisse le formulaire, tu le remplis quand t'es prêt, et dès que c'est fait l'expert lance.'",
+        "'Si tu réfléchis c'est que ça ne t'intéresse pas.'",
+        "'Décide maintenant ou l'offre saute.'"
+      ],
+      "answer": 1,
+      "explanation": "On minimise l'engagement ('juste une semaine pour voir'), on laisse le formulaire comme prochain pas concret et on garde la main : dès qu'il le remplit, l'expert lance.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_031",
+      "skill": "verrou_paiement",
+      "type": "qcm",
+      "prompt": "Quel est le verrou final du closing à obtenir pendant l'appel ?",
+      "options": [
+        "Un accord verbal qu'il rappellera",
+        "Le remplissage du formulaire Google Ads en live, pendant qu'on est en ligne",
+        "Le paiement immédiat de 750€",
+        "Un email de confirmation envoyé le lendemain"
+      ],
+      "answer": 1,
+      "explanation": "Le verrou = formulaire rempli pendant l'appel. C'est l'engagement concret qui permet à l'expert de créer le compte et lancer. Un simple 'oui' verbal ne suffit pas.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_032",
+      "skill": "verrou_paiement",
+      "type": "trou",
+      "prompt": "Phrase de verrou : 'Je vais te faire remplir un petit formulaire, ça prend ___ minutes. T'as le temps de le faire pendant qu'on est en ligne ?'",
+      "answer": "2",
+      "explanation": "On minimise l'effort ('2 minutes') et on demande de le faire en live. Chaque heure qui passe après l'appel fait baisser le momentum.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q2_033",
+      "skill": "verrou_paiement",
+      "type": "qcm",
+      "prompt": "Si l'artisan ne peut pas remplir le formulaire en direct, sous quel délai envoyer le lien ?",
+      "options": [
+        "Sous 24 à 48 heures",
+        "Maximum 5 minutes après avoir raccroché",
+        "Le lendemain matin",
+        "Dès qu'il relance de lui-même"
+      ],
+      "answer": 1,
+      "explanation": "On envoie le lien max 5 min après avoir raccroché : le momentum baisse à chaque heure. Une fois le formulaire reçu, l'expert crée le compte et envoie l'invitation.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_001",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Quelle est la promesse centrale de l'offre Google Ads ?",
+      "options": [
+        "Refaire le site web de l'artisan de A à Z",
+        "Apparaître en haut de Google quand un client tape 'métier + ville'",
+        "Gérer ses réseaux sociaux Facebook et Instagram",
+        "Garantir 10 nouveaux clients par jour"
+      ],
+      "answer": 1,
+      "explanation": "On met l'entreprise en tête de Google quand quelqu'un cherche '[métier] + [ville]' dans sa zone. C'est le coeur de l'offre.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_002",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "À qui s'adresse en priorité l'offre Google Ads ?",
+      "options": [
+        "Aux artisans qui n'ont pas encore de site",
+        "Aux grandes entreprises avec un service marketing",
+        "Aux artisans qui ONT DÉJÀ un site web",
+        "Aux particuliers qui cherchent un artisan"
+      ],
+      "answer": 2,
+      "explanation": "La cible est l'artisan qui a déjà un site (marché 4x plus grand). On amène du trafic vers un site qui existe déjà.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_003",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Pendant la semaine test, combien l'artisan paie-t-il pour TON service ?",
+      "options": [
+        "Rien, le service est entièrement gratuit pendant le test",
+        "100€ de frais de gestion",
+        "750€ d'avance",
+        "125€ de commission"
+      ],
+      "answer": 0,
+      "explanation": "Pendant la semaine test, ton service est offert. Le seul coût pour le client est le budget pub payé à Google.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_004",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Les ~100€ de budget pub de la semaine test, à qui sont-ils payés ?",
+      "options": [
+        "À toi, le commercial",
+        "À l'agence Google Ads",
+        "Directement à Google",
+        "À un intermédiaire facturier"
+      ],
+      "answer": 2,
+      "explanation": "Le budget pub est versé directement à Google, pas au commercial. C'est un point clé pour rassurer le client.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_005",
+      "skill": "annonce_prix",
+      "type": "trou",
+      "prompt": "Le budget pub de la semaine test représente environ ___ € au total, payés directement à Google.",
+      "answer": "100",
+      "explanation": "Environ 10 à 15€/jour de pub sur une semaine, soit à peu près 100€ au total.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_006",
+      "skill": "annonce_prix",
+      "type": "trou",
+      "prompt": "Si l'artisan veut continuer après le test, le forfait mensuel de gestion est de ___ € TTC par mois.",
+      "answer": "750",
+      "explanation": "Le forfait mensuel de gestion est à 750€/mois TTC, mais il ne s'applique que s'il décide de continuer après avoir vu les résultats.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_007",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Combien représente un budget pub Google quotidien pendant la semaine test ?",
+      "options": [
+        "1 à 2€/jour",
+        "10 à 15€/jour",
+        "50 à 60€/jour",
+        "100€/jour"
+      ],
+      "answer": 1,
+      "explanation": "Environ 10 à 15€ par jour de pub, soit ~100€ sur la semaine. Un budget volontairement minime pour tester sans risque.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_008",
+      "skill": "obj_ads_arnaque_google",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'Le budget pub, c'est vous qui l'encaissez, c'est une arnaque.' Quelle réponse est fidèle à la méthode ?",
+      "options": [
+        "Non, je vous jure que c'est honnête, faites-moi confiance",
+        "Ce budget, ce n'est pas nous que vous payez, c'est directement Google — notre service pendant le test est offert",
+        "On peut prendre 50% maintenant et 50% à la fin",
+        "Si vous ne nous croyez pas, tant pis pour vous"
+      ],
+      "answer": 1,
+      "explanation": "On recadre : le budget va directement à Google, pas au commercial. Le service du commercial est gratuit pendant le test.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_009",
+      "skill": "obj_ads_deja_premier",
+      "type": "qcm",
+      "prompt": "Le prospect répond : 'Je suis déjà sur Google.' Quelle est la meilleure réponse ?",
+      "options": [
+        "Alors vous n'avez besoin de rien, désolé du dérangement",
+        "C'est faux, vous n'apparaissez nulle part",
+        "Parfait, ça veut dire qu'on peut simplement vous rendre plus visible pendant une semaine pour voir la différence",
+        "Être sur Google ne sert à rien"
+      ],
+      "answer": 2,
+      "explanation": "On ne contredit pas : on valide et on propose de rendre plus visible le temps du test pour mesurer la différence.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_010",
+      "skill": "obj_ads_deja_premier",
+      "type": "qcm",
+      "prompt": "Quelle est la différence entre apparaître quand on tape le NOM de l'entreprise et apparaître sur 'métier + ville' ?",
+      "options": [
+        "Aucune différence, c'est le même résultat",
+        "Sur le nom, seuls ceux qui vous connaissent déjà vous trouvent ; sur 'métier + ville', on capte des clients qui ne vous connaissent pas encore",
+        "Le nom rapporte plus de clients",
+        "'Métier + ville' n'existe pas sur Google"
+      ],
+      "answer": 1,
+      "explanation": "Être premier sur son nom ne ramène que des gens qui vous connaissent déjà. Le 'métier + ville' capte de nouveaux prospects en recherche active.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_011",
+      "skill": "obj_ads_budget_pub",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'Je n'ai pas le budget pour faire de la pub.' Que réponds-tu ?",
+      "options": [
+        "Tant pis, on en reparle quand vous aurez de l'argent",
+        "Justement, on démarre avec un petit budget pour tester sans engager de grosses sommes — l'idée n'est pas d'investir, c'est de vérifier si ça vous apporte quelque chose",
+        "Vous devriez emprunter pour investir",
+        "C'est seulement 1000€, ce n'est rien"
+      ],
+      "answer": 1,
+      "explanation": "On recadre : ce n'est pas un investissement mais un test à petit budget pour vérifier si ça fonctionne, sans grosse somme engagée.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_012",
+      "skill": "obj_ads_budget_pub",
+      "type": "qcm",
+      "prompt": "Comment recadrer la valeur des 100€ de budget face à un prospect hésitant ?",
+      "options": [
+        "100€ c'est gratuit, on vous rembourse",
+        "Le pire scénario : ça ne donne rien, vous êtes fixé pour 100€ — c'est le prix de savoir. Si vous ne testez pas, la situation reste exactement comme aujourd'hui",
+        "100€ c'est rien pour un artisan qui gagne bien sa vie",
+        "On peut faire le test sans aucun budget"
+      ],
+      "answer": 1,
+      "explanation": "Le recadrage 'prix de savoir' : 100€ pour être fixé, vs ne rien faire et rester dans la même situation. On ramène la vraie question au changement.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_013",
+      "skill": "obj_ads_marche_pas",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'J'ai déjà essayé Google Ads, ça n'a pas marché.' Quelle est la bonne réponse ?",
+      "options": [
+        "Alors ça ne marchera jamais pour vous",
+        "C'est exactement pour ça qu'on fait un test court — juste voir si ça réagit différemment quand c'est configuré correctement par un expert dédié",
+        "Vous avez dû mal vous y prendre",
+        "Google Ads ne marche que pour les gros budgets"
+      ],
+      "answer": 1,
+      "explanation": "On valide l'expérience passée et on positionne le test court + l'expertise de configuration comme la vraie différence.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_014",
+      "skill": "obj_ads_marche_pas",
+      "type": "trou",
+      "prompt": "Face à 'ça n'a pas marché', on ne demande pas de repartir sur des mois — juste de voir si ça réagit différemment quand c'est configuré correctement par un ___ dédié.",
+      "answer": "expert",
+      "explanation": "L'argument repose sur la configuration par un expert dédié, vs une tentative seule mal paramétrée.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_015",
+      "skill": "obj_ads_jai_agence",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'Je travaille déjà avec une agence et j'ai été déçu.' Quelle posture adopter ?",
+      "options": [
+        "Critiquer ouvertement l'agence concurrente",
+        "Valider son expérience décevante, puis enchaîner : 'c'est justement pour ça qu'on teste d'abord avant que vous vous engagiez'",
+        "Lui dire que toutes les agences sont nulles sauf la nôtre",
+        "Abandonner, il est perdu pour la concurrence"
+      ],
+      "answer": 1,
+      "explanation": "On valide la déception, puis on positionne le test gratuit comme la preuve avant engagement : 'je démontre ma valeur d'abord'.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_016",
+      "skill": "obj_ads_jai_agence",
+      "type": "qcm",
+      "prompt": "Quel est le positionnement à adopter face à un prospect échaudé par une agence ?",
+      "options": [
+        "Demander l'engagement et le paiement avant tout",
+        "Je suis de la team de d'abord démontrer ma valeur et apporter des résultats, et seulement après vous demander de vous investir",
+        "Proposer un contrat de 12 mois immédiatement",
+        "Insister lourdement pour signer aujourd'hui"
+      ],
+      "answer": 1,
+      "explanation": "Le positionnement : preuve d'abord, engagement ensuite. C'est ce qui désarme la méfiance liée à une mauvaise expérience d'agence.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_017",
+      "skill": "obj_ads_trop_complique",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'Ça a l'air compliqué, je n'y connais rien.' Que réponds-tu ?",
+      "options": [
+        "Effectivement, il faut être expert pour réussir",
+        "Vous n'avez aucun risque à prendre — c'est nous qui faisons tout pour vous, vous n'avez rien à gérer",
+        "Je vais vous former pendant 3 semaines",
+        "Vous devrez créer vos campagnes vous-même"
+      ],
+      "answer": 1,
+      "explanation": "On lève la charge mentale : 'c'est nous qui faisons tout pour vous'. L'artisan n'a rien à configurer ni gérer.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_018",
+      "skill": "obj_ads_trop_complique",
+      "type": "trou",
+      "prompt": "Quand le prospect trouve ça compliqué, on rassure : 'Vous n'avez aucun risque à prendre — c'est nous qui faisons ___ pour vous.'",
+      "answer": "tout",
+      "explanation": "La phrase clé : 'c'est nous qui faisons tout pour vous'. On supprime toute friction technique.",
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_019",
+      "skill": "obj_ads_arnaque_google",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'C'est de la pub, je n'y crois pas.' Quelle est la bonne réponse selon la méthode ?",
+      "options": [
+        "Oui c'est de la pub classique comme à la télé",
+        "Oui, mais la différence c'est qu'on vise uniquement les gens qui cherchent déjà votre service — on ne va pas les convaincre, ils sont déjà en train de chercher",
+        "Non, ce n'est pas de la pub du tout",
+        "La pub ne fonctionne plus aujourd'hui"
+      ],
+      "answer": 1,
+      "explanation": "On assume que c'est de la pub mais on souligne l'intention de recherche : on cible des gens déjà en recherche active, pas une audience à convaincre.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_020",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Comment décrit-on un site web sans trafic dans le pitch ?",
+      "options": [
+        "Un investissement rentable à coup sûr",
+        "Une coquille vide : c'est joli, mais s'il n'y a personne qui passe dessus, il ne ramène aucun client",
+        "Un outil inutile à supprimer",
+        "Une vitrine qui se vend toute seule"
+      ],
+      "answer": 1,
+      "explanation": "'Un site sans trafic c'est une coquille vide.' Cette image justifie l'apport de trafic qualifié via Google Ads.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_021",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Sur quel principe repose le mécanisme Google Ads présenté au prospect ?",
+      "options": [
+        "Convaincre des gens qui ne cherchent rien",
+        "Capter des gens qui cherchent déjà activement le service en tapant 'service + ville' sur Google",
+        "Envoyer des emails de masse",
+        "Afficher des bannières sur des sites au hasard"
+      ],
+      "answer": 1,
+      "explanation": "'On ne convainc personne, on capte des gens qui cherchent déjà.' C'est l'intention de recherche qui fait la force de l'outil.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_022",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Quelle est la différence majeure entre Google Ads et la pub sur les réseaux sociaux dans le pitch ?",
+      "options": [
+        "Google Ads coûte toujours moins cher",
+        "Sur les réseaux on interrompt des gens qui ne cherchent rien ; sur Google on capte des gens qui tapent déjà le service au moment où ils en ont besoin",
+        "Les réseaux sociaux sont interdits aux artisans",
+        "Il n'y a aucune différence"
+      ],
+      "answer": 1,
+      "explanation": "L'intention de recherche est la clé : on intercepte une demande déjà existante au moment exact du besoin, contrairement à l'interruption sur les réseaux.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_023",
+      "skill": "pitch_site",
+      "type": "qcm",
+      "prompt": "Sur quels mots clés démarre-t-on la stratégie pour un nouvel artisan ?",
+      "options": [
+        "Tous les mots clés possibles en même temps",
+        "Le service le plus rentable dans son rayon d'intervention, pour faire grandir au rythme de sa boîte",
+        "Uniquement des mots clés nationaux génériques",
+        "Les mots clés de ses concurrents directs"
+      ],
+      "answer": 1,
+      "explanation": "On commence par LE service le plus rentable dans SON rayon, pas tout d'un coup, pour grandir au même rythme que l'entreprise.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_024",
+      "skill": "obj_ads_budget_pub",
+      "type": "qcm",
+      "prompt": "Pourquoi un seul chantier capté peut rentabiliser le test ?",
+      "options": [
+        "Parce que le test rapporte de l'argent au commercial",
+        "Parce que la marge d'un seul chantier dépasse largement les ~100€ de budget pub investis sur la semaine",
+        "Parce que Google rembourse les chantiers",
+        "Parce que le client ne paie jamais le test"
+      ],
+      "answer": 1,
+      "explanation": "Un seul nouveau chantier signé couvre et dépasse largement les 100€ de budget : c'est l'argument de rentabilité immédiate.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_025",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Que faut-il faire juste après avoir annoncé le prix mensuel de 750€ ?",
+      "options": [
+        "Justifier longuement le prix",
+        "Faire silence et ne pas se justifier",
+        "Proposer immédiatement une remise",
+        "Changer de sujet pour détendre"
+      ],
+      "answer": 1,
+      "explanation": "Après l'annonce du prix : silence. Se justifier affaiblit la position. On laisse le prix poser.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_026",
+      "skill": "annonce_prix",
+      "type": "qcm",
+      "prompt": "Quel est le palier de commission mensuelle par client de 1 à 10 clients ?",
+      "options": [
+        "75€/mois/client",
+        "125€/mois/client",
+        "150€/mois/client",
+        "225€/mois/client"
+      ],
+      "answer": 1,
+      "explanation": "Palier 1 (1 à 10 clients) : 125€/mois/client, soit 1 250€/mois à 10 clients.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_027",
+      "skill": "annonce_prix",
+      "type": "trou",
+      "prompt": "Au palier 3 (21 clients et plus), la commission est de ___ € par mois et par client.",
+      "answer": "225",
+      "explanation": "Palier 3 : 225€/mois/client, soit ~5 000€/mois à 30 clients.",
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_028",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Selon les stats de Léo, quelle proportion des RDV acceptent la semaine test ?",
+      "options": [
+        "30%",
+        "50%",
+        "70%",
+        "90%"
+      ],
+      "answer": 2,
+      "explanation": "70% des RDV acceptent la semaine test, et 50% des semaines test finissent en closing.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_029",
+      "skill": "presentation",
+      "type": "trou",
+      "prompt": "Selon Léo, environ ___ % des semaines test se transforment en closing.",
+      "answer": "50",
+      "explanation": "50% des semaines test finissent en closing : c'est pour ça que multiplier les tests gratuits est le levier principal.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_030",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Quel est l'objectif concret du 2e RDV (closing visio) ?",
+      "options": [
+        "Faire un devis détaillé par écrit",
+        "Faire remplir le formulaire Google Ads pendant l'appel",
+        "Encaisser les 750€ immédiatement",
+        "Visiter le chantier de l'artisan"
+      ],
+      "answer": 1,
+      "explanation": "L'objectif du RDV2 est que le formulaire soit rempli pendant l'appel (idéalement en live) pour ne pas perdre le momentum.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_031",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Que fait l'expert une fois le formulaire Google Ads reçu ?",
+      "options": [
+        "Il rappelle l'artisan pour renégocier le prix",
+        "Il crée le compte Google Ads, envoie l'invitation, le client met ~100€ dessus, puis l'expert lance les campagnes",
+        "Il attend un mois avant d'agir",
+        "Il refait le site web de l'artisan"
+      ],
+      "answer": 1,
+      "explanation": "Process post-appel : l'expert crée le compte, envoie l'invitation, le client crédite ~100€, l'expert lance et prévient quand c'est live.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_032",
+      "skill": "presentation",
+      "type": "qcm",
+      "prompt": "Le commercial dit avoir sorti combien de CA pour un paysagiste pendant la semaine test ?",
+      "options": [
+        "1 500€",
+        "5 000€",
+        "15 000€",
+        "50 000€"
+      ],
+      "answer": 2,
+      "explanation": "L'exemple preuve : 15 000€ de CA sur la semaine de test avec un paysagiste, qui a évidemment voulu continuer.",
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "ads_q3_033",
+      "skill": "obj_ads_trop_complique",
+      "type": "qcm",
+      "prompt": "Le prospect dit : 'Je dois réfléchir / en parler.' Quelle réponse est fidèle à la méthode ?",
+      "options": [
+        "D'accord, je vous rappelle dans 6 mois",
+        "Bien sûr, on ne prend pas de décision sur du long terme — c'est juste une semaine pour voir ; je vous laisse le formulaire, dès que c'est rempli l'expert lance",
+        "Vous devez signer maintenant ou jamais",
+        "Si vous réfléchissez c'est que ça ne vous intéresse pas"
+      ],
+      "answer": 1,
+      "explanation": "On dédramatise : ce n'est pas une décision long terme mais une semaine de test. On laisse le formulaire pour garder la porte ouverte sans pression.",
+      "difficulty": 3,
+      "offer": "ads"
+    }
+  ]
+}

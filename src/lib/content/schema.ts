@@ -8,6 +8,8 @@ const skillId = z.enum(ALL_SKILLS);
 const phaseSkill = z.enum([...PHASE_SKILLS, ...LEGACY_SKILLS]);
 const difficulty = z.union([z.literal(1), z.literal(2), z.literal(3)]);
 const quality = z.enum(["good", "ok", "bad"]);
+// Offre/parcours : "web" (sites web, défaut) ou "ads" (Google Ads).
+const offer = z.enum(["web", "ads"]).optional();
 
 export const QuizItemSchema = z.object({
   id: z.string(),
@@ -18,6 +20,7 @@ export const QuizItemSchema = z.object({
   answer: z.union([z.number(), z.string()]),
   explanation: z.string(),
   difficulty,
+  offer,
 });
 
 export const ObjectionOptionSchema = z.object({
@@ -32,6 +35,7 @@ export const ObjectionSchema = z.object({
   artisanLine: z.string(),
   options: z.array(ObjectionOptionSchema).min(2),
   difficulty,
+  offer,
 });
 
 export const PhaseNodeSchema = z.object({
@@ -51,11 +55,12 @@ export const ScenarioSchema = z.object({
   }),
   difficulty,
   phases: z.array(PhaseNodeSchema).min(1),
+  offer,
 });
 
 export const FicheSchema = z.object({
   id: z.string(),
-  category: z.enum(["ouverture", "decouverte", "closing", "objection", "phase", "mindset"]),
+  category: z.enum(["ouverture", "decouverte", "closing", "objection", "phase", "mindset", "gads"]),
   title: z.string(),
   summary: z.string(),
   points: z.array(z.string()).min(1),

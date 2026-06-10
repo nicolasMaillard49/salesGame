@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDailyObjection } from "@/lib/content";
+import { getActiveOffer } from "@/lib/offer-server";
 import { getStore } from "@/lib/db";
 import QuotidienGame from "./QuotidienGame";
 
@@ -7,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export default async function QuotidienPage() {
   const today = new Date().toISOString().slice(0, 10);
-  const obj = getDailyObjection(today);
+  const offer = await getActiveOffer();
+  const obj = getDailyObjection(today, offer);
   const { progress } = await getStore().getSnapshot();
 
   if (!obj) {

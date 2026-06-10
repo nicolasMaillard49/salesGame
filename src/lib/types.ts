@@ -51,10 +51,21 @@ export const OBJECTION_SKILLS = [
   "obj_confirmer_rdv",
 ] as const;
 
+// Objections propres à l'offre Google Ads (cible : artisans qui ont déjà un site).
+export const ADS_OBJECTION_SKILLS = [
+  "obj_ads_jai_agence",
+  "obj_ads_marche_pas",
+  "obj_ads_budget_pub",
+  "obj_ads_deja_premier",
+  "obj_ads_trop_complique",
+  "obj_ads_arnaque_google",
+] as const;
+
 export const ALL_SKILLS = [
   ...PHASE_SKILLS,
   ...PROSPECTION_SKILLS,
   ...OBJECTION_SKILLS,
+  ...ADS_OBJECTION_SKILLS,
   ...LEGACY_SKILLS,
 ] as const;
 
@@ -64,6 +75,15 @@ export type ClosingSkill = (typeof CLOSING_SKILLS)[number];
 
 export type Quality = "good" | "ok" | "bad";
 export type GameType = "quiz" | "drill" | "sim";
+
+// Offre commerciale : deux parcours de formation parallèles.
+export type Offer = "web" | "ads";
+export const OFFERS: readonly Offer[] = ["web", "ads"] as const;
+export const OFFER_COOKIE = "sg-offer";
+export function isOffer(v: string | undefined | null): v is Offer {
+  return v === "web" || v === "ads";
+}
+export const OFFER_LABELS: Record<Offer, string> = { web: "Sites Web", ads: "Google Ads" };
 
 // Libellés FR pour l'affichage.
 export const SKILL_LABELS: Record<SkillId, string> = {
@@ -100,6 +120,13 @@ export const SKILL_LABELS: Record<SkillId, string> = {
   obj_jai_quelquun: "« J'ai déjà quelqu'un qui gère ça »",
   obj_clientele_pas_internet: "« Ma clientèle n'est pas sur internet »",
   obj_confirmer_rdv: "« Finalement j'ai pas le temps pour le RDV »",
+  // Objections Google Ads
+  obj_ads_jai_agence: "« J'ai déjà une agence pour ma pub »",
+  obj_ads_marche_pas: "« Google Ads ça marche pas »",
+  obj_ads_budget_pub: "« Encore un budget pub en plus »",
+  obj_ads_deja_premier: "« Je suis déjà bien placé sur Google »",
+  obj_ads_trop_complique: "« Google c'est trop compliqué pour moi »",
+  obj_ads_arnaque_google: "« Google c'est de l'arnaque, ça vide le budget »",
 };
 
 export function isSkillId(v: string): v is SkillId {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getScenarios } from "@/lib/content";
 import { firstClosingIndex, simPhases } from "@/lib/anthropic";
+import { getActiveOffer } from "@/lib/offer-server";
 import { getStore } from "@/lib/db";
 import { unlockedDifficulty } from "@/lib/progression";
 import SimGame from "./SimGame";
@@ -10,7 +11,8 @@ export const dynamic = "force-dynamic";
 export default async function SimPage({ searchParams }: { searchParams: Promise<{ closing?: string }> }) {
   const { closing } = await searchParams;
   const closingOnly = closing != null;
-  const scenarios = getScenarios();
+  const offer = await getActiveOffer();
+  const scenarios = getScenarios(offer);
   if (scenarios.length === 0) {
     return (
       <div className="card p-6">
@@ -30,5 +32,5 @@ export default async function SimPage({ searchParams }: { searchParams: Promise<
     closingStart: firstClosingIndex(s),
     locked: s.difficulty > maxDiff,
   }));
-  return <SimGame scenarios={cards} closingOnly={closingOnly} />;
+  return <SimGame scenarios={cards} closingOnly={closingOnly} offer={offer} />;
 }

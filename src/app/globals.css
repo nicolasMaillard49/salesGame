@@ -270,3 +270,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .orb-c, .orb-d { display: none; }
   .orb { animation: none !important; filter: blur(50px); }
 }
+
+/* Sélecteur de parcours (Sites Web / Google Ads) */
+.seg {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  backdrop-filter: blur(10px);
+}
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.seg-btn:hover { color: var(--ink); }

@@ -13,6 +13,7 @@ const CATS: { key: Fiche["category"] | "all"; label: string }[] = [
   { key: "objection", label: "Objections" },
   { key: "phase", label: "Phases" },
   { key: "mindset", label: "Mindset" },
+  { key: "gads", label: "Google Ads" },
 ];
 
 const CAT_COLOR: Record<Fiche["category"], string> = {
@@ -22,6 +23,7 @@ const CAT_COLOR: Record<Fiche["category"], string> = {
   objection: "#ff5d6c",
   phase: "#ff9d2e",
   mindset: "#4b7bff",
+  gads: "#ea4335",
 };
 
 const CAT_ICON: Record<Fiche["category"], IconName> = {
@@ -31,6 +33,7 @@ const CAT_ICON: Record<Fiche["category"], IconName> = {
   objection: "shield",
   phase: "phone",
   mindset: "brain",
+  gads: "trendingUp",
 };
 
 // Icône qui décrit la situation précise de la fiche (sinon, icône de catégorie).

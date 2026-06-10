@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getObjections } from "@/lib/content";
+import { getActiveOffer } from "@/lib/offer-server";
 import { isSkillId } from "@/lib/types";
 import DrillGame from "./DrillGame";
 
@@ -7,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export default async function DrillPage({ searchParams }: { searchParams: Promise<{ skill?: string }> }) {
   const { skill } = await searchParams;
-  let items = getObjections();
+  const offer = await getActiveOffer();
+  let items = getObjections(offer);
   if (skill && isSkillId(skill)) {
     const filtered = items.filter((o) => o.id === skill);
     if (filtered.length > 0) items = filtered;

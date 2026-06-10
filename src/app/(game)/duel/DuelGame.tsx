@@ -3,10 +3,17 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
-import { recordAnswer, startSession } from "@/lib/client";
+import { recordAnswer, startSession, voiceMatchOption } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import { seededPick, seededShuffle } from "@/lib/seed";
 import { SKILL_LABELS } from "@/lib/types";
 import Icon from "@/components/Icon";
+
+function worstIdx(opts: ObjectionOption[]): number {
+  const b = opts.findIndex((o) => o.quality === "bad");
+  return b >= 0 ? b : opts.length - 1;
+}
 
 const N = 5;
 const VERDICT: Record<ObjectionOption["quality"], { cls: string; label: string }> = {
@@ -41,9 +48,20 @@ export default function DuelGame({ objections, challenge }: { objections: Object
   const [name, setName] = useState("");
   const [copied, setCopied] = useState(false);
   const [started, setStarted] = useState(false);
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [voiceScoring, setVoiceScoring] = useState(false);
 
   const obj = round[i];
   const options = useMemo(() => (obj && seed != null ? seededShuffle(obj.options, seed + i + 99) : []), [obj, seed, i]);
+
+  async function submitVoice(spoken: string) {
+    if (revealed || !obj) return;
+    setVoiceScoring(true);
+    const idx = await voiceMatchOption({ prompt: obj.artisanLine, spoken, options: options.map((o) => o.text) });
+    setVoiceScoring(false);
+    const k = idx >= 0 ? idx : worstIdx(options);
+    pick(k, options[k]);
+  }
 
   function begin() {
     if (seed == null) setSeed(Math.floor(Math.random() * 1e9));
@@ -77,6 +95,9 @@ export default function DuelGame({ objections, challenge }: { objections: Object
           <p className="text-[var(--ink-soft)] text-sm mt-1">
             {chal ? <>{chal.n} te défie : {chal.sc}/{N} sur ces objections. À toi de faire mieux.</> : `${N} objections tirées au sort. Fais ton score, puis défie un collègue avec le même tirage.`}
           </p>
+        </div>
+        <div className="glass p-4 max-w-md">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
         </div>
         <button onClick={begin} className="btn btn-primary self-start">
           {chal ? "Relever le défi" : "Lancer le duel"} <Icon name="arrowRight" size={16} strokeWidth={2.5} />
@@ -137,25 +158,35 @@ export default function DuelGame({ objections, challenge }: { objections: Object
           <q className="bubble-q">{obj.artisanLine}</q>
         </div>
       </div>
-      <div className="flex flex-col gap-3">
-        {options.map((opt, idx) => {
-          const isPicked = idx === picked;
-          let state = "";
-          if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
-          return (
-            <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
-              <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
-              <span className="txt">{opt.text}</span>
-              {revealed && (
-                <span className="fb">
-                  <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
-                  <span>{opt.feedback}</span>
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+      {voiceMode && !revealed ? (
+        <VoiceAnswer
+          key={`${i}-${obj.id}`}
+          prompt={obj.artisanLine}
+          hints={options.map((o) => o.text)}
+          submitting={voiceScoring}
+          onSubmit={submitVoice}
+        />
+      ) : (
+        <div className="flex flex-col gap-3">
+          {options.map((opt, idx) => {
+            const isPicked = idx === picked;
+            let state = "";
+            if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
+            return (
+              <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
+                <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                <span className="txt">{opt.text}</span>
+                {revealed && (
+                  <span className="fb">
+                    <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
+                    <span>{opt.feedback}</span>
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
       {revealed && (
         <button onClick={next} className="btn-arcade self-start mt-2">
           {i + 1 >= round.length ? "Voir le score" : "Manche suivante"}

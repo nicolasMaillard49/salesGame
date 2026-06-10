@@ -8,6 +8,23 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+// Préférence « mode vocal » partagée par tous les jeux (mémorisée localStorage).
+export const VOICE_PREF_KEY = "sg-voice-mode";
+
+/** Lit/écrit la préférence mode vocal. Rend `false` côté serveur (hydration-safe). */
+export function useVoicePref(): [boolean, (on: boolean) => void] {
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync unique au montage depuis localStorage
+    if (typeof window !== "undefined" && window.localStorage.getItem(VOICE_PREF_KEY) === "1") setOn(true);
+  }, []);
+  const choose = useCallback((v: boolean) => {
+    setOn(v);
+    if (typeof window !== "undefined") window.localStorage.setItem(VOICE_PREF_KEY, v ? "1" : "0");
+  }, []);
+  return [on, choose];
+}
+
 // --- Types minimaux de l'API Web Speech (non typée par TS) ---
 type SpeechRecognitionResultLike = { 0: { transcript: string }; isFinal: boolean };
 type SpeechRecognitionEventLike = { resultIndex: number; results: ArrayLike<SpeechRecognitionResultLike> };

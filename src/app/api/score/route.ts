@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 import { getScenario } from "@/lib/content";
 import { customScenario, hasAnthropic, scoreReply, simPhases, type Score } from "@/lib/anthropic";
+import { isOffer } from "@/lib/types";
 
 // Note la réplique libre dite à voix haute par le commercial (mode vocal).
 export async function POST(req: NextRequest) {
@@ -13,6 +14,7 @@ export async function POST(req: NextRequest) {
   const phaseIndex = Number(body?.phaseIndex ?? 0);
   const artisanLine = String(body?.artisanLine ?? "").slice(0, 600);
   const userReply = String(body?.userReply ?? "").trim().slice(0, 600);
+  const offer = isOffer(body?.offer) ? body.offer : "web";
 
   if (!userReply)
     return NextResponse.json({ error: "réplique vide" }, { status: 400 });
@@ -25,9 +27,9 @@ export async function POST(req: NextRequest) {
       ville: String(p.ville).slice(0, 60),
       humeur: String(p.humeur ?? "neutre").slice(0, 60),
       contexte: String(p.contexte ?? "").slice(0, 200),
-    });
+    }, offer);
   } else {
-    scenario = getScenario(scenarioId);
+    scenario = getScenario(scenarioId, offer);
   }
   if (!scenario)
     return NextResponse.json({ error: "scénario introuvable" }, { status: 404 });

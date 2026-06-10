@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getQuiz } from "@/lib/content";
+import { getActiveOffer } from "@/lib/offer-server";
 import { isSkillId } from "@/lib/types";
 import QuizGame from "./QuizGame";
 
@@ -7,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export default async function QuizPage({ searchParams }: { searchParams: Promise<{ skill?: string }> }) {
   const { skill } = await searchParams;
-  let items = getQuiz();
+  const offer = await getActiveOffer();
+  let items = getQuiz(offer);
   if (skill && isSkillId(skill)) {
     const filtered = items.filter((q) => q.skill === skill);
     if (filtered.length >= 3) items = filtered;

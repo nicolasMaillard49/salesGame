@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { getStore } from "@/lib/db";
 import { getDailyObjection, getObjections, getQuiz, getScenarios } from "@/lib/content";
+import { getActiveOffer } from "@/lib/offer-server";
 import { RANKS, decayedScore, isRusty, masteryLevel, progressToNextRank, rankForXp } from "@/lib/progression";
-import { SKILL_LABELS, type SkillId } from "@/lib/types";
+import { OFFER_LABELS, SKILL_LABELS, type SkillId } from "@/lib/types";
 import Icon, { type IconName } from "@/components/Icon";
 import ArtisanAvatar from "@/components/ArtisanAvatar";
 import MasterySection, { type MasteryRow } from "@/components/MasterySection";
-import { BOSSES } from "@/lib/bosses";
+import TrackSwitcher from "@/components/TrackSwitcher";
+import { getBosses } from "@/lib/bosses";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +37,7 @@ function trainHref(skill: string): string {
 
 export default async function HubPage() {
   const store = getStore();
+  const offer = await getActiveOffer();
   const [{ progress, mastery }, trends] = await Promise.all([store.getSnapshot(), store.getTrends()]);
   const rank = rankForXp(progress.xpTotal);
   const rankIdx = RANKS.findIndex((r) => r.name === rank.name);
@@ -65,26 +68,33 @@ export default async function HubPage() {
     .slice(0, 2);
 
   // Teaser conversation (carte "reprends ton appel")
-  const objs = getObjections();
+  const objs = getObjections(offer);
   const teaser = objs.find((o) => o.id === "obj_bouche_a_oreille") ?? objs[0];
   const teaserGood = teaser?.options.find((o) => o.quality === "good");
 
   const today = new Date().toISOString().slice(0, 10);
-  const daily = getDailyObjection(today);
+  const daily = getDailyObjection(today, offer);
   const dailyDone = progress.lastDay === today;
 
+  const closingDesc = offer === "ads" ? "Cadre posé, à toi de closer la semaine test" : "Le site est posé, à toi de closer";
   const modes: { href: string; title: string; desc: string; count: string; icon: IconName; color: string }[] = [
-    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz().length} questions`, icon: "brain", color: "#7b4fe0" },
+    { href: "/quiz", title: "Quiz", desc: "Mémorise scripts & prix", count: `${getQuiz(offer).length} questions`, icon: "brain", color: "#7b4fe0" },
     { href: "/drill", title: "Drill objections", desc: "Réponds vite et juste", count: `${objs.length} objections`, icon: "shield", color: "#ff5d6c" },
-    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios().length} scénarios`, icon: "phone", color: "#19c3e4" },
-    { href: "/sim?closing=1", title: "Closing intensif", desc: "Le site est posé, à toi de closer", count: "6 étapes de closing", icon: "target", color: "#ff5d6c" },
+    { href: "/sim", title: "Simulateur d'appel", desc: "Mène un appel complet", count: `${getScenarios(offer).length} scénarios`, icon: "phone", color: "#19c3e4" },
+    { href: "/sim?closing=1", title: "Closing intensif", desc: closingDesc, count: "6 étapes de closing", icon: "target", color: "#ff5d6c" },
     { href: "/prospect", title: "Vrai prospect", desc: "Répète sur un artisan réel", count: "appel sur-mesure", icon: "worker", color: "#00c06a" },
-    { href: "/boss", title: "Boss d'objection", desc: "Bats les artisans coriaces", count: `${BOSSES.length} boss`, icon: "shield", color: "#ff9d2e" },
+    { href: "/boss", title: "Boss d'objection", desc: "Bats les artisans coriaces", count: `${getBosses(offer).length} boss`, icon: "shield", color: "#ff9d2e" },
     { href: "/duel", title: "Duel", desc: "Défie un collègue", count: "même tirage", icon: "target", color: "#4b7bff" },
   ];
 
   return (
     <div className="flex flex-col gap-[18px]">
+      {/* Sélecteur de parcours */}
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <span className="eyebrow">Parcours · {OFFER_LABELS[offer]}</span>
+        <TrackSwitcher current={offer} />
+      </div>
+
       {/* Suivi mémoire */}
       {store.backend === "memory" && (
         <p className="mono text-[11px] text-[#9a6a00] bg-[var(--ok-wash)] border border-[rgba(232,163,23,.3)] rounded-xl px-3 py-2">

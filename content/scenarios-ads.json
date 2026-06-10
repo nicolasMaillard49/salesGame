@@ -1,0 +1,304 @@
+{
+  "items": [
+    {
+      "id": "ads_sc_1",
+      "persona": {
+        "metier": "Plombier",
+        "ville": "Toulouse",
+        "humeur": "Pressé et sceptique",
+        "contexte": "Il a fait faire un site il y a deux ans par un cousin, mais il ne reçoit quasiment aucune demande par ce biais. Ses clients viennent surtout du bouche-à-oreille et de quelques pages jaunes. Le téléphone sonne mais c'est irrégulier."
+      },
+      "difficulty": 1,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Oui allô ? Écoutez je suis en plein chantier là, c'est pour quoi ? Faites vite."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« Encore un budget pub en plus, j'ai déjà payé le site pour rien » — isoler le frein du budget pub additionnel.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "Attendez, donc en plus du site faut que je remette de l'argent dans de la pub ? J'ai déjà payé un site qui me rapporte rien, là."
+        }
+      ]
+    },
+    {
+      "id": "ads_sc_2",
+      "persona": {
+        "metier": "Électricien",
+        "ville": "Lille",
+        "humeur": "Posé mais sceptique sur la pub en ligne",
+        "contexte": "Il a un site propre fait par une agence locale, mais il avoue ne jamais regarder s'il lui amène des contacts. La plupart de ses chantiers viennent d'artisans partenaires (plaquistes, maçons) qui le recommandent."
+      },
+      "difficulty": 2,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Allô oui ? C'est à quel sujet ? Si c'est commercial je vous préviens j'ai pas trop le temps."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« Google Ads ça marche pas, c'est du vent » — traiter l'incrédulité sur l'efficacité du levier.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "Franchement la pub Google moi j'y crois pas, on me clique dessus juste pour faire grimper la facture, ça marche pas ce truc."
+        }
+      ]
+    },
+    {
+      "id": "ads_sc_3",
+      "persona": {
+        "metier": "Serrurier",
+        "ville": "Marseille",
+        "humeur": "Sûr de lui, presque arrogant",
+        "contexte": "Il a un site et il est persuadé d'être déjà très visible sur Google. En réalité il sort dans les résultats naturels mais loin derrière les annonces et les concurrents. Ses appels viennent surtout de clients fidèles et de syndics."
+      },
+      "difficulty": 2,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Ouais allô, j'écoute. Mais je vous préviens, du démarchage j'en ai dix par jour hein."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« Je suis déjà premier sur Google, j'ai pas besoin de vous » — montrer la différence entre résultat naturel et tête de page.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "Écoutez quand je tape mon nom je suis premier sur Google, donc tout ça je l'ai déjà, j'ai pas besoin de vous."
+        }
+      ]
+    },
+    {
+      "id": "ads_sc_4",
+      "persona": {
+        "metier": "Peintre en bâtiment",
+        "ville": "Nantes",
+        "humeur": "Sympathique mais indécis",
+        "contexte": "Il a un site monté lui-même qui prend la poussière. Il reçoit deux ou trois demandes par mois par le formulaire, jamais plus. Le reste vient d'anciens clients et de chantiers de connaissances."
+      },
+      "difficulty": 1,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Allô oui bonjour, oui c'est bien moi, je vous écoute."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« Je vais réfléchir, je vous rappelle » — neutraliser la procrastination en rappelant le zéro risque du test.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "Écoutez ça a l'air intéressant, mais là je vais y réfléchir tranquillement et je vous rappelle, d'accord ?"
+        }
+      ]
+    },
+    {
+      "id": "ads_sc_5",
+      "persona": {
+        "metier": "Carreleur",
+        "ville": "Bordeaux",
+        "humeur": "Méfiant et regardant sur l'argent",
+        "contexte": "Il a un site fonctionnel mais quasi aucune demande entrante. Il décroche ses chantiers en répondant à des appels d'offres et via deux entreprises générales qui le sous-traitent. Il trouve toujours que tout est trop cher."
+      },
+      "difficulty": 3,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Ouais c'est moi. Bon je vous arrête tout de suite, si c'est pour me vendre quelque chose ça m'intéresse pas."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« 750€ par mois c'est beaucoup trop cher » — recadrer le coût face à la valeur d'un seul chantier gagné.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "750 balles par mois ? Non mais ça va pas, c'est beaucoup trop cher pour moi votre truc."
+        }
+      ]
+    },
+    {
+      "id": "ads_sc_6",
+      "persona": {
+        "metier": "Chauffagiste",
+        "ville": "Strasbourg",
+        "humeur": "Cordial mais déjà engagé ailleurs",
+        "contexte": "Il a un site et travaille déjà avec une petite agence de communication qui gère ses réseaux sociaux et son référencement, sans réels résultats côté demandes. Ses clients viennent du bouche-à-oreille et de contrats d'entretien."
+      },
+      "difficulty": 2,
+      "offer": "ads",
+      "phases": [
+        {
+          "phase": "ouverture",
+          "objectif": "Désamorcer la méfiance, créer le lien, ne pas pitcher.",
+          "bonneIntention": "ouvrir avec décontraction et capter l'attention sans dérouler l'offre.",
+          "artisanSeed": "Allô bonjour, oui j'écoute, mais je vous préviens je suis assez occupé là."
+        },
+        {
+          "phase": "decouverte",
+          "objectif": "Comprendre d'où viennent ses clients et ce que son site lui rapporte.",
+          "bonneIntention": "poser une question ouverte et écouter sans suggérer."
+        },
+        {
+          "phase": "douleurs",
+          "objectif": "Faire émerger que son site ne lui ramène quasi personne / dépendance au bouche-à-oreille.",
+          "bonneIntention": "creuser le manque de demandes entrantes avec ses mots."
+        },
+        {
+          "phase": "ambitions",
+          "objectif": "Faire exprimer ce qu'il veut (plus de demandes régulières, agenda rempli).",
+          "bonneIntention": "poser une question ouverte et le laisser se projeter."
+        },
+        {
+          "phase": "pont",
+          "objectif": "Reformuler « ton site est une vitrine sans visiteurs ; tu veux des demandes régulières » et faire valider.",
+          "bonneIntention": "créer l'accord sur le problème avant de présenter Google Ads."
+        },
+        {
+          "phase": "presentation",
+          "objectif": "Présenter la semaine test Google Ads comme la réponse (haut de Google sur métier+ville).",
+          "bonneIntention": "relier Google Ads à SA situation, pas un argumentaire générique."
+        },
+        {
+          "phase": "prix_close",
+          "objectif": "« J'ai déjà une agence qui s'occupe de ma com et de ma pub » — différencier le test gratuit ciblé du contrat existant sans résultats.",
+          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
+          "artisanSeed": "Écoutez j'ai déjà une agence qui s'occupe de tout ça, ma com, ma pub, donc je vois pas trop ce que vous pouvez m'apporter de plus."
+        }
+      ]
+    }
+  ]
+}

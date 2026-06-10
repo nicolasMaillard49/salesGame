@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { QuizItem } from "@/lib/content/schema";
-import { finishSession, recordAnswer, shuffle, startSession } from "@/lib/client";
+import { finishSession, recordAnswer, shuffle, startSession, voiceCheckAnswer, voiceMatchOption } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import Icon from "@/components/Icon";
 
 const ROUND = 10;
@@ -28,6 +30,9 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   const [score, setScore] = useState(0);
   const [xp, setXp] = useState(0);
   const [done, setDone] = useState(false);
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [started, setStarted] = useState(false);
+  const [voiceScoring, setVoiceScoring] = useState(false);
   const startedAt = useRef<number>(0);
 
   useEffect(() => {
@@ -47,10 +52,9 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
     );
   }
 
-  async function answer(sel: number | null) {
+  async function reveal(sel: number | null, ok: boolean) {
     if (revealed || !round) return;
     const item = round[i];
-    const ok = correctFor(item, sel, typed);
     setSelected(sel);
     setWasCorrect(ok);
     setRevealed(true);
@@ -69,6 +73,32 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
     }
   }
 
+  function answer(sel: number | null) {
+    if (revealed || !round) return;
+    reveal(sel, correctFor(round[i], sel, typed));
+  }
+
+  // Mode vocal — QCM : on matche la réponse dite à la bonne option (tolérant).
+  async function submitVoiceQcm(spoken: string) {
+    if (revealed || !round) return;
+    const item = round[i];
+    setVoiceScoring(true);
+    const idx = await voiceMatchOption({ prompt: item.prompt, spoken, options: item.options ?? [] });
+    setVoiceScoring(false);
+    reveal(idx, idx === Number(item.answer));
+  }
+
+  // Mode vocal — trou : vrai/faux tolérant (même sens que la réponse attendue).
+  async function submitVoiceTrou(spoken: string) {
+    if (revealed || !round) return;
+    const item = round[i];
+    setTyped(spoken);
+    setVoiceScoring(true);
+    const ok = await voiceCheckAnswer({ prompt: item.prompt, spoken, expected: String(item.answer) });
+    setVoiceScoring(false);
+    reveal(null, ok === true);
+  }
+
   function next() {
     if (!round) return;
     if (i + 1 >= round.length) {
@@ -83,6 +113,27 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
   }
 
   if (!round) return <p className="mono text-[var(--ink-faint)] animate-pulse">Chargement…</p>;
+
+  if (!started) {
+    return (
+      <div className="flex flex-col gap-5 max-w-xl">
+        <div>
+          <h1 className="display text-2xl">Quiz</h1>
+          <p className="text-[var(--ink-soft)] text-sm mt-1">
+            {round.length} questions. {voiceMode ? "Réponds à l'oral — même sens = bonne réponse." : "QCM et réponses à compléter."}
+          </p>
+        </div>
+        <div className="glass p-4">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
+        </div>
+        <button onClick={() => setStarted(true)} className="btn btn-primary self-start">
+          Commencer <Icon name="arrowRight" size={16} strokeWidth={2.5} />
+        </button>
+        <Link href="/" className="mono text-sm text-[var(--ink-faint)] hover:text-[var(--ink)]">← Hub</Link>
+      </div>
+    );
+  }
+
   if (done) return <EndScreen label="Quiz terminé" score={score} total={round.length} xp={xp} />;
 
   const item = round[i];
@@ -99,19 +150,29 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
         <h2 className="display text-xl leading-snug">{item.prompt}</h2>
 
         {item.type === "qcm" ? (
-          <div className="mt-6 flex flex-col gap-3">
-            {(item.options ?? []).map((opt, idx) => {
-              const isAnswer = idx === Number(item.answer);
-              const isPicked = idx === selected;
-              let state = "";
-              if (revealed) state = isAnswer ? "good" : isPicked ? "bad" : "dim";
-              return (
-                <button key={idx} disabled={revealed} onClick={() => answer(idx)} className={`opt-b ${state}`}>
-                  <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
-                  <span className="txt">{opt}</span>
-                </button>
-              );
-            })}
+          voiceMode && !revealed ? (
+            <div className="mt-6">
+              <VoiceAnswer key={item.id} prompt={item.prompt} hints={item.options ?? []} submitting={voiceScoring} onSubmit={submitVoiceQcm} />
+            </div>
+          ) : (
+            <div className="mt-6 flex flex-col gap-3">
+              {(item.options ?? []).map((opt, idx) => {
+                const isAnswer = idx === Number(item.answer);
+                const isPicked = idx === selected;
+                let state = "";
+                if (revealed) state = isAnswer ? "good" : isPicked ? "bad" : "dim";
+                return (
+                  <button key={idx} disabled={revealed} onClick={() => answer(idx)} className={`opt-b ${state}`}>
+                    <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                    <span className="txt">{opt}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )
+        ) : voiceMode && !revealed ? (
+          <div className="mt-6">
+            <VoiceAnswer key={item.id} prompt={item.prompt} submitting={voiceScoring} onSubmit={submitVoiceTrou} />
           </div>
         ) : (
           <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); answer(null); }}>

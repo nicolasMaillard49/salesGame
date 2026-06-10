@@ -3,9 +3,17 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
-import { recordAnswer, shuffle, startSession } from "@/lib/client";
+import { recordAnswer, shuffle, startSession, voiceMatchOption } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import { SKILL_LABELS } from "@/lib/types";
 import Icon from "@/components/Icon";
+
+// En vocal, si la réponse dite ne matche aucune option, on retombe sur la pire.
+function worstIdx(opts: ObjectionOption[]): number {
+  const b = opts.findIndex((o) => o.quality === "bad");
+  return b >= 0 ? b : opts.length - 1;
+}
 
 const VERDICT: Record<ObjectionOption["quality"], { cls: string; label: string }> = {
   good: { cls: "v-good", label: "Correct" },
@@ -30,6 +38,17 @@ export default function QuotidienGame({
   const [picked, setPicked] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [result, setResult] = useState<{ streak: number; bestStreak: number; alreadyDone: boolean } | null>(null);
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [voiceScoring, setVoiceScoring] = useState(false);
+
+  async function submitVoice(spoken: string) {
+    if (revealed) return;
+    setVoiceScoring(true);
+    const idx = await voiceMatchOption({ prompt: objection.artisanLine, spoken, options: options.map((o) => o.text) });
+    setVoiceScoring(false);
+    const i = idx >= 0 ? idx : worstIdx(options);
+    pick(i, options[i]);
+  }
 
   async function pick(idx: number, opt: ObjectionOption) {
     if (revealed) return;
@@ -71,27 +90,45 @@ export default function QuotidienGame({
         </div>
       </div>
 
-      <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mt-2">Choisis ta meilleure réponse</p>
+      {!revealed && (
+        <div className="glass p-4">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
+        </div>
+      )}
 
-      <div className="flex flex-col gap-3">
-        {options.map((opt, idx) => {
-          const isPicked = idx === picked;
-          let state = "";
-          if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
-          return (
-            <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
-              <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
-              <span className="txt">{opt.text}</span>
-              {revealed && (
-                <span className="fb">
-                  <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
-                  <span>{opt.feedback}</span>
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+      {voiceMode && !revealed ? (
+        <VoiceAnswer
+          key={objection.id}
+          prompt={objection.artisanLine}
+          hints={options.map((o) => o.text)}
+          submitting={voiceScoring}
+          onSubmit={submitVoice}
+        />
+      ) : (
+        <>
+          <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)] mt-2">Choisis ta meilleure réponse</p>
+
+          <div className="flex flex-col gap-3">
+            {options.map((opt, idx) => {
+              const isPicked = idx === picked;
+              let state = "";
+              if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
+              return (
+                <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
+                  <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                  <span className="txt">{opt.text}</span>
+                  {revealed && (
+                    <span className="fb">
+                      <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
+                      <span>{opt.feedback}</span>
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       {result && (
         <div className="glass p-5 flex items-center justify-between gap-4 flex-wrap">

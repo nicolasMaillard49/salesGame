@@ -1,7 +1,15 @@
 import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
+import type { Offer } from "./types";
 import type { PhaseNode, Scenario } from "./content/schema";
-import { DISCOVERY_RUBRICS } from "./sim-phases";
+import { ADS_DISCOVERY_RUBRICS, DISCOVERY_RUBRICS } from "./sim-phases";
+
+// Décrit l'offre vendue, injecté dans les prompts (le pitch change selon le parcours).
+function pitchFor(offer: Offer | undefined): string {
+  return offer === "ads"
+    ? `Tu as DÉJÀ un site web. Un commercial t'appelle pour te proposer une semaine test GRATUITE de publicité Google Ads (apparaître tout en haut de Google quand un client cherche ton métier + ta ville). Seul un petit budget pub d'environ 100€ est payé directement à Google, pas à lui ; ensuite c'est une prestation mensuelle s'il y a des résultats.`
+    : `Un commercial t'appelle pour te vendre un site web à 300€.`;
+}
 
 // Ré-exports pour les consommateurs serveur (route, pages) qui importaient déjà
 // ces helpers depuis "@/lib/anthropic". La logique vit dans sim-phases (module
@@ -17,8 +25,14 @@ export function hasAnthropic(): boolean {
   return !!process.env.ANTHROPIC_API_KEY;
 }
 
-export function customScenario(persona: Scenario["persona"]): Scenario {
-  return { id: "custom", persona, difficulty: 2, phases: DISCOVERY_RUBRICS };
+export function customScenario(persona: Scenario["persona"], offer: Offer = "web"): Scenario {
+  return {
+    id: "custom",
+    persona,
+    difficulty: 2,
+    phases: offer === "ads" ? ADS_DISCOVERY_RUBRICS : DISCOVERY_RUBRICS,
+    offer,
+  };
 }
 
 export type SimHistoryItem = { role: "artisan" | "commercial"; text: string };
@@ -27,7 +41,7 @@ function systemPrompt(scenario: Scenario, node: PhaseNode): string {
   const p = scenario.persona;
   return [
     `Tu es un artisan français (${p.metier} à ${p.ville}). Humeur: ${p.humeur}. Contexte: ${p.contexte}.`,
-    `Un commercial t'appelle pour te vendre un site web à 300€. Tu réponds de façon RÉALISTE, familière, parfois sceptique — comme un vrai artisan au téléphone. Phrases courtes.`,
+    `${pitchFor(scenario.offer)} Tu réponds de façon RÉALISTE, familière, parfois sceptique — comme un vrai artisan au téléphone. Phrases courtes.`,
     ``,
     `RÈGLE ABSOLUE — tu n'as JAMAIS un temps d'avance :`,
     `- "artisanLine" est UNIQUEMENT ta réaction à la toute dernière réplique du commercial dans l'historique. Rien d'autre.`,
@@ -75,7 +89,7 @@ export type Score = { quality: "good" | "ok" | "bad"; feedback: string };
 function scoreSystemPrompt(scenario: Scenario, node: PhaseNode): string {
   const p = scenario.persona;
   return [
-    `Tu es un coach de vente B2B exigeant mais bienveillant. Un commercial en formation répète un appel à froid auprès d'un artisan (${p.metier} à ${p.ville}, humeur ${p.humeur}). On lui vend un site web à 299€.`,
+    `Tu es un coach de vente B2B exigeant mais bienveillant. Un commercial en formation répète un appel à froid auprès d'un artisan (${p.metier} à ${p.ville}, humeur ${p.humeur}). Offre vendue : ${pitchFor(scenario.offer)}`,
     ``,
     `Phase de l'appel : "${node.phase}". Objectif du commercial : ${node.objectif}.`,
     `Une bonne réplique doit : ${node.bonneIntention}.`,
@@ -87,6 +101,8 @@ function scoreSystemPrompt(scenario: Scenario, node: PhaseNode): string {
     `- "good" : suit la bonne intention, ton juste, fait avancer l'appel.`,
     `- "ok" : acceptable mais imparfait (trop direct, manque d'écoute, occasion manquée…).`,
     `- "bad" : contre-productif, erreur classique, casse le lien ou brûle une étape.`,
+    ``,
+    `TOLÉRANCE (important) : tu juges le FOND et l'INTENTION, jamais les mots exacts. Des synonymes, une reformulation, un vocabulaire différent mais de même sens, ou une transcription vocale approximative ne doivent JAMAIS baisser la note. Sois généreux : au moindre doute entre deux niveaux, retiens le meilleur.`,
     ``,
     `Réponds UNIQUEMENT par un objet JSON valide, sans texte autour :`,
     `{"quality":"good|ok|bad","feedback":"<1-2 phrases concrètes, à la 2e personne (« tu »), qui disent ce qui marche ou ce qu'il faut corriger>"}`,
@@ -131,6 +147,80 @@ export async function scoreReply(
     .join("");
 
   return validateScore(extractJson(text));
+}
+
+// --- Match sémantique tolérant d'une réponse dite à l'oral (mode vocal des QCM) ---
+const TOLERANCE = `Sois TRÈS tolérant : tu juges le SENS et l'INTENTION, jamais les mots exacts. Synonymes, reformulation, vocabulaire différent mais de même sens, mots en plus, ordre différent, transcription vocale approximative = équivalents. Au moindre doute, retiens la correspondance la plus favorable.`;
+
+/**
+ * Choisit, parmi des candidates numérotées, celle dont le SENS colle le mieux à
+ * ce que l'apprenant a dit à l'oral. Retourne l'index (0-based) ; -1 si aucune.
+ */
+export async function voiceMatch(prompt: string, spoken: string, options: string[]): Promise<number> {
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const list = options.map((o, i) => `${i}. ${o}`).join("\n");
+  const msg = await client.messages.create({
+    model: MODEL,
+    max_tokens: 80,
+    system: [
+      `Tu corriges un exercice de vente. On te donne une question/objection, la réponse DITE À L'ORAL par l'apprenant, et une liste de réponses-candidates numérotées (à partir de 0).`,
+      `Choisis l'index de la candidate dont le sens correspond le mieux à ce que l'apprenant a dit.`,
+      TOLERANCE,
+      `Si vraiment aucune ne correspond, renvoie -1.`,
+      `Réponds UNIQUEMENT par un JSON : {"index": <nombre>}.`,
+    ].join("\n"),
+    messages: [
+      {
+        role: "user",
+        content: [
+          prompt ? `Question/objection : « ${prompt} »` : "",
+          `Réponse dite par l'apprenant : « ${spoken} »`,
+          ``,
+          `Candidates :`,
+          list,
+          ``,
+          `Quel index ?`,
+        ].filter(Boolean).join("\n"),
+      },
+    ],
+  });
+  const text = msg.content.filter((b): b is Anthropic.TextBlock => b.type === "text").map((b) => b.text).join("");
+  const raw = extractJson(text) as { index?: unknown };
+  const idx = Number(raw?.index);
+  return Number.isInteger(idx) && idx >= -1 && idx < options.length ? idx : -1;
+}
+
+/**
+ * Vrai/faux tolérant : la réponse dite à l'oral a-t-elle le même sens que la
+ * réponse attendue ? (Quiz à trou.)
+ */
+export async function voiceCheck(prompt: string, spoken: string, expected: string): Promise<boolean> {
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const msg = await client.messages.create({
+    model: MODEL,
+    max_tokens: 50,
+    system: [
+      `Tu corriges un exercice. On te donne la question, la réponse attendue, et la réponse DITE À L'ORAL par l'apprenant.`,
+      `Dis si la réponse de l'apprenant est correcte, c'est-à-dire si elle a le MÊME SENS que la réponse attendue.`,
+      TOLERANCE,
+      `Réponds UNIQUEMENT par un JSON : {"correct": true|false}.`,
+    ].join("\n"),
+    messages: [
+      {
+        role: "user",
+        content: [
+          prompt ? `Question : « ${prompt} »` : "",
+          `Réponse attendue : « ${expected} »`,
+          `Réponse de l'apprenant : « ${spoken} »`,
+          ``,
+          `Correcte ?`,
+        ].filter(Boolean).join("\n"),
+      },
+    ],
+  });
+  const text = msg.content.filter((b): b is Anthropic.TextBlock => b.type === "text").map((b) => b.text).join("");
+  const raw = extractJson(text) as { correct?: unknown };
+  return raw?.correct === true;
 }
 
 /** Un tour de simulateur via Haiku. Lance une exception en cas d'échec (le caller gère le fallback). */

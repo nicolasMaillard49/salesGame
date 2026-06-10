@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { finishSession, recordAnswer, scoreVoiceReply, startSession } from "@/lib/client";
-import { useVoice } from "@/lib/voice";
-import { SKILL_LABELS, type Quality, type SkillId } from "@/lib/types";
+import { useVoice, useVoicePref } from "@/lib/voice";
+import { SKILL_LABELS, type Offer, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
 import ArtisanAvatar from "@/components/ArtisanAvatar";
 
@@ -19,11 +19,9 @@ const VERDICT: Record<Quality, { cls: string; label: string }> = {
   bad: { cls: "v-bad", label: "À éviter" },
 };
 
-const VOICE_PREF_KEY = "prospect-voice-mode";
-
-export default function ProspectGame() {
+export default function ProspectGame({ offer = "web" }: { offer?: Offer }) {
   const [persona, setPersona] = useState<Persona>({ metier: "", ville: "", humeur: "plutôt méfiant", contexte: "" });
-  const [voiceMode, setVoiceMode] = useState(false);
+  const [voiceMode, chooseVoiceMode] = useVoicePref();
   const [started, setStarted] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [turn, setTurn] = useState<Turn | null>(null);
@@ -45,18 +43,6 @@ export default function ProspectGame() {
   const [voiceFeedback, setVoiceFeedback] = useState<string | null>(null);
   const [voiceQuality, setVoiceQuality] = useState<Quality | null>(null);
 
-  // Préférence mode vocal mémorisée d'une partie à l'autre. On rend `false` côté
-  // serveur puis on ajuste au montage : patron hydration-safe (la lecture
-  // localStorage ne peut pas vivre dans l'initialiseur sans risquer un mismatch).
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync unique au montage depuis localStorage
-    if (typeof window !== "undefined" && window.localStorage.getItem(VOICE_PREF_KEY) === "1") setVoiceMode(true);
-  }, []);
-  function chooseVoiceMode(on: boolean) {
-    setVoiceMode(on);
-    if (typeof window !== "undefined") window.localStorage.setItem(VOICE_PREF_KEY, on ? "1" : "0");
-  }
-
   // L'artisan parle (TTS) à chaque nouvelle réplique, en mode vocal.
   useEffect(() => {
     if (voiceMode && turn && !revealed && !done) voice.speak(turn.artisanLine);
@@ -70,7 +56,7 @@ export default function ProspectGame() {
       const res = await fetch("/api/sim", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ scenarioId: "custom", persona, phaseIndex, history: hist }),
+        body: JSON.stringify({ scenarioId: "custom", persona, phaseIndex, history: hist, offer }),
       });
       if (!res.ok) throw new Error("api");
       return (await res.json()) as Turn;
@@ -120,6 +106,7 @@ export default function ProspectGame() {
       phaseIndex: turn.phaseIndex,
       artisanLine: turn.artisanLine,
       userReply: reply.trim(),
+      offer,
     });
     setScoring(false);
     const quality: Quality = res?.quality ?? "ok";

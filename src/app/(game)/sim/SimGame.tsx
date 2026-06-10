@@ -33,7 +33,7 @@ function presentationSeed(p: Card["persona"]): string {
   return `Voilà, je vous ai préparé un site qui ressort quand on tape « ${metier} ${p.ville.trim()} », avec vos réalisations, les avis de vos clients et un bouton pour vous appeler directement.`;
 }
 
-export default function SimGame({ scenarios, closingOnly = false }: { scenarios: Card[]; closingOnly?: boolean }) {
+export default function SimGame({ scenarios, closingOnly = false, offer = "web" }: { scenarios: Card[]; closingOnly?: boolean; offer?: "web" | "ads" }) {
   const [scenarioId, setScenarioId] = useState<string | null>(null);
   const [metier, setMetier] = useState<string>("");
   const [startIndex, setStartIndex] = useState(0);
@@ -52,7 +52,7 @@ export default function SimGame({ scenarios, closingOnly = false }: { scenarios:
   async function fetchTurn(id: string, phaseIndex: number, hist: Line[]): Promise<Turn | null> {
     setLoading(true); setError(null);
     try {
-      const res = await fetch("/api/sim", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scenarioId: id, phaseIndex, history: hist }) });
+      const res = await fetch("/api/sim", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ scenarioId: id, phaseIndex, history: hist, offer }) });
       if (!res.ok) throw new Error("api");
       return (await res.json()) as Turn;
     } catch {

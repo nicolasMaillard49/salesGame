@@ -573,6 +573,97 @@
         "Qualité du site secondaire si la découverte est bien faite : à ce moment-là il veut juste un site.",
         "Spécialisation par secteur : pas obligatoire, utile pour industrialiser à grande échelle."
       ]
+    },
+    {
+      "id": "gads-offre-contexte",
+      "category": "gads",
+      "title": "Offre Google Ads — contexte & commissions",
+      "summary": "Comprendre le modèle : vendre une semaine test Google Ads gratuite à des artisans qui ont déjà un site, et toucher une commission mensuelle récurrente.",
+      "points": [
+        "Cible : artisans qui ONT DÉJÀ un site web (marché 4x plus grand que ceux qui n'en ont pas).",
+        "Étape 1 : prospecter et fixer un 1er RDV (même logique que le cold call site web).",
+        "Étape 2 : faire un 2e RDV pour valider les infos et faire remplir le formulaire Google Ads.",
+        "Étape 3 : transmettre le formulaire à l'expert qui crée le compte et lance les campagnes.",
+        "Budget client : environ 10–15€/jour de pub Google (payé directement à Google, pas à toi), soit ~100€ sur la semaine test.",
+        "Ton service pendant la semaine test : entièrement GRATUIT pour le client.",
+        "Prix mensuel si continuation : 750€/mois TTC de gestion.",
+        "Commission palier 1 (1–10 clients) : 125€/mois/client → 1 250€/mois à 10 clients.",
+        "Commission palier 2 (11–20 clients) : 150€/mois/client → 2 750€/mois à 20 clients.",
+        "Commission palier 3 (21+ clients) : 225€/mois/client → 5 000€/mois à 30 clients.",
+        "Plan d'action : 3 RDV/jour = 5 000€ MRR en 30 jours. 1 RDV/jour = 5 000€ MRR en 90 jours.",
+        "Stats Léo : 70% des RDV acceptent la semaine test. 50% des semaines test finissent en closing."
+      ],
+      "examples": [
+        "\"Notre service c'est simple — on met votre entreprise en tête de Google quand quelqu'un cherche [votre métier] dans votre zone. On vous propose de tester ça gratuitement pendant 1 semaine.\"",
+        "\"Il y a juste un petit budget pub Google à prévoir — environ 100€ sur la semaine. C'est directement Google que vous payez, pas nous. Notre service pendant le test, il est offert.\""
+      ]
+    },
+    {
+      "id": "gads-prospection-phase1",
+      "category": "gads",
+      "title": "Phase 1 — Prospection Google Ads (6 étapes)",
+      "summary": "Script complet de l'appel à froid pour décrocher un RDV visio : hook d'ouverture → question d'entrée → mécanisme → proposition de valeur → CTA RDV → objections.",
+      "points": [
+        "Étape 1 — Hook d'ouverture : désamorcer la méfiance en 5 secondes avec humour, puis silence.",
+        "Si réaction positive ('allez-y') → passer à la question d'entrée.",
+        "Si réaction froide ('c'est quoi ça ?') → 'C'est simple — j'ai juste une question sur comment vous trouvez vos clients. 30 secondes.'",
+        "Si refus ('j'ai pas le temps') → proposer un rappel avec choix matin/après-midi, raccrocher proprement. Pas d'insistance.",
+        "Étape 2 — Question d'entrée : comprendre d'où viennent ses clients. Ne PAS couper, ne PAS suggérer. Laisser répondre. Valider : 'OK, donc principalement comme ça aujourd'hui.'",
+        "Étape 3 — Expliquer le mécanisme en 20 secondes : visuel, simple, sans jargon.",
+        "Étape 4 — Proposition de valeur : 1 semaine test gratuite, clients en automatique, zéro risque, vous faites tout.",
+        "Précision budget : budget pub Google entre 10 et 20€/jour (pas des frais de gestion).",
+        "Étape 5 — Projection + CTA : 'Si on lance demain, vous pouvez recevoir des contacts dès après-demain.' → silence → prise de RDV.",
+        "Pour le créneau : toujours une question fermée ('matin ou après-midi ?') — jamais 'quand êtes-vous dispo ?'",
+        "Étape 6 — Objections : traiter sans débat, recadrer sur le test gratuit."
+      ],
+      "examples": [
+        "\"Allo, je suis bien avec [entreprise] ? Si je vous dis que c'est un appel de prospection, vous jettez directement le téléphone par la fenêtre… ou vous me laissez 30 secondes chrono pour vous expliquer ?\"",
+        "\"Vous voyez quand quelqu'un tape sur Google : '[corps de métier] + [ville]' ? Notre travail c'est simplement de faire apparaître votre entreprise devant ces personnes-là. Pour faire en sorte qu'ils vous choisissent vous plutôt que vos concurrents.\"",
+        "\"On vous propose simplement de mettre ça en place pour vous et de tester ça gratuitement pendant 1 semaine. On met votre entreprise en avant sur Google, et vous recevrez chaque jour des prospects en automatique. Vous n'avez aucun risque à prendre — c'est nous qui faisons tout pour vous.\"",
+        "\"Si on lance demain, vous pouvez commencer à recevoir des contacts dès après-demain. Vous pensez que ça vaut le coup de tester et voir ce que ça donne ?\"",
+        "\"Le plus simple, c'est qu'on vous montre ça rapidement en visio. En 10 minutes vous verrez exactement comment ça fonctionne. Vous êtes plus dispo le matin ou l'après-midi en général ?\"",
+        "OBJ 'C'est de la pub' : \"Oui, mais la différence c'est qu'on vise uniquement les gens qui cherchent déjà votre service. On ne va pas les convaincre — ils sont déjà en train de chercher.\"",
+        "OBJ 'Je suis déjà sur Google' : \"Parfait, ça veut dire qu'on peut simplement vous rendre plus visible pendant une semaine pour voir la différence.\"",
+        "OBJ 'Envoyez-moi un mail' : \"Je peux vous envoyer un résumé, mais ça ne remplacera pas les 10 minutes où on regarde ensemble votre cas. On se cale un créneau rapide et ensuite je vous envoie tout par mail.\"",
+        "OBJ 'Pas le budget' : \"Justement, on démarre avec un petit budget pour tester sans engager de grosses sommes. L'idée n'est pas d'investir — c'est de vérifier si ça peut vous apporter quelque chose.\"",
+        "OBJ 'Je fonctionne au bouche-à-oreille' : \"C'est très bien, ça ne remplace pas ça. On ajoute juste une source en plus quand les gens cherchent directement sur Google.\""
+      ]
+    },
+    {
+      "id": "gads-closing-phase2",
+      "category": "gads",
+      "title": "Phase 2 — Closing semaine test (8 étapes)",
+      "summary": "Script complet du RDV visio de closing : brise-glace → positionnement → diagnostic → mécanisme → offre → preuve → close → objections. Objectif : formulaire rempli pendant l'appel.",
+      "points": [
+        "Étape 1 — Brise-glace : tutoiement naturel dès le début, sans demander la permission. Small talk 1–2 minutes max. Objectif : il est détendu avant d'entrer dans le sujet.",
+        "Cadrage d'appel : 'L'idée aujourd'hui c'est simple — on va voir ensemble si on peut t'amener des demandes de clients en plus rapidement via Google. Si ça a du sens on lance le test. Sinon on ne perd pas plus de temps — ça te va ?'",
+        "Étape 2 — Positionnement : 'Je suis de la team de d'abord te démontrer ma valeur, t'apporter des résultats… et puis après te demander de t'investir.' Si déjà déçu par une agence : valider l'expérience, puis 'c'est pour ça qu'on teste d'abord'.",
+        "Étape 3 — Diagnostic : visiter son site AVANT l'appel. Site basique = rassurer ('ça ira largement pour tester'). Site correct = valider ('la base est là'). 3 questions clés : marge pour nouveaux clients ? rayon d'intervention ? service le plus rentable ?",
+        "Étape 4 — Mécanisme : 'Un site web sans trafic c'est une coquille vide. Notre expert se positionne sur les mots clés de recherche — les gens qui tapent déjà [service] + [ville] sur Google. On ne convainc personne — on capte des gens qui cherchent déjà.'",
+        "Stratégie mots clés : commencer par LE service le plus rentable dans SON rayon. Pas tout en même temps. 'On fait grandir ça au même rythme que ta boîte.'",
+        "Étape 5 — Offre : service gratuit pendant la semaine test. Budget pub Google à prévoir (~100€ sur la semaine, payé directement à Google). Prix mensuel si continuation : 750€/mois TTC. Silence après le prix — ne pas justifier.",
+        "Étape 6 — Preuve + recadrage valeur : exemple paysagiste → 15k€ de CA sur la semaine test. Recadrage : '100€ = prix de savoir. Si tu ne testes pas, ta situation reste exactement comme aujourd'hui. La vraie question c'est : est-ce que je veux changer ma situation ou pas.'",
+        "Étape 7 — Close : une seule question puis silence total. 'C'est bon pour toi tout ça ?' → silence. La prochaine personne qui parle a perdu. Si oui → formulaire immédiatement.",
+        "Étape 8 — Formulaire : 'Je vais te faire remplir un petit formulaire — 2 minutes. T'as 2 minutes pour le faire pendant qu'on est en ligne ?' Idéal = il remplit en live. Chaque heure qui passe = momentum baisse.",
+        "Logistique post-appel : envoyer le lien formulaire max 5 min après raccroché. Formulaire reçu → expert crée le compte Google Ads et envoie l'invitation. Client met ~100€ sur le compte. Expert te prévient quand c'est live. RDV dans 1 semaine pour faire les calculs."
+      ],
+      "examples": [
+        "\"Salut [prénom] ! Comment tu vas ? T'es où là, t'es sur un chantier ou au bureau ?\"",
+        "\"Bon, je vais pas te prendre trop de temps. L'idée aujourd'hui c'est simple — on va voir ensemble si on peut t'amener des demandes de clients en plus rapidement via Google. Si ça a du sens on lance le test. Sinon on ne perd pas plus de temps — ça te va ?\"",
+        "\"Moi je suis de la team de d'abord te démontrer ma valeur, t'apporter des résultats… et puis après te demander de t'investir. Tout simplement.\"",
+        "\"J'ai regardé ton site avant l'appel. Je vais être honnête avec toi — il est pas exceptionnel, mais ça ira largement pour tester et avoir tes premiers résultats.\"",
+        "\"En fait, un site web sans trafic dessus — c'est une coquille vide. C'est joli, mais s'il n'y a personne qui passe dessus, il te ramène aucun client. Ce qu'on fait, c'est l'inverse. Notre expert se positionne sur des mots clés de recherche — les gens qui tapent déjà [service] + [ville] sur Google. Il met ton entreprise devant eux au moment exact où ils en ont besoin. On ne convainc personne — on capte des gens qui cherchent déjà activement ton service.\"",
+        "\"Concrètement, pendant la semaine test — tu ne payes pas notre service. C'est offert. En revanche, vu qu'on fonctionne avec de la pub Google, y'a un petit budget pub à prévoir. C'est pas nous que tu payes — c'est directement Google. Et c'est minime : environ 10 à 15€ par jour, donc sur une semaine ça fait à peu près 100€ en tout.\"",
+        "\"Si à la fin de la semaine tu vois que ça te ramène des clients et que t'as envie de continuer — notre forfait mensuel de gestion, il est à 750€ par mois TTC. Mais ça, tu le décides seulement après avoir vu les résultats.\"",
+        "\"Notre expert a fait la même chose avec un paysagiste y'a pas longtemps. Sur la semaine de test, on a sorti 15 000€ de chiffre d'affaires. Évidemment il a voulu continuer.\"",
+        "\"Regarde les deux cas simplement. T'investis 100€ sur la semaine — le pire scénario : ça ne donne rien, t'es fixé pour 100€. C'est le prix de savoir. Si tu ne testes pas — la situation reste exactement comme aujourd'hui. La vraie question c'est pas les 100€. C'est : est-ce que je veux changer ma situation ou pas.\"",
+        "\"C'est bon pour toi tout ça ?\" — [silence total, ne pas reparler en premier]",
+        "\"Super. Pour qu'on puisse tout mettre en place, je vais te faire remplir un petit formulaire — ça prend 2 minutes. Je te l'envoie par message là maintenant. T'as 2 minutes pour le faire pendant qu'on est en ligne ?\"",
+        "OBJ 750€ : \"Je comprends que ça fasse grimacer — c'est normal, tu sais pas encore ce que ça rapporte. C'est justement l'idée du test : tu vois les résultats, on fait les calculs ensemble, et tu décides toi-même si c'est rentable. Le prix ne s'applique que si tu veux continuer.\"",
+        "OBJ 100€ Google : \"Le pire scénario : ça ne donne rien, t'es fixé pour 100€. C'est le prix de savoir. Si tu ne testes pas — la situation reste exactement comme aujourd'hui. L'idée du test c'est pas de prendre un risque, c'est de voir si on peut changer ta situation rapidement.\"",
+        "OBJ 'J'ai déjà essayé, ça n'a pas marché' : \"C'est exactement pour ça qu'on fait un test court. On ne te demande pas de repartir sur des mois — juste de voir si ça réagit différemment quand c'est configuré correctement par un expert dédié.\"",
+        "OBJ 'Je dois réfléchir / en parler' : \"Bien sûr. On prend pas de décision sur du long terme — c'est juste une semaine pour voir. Je te laisse le formulaire, tu le remplis quand t'es prêt. Dès que c'est fait, l'expert lance.\""
+      ]
     }
   ]
 }

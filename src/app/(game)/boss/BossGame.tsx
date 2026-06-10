@@ -4,9 +4,16 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import type { Objection, ObjectionOption } from "@/lib/content/schema";
 import type { Boss } from "@/lib/bosses";
-import { recordAnswer, shuffle, startSession } from "@/lib/client";
+import { recordAnswer, shuffle, startSession, voiceMatchOption } from "@/lib/client";
+import { useVoicePref } from "@/lib/voice";
+import { VoiceAnswer, VoiceModeToggle } from "@/components/VoiceAnswer";
 import { SKILL_LABELS } from "@/lib/types";
 import Icon from "@/components/Icon";
+
+function worstIdx(opts: ObjectionOption[]): number {
+  const b = opts.findIndex((o) => o.quality === "bad");
+  return b >= 0 ? b : opts.length - 1;
+}
 
 const MAX_LIVES = 3;
 const VERDICT: Record<ObjectionOption["quality"], { cls: string; label: string }> = {
@@ -28,6 +35,17 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
   const [picked, setPicked] = useState<number | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [outcome, setOutcome] = useState<"win" | "lose" | null>(null);
+  const [voiceMode, setVoiceMode] = useVoicePref();
+  const [voiceScoring, setVoiceScoring] = useState(false);
+
+  async function submitVoice(spoken: string) {
+    if (revealed || !cur || !boss) return;
+    setVoiceScoring(true);
+    const idx = await voiceMatchOption({ prompt: cur.artisanLine, spoken, options: options.map((o) => o.text) });
+    setVoiceScoring(false);
+    const k = idx >= 0 ? idx : worstIdx(options);
+    pick(k, options[k]);
+  }
 
   function draw(p: Objection[]) {
     // appelé uniquement depuis des handlers (start/next), pas pendant le render
@@ -84,6 +102,9 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
         <div>
           <h1 className="display text-2xl">Boss d’objection</h1>
           <p className="text-[var(--ink-soft)] text-sm mt-1">Bats l’artisan en enchaînant les bonnes répliques. 3 vies. Une mauvaise réponse et tu encaisses.</p>
+        </div>
+        <div className="glass p-4 max-w-md">
+          <VoiceModeToggle on={voiceMode} onChange={setVoiceMode} />
         </div>
         <div className="grid sm:grid-cols-3 gap-3.5">
           {bosses.map((b) => (
@@ -153,25 +174,35 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
         </div>
       </div>
 
-      <div className="flex flex-col gap-3">
-        {options.map((opt, idx) => {
-          const isPicked = idx === picked;
-          let state = "";
-          if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
-          return (
-            <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
-              <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
-              <span className="txt">{opt.text}</span>
-              {revealed && (
-                <span className="fb">
-                  <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
-                  <span>{opt.feedback}</span>
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+      {voiceMode && !revealed ? (
+        <VoiceAnswer
+          key={cur.id}
+          prompt={cur.artisanLine}
+          hints={options.map((o) => o.text)}
+          submitting={voiceScoring}
+          onSubmit={submitVoice}
+        />
+      ) : (
+        <div className="flex flex-col gap-3">
+          {options.map((opt, idx) => {
+            const isPicked = idx === picked;
+            let state = "";
+            if (revealed) state = opt.quality === "good" ? "good" : isPicked ? "bad" : "dim";
+            return (
+              <button key={idx} disabled={revealed} onClick={() => pick(idx, opt)} className={`opt-b ${state}`}>
+                <span className="opt-key">{String.fromCharCode(65 + idx)}</span>
+                <span className="txt">{opt.text}</span>
+                {revealed && (
+                  <span className="fb">
+                    <span className={`verdict ${VERDICT[opt.quality].cls}`}>{VERDICT[opt.quality].label}</span>
+                    <span>{opt.feedback}</span>
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {revealed && (
         <button onClick={next} className="btn-arcade self-start mt-2">

@@ -26,31 +26,38 @@ function loadFile<T>(name: string, parse: (raw: unknown) => { items: T[] }): T[]
   }
 }
 
-// Cache module-level (rechargé à chaque process ; suffisant pour ce projet).
-let _quiz: QuizItem[] | null = null;
-let _objections: Objection[] | null = null;
-let _scenarios: Scenario[] | null = null;
+// Parcours : "web" (sites web, fichiers historiques) ou "ads" (Google Ads, fichiers `-ads`).
+export type Offer = "web" | "ads";
+const FILES: Record<Offer, { quiz: string; objections: string; scenarios: string }> = {
+  web: { quiz: "quiz.json", objections: "objections.json", scenarios: "scenarios.json" },
+  ads: { quiz: "quiz-ads.json", objections: "objections-ads.json", scenarios: "scenarios-ads.json" },
+};
+
+// Cache module-level par offre (rechargé à chaque process ; suffisant pour ce projet).
+const _quiz: Partial<Record<Offer, QuizItem[]>> = {};
+const _objections: Partial<Record<Offer, Objection[]>> = {};
+const _scenarios: Partial<Record<Offer, Scenario[]>> = {};
 let _fiches: Fiche[] | null = null;
 
-export function getQuiz(): QuizItem[] {
-  if (!_quiz) _quiz = loadFile("quiz.json", (r) => QuizFileSchema.parse(r));
-  return _quiz;
+export function getQuiz(offer: Offer = "web"): QuizItem[] {
+  if (!_quiz[offer]) _quiz[offer] = loadFile(FILES[offer].quiz, (r) => QuizFileSchema.parse(r));
+  return _quiz[offer]!;
 }
 
-export function getObjections(): Objection[] {
-  if (!_objections)
-    _objections = loadFile("objections.json", (r) => ObjectionsFileSchema.parse(r));
-  return _objections;
+export function getObjections(offer: Offer = "web"): Objection[] {
+  if (!_objections[offer])
+    _objections[offer] = loadFile(FILES[offer].objections, (r) => ObjectionsFileSchema.parse(r));
+  return _objections[offer]!;
 }
 
-export function getScenarios(): Scenario[] {
-  if (!_scenarios)
-    _scenarios = loadFile("scenarios.json", (r) => ScenariosFileSchema.parse(r));
-  return _scenarios;
+export function getScenarios(offer: Offer = "web"): Scenario[] {
+  if (!_scenarios[offer])
+    _scenarios[offer] = loadFile(FILES[offer].scenarios, (r) => ScenariosFileSchema.parse(r));
+  return _scenarios[offer]!;
 }
 
-export function getScenario(id: string): Scenario | undefined {
-  return getScenarios().find((s) => s.id === id);
+export function getScenario(id: string, offer: Offer = "web"): Scenario | undefined {
+  return getScenarios(offer).find((s) => s.id === id);
 }
 
 export function getFiches(): Fiche[] {
@@ -58,8 +65,8 @@ export function getFiches(): Fiche[] {
   return _fiches;
 }
 
-export function getDailyObjection(dateStr: string): Objection | undefined {
-  const objs = getObjections();
+export function getDailyObjection(dateStr: string, offer: Offer = "web"): Objection | undefined {
+  const objs = getObjections(offer);
   if (!objs.length) return undefined;
   let h = 0;
   for (let i = 0; i < dateStr.length; i++) h = (h * 31 + dateStr.charCodeAt(i)) >>> 0;
