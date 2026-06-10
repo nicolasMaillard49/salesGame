@@ -220,7 +220,7 @@ export default function SimGame({ scenarios, closingOnly = false, offer = "web" 
             <VoiceAnswer
               key={`${scenarioId}-${turn.phaseIndex}`}
               prompt={turn.artisanLine}
-              hints={turn.options.map((o) => o.text)}
+              hints={turn.options.filter((o) => o.quality === "good").map((o) => o.text)}
               submitting={voiceScoring}
               error={voiceErr}
               onSubmit={submitVoice}

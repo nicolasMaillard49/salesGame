@@ -108,7 +108,7 @@ export function VoiceAnswer({
 
         {showHints && hints && hints.length > 0 && (
           <div className="flex flex-col gap-2 border-t border-[var(--glass-edge)] pt-3">
-            <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">Pistes (inspire-toi, reformule à ta façon)</span>
+            <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">La bonne réponse — inspire-toi, reformule à ta façon</span>
             {hints.map((h, idx) => (
               <p key={idx} className="text-sm text-[var(--ink-soft)] leading-snug">
                 <span className="mono text-[var(--ink-faint)]">→</span> {h}

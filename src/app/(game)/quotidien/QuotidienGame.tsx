@@ -103,7 +103,7 @@ export default function QuotidienGame({
         <VoiceAnswer
           key={objection.id}
           prompt={objection.artisanLine}
-          hints={options.map((o) => o.text)}
+          hints={options.filter((o) => o.quality === "good").map((o) => o.text)}
           submitting={voiceScoring}
           error={voiceErr}
           onSubmit={submitVoice}

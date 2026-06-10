@@ -157,7 +157,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
         {item.type === "qcm" ? (
           voiceMode && !revealed ? (
             <div className="mt-6">
-              <VoiceAnswer key={item.id} prompt={item.prompt} hints={item.options ?? []} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceQcm} />
+              <VoiceAnswer key={item.id} prompt={item.prompt} hints={[item.options?.[Number(item.answer)] ?? ""].filter(Boolean)} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceQcm} />
             </div>
           ) : (
             <div className="mt-6 flex flex-col gap-3">
@@ -177,7 +177,7 @@ export default function QuizGame({ items }: { items: QuizItem[] }) {
           )
         ) : voiceMode && !revealed ? (
           <div className="mt-6">
-            <VoiceAnswer key={item.id} prompt={item.prompt} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceTrou} />
+            <VoiceAnswer key={item.id} prompt={item.prompt} hints={[String(item.answer)]} submitting={voiceScoring} error={voiceErr} onSubmit={submitVoiceTrou} />
           </div>
         ) : (
           <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); answer(null); }}>

@@ -181,7 +181,7 @@ export default function BossGame({ bosses, objections }: { bosses: Boss[]; objec
         <VoiceAnswer
           key={cur.id}
           prompt={cur.artisanLine}
-          hints={options.map((o) => o.text)}
+          hints={options.filter((o) => o.quality === "good").map((o) => o.text)}
           submitting={voiceScoring}
           error={voiceErr}
           onSubmit={submitVoice}

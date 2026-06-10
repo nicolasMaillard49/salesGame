@@ -237,7 +237,7 @@ export default function DrillGame({ items }: { items: Objection[] }) {
         <VoiceAnswer
           key={`${i}-${obj.id}`}
           prompt={obj.artisanLine}
-          hints={options.map((o) => o.text)}
+          hints={options.filter((o) => o.quality === "good").map((o) => o.text)}
           submitting={voiceScoring}
           error={voiceErr}
           onSubmit={submitVoice}

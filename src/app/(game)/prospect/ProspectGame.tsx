@@ -313,8 +313,8 @@ export default function ProspectGame({ offer = "web" }: { offer?: Offer }) {
 
               {showHints && (
                 <div className="flex flex-col gap-2 border-t border-[var(--glass-edge)] pt-3">
-                  <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">Pistes (inspire-toi, reformule à ta façon)</span>
-                  {turn.options.map((opt, idx) => (
+                  <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">La bonne réponse — inspire-toi, reformule à ta façon</span>
+                  {turn.options.filter((opt) => opt.quality === "good").map((opt, idx) => (
                     <p key={idx} className="text-sm text-[var(--ink-soft)] leading-snug">
                       <span className="mono text-[var(--ink-faint)]">→</span> {opt.text}
                     </p>
