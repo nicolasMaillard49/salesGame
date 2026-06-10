@@ -2,6 +2,11 @@ import { NextResponse, type NextRequest } from "next/server";
 import { isAuthenticated } from "@/lib/auth";
 import { hasAnthropic, voiceCheck, voiceMatch } from "@/lib/anthropic";
 
+// Pré-chauffage : réveille la fonction (évite le cold start au 1er « Valider »).
+export function GET() {
+  return NextResponse.json({ warm: true });
+}
+
 // Notation vocale tolérante pour les QCM/quiz.
 //  • mode "options" : { prompt, spoken, options:string[] } → { index } (meilleure correspondance par le sens).
 //  • mode "expected" : { prompt, spoken, expected:string } → { correct } (Quiz à trou).

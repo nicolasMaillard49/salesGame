@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { finishSession, recordAnswer, scoreVoiceReply, startSession } from "@/lib/client";
+import { finishSession, recordAnswer, scoreVoiceReply, startSession, warmVoiceEndpoints } from "@/lib/client";
 import { useVoice, useVoicePref } from "@/lib/voice";
 import { SKILL_LABELS, type Offer, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
@@ -43,9 +43,13 @@ export default function ProspectGame({ offer = "web" }: { offer?: Offer }) {
   const [voiceFeedback, setVoiceFeedback] = useState<string | null>(null);
   const [voiceQuality, setVoiceQuality] = useState<Quality | null>(null);
 
-  // L'artisan parle (TTS) à chaque nouvelle réplique, en mode vocal.
+  // L'artisan parle (TTS) à chaque nouvelle réplique, en mode vocal ; on pré-chauffe
+  // les endpoints de notation pendant que l'utilisateur prépare sa réponse.
   useEffect(() => {
-    if (voiceMode && turn && !revealed && !done) voice.speak(turn.artisanLine);
+    if (voiceMode && turn && !revealed && !done) {
+      warmVoiceEndpoints();
+      voice.speak(turn.artisanLine);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [turn?.artisanLine]);
 

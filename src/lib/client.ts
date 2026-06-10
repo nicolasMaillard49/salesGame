@@ -7,6 +7,19 @@ export function setOfferCookie(offer: Offer): void {
     document.cookie = `${OFFER_COOKIE}=${offer}; path=/; max-age=31536000; samesite=lax`;
 }
 
+// Pré-chauffe les fonctions serverless de notation vocale (réveille la lambda
+// pour que le 1er « Valider » ne paie pas le cold start). Best-effort, silencieux.
+let _lastWarm = 0;
+export function warmVoiceEndpoints(): void {
+  if (typeof window === "undefined") return;
+  const now = window.performance?.now?.() ?? 0;
+  if (now - _lastWarm < 20000) return; // au plus une salve / 20 s
+  _lastWarm = now;
+  for (const url of ["/api/voice-match", "/api/score", "/api/sim"]) {
+    fetch(url, { method: "GET", cache: "no-store" }).catch(() => {});
+  }
+}
+
 export async function startSession(gameType: GameType, scenarioId?: string): Promise<string | null> {
   const res = await fetch("/api/sessions", {
     method: "POST",

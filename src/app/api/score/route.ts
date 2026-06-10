@@ -4,6 +4,11 @@ import { getScenario } from "@/lib/content";
 import { customScenario, hasAnthropic, scoreReply, simPhases, type Score } from "@/lib/anthropic";
 import { isOffer } from "@/lib/types";
 
+// Pré-chauffage : réveille la fonction (évite le cold start au 1er « Valider »).
+export function GET() {
+  return NextResponse.json({ warm: true });
+}
+
 // Note la réplique libre dite à voix haute par le commercial (mode vocal).
 export async function POST(req: NextRequest) {
   if (!(await isAuthenticated()))

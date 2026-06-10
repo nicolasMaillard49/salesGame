@@ -5,6 +5,11 @@ import { customScenario, hasAnthropic, simPhases, simTurn, type SimHistoryItem, 
 import { isOffer } from "@/lib/types";
 import { fallbackTurn } from "@/lib/sim-fallback";
 
+// Pré-chauffage : réveille la fonction (évite le cold start entre les phases).
+export function GET() {
+  return NextResponse.json({ warm: true });
+}
+
 export async function POST(req: NextRequest) {
   if (!(await isAuthenticated()))
     return NextResponse.json({ error: "non autorisé" }, { status: 401 });

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useVoice } from "@/lib/voice";
+import { warmVoiceEndpoints } from "@/lib/client";
 import Icon from "@/components/Icon";
 
 // Bloc de réponse vocale réutilisable par tous les jeux. Monte une instance par
@@ -26,8 +27,10 @@ export function VoiceAnswer({
   const [reply, setReply] = useState("");
   const [showHints, setShowHints] = useState(false);
 
-  // L'énoncé est lu à voix haute à l'apparition de la question.
+  // L'énoncé est lu à voix haute à l'apparition de la question, et on pré-chauffe
+  // les endpoints de notation pendant que l'utilisateur formule sa réponse.
   useEffect(() => {
+    warmVoiceEndpoints();
     if (prompt) voice.speak(prompt);
     return () => voice.cancelSpeak();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -135,7 +138,7 @@ export function VoiceModeToggle({
     <div className="flex flex-col gap-2">
       <span className="eyebrow">Mode vocal</span>
       <div className="flex gap-2">
-        <button type="button" onClick={() => onChange(true)} className={`btn ${on ? "btn-primary" : "btn-glass"}`}>
+        <button type="button" onClick={() => { warmVoiceEndpoints(); onChange(true); }} className={`btn ${on ? "btn-primary" : "btn-glass"}`}>
           <Icon name="mic" size={16} /> Activé
         </button>
         <button type="button" onClick={() => onChange(false)} className={`btn ${!on ? "btn-primary" : "btn-glass"}`}>
