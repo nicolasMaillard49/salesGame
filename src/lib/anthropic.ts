@@ -69,6 +69,70 @@ function validateTurn(raw: unknown): SimTurn {
   return { artisanLine: o.artisanLine, options };
 }
 
+// --- Notation d'une réplique libre (mode vocal) ---
+export type Score = { quality: "good" | "ok" | "bad"; feedback: string };
+
+function scoreSystemPrompt(scenario: Scenario, node: PhaseNode): string {
+  const p = scenario.persona;
+  return [
+    `Tu es un coach de vente B2B exigeant mais bienveillant. Un commercial en formation répète un appel à froid auprès d'un artisan (${p.metier} à ${p.ville}, humeur ${p.humeur}). On lui vend un site web à 299€.`,
+    ``,
+    `Phase de l'appel : "${node.phase}". Objectif du commercial : ${node.objectif}.`,
+    `Une bonne réplique doit : ${node.bonneIntention}.`,
+    ``,
+    `On te donne la dernière réplique de l'artisan, puis la réplique que le commercial vient de DIRE (transcrite depuis sa voix — tolère les petites fautes de transcription, juge l'intention et le fond, pas l'orthographe).`,
+    `Évalue UNIQUEMENT cette réplique au regard de l'objectif et de la bonne intention ci-dessus.`,
+    ``,
+    `Barème :`,
+    `- "good" : suit la bonne intention, ton juste, fait avancer l'appel.`,
+    `- "ok" : acceptable mais imparfait (trop direct, manque d'écoute, occasion manquée…).`,
+    `- "bad" : contre-productif, erreur classique, casse le lien ou brûle une étape.`,
+    ``,
+    `Réponds UNIQUEMENT par un objet JSON valide, sans texte autour :`,
+    `{"quality":"good|ok|bad","feedback":"<1-2 phrases concrètes, à la 2e personne (« tu »), qui disent ce qui marche ou ce qu'il faut corriger>"}`,
+  ].join("\n");
+}
+
+function validateScore(raw: unknown): Score {
+  const o = raw as Partial<Score>;
+  const quality = (["good", "ok", "bad"].includes(o?.quality as string) ? o!.quality : "ok") as Score["quality"];
+  const feedback = typeof o?.feedback === "string" && o.feedback.trim() ? o.feedback.trim() : "Réplique enregistrée.";
+  return { quality, feedback };
+}
+
+/** Note la réplique libre du commercial via Claude. Lance une exception en cas d'échec. */
+export async function scoreReply(
+  scenario: Scenario,
+  node: PhaseNode,
+  artisanLine: string,
+  userReply: string
+): Promise<Score> {
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const msg = await client.messages.create({
+    model: MODEL,
+    max_tokens: 300,
+    system: scoreSystemPrompt(scenario, node),
+    messages: [
+      {
+        role: "user",
+        content: [
+          artisanLine ? `Dernière réplique de l'artisan : « ${artisanLine} »` : `(Début de l'appel.)`,
+          `Réplique dite par le commercial : « ${userReply} »`,
+          ``,
+          `Note-la au format JSON demandé.`,
+        ].join("\n"),
+      },
+    ],
+  });
+
+  const text = msg.content
+    .filter((b): b is Anthropic.TextBlock => b.type === "text")
+    .map((b) => b.text)
+    .join("");
+
+  return validateScore(extractJson(text));
+}
+
 /** Un tour de simulateur via Haiku. Lance une exception en cas d'échec (le caller gère le fallback). */
 export async function simTurn(
   scenario: Scenario,

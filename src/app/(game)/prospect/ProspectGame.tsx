@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { finishSession, recordAnswer, startSession } from "@/lib/client";
+import { finishSession, recordAnswer, scoreVoiceReply, startSession } from "@/lib/client";
+import { useVoice } from "@/lib/voice";
 import { SKILL_LABELS, type Quality, type SkillId } from "@/lib/types";
 import Icon from "@/components/Icon";
 import ArtisanAvatar from "@/components/ArtisanAvatar";
@@ -18,8 +19,11 @@ const VERDICT: Record<Quality, { cls: string; label: string }> = {
   bad: { cls: "v-bad", label: "À éviter" },
 };
 
+const VOICE_PREF_KEY = "prospect-voice-mode";
+
 export default function ProspectGame() {
   const [persona, setPersona] = useState<Persona>({ metier: "", ville: "", humeur: "plutôt méfiant", contexte: "" });
+  const [voiceMode, setVoiceMode] = useState(false);
   const [started, setStarted] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [turn, setTurn] = useState<Turn | null>(null);
@@ -32,6 +36,32 @@ export default function ProspectGame() {
   const [answers, setAnswers] = useState(0);
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // — État propre au mode vocal —
+  const voice = useVoice();
+  const [reply, setReply] = useState("");
+  const [showHints, setShowHints] = useState(false);
+  const [scoring, setScoring] = useState(false);
+  const [voiceFeedback, setVoiceFeedback] = useState<string | null>(null);
+  const [voiceQuality, setVoiceQuality] = useState<Quality | null>(null);
+
+  // Préférence mode vocal mémorisée d'une partie à l'autre. On rend `false` côté
+  // serveur puis on ajuste au montage : patron hydration-safe (la lecture
+  // localStorage ne peut pas vivre dans l'initialiseur sans risquer un mismatch).
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync unique au montage depuis localStorage
+    if (typeof window !== "undefined" && window.localStorage.getItem(VOICE_PREF_KEY) === "1") setVoiceMode(true);
+  }, []);
+  function chooseVoiceMode(on: boolean) {
+    setVoiceMode(on);
+    if (typeof window !== "undefined") window.localStorage.setItem(VOICE_PREF_KEY, on ? "1" : "0");
+  }
+
+  // L'artisan parle (TTS) à chaque nouvelle réplique, en mode vocal.
+  useEffect(() => {
+    if (voiceMode && turn && !revealed && !done) voice.speak(turn.artisanLine);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [turn?.artisanLine]);
 
   async function fetchTurn(phaseIndex: number, hist: Line[]): Promise<Turn | null> {
     setLoading(true);
@@ -65,6 +95,7 @@ export default function ProspectGame() {
     }
   }
 
+  // — Chemin QCM (mode clavier) —
   async function pick(idx: number, opt: SimOption) {
     if (revealed || !turn) return;
     setPicked(idx);
@@ -77,10 +108,36 @@ export default function ProspectGame() {
     }
   }
 
+  // — Chemin vocal : on note la réplique libre via Claude —
+  async function submitVoice() {
+    if (revealed || !turn || !reply.trim()) return;
+    voice.stop();
+    voice.cancelSpeak();
+    setScoring(true);
+    const res = await scoreVoiceReply({
+      scenarioId: "custom",
+      persona,
+      phaseIndex: turn.phaseIndex,
+      artisanLine: turn.artisanLine,
+      userReply: reply.trim(),
+    });
+    setScoring(false);
+    const quality: Quality = res?.quality ?? "ok";
+    setVoiceQuality(quality);
+    setVoiceFeedback(res?.feedback ?? "Réplique enregistrée.");
+    setRevealed(true);
+    setAnswers((a) => a + 1);
+    if (quality === "good") setGoods((g) => g + 1);
+    if (sessionId) {
+      const r = await recordAnswer({ sessionId, skill: turn.phase, quality, itemRef: `custom:${turn.phase}`, chosen: reply.trim() });
+      if (r) setXp((x) => x + r.xpGained);
+    }
+  }
+
   async function next() {
     if (!turn) return;
-    const chosen = turn.options[picked ?? 0];
-    const newHistory: Line[] = [...history, { role: "commercial", text: chosen.text }];
+    const chosenText = voiceMode ? reply.trim() : turn.options[picked ?? 0].text;
+    const newHistory: Line[] = [...history, { role: "commercial", text: chosenText }];
     const nextIndex = turn.phaseIndex + 1;
     if (nextIndex >= turn.totalPhases) {
       if (sessionId) finishSession(sessionId, goods, xp);
@@ -93,7 +150,22 @@ export default function ProspectGame() {
       setTurn(t);
       setPicked(null);
       setRevealed(false);
+      // reset vocal pour le tour suivant
+      setReply("");
+      setShowHints(false);
+      setVoiceFeedback(null);
+      setVoiceQuality(null);
+      voice.reset();
       setHistory([...newHistory, { role: "artisan", text: t.artisanLine }]);
+    }
+  }
+
+  function toggleMic() {
+    if (voice.listening) voice.stop();
+    else {
+      voice.cancelSpeak();
+      // Le texte reconnu s'ajoute à la réplique en cours (événementiel).
+      voice.start((text) => setReply((prev) => (prev ? `${prev} ${text}`.trim() : text)));
     }
   }
 
@@ -122,6 +194,28 @@ export default function ProspectGame() {
             <span className="eyebrow">Contexte (optionnel)</span>
             <input className="field" value={persona.contexte} onChange={(e) => setPersona({ ...persona, contexte: e.target.value })} placeholder="bosse seul, que du bouche-à-oreille, pas de site…" />
           </label>
+
+          {/* Choix du mode vocal avant chaque partie */}
+          <div className="flex flex-col gap-2 pt-1">
+            <span className="eyebrow">Mode vocal</span>
+            <div className="flex gap-2">
+              <button type="button" onClick={() => chooseVoiceMode(true)} className={`btn ${voiceMode ? "btn-primary" : "btn-glass"}`}>
+                <Icon name="mic" size={16} /> Activé
+              </button>
+              <button type="button" onClick={() => chooseVoiceMode(false)} className={`btn ${!voiceMode ? "btn-primary" : "btn-glass"}`}>
+                Désactivé
+              </button>
+            </div>
+            <p className="text-xs text-[var(--ink-faint)]">
+              {voiceMode
+                ? "Tu répondras à l’oral et l’artisan te parlera. Coup de pouce dispo si tu cales."
+                : "Tu choisis tes répliques au clavier (mode classique)."}
+            </p>
+            {voiceMode && !voice.supported && (
+              <p className="text-xs text-[var(--bad)]">⚠️ Ton navigateur ne gère pas la reconnaissance vocale — utilise Chrome ou Edge, ou laisse le mode désactivé.</p>
+            )}
+          </div>
+
           <button type="submit" disabled={!persona.metier || !persona.ville} className="btn btn-primary self-start">
             Lancer l’appel <Icon name="phone" size={16} strokeWidth={2.2} />
           </button>
@@ -149,6 +243,8 @@ export default function ProspectGame() {
     );
   }
 
+  const modelLine = turn?.options.find((o) => o.quality === "good") ?? null;
+
   return (
     <div className="flex flex-col gap-5">
       {turn && (
@@ -157,7 +253,12 @@ export default function ProspectGame() {
             <span className="hud-chip"><Icon name="phone" size={15} /> {SKILL_LABELS[turn.phase]}</span>
             <span className="counter-label">Phase <b>{turn.phaseIndex + 1}</b>/{turn.totalPhases} · {persona.metier}</span>
           </div>
-          <span className="score-chip"><Icon name="target" size={15} /> {goods}/{answers} · {xp} XP{turn.fallback && " · démo"}</span>
+          <div className="flex items-center gap-2">
+            {voiceMode && (
+              <span className="hud-chip"><Icon name="mic" size={14} /> vocal</span>
+            )}
+            <span className="score-chip"><Icon name="target" size={15} /> {goods}/{answers} · {xp} XP{turn.fallback && " · démo"}</span>
+          </div>
         </div>
       )}
       <Transcript history={history} metier={persona.metier} />
@@ -168,7 +269,98 @@ export default function ProspectGame() {
         </div>
       )}
       {loading && <p className="mono text-sm text-[var(--ink-faint)] animate-pulse">L&apos;artisan réfléchit…</p>}
-      {turn && !loading && (
+
+      {turn && !loading && voiceMode && (
+        <>
+          <div className="flex items-center justify-between gap-3">
+            <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)]">Ta réplique — à l&apos;oral</p>
+            <button
+              type="button"
+              onClick={() => voice.speak(turn.artisanLine)}
+              className="mono text-[11px] text-[var(--ink-faint)] hover:text-[var(--ink)] flex items-center gap-1"
+              title="Réécouter l'artisan"
+            >
+              <Icon name="volume" size={14} /> réécouter
+            </button>
+          </div>
+
+          {!revealed && (
+            <div className="glass p-5 flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={toggleMic}
+                  disabled={!voice.supported || scoring}
+                  className={`btn ${voice.listening ? "btn-primary" : "btn-glass"}`}
+                  style={voice.listening ? { boxShadow: "0 0 0 4px var(--good-wash, rgba(70,210,130,.25))" } : undefined}
+                >
+                  <Icon name="mic" size={16} />
+                  {voice.listening ? "J'écoute… (clique pour stopper)" : "Parler"}
+                </button>
+                {voice.listening && <span className="mono text-xs text-[var(--good)] animate-pulse">● enregistrement</span>}
+              </div>
+
+              <textarea
+                className="field min-h-[80px] resize-y"
+                value={reply + (voice.interim ? ` ${voice.interim}` : "")}
+                onChange={(e) => setReply(e.target.value)}
+                placeholder={voice.supported ? "Parle, ou écris ta réplique ici…" : "Ton navigateur ne gère pas le micro — écris ta réplique ici."}
+              />
+
+              {voice.error && <p className="text-xs text-[var(--bad)]">{voice.error}</p>}
+
+              <div className="flex items-center gap-3 flex-wrap">
+                <button type="button" onClick={submitVoice} disabled={!reply.trim() || scoring} className="btn-arcade">
+                  {scoring ? "Le coach évalue…" : "Envoyer ma réplique"}
+                  {!scoring && <Icon name="arrowRight" size={16} strokeWidth={2.5} />}
+                </button>
+                <button type="button" onClick={() => setShowHints((s) => !s)} className="btn btn-glass">
+                  💡 {showHints ? "Cacher" : "Coup de pouce"}
+                </button>
+                {reply.trim() && !scoring && (
+                  <button type="button" onClick={() => { setReply(""); voice.reset(); }} className="mono text-xs text-[var(--ink-faint)] hover:text-[var(--ink)]">
+                    effacer
+                  </button>
+                )}
+              </div>
+
+              {showHints && (
+                <div className="flex flex-col gap-2 border-t border-[var(--glass-edge)] pt-3">
+                  <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">Pistes (inspire-toi, reformule à ta façon)</span>
+                  {turn.options.map((opt, idx) => (
+                    <p key={idx} className="text-sm text-[var(--ink-soft)] leading-snug">
+                      <span className="mono text-[var(--ink-faint)]">→</span> {opt.text}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {revealed && voiceQuality && (
+            <div className="glass p-5 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <span className={`verdict ${VERDICT[voiceQuality].cls}`}>{VERDICT[voiceQuality].label}</span>
+                <span className="mono text-xs text-[var(--ink-faint)]">ce que tu as dit</span>
+              </div>
+              <p className="text-[var(--ink)]">« {reply.trim()} »</p>
+              {voiceFeedback && <p className="text-sm text-[var(--ink-soft)] leading-snug">{voiceFeedback}</p>}
+              {modelLine && voiceQuality !== "good" && (
+                <div className="border-t border-[var(--glass-edge)] pt-3">
+                  <span className="mono text-[10px] uppercase tracking-wide text-[var(--ink-faint)]">Réplique modèle</span>
+                  <p className="text-sm text-[var(--good)] leading-snug mt-1">« {modelLine.text} »</p>
+                </div>
+              )}
+              <button onClick={next} className="btn-arcade self-start mt-1">
+                {turn.phaseIndex + 1 >= turn.totalPhases ? "Terminer l'appel" : "Phase suivante"}
+                <Icon name="arrowRight" size={16} strokeWidth={2.5} />
+              </button>
+            </div>
+          )}
+        </>
+      )}
+
+      {turn && !loading && !voiceMode && (
         <>
           <p className="mono text-[11px] uppercase tracking-wide text-[var(--ink-faint)]">Ta réplique</p>
           <div className="flex flex-col gap-3">

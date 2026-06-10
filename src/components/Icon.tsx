@@ -36,6 +36,9 @@ const PATHS: Record<string, React.ReactNode> = {
   handshake: (<><path d="M8 13l3 3 2-2 3 3" /><path d="M3 9l4-3 5 2 5-2 4 3-5 5-2-2" /></>),
   eye: (<><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" /></>),
   bridge: (<><path d="M3 8c4 4 14 4 18 0" /><path d="M3 8v9M21 8v9M9 13v4M15 13v4M3 13h18" /></>),
+  // — Mode vocal —
+  mic: (<><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0" /><path d="M12 18v3M8 21h8" /></>),
+  volume: (<><path d="M4 9v6h4l5 4V5L8 9z" /><path d="M16 9a3 3 0 0 1 0 6M18.5 7a6 6 0 0 1 0 10" /></>),
 };
 
 export type IconName = keyof typeof PATHS;

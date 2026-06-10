@@ -32,6 +32,25 @@ export async function recordAnswer(payload: {
   return res.json();
 }
 
+export type VoiceScore = { quality: Quality; feedback: string; fallback?: boolean } | null;
+
+// Note une réplique libre dite à l'oral (mode vocal du simulateur Prospect).
+export async function scoreVoiceReply(payload: {
+  scenarioId: string;
+  persona?: { metier: string; ville: string; humeur?: string; contexte?: string };
+  phaseIndex: number;
+  artisanLine: string;
+  userReply: string;
+}): Promise<VoiceScore> {
+  const res = await fetch("/api/score", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) return null;
+  return res.json();
+}
+
 export async function finishSession(id: string, score: number, xp: number): Promise<void> {
   await fetch("/api/sessions", {
     method: "PATCH",
