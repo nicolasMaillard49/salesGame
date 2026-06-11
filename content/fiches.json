@@ -590,8 +590,7 @@
         "Commission palier 1 (1–10 clients) : 125€/mois/client → 1 250€/mois à 10 clients.",
         "Commission palier 2 (11–20 clients) : 150€/mois/client → 2 750€/mois à 20 clients.",
         "Commission palier 3 (21+ clients) : 225€/mois/client → 5 000€/mois à 30 clients.",
-        "Plan d'action : 3 RDV/jour = 5 000€ MRR en 30 jours. 1 RDV/jour = 5 000€ MRR en 90 jours.",
-        "Stats Léo : 70% des RDV acceptent la semaine test. 50% des semaines test finissent en closing."
+        "Plan d'action : 3 RDV/jour = 5 000€ MRR en 30 jours. 1 RDV/jour = 5 000€ MRR en 90 jours."
       ],
       "examples": [
         "\"Notre service c'est simple — on met votre entreprise en tête de Google quand quelqu'un cherche [votre métier] dans votre zone. On vous propose de tester ça gratuitement pendant 1 semaine.\"",
@@ -626,7 +625,8 @@
         "OBJ 'Je suis déjà sur Google' : \"Parfait, ça veut dire qu'on peut simplement vous rendre plus visible pendant une semaine pour voir la différence.\"",
         "OBJ 'Envoyez-moi un mail' : \"Je peux vous envoyer un résumé, mais ça ne remplacera pas les 10 minutes où on regarde ensemble votre cas. On se cale un créneau rapide et ensuite je vous envoie tout par mail.\"",
         "OBJ 'Pas le budget' : \"Justement, on démarre avec un petit budget pour tester sans engager de grosses sommes. L'idée n'est pas d'investir — c'est de vérifier si ça peut vous apporter quelque chose.\"",
-        "OBJ 'Je fonctionne au bouche-à-oreille' : \"C'est très bien, ça ne remplace pas ça. On ajoute juste une source en plus quand les gens cherchent directement sur Google.\""
+        "OBJ 'Je fonctionne au bouche-à-oreille' : \"C'est très bien, ça ne remplace pas ça. On ajoute juste une source en plus quand les gens cherchent directement sur Google.\"",
+        "OBJ 'Pas le temps / je dois réfléchir' : \"Bien sûr. Là on ne prend pas de décision long terme — c'est juste 10 minutes pour voir si ça a du sens pour vous. Vous êtes dispo mardi matin ou mercredi après-midi ?\""
       ]
     },
     {
@@ -662,6 +662,8 @@
         "OBJ 750€ : \"Je comprends que ça fasse grimacer — c'est normal, tu sais pas encore ce que ça rapporte. C'est justement l'idée du test : tu vois les résultats, on fait les calculs ensemble, et tu décides toi-même si c'est rentable. Le prix ne s'applique que si tu veux continuer.\"",
         "OBJ 100€ Google : \"Le pire scénario : ça ne donne rien, t'es fixé pour 100€. C'est le prix de savoir. Si tu ne testes pas — la situation reste exactement comme aujourd'hui. L'idée du test c'est pas de prendre un risque, c'est de voir si on peut changer ta situation rapidement.\"",
         "OBJ 'J'ai déjà essayé, ça n'a pas marché' : \"C'est exactement pour ça qu'on fait un test court. On ne te demande pas de repartir sur des mois — juste de voir si ça réagit différemment quand c'est configuré correctement par un expert dédié.\"",
+        "OBJ 'J'ai déjà assez de travail' : \"Justement, l'idée n'est pas de t'inonder. On démarre doucement pour voir la qualité des demandes, pas la quantité. Tu gardes totalement la main — tu réponds à ce qui t'intéresse.\"",
+        "OBJ 'J'y connais rien à Google' : \"Parfait — c'est exactement pour ça qu'on a un expert Google Ads dédié qui s'en occupe entièrement. Toi tu reçois juste les appels. Le formulaire c'est 2 minutes — après c'est lui qui gère tout.\"",
         "OBJ 'Je dois réfléchir / en parler' : \"Bien sûr. On prend pas de décision sur du long terme — c'est juste une semaine pour voir. Je te laisse le formulaire, tu le remplis quand t'es prêt. Dès que c'est fait, l'expert lance.\""
       ]
     }

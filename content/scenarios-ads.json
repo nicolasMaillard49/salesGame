@@ -44,9 +44,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« Encore un budget pub en plus, j'ai déjà payé le site pour rien » — isoler le frein du budget pub additionnel.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "Attendez, donc en plus du site faut que je remette de l'argent dans de la pub ? J'ai déjà payé un site qui me rapporte rien, là."
+          "objectif": "« Même 100€, j'ai pas envie de les jeter par la fenêtre » — recadrer le budget pub Google (~100€ payés à Google, plafonné) comme le « prix de savoir ».",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "Attends, donc faut quand même que je sorte de l'argent ? Même 100 balles, j'ai pas envie de les jeter par la fenêtre, moi."
         }
       ]
     },
@@ -94,9 +94,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« Google Ads ça marche pas, c'est du vent » — traiter l'incrédulité sur l'efficacité du levier.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "Franchement la pub Google moi j'y crois pas, on me clique dessus juste pour faire grimper la facture, ça marche pas ce truc."
+          "objectif": "« J'ai déjà essayé Google Ads, ça n'a rien donné » — retourner l'échec passé : test court, configuré par un expert dédié, budget plafonné.",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "La pub Google j'ai déjà testé tout seul, j'ai cramé du budget pour rien, ça marche pas ce truc."
         }
       ]
     },
@@ -144,9 +144,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« Je suis déjà premier sur Google, j'ai pas besoin de vous » — montrer la différence entre résultat naturel et tête de page.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "Écoutez quand je tape mon nom je suis premier sur Google, donc tout ça je l'ai déjà, j'ai pas besoin de vous."
+          "objectif": "« J'ai déjà assez de boulot, je vais pas savoir où donner de la tête » — rassurer sur le volume (qualité, pas quantité) et le contrôle : il choisit ce qu'il prend.",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "Écoutez avec mes clients fidèles et les syndics j'ai déjà bien assez de boulot, je vais pas savoir où donner de la tête."
         }
       ]
     },
@@ -194,9 +194,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« Je vais réfléchir, je vous rappelle » — neutraliser la procrastination en rappelant le zéro risque du test.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "Écoutez ça a l'air intéressant, mais là je vais y réfléchir tranquillement et je vous rappelle, d'accord ?"
+          "objectif": "« Faut que je réfléchisse / que j'en parle » — accepter le délai mais laisser le formulaire pour garder le fil attaché (c'est lui qui déclenche le lancement).",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "Écoutez ça a l'air intéressant, mais là je vais y réfléchir tranquillement, faut que j'en parle."
         }
       ]
     },
@@ -244,9 +244,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« 750€ par mois c'est beaucoup trop cher » — recadrer le coût face à la valeur d'un seul chantier gagné.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "750 balles par mois ? Non mais ça va pas, c'est beaucoup trop cher pour moi votre truc."
+          "objectif": "« 750€ par mois quand même… » — accueillir la réaction au prix, rappeler qu'il ne s'applique qu'APRÈS les résultats, puis silence (ne pas négocier).",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "750 balles par mois quand même… c'est beaucoup pour une boîte comme la mienne."
         }
       ]
     },
@@ -294,9 +294,9 @@
         },
         {
           "phase": "prix_close",
-          "objectif": "« J'ai déjà une agence qui s'occupe de ma com et de ma pub » — différencier le test gratuit ciblé du contrat existant sans résultats.",
-          "bonneIntention": "annoncer le modèle (gratuit + ~100€ Google), ancrer la valeur, isoler le frein et closer la semaine test.",
-          "artisanSeed": "Écoutez j'ai déjà une agence qui s'occupe de tout ça, ma com, ma pub, donc je vois pas trop ce que vous pouvez m'apporter de plus."
+          "objectif": "« Moi Google, les pubs, tout ça j'y connais rien » — lever la peur technique : l'expert dédié gère tout, lui ne fait que recevoir les appels (formulaire = 2 min).",
+          "bonneIntention": "annoncer les chiffres dans l'ordre (gratuit → ~100€ payés à Google → 750€/mois TTC seulement si continuation), ancrer la valeur, isoler le frein et closer en faisant remplir le formulaire pendant l'appel.",
+          "artisanSeed": "Écoutez moi Google, les pubs, tout ça, j'y connais rien du tout, c'est pour ça que je touche pas à ces trucs-là."
         }
       ]
     }

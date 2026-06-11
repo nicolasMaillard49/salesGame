@@ -52,13 +52,23 @@ export const OBJECTION_SKILLS = [
 ] as const;
 
 // Objections propres à l'offre Google Ads (cible : artisans qui ont déjà un site).
+// Fidèles à la formation 10K (« Scripts Google Ads ») : 4 objections de
+// prospection (P1, vouvoiement) + 5 de closing semaine test (P2, tutoiement),
+// plus « réfléchir » commune aux deux phases.
 export const ADS_OBJECTION_SKILLS = [
-  "obj_ads_jai_agence",
-  "obj_ads_marche_pas",
-  "obj_ads_budget_pub",
-  "obj_ads_deja_premier",
-  "obj_ads_trop_complique",
-  "obj_ads_arnaque_google",
+  // Phase 1 — Prospection (décrocher la visio)
+  "obj_ads_cest_pub",
+  "obj_ads_deja_google",
+  "obj_ads_envoyez_mail",
+  "obj_ads_boa",
+  // Phase 2 — Closing semaine test
+  "obj_ads_prix_750",
+  "obj_ads_budget_100",
+  "obj_ads_assez_boulot",
+  "obj_ads_deja_essaye",
+  "obj_ads_connais_rien",
+  // Commune P1 + P2
+  "obj_ads_reflechir_ads",
 ] as const;
 
 export const ALL_SKILLS = [
@@ -120,13 +130,19 @@ export const SKILL_LABELS: Record<SkillId, string> = {
   obj_jai_quelquun: "« J'ai déjà quelqu'un qui gère ça »",
   obj_clientele_pas_internet: "« Ma clientèle n'est pas sur internet »",
   obj_confirmer_rdv: "« Finalement j'ai pas le temps pour le RDV »",
-  // Objections Google Ads
-  obj_ads_jai_agence: "« J'ai déjà une agence pour ma pub »",
-  obj_ads_marche_pas: "« Google Ads ça marche pas »",
-  obj_ads_budget_pub: "« Encore un budget pub en plus »",
-  obj_ads_deja_premier: "« Je suis déjà bien placé sur Google »",
-  obj_ads_trop_complique: "« Google c'est trop compliqué pour moi »",
-  obj_ads_arnaque_google: "« Google c'est de l'arnaque, ça vide le budget »",
+  // Objections Google Ads — Phase 1 (prospection)
+  obj_ads_cest_pub: "« C'est de la pub alors ? »",
+  obj_ads_deja_google: "« Je suis déjà sur Google »",
+  obj_ads_envoyez_mail: "« Envoyez-moi un mail »",
+  obj_ads_boa: "« Je fonctionne au bouche-à-oreille »",
+  // Objections Google Ads — Phase 2 (closing semaine test)
+  obj_ads_prix_750: "« 750 €/mois quand même »",
+  obj_ads_budget_100: "« Même 100 €, je veux pas les jeter »",
+  obj_ads_assez_boulot: "« J'ai déjà assez de travail »",
+  obj_ads_deja_essaye: "« J'ai déjà essayé, ça n'a rien donné »",
+  obj_ads_connais_rien: "« J'y connais rien à Google »",
+  // Commune P1 + P2
+  obj_ads_reflechir_ads: "« Pas le temps / je dois réfléchir »",
 };
 
 export function isSkillId(v: string): v is SkillId {

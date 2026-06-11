@@ -1,870 +1,6 @@
 {
   "items": [
     {
-      "id": "obj_ads_jai_agence",
-      "label": "J'ai déjà une agence",
-      "artisanLine": "Merci mais j'ai déjà une agence qui s'occupe de toute ma com.",
-      "options": [
-        {
-          "text": "Parfait, c'est plutôt bon signe que vous investissiez déjà là-dessus. Juste pour comprendre : votre agence, elle vous fait apparaître en haut de Google quand quelqu'un tape votre métier + votre ville ? Parce que c'est exactement ce qu'on teste, et pendant une semaine c'est gratuit — vous comparez, et vous gardez le meilleur.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide sans débattre, on isole ce que l'agence fait vraiment, et on recadre sur le test gratuit sans risque (pas besoin de tout casser pour comparer)."
-        },
-        {
-          "text": "D'accord, mais nous on est sûrement meilleurs qu'eux sur Google Ads, on a plus d'expérience.",
-          "quality": "ok",
-          "feedback": "Acceptable mais on se met en concurrence frontale sans rien savoir de l'agence : il défend son choix au lieu de comparer. Mieux vaut creuser ce que l'agence fait puis proposer le test gratuit."
-        },
-        {
-          "text": "Ah, vous avez une agence ? Bon ben désolé du dérangement, bonne journée.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on raccroche sur la première objection. Avoir une agence ne veut pas dire être visible en haut de Google — on n'a même pas creusé."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_jai_agence",
-      "label": "Quelqu'un gère déjà ma pub",
-      "artisanLine": "C'est mon neveu qui me fait un peu de pub sur internet, ça me suffit.",
-      "options": [
-        {
-          "text": "C'est top d'avoir quelqu'un de confiance là-dessus. Concrètement, quand un client tape votre métier + votre ville sur Google, vous ressortez en haut aujourd'hui ? Si oui c'est parfait. Sinon, on vous met en avant gratuitement pendant une semaine et vous voyez la différence — votre neveu peut même regarder comment c'est configuré.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on ne dénigre pas le neveu, on isole le vrai sujet (être en haut de Google), et on propose le test gratuit comme complément, pas comme remplacement."
-        },
-        {
-          "text": "Franchement votre neveu c'est gentil mais c'est pas son métier, nous on est des pros.",
-          "quality": "ok",
-          "feedback": "Acceptable sur le fond mais le ton dénigre quelqu'un de proche : il se braque pour le défendre. On recadre mieux sur le résultat (être visible) que sur la personne."
-        },
-        {
-          "text": "Bon ben si vous avez déjà quelqu'un je vais pas insister, au revoir.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lâche sans avoir vérifié s'il est réellement visible en haut de Google ni présenté le test gratuit qui ne l'engage à rien."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_jai_agence",
-      "label": "Mon agence fait déjà du Google Ads",
-      "artisanLine": "Mon agence me fait déjà du Google Ads, donc je vois pas l'intérêt de votre truc.",
-      "options": [
-        {
-          "text": "Super, donc vous connaissez déjà le principe, ça va aller vite. Dites-moi : vous savez sur quels mots-clés ils vous positionnent et combien de demandes ça vous rentre par semaine ? Parce que souvent les gens paient sans voir les chiffres clairement. Notre semaine test est gratuite — on vous montre exactement ce que ça donne, et vous comparez en vrai.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on transforme le 'j'en ai déjà' en avantage, on creuse s'il a de la visibilité réelle sur les résultats, puis on ancre le test gratuit comme moyen de comparer concrètement."
-        },
-        {
-          "text": "Ils vous prennent combien ? Parce que nous on est sûrement moins chers à la fin.",
-          "quality": "ok",
-          "feedback": "Acceptable, le prix peut intéresser, mais on attaque par le tarif avant d'avoir ancré la valeur ni vérifié ses résultats actuels. On vend du prix au lieu de vendre une comparaison gratuite."
-        },
-        {
-          "text": "Les agences c'est de l'arnaque, ils vous prennent votre argent sans rien faire.",
-          "quality": "bad",
-          "feedback": "Erreur classique : dénigrer son prestataire actuel le pousse à le défendre et casse votre crédibilité. On ne débat pas, on propose de comparer gratuitement."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_jai_agence",
-      "label": "Je suis sous contrat avec mon agence",
-      "artisanLine": "De toute façon je suis engagé avec mon agence, je peux pas changer comme ça.",
-      "options": [
-        {
-          "text": "Et c'est normal de respecter votre engagement, je vous le demande pas. Justement, comme notre semaine test est gratuite et que le budget pub va directement à Google, ça touche pas à votre contrat. Vous testez en parallèle, vous comparez ce que chacun vous rentre, et vous décidez en connaissance de cause plus tard. Vous risquez rien à voir, si ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on respecte le contrat (pas de bras de fer), on lève le frein en montrant que le test ne l'engage à rien et n'entre pas en conflit, et on ancre le 'zéro risque'."
-        },
-        {
-          "text": "Vous êtes engagé jusqu'à quand ? Je vous rappelle à ce moment-là si vous voulez.",
-          "quality": "ok",
-          "feedback": "Acceptable, on garde le contact, mais on reporte tout au lieu de proposer le test gratuit qui peut se faire en parallèle dès maintenant sans toucher au contrat. On perd le momentum."
-        },
-        {
-          "text": "Un contrat ça se résilie, faut juste envoyer un recommandé, je peux vous expliquer.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on le pousse à un conflit avec son prestataire actuel alors que rien ne l'oblige à résilier pour faire un test gratuit en parallèle."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_jai_agence",
-      "label": "Mon agence dit que Google Ads marche pas pour moi",
-      "artisanLine": "Mon agence m'a dit que pour mon métier Google Ads ça vaut pas le coup, alors je vous crois pas plus.",
-      "options": [
-        {
-          "text": "Je comprends que vous soyez prudent après ça. Mais regardez : votre service, des gens le tapent sur Google avec votre ville à côté, c'est mathématique. La seule façon de savoir si ça vaut le coup pour VOUS, c'est de tester — et chez nous c'est gratuit une semaine. Si l'agence avait raison, vous serez fixé pour 0€. Si elle avait tort, vous récupérez des clients qu'on vous disait inaccessibles.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide le doute, on ramène au fait concret (les gens cherchent déjà), et on transforme le test gratuit en arbitre neutre — 'le prix de savoir' est nul ici puisque c'est offert."
-        },
-        {
-          "text": "Honnêtement votre agence a tort, Google Ads marche pour tous les artisans, c'est prouvé.",
-          "quality": "ok",
-          "feedback": "Acceptable mais c'est une affirmation contre une autre : il n'a aucune raison de vous croire vous plutôt qu'eux. Mieux vaut laisser le test trancher que d'imposer votre avis."
-        },
-        {
-          "text": "Bah si votre agence le dit, elle s'y connaît mieux que moi, vous avez raison.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on abandonne en donnant raison à l'objection. On n'a même pas proposé le test gratuit qui ne coûte rien et qui tranche réellement."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_jai_agence",
-      "label": "J'ai déjà un community manager",
-      "artisanLine": "J'ai déjà une nana qui me gère mes réseaux, Insta, Facebook, tout ça.",
-      "options": [
-        {
-          "text": "C'est très bien, les réseaux ça travaille votre image. Mais c'est pas le même client : sur Insta les gens scrollent pour se divertir, sur Google ils tapent activement '[votre métier] + [ville]' parce qu'ils en ont besoin maintenant. Nous on capte ceux-là — ceux qui sont déjà en train de chercher. On vous montre ça gratuitement une semaine, ça vient en plus de vos réseaux, pas à la place.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on distingue clairement les deux canaux (image vs intention d'achat), on ne dévalorise pas le travail existant, et on positionne le test gratuit comme un ajout d'une source de clients qui cherchent déjà."
-        },
-        {
-          "text": "Les réseaux c'est bien mais ça ramène pas vraiment de clients, Google c'est mieux.",
-          "quality": "ok",
-          "feedback": "Acceptable mais on dénigre le travail de sa CM et on affirme sans expliquer pourquoi Google capte une intention différente. Le contraste 'scroll vs recherche active' est plus convaincant."
-        },
-        {
-          "text": "Ah parfait, alors elle peut s'occuper de Google Ads aussi, je vous laisse, au revoir.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on assimile réseaux et Google Ads (deux métiers différents) et on raccroche sans présenter la semaine test gratuite ni la différence d'intention."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "Les gens cliquent pas sur les pubs",
-      "artisanLine": "Moi le premier, je clique jamais sur les pubs en haut de Google, donc ça sert à rien votre truc.",
-      "options": [
-        {
-          "text": "Je vous entends, et c'est vrai pour ce qu'on cherche pas. Mais quand vous tapez 'plombier + Marseille' à 22h parce que ça fuit, vous cliquez sur quoi ? Le premier qui peut venir. Les gens qui cherchent VOTRE métier sont déjà en train d'acheter, ils cliquent pour résoudre leur problème. La seule façon d'en avoir le cœur net, c'est de tester une semaine — et c'est gratuit.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide son ressenti puis on le recadre avec un exemple concret d'intention d'achat (le client en urgence clique), et on referme sur le test gratuit qui tranche sans débattre."
-        },
-        {
-          "text": "Détrompez-vous, les études montrent que 65% des gens cliquent sur les annonces en haut.",
-          "quality": "ok",
-          "feedback": "Acceptable, le chiffre peut marquer, mais opposer une stat à son vécu personnel le braque souvent ('pas moi'). L'exemple concret de l'urgence parle plus que la statistique."
-        },
-        {
-          "text": "Si vous cliquez pas sur les pubs c'est que vous êtes pas un client type de toute façon.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on contredit l'artisan de façon condescendante. Il se braque et on n'a rien recadré sur l'intention de recherche ni proposé le test."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "J'y crois pas, ça marche pas",
-      "artisanLine": "Google Ads franchement j'y crois pas, c'est du flan votre histoire.",
-      "options": [
-        {
-          "text": "Et vous avez raison de pas y croire sur parole — moi non plus j'aimerais pas. C'est exactement pour ça qu'on fait une semaine test gratuite : vous croyez rien, vous regardez juste les chiffres à la fin. Soit ça vous rentre des demandes et là vous y croirez parce que vous l'aurez vu, soit ça donne rien et vous serez fixé. On lance, on regarde ensemble ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on ne cherche pas à le convaincre par des mots, on retourne son scepticisme en argument pour le test gratuit (la preuve par les chiffres), fidèle au 'on teste d'abord'."
-        },
-        {
-          "text": "Pourtant ça marche super bien, j'ai plein de clients artisans qui sont ravis.",
-          "quality": "ok",
-          "feedback": "Acceptable mais c'est de la preuve sociale qui sonne comme du baratin face à quelqu'un de fermé. Mieux vaut s'appuyer sur SON futur test que sur des clients qu'il ne connaît pas."
-        },
-        {
-          "text": "Bon écoutez, si vous y croyez pas je peux rien faire pour vous, tant pis.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on abandonne au lieu d'utiliser le scepticisme comme raison de tester gratuitement. Le test est justement fait pour les sceptiques."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "J'ai déjà essayé, ça n'a rien donné",
-      "artisanLine": "J'ai déjà testé Google Ads y'a deux ans, j'ai cramé 300 balles pour rien.",
-      "options": [
-        {
-          "text": "Ça m'aide de le savoir, et je comprends que ça vous ait refroidi. La plupart du temps quand ça donne rien, c'est que c'était mal configuré — mauvais mots-clés, mauvaise zone, pas de suivi. C'est exactement pour ça qu'on fait un test court avec un expert qui pilote. On vous demande pas de repartir des mois, juste de voir si ça réagit différemment quand c'est bien fait — et cette fois notre service est gratuit.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : reprend exactement l'objection 'j'ai déjà essayé' du playbook — on valide, on attribue l'échec à la config, et on propose un test court et encadré, sans nier son expérience."
-        },
-        {
-          "text": "Ouais mais y'a deux ans c'était pas pareil, maintenant Google a beaucoup changé.",
-          "quality": "ok",
-          "feedback": "Acceptable, l'évolution de l'outil est un vrai argument, mais on n'explique pas pourquoi ça marchera mieux pour LUI ni qu'un expert pilote cette fois. Reste vague."
-        },
-        {
-          "text": "Si ça a pas marché c'est que vous vous y êtes mal pris, c'est pas compliqué pourtant.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on rejette la faute sur lui de façon culpabilisante. Il se braque et défend sa précédente expérience au lieu de vous écouter."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "Dans mon métier ça marche pas",
-      "artisanLine": "Pour mon métier ça marche pas ça, les gens passent pas par Google pour trouver un menuisier.",
-      "options": [
-        {
-          "text": "Justement, c'est ce qu'on entend souvent et c'est presque toujours faux. Là maintenant, si je tape 'menuisier + votre ville' sur Google, y'a des résultats et des gens qui les cliquent toutes les semaines — la demande existe, la question c'est juste qui ils trouvent. Aujourd'hui c'est vos concurrents. On teste une semaine gratuitement pour voir combien de recherches il y a vraiment dans votre zone. Vous serez fixé.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on contre la croyance 'pas mon métier' par un fait vérifiable (les recherches existent dans sa ville), on pointe que les concurrents captent cette demande, et on referme sur le test gratuit qui chiffre la réalité."
-        },
-        {
-          "text": "Tous les métiers marchent sur Google maintenant, croyez-moi, y'a pas d'exception.",
-          "quality": "ok",
-          "feedback": "Acceptable mais c'est une généralité qu'il peut balayer. Lui montrer que les recherches existent concrètement dans SA ville est bien plus convaincant qu'une affirmation globale."
-        },
-        {
-          "text": "Ah bon ? Pourtant je pensais que la menuiserie c'était un bon créneau, vous êtes sûr ?",
-          "quality": "bad",
-          "feedback": "Erreur classique : on se laisse déstabiliser et on valide son objection au lieu de la recadrer avec le fait que la demande existe dans sa zone."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "Le bouche-à-oreille me suffit",
-      "artisanLine": "Moi mes clients viennent par bouche-à-oreille, ça a toujours marché, j'ai pas besoin de Google.",
-      "options": [
-        {
-          "text": "Et c'est une excellente base, c'est même la preuve que vous bossez bien — gardez ça précieusement. Mais le bouche-à-oreille vous amène les clients de vos clients, pas ceux qui tapent juste votre métier sur Google sans connaître personne dans votre réseau. Ceux-là, aujourd'hui, ils tombent sur vos concurrents. On ajoute juste cette source-là en plus, une semaine, gratuitement. Vous gardez le bouche-à-oreille et vous voyez ce que Google ajoute par-dessus.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : reprend l'objection 'bouche-à-oreille' du playbook — on valorise sans opposer, on montre que Google capte un public que le réseau ne touche pas, et on positionne le test gratuit comme un ajout."
-        },
-        {
-          "text": "Le bouche-à-oreille c'est bien mais c'est aléatoire, avec Google c'est régulier au moins.",
-          "quality": "ok",
-          "feedback": "Acceptable mais on minimise son canal préféré au lieu de le valoriser. Le 'ça vient en plus, pas à la place' passe beaucoup mieux et le braque pas."
-        },
-        {
-          "text": "Le bouche-à-oreille ça suffit plus aujourd'hui, faut vivre avec son temps.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lui fait la leçon et on dévalorise ce qui le fait vivre. Il se braque et défend son bouche-à-oreille au lieu d'écouter."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_marche_pas",
-      "label": "Ça marche que pour les grosses boîtes",
-      "artisanLine": "Ces trucs-là ça marche pour les grosses entreprises, pas pour un artisan tout seul comme moi.",
-      "options": [
-        {
-          "text": "C'est tout l'inverse en fait, et c'est une bonne nouvelle pour vous. Une grosse boîte vise toute la France et se bat avec des gros budgets. Vous, on vous met devant les gens de VOTRE ville qui cherchent VOTRE service — un terrain où vous êtes hyper pertinent et où le budget reste petit. C'est même plus efficace pour un artisan local. On le teste gratuitement une semaine sur votre zone, vous verrez.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on retourne l'objection (le local est un avantage pour le petit, pas un handicap), on ancre la valeur sur sa pertinence géographique, puis on referme sur le test gratuit ciblé sur sa zone."
-        },
-        {
-          "text": "Mais non ça marche pour tout le monde, même pour les petits artisans, vous inquiétez pas.",
-          "quality": "ok",
-          "feedback": "Acceptable mais rassurant à vide : on affirme sans expliquer POURQUOI le local avantage justement l'artisan. L'argument du ciblage géographique est ce qui convainc."
-        },
-        {
-          "text": "C'est sûr que c'est plus fait pour les grosses structures, mais on peut quand même tenter.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on valide à moitié son objection, ce qui sème le doute et dévalorise l'offre avant même de l'avoir présentée correctement."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "Encore un budget pub en plus",
-      "artisanLine": "Encore un budget pub à sortir, j'en ai marre de payer pour de la pub partout.",
-      "options": [
-        {
-          "text": "Je comprends, et c'est pour ça que je veux être clair : ce budget-là, c'est pas un abonnement de plus qui part dans le vide. C'est environ 100€ sur la semaine, payé directement à Google, et c'est ce qui met votre annonce devant des gens qui cherchent déjà votre service. Notre travail à nous est gratuit pendant le test. Le pire scénario, c'est 100€ pour savoir si ça vous rentre des clients. Vous risquez juste d'être fixé.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on isole la nature du budget (pas un frais de gestion mais l'investissement pub direct chez Google), on rappelle la gratuité du service, et on recadre le 100€ comme le prix de savoir — fidèle au playbook."
-        },
-        {
-          "text": "C'est que 100€ sur la semaine hein, c'est rien du tout pour un artisan.",
-          "quality": "ok",
-          "feedback": "Acceptable, on minimise bien le montant, mais dire 'c'est rien' à quelqu'un qui en a marre de payer peut agacer. Mieux vaut expliquer où va l'argent et ce que ça rapporte avant de relativiser."
-        },
-        {
-          "text": "Faut bien investir pour gagner, qui paie pas perd, c'est la base du business.",
-          "quality": "bad",
-          "feedback": "Erreur classique : leçon de business condescendante qui ne traite pas son ras-le-bol. On n'a ni isolé le frein ni ancré la valeur du test gratuit."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "Payer Google ça me saoule",
-      "artisanLine": "Payer Google par-dessus le marché, franchement ça me saoule, ils sont déjà assez riches.",
-      "options": [
-        {
-          "text": "Je vous suis, c'est agaçant de se dire qu'on remplit leurs poches. Mais voyez-le autrement : ce 100€, c'est pas un cadeau à Google, c'est ce qui vous achète une place devant des clients qui tapent déjà votre métier. Si un seul d'entre eux vous appelle pour un chantier, c'est largement remboursé. Et pendant la semaine test, vous payez QUE ça — notre service est offert. On regarde ce que ça rapporte avant de juger si ça vaut le coup ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide l'agacement, on recadre le paiement à Google comme un achat de visibilité (pas une taxe), on ancre le ROI d'un seul chantier, et on referme sur 'on regarde les résultats d'abord'."
-        },
-        {
-          "text": "C'est sûr Google se gave, mais on a pas trop le choix si on veut être visible aujourd'hui.",
-          "quality": "ok",
-          "feedback": "Acceptable mais fataliste : on confirme son ressenti négatif sans ancrer la valeur ni le ROI. 'On a pas le choix' donne l'impression de subir, pas d'investir."
-        },
-        {
-          "text": "Bah oui faut payer Google, c'est comme ça pour tout le monde, on y peut rien.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on balaie son objection sans la traiter et on présente la dépense comme une fatalité subie, ce qui renforce son rejet."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "Je préfère garder mon argent",
-      "artisanLine": "Là c'est pas trop la période, je préfère garder mes sous plutôt que de les mettre dans la pub.",
-      "options": [
-        {
-          "text": "C'est sage de faire attention, surtout en ce moment. Mais regardez les deux cas : si vous gardez vos 100€, votre situation reste exactement comme aujourd'hui — même nombre de demandes. Si vous les mettez sur la semaine test, soit ça vous rentre des chantiers et ça change la donne, soit ça donne rien et vous êtes fixé pour 100€. C'est pas une dépense, c'est le prix de savoir si on peut vous amener plus de clients. Et le service, lui, est gratuit.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : reprend mot pour mot la logique 'prix de savoir / changer sa situation' du playbook, valide la prudence, et recadre le 100€ comme un test à faible enjeu plutôt qu'une dépense."
-        },
-        {
-          "text": "100€ c'est vraiment rien, vous allez pas vous priver pour 100€ quand même ?",
-          "quality": "ok",
-          "feedback": "Acceptable pour minimiser, mais on n'ancre pas le retour possible ni le 'prix de savoir'. Et 'vous allez pas vous priver' peut sonner condescendant pour quelqu'un qui serre les budgets."
-        },
-        {
-          "text": "Si vous investissez pas vous resterez toujours au même point, faut prendre des risques.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lui fait la morale et on parle de 'risque' alors que le test est justement à risque quasi nul. On dramatise au lieu de rassurer avec le 'prix de savoir'."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "100€ par semaine c'est trop",
-      "artisanLine": "100€ sur une semaine ça fait 400 par mois quand même, c'est énorme pour de la pub.",
-      "options": [
-        {
-          "text": "Attention, on parle de 100€ sur la SEMAINE TEST, pas d'un engagement à ce rythme. C'est juste pour voir si ça réagit. Et c'est vous qui pilotez le budget pub ensuite, à votre rythme — on commence petit, sur votre service le plus rentable, et on fait grandir ça au tempo de votre boîte, pas avant. L'idée du test c'est de dépenser le minimum pour vérifier si ça marche chez vous. On regarde ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on corrige le malentendu (100€ = la semaine test, pas un rythme mensuel imposé), on rassure sur le contrôle du budget et la montée progressive ('au rythme de ta boîte'), fidèle au playbook."
-        },
-        {
-          "text": "Oui mais après si ça marche vous serez content de réinvestir, donc 400€ ça paraîtra normal.",
-          "quality": "ok",
-          "feedback": "Acceptable mais on projette une dépense future plus grosse alors qu'il trouve déjà ça énorme : on aggrave l'objection au lieu de recadrer sur le coût réel du test (100€, une fois)."
-        },
-        {
-          "text": "400€ par mois c'est le prix à payer pour avoir des clients, c'est pas négociable.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on valide son calcul à 400€/mois (faux pour le test) et on durcit le ton. On confirme sa peur au lieu de la lever."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "C'est combien après le test",
-      "artisanLine": "Et ça me coûte combien votre truc une fois la semaine gratuite finie ? Faut pas me prendre pour un pigeon.",
-      "options": [
-        {
-          "text": "Question normale, et je vais être transparent : si à la fin de la semaine vous voyez que ça vous rentre des clients et que vous voulez continuer, notre gestion c'est 750€/mois TTC. Mais ça, vous le décidez SEULEMENT après avoir vu les résultats — zéro engagement pendant le test. La semaine, vous payez juste le budget pub à Google, environ 100€. On fait les calculs ensemble à la fin et vous tranchez en connaissance de cause.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : transparence totale sur le 750€/mois, on rassure en rappelant que ça ne s'applique qu'après résultats et sans engagement, fidèle au playbook (et au 'silence après le prix' pour ne pas se justifier davantage)."
-        },
-        {
-          "text": "On verra ça plus tard, concentrons-nous déjà sur le test gratuit pour l'instant.",
-          "quality": "ok",
-          "feedback": "Acceptable de recentrer sur le test, mais éluder le prix après qu'il a dit 'me prenez pas pour un pigeon' nourrit sa méfiance. La transparence le rassure davantage ici."
-        },
-        {
-          "text": "Oh c'est pas très cher vous verrez, on en reparlera, vous inquiétez pas pour ça.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on noie le prix dans le flou alors qu'il demande explicitement de la clarté. Le flou confirme sa peur d'être 'pigeonné'."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_budget_pub",
-      "label": "J'ai déjà un site, pourquoi payer encore",
-      "artisanLine": "J'ai déjà payé mon site, pourquoi je devrais encore casquer pour de la pub par-dessus ?",
-      "options": [
-        {
-          "text": "Bonne question. Un site sans visiteurs, c'est une vitrine dans une rue où personne passe — il est joli mais il vous ramène rien. La pub, c'est ce qui amène les gens devant cette vitrine au moment où ils cherchent votre service. Vous avez déjà fait le plus gros en ayant le site ; là on lui amène juste du trafic qualifié. Et on le teste gratuitement une semaine pour voir combien de demandes ça génère.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : reprend l'image du playbook ('un site sans trafic c'est une coquille vide'), valorise l'investissement déjà fait et présente la pub comme ce qui le rentabilise, puis ancre le test gratuit."
-        },
-        {
-          "text": "Parce qu'un site tout seul ça suffit pas, faut le pousser sinon personne le voit.",
-          "quality": "ok",
-          "feedback": "Acceptable, l'idée est juste, mais c'est sec et un peu donneur de leçon. L'image de la vitrine rend la même idée plus parlante et valorise son site existant."
-        },
-        {
-          "text": "Bah un site ça suffit pas aujourd'hui, faut suivre, tout le monde fait de la pub.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lui fait la leçon et on dévalorise son site sans expliquer le mécanisme (trafic) ni proposer le test. Il se sent pris en défaut."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "Je suis déjà premier sur Google",
-      "artisanLine": "Je suis déjà premier sur Google quand on tape mon nom, donc votre truc me sert à rien.",
-      "options": [
-        {
-          "text": "Parfait, ça veut dire que les gens qui vous connaissent déjà vous trouvent — c'est super. Mais tapez plutôt votre MÉTIER + votre ville, sans votre nom, comme le ferait quelqu'un qui vous connaît pas encore : vous ressortez où là ? C'est sur cette recherche-là qu'on vous met en haut, pour capter les nouveaux clients qui ne vous cherchent pas vous, mais votre service. On le teste gratuitement une semaine et on compare.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : reprend l'objection 'je suis déjà sur Google' du playbook, fait la distinction cruciale entre 'tape mon nom' (déjà clients) et 'tape mon métier' (nouveaux clients), puis ancre le test gratuit."
-        },
-        {
-          "text": "Être premier sur votre nom c'est bien, mais sur les mots-clés métier c'est pas pareil du tout.",
-          "quality": "ok",
-          "feedback": "Acceptable, la distinction est correcte, mais affirmée sans le faire vivre. Lui faire taper lui-même 'métier + ville' rend la prise de conscience bien plus forte."
-        },
-        {
-          "text": "Ah si vous êtes déjà premier alors c'est bon, vous avez pas besoin de moi, désolé.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on confond 'premier sur son nom' et 'visible sur son métier' et on abandonne. La majorité de la demande passe par la recherche métier, pas le nom."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "Je suis bien référencé naturellement",
-      "artisanLine": "Mon site remonte tout seul dans Google, j'ai un bon référencement naturel, pas besoin de payer.",
-      "options": [
-        {
-          "text": "C'est une vraie force, gardez-le. Mais regardez votre écran quand vous cherchez votre métier + ville : il y a 3-4 annonces tout en haut AVANT les résultats naturels. Vos clients tombent dessus en premier, et souvent ils cliquent sans descendre. Le naturel et la pub se complètent — la pub vous met au-dessus de tout pendant qu'on teste. On regarde une semaine, gratuitement, combien de clics en plus ça vous apporte ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valorise le SEO existant, on montre le fait concret (les annonces passent au-dessus du naturel), on positionne pub et naturel comme complémentaires, et on ancre le test gratuit."
-        },
-        {
-          "text": "Le référencement naturel c'est bien mais c'est fragile, un jour vous pouvez tout perdre.",
-          "quality": "ok",
-          "feedback": "Acceptable (la dépendance à l'algo est réelle) mais ça joue sur la peur et dévalorise son acquis. Montrer que les pubs passent AU-DESSUS du naturel est plus factuel et moins anxiogène."
-        },
-        {
-          "text": "Le naturel c'est dépassé maintenant, tout le monde fait de la pub, faut s'y mettre.",
-          "quality": "bad",
-          "feedback": "Erreur classique : faux et donneur de leçon. On dénigre un atout réel et on le braque au lieu de montrer la complémentarité."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "J'ai déjà assez de clients",
-      "artisanLine": "Je suis déjà bien visible et j'ai déjà plus de boulot que je peux en prendre, j'ai pas besoin de plus.",
-      "options": [
-        {
-          "text": "C'est une excellente position, et tant mieux. Du coup deux choses : si vous croulez sous le boulot, ça veut dire que vous pourriez choisir les chantiers les plus rentables au lieu de tout prendre. Et si un jour ça ralentit, c'est dur de relancer la machine du jour au lendemain. Le test gratuit vous permet justement de voir le potentiel sans rien risquer, pour l'avoir sous le coude. Vous êtes complet sur quel type de chantier en ce moment ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide, puis on ouvre deux angles (sélectionner les meilleurs chantiers / sécuriser contre un creux à venir) et on rebascule sur une question diagnostic, sans forcer — fidèle à l'esprit du playbook."
-        },
-        {
-          "text": "Justement, plus de demandes ça vous permettrait d'augmenter vos prix et de trier les clients.",
-          "quality": "ok",
-          "feedback": "Acceptable, l'angle 'choisir/augmenter les prix' est bon, mais asséné sans valider d'abord sa situation ni proposer le test gratuit comme filet de sécurité. Manque de douceur."
-        },
-        {
-          "text": "Ah bon vous avez assez de clients ? Bon ben tant mieux pour vous, au revoir alors.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lâche immédiatement. Un carnet plein aujourd'hui ne dit rien de demain, et on n'a même pas semé l'intérêt d'avoir le test 'sous le coude'."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "J'ai déjà la fiche Google gratuite",
-      "artisanLine": "J'ai déjà ma fiche Google Maps avec mes avis, je ressors dedans, pourquoi payer en plus ?",
-      "options": [
-        {
-          "text": "Bien joué d'avoir la fiche, c'est la base et il faut la garder. Mais elle vous fait ressortir surtout auprès des gens proches qui cherchent sur la carte. Les annonces Google, elles, s'affichent tout en haut sur N'IMPORTE quelle recherche métier + ville, au-dessus de la carte et des concurrents qui ont aussi une fiche. C'est ce qui fait la différence quand plusieurs artisans ont des avis comme vous. On teste ça gratuitement une semaine et on compare le nombre de contacts.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valorise la fiche, on explique précisément ce que la pub ajoute (positionnement au-dessus de tout, même face à des concurrents bien notés), et on referme sur le test gratuit comparatif."
-        },
-        {
-          "text": "La fiche Google c'est bien mais ça suffit pas, faut de la pub pour vraiment ressortir.",
-          "quality": "ok",
-          "feedback": "Acceptable mais vague : on n'explique pas ce que la pub ajoute concrètement par rapport à la fiche. Sans le 'pourquoi', il ne voit pas l'intérêt de payer en plus."
-        },
-        {
-          "text": "Une fiche Google c'est pas suffisant du tout, ça sert presque à rien aujourd'hui.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on dénigre un atout réel et utile. Il défend sa fiche et perd confiance dans votre conseil."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "Mes concurrents y sont pas",
-      "artisanLine": "De toute façon dans mon coin personne fait de pub Google, donc à quoi bon, je suis tranquille.",
-      "options": [
-        {
-          "text": "Mais c'est exactement la meilleure nouvelle que vous pouviez m'annoncer ! Si vos concurrents n'y sont pas, la place en haut est libre et elle coûte beaucoup moins cher à prendre. Vous seriez le seul devant tous ceux qui cherchent votre métier dans le coin. C'est une fenêtre qui se referme dès qu'un concurrent s'y met. On le teste gratuitement une semaine pendant que c'est encore open bar. On lance ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on retourne l'objection en opportunité (terrain libre = moins cher + monopole de visibilité), on crée une urgence réelle, et on referme sur le test gratuit — sans jamais dire 'prends ton temps'."
-        },
-        {
-          "text": "Raison de plus pour s'y mettre avant eux, comme ça vous prenez l'avantage tout de suite.",
-          "quality": "ok",
-          "feedback": "Acceptable, le 'avant eux' est le bon angle, mais expliqué trop vite : on ne dit pas que la place libre est moins chère ni qu'il serait seul visible. L'argument perd de sa force."
-        },
-        {
-          "text": "C'est vrai que si personne en fait, c'est peut-être que ça marche pas chez vous.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on valide une fausse conclusion (absence = inefficacité) alors que c'est une opportunité. On démolit notre propre offre."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_deja_premier",
-      "label": "Je paie déjà pour ressortir",
-      "artisanLine": "Je paie déjà un truc pour remonter sur Google, on m'a vendu du référencement, donc je suis déjà placé.",
-      "options": [
-        {
-          "text": "C'est bien de vous être déjà occupé de ça. Mais souvent ce qu'on vend comme 'référencement', c'est du naturel qui met des mois et qui reste sous les annonces. Faites le test devant moi : tapez votre métier + ville. Si vous êtes vraiment tout en haut, parfait, je vous laisse tranquille. Si vous êtes en dessous des annonces ou plus bas que prévu, on vous met devant gratuitement une semaine et vous voyez la différence en vrai.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide, on distingue le 'référencement' vendu (souvent du SEO lent) de la place en haut via les annonces, et on fait vérifier en live avant de proposer le test gratuit. On isole le vrai positionnement."
-        },
-        {
-          "text": "Ce qu'on vous a vendu c'est sûrement pas de la pub, c'est autre chose, faut voir ce que c'est.",
-          "quality": "ok",
-          "feedback": "Acceptable, on cherche à clarifier ce qu'il paie, mais c'est flou et un peu inquisiteur. Lui faire taper sa recherche pour constater sa position réelle est plus parlant et concret."
-        },
-        {
-          "text": "Ah si vous payez déjà pour ça, alors vous êtes couvert, pas besoin de moi en plus.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on suppose qu'il est bien placé sans vérifier. Payer du 'référencement' ne veut pas dire être en haut sur les recherches métier — on abandonne à tort."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "C'est trop compliqué pour moi",
-      "artisanLine": "Google Ads, internet, tout ça c'est trop compliqué pour moi, j'y comprends rien.",
-      "options": [
-        {
-          "text": "Et c'est justement pour ça qu'on existe — vous n'avez rien à comprendre ni à toucher. Votre métier c'est de faire votre boulot, le nôtre c'est de gérer Google à votre place. Notre expert configure tout, lance les campagnes, surveille. Vous, vous recevez juste des appels de clients. Zéro technique de votre côté. On vous montre comment ça marche en 10 minutes en visio, et pendant la semaine test c'est gratuit. Vous êtes plutôt dispo le matin ou l'après-midi ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on transforme le frein en argument (c'est notre job, pas le sien), on insiste sur le 'on fait tout pour vous' du playbook, et on enchaîne sur le CTA RDV avec question fermée matin/après-midi."
-        },
-        {
-          "text": "C'est pas si compliqué que ça en fait, vous verrez, je vous expliquerai les bases.",
-          "quality": "ok",
-          "feedback": "Acceptable mais on lui promet d'apprendre alors qu'il dit ne rien y comprendre : ça l'effraie au lieu de le rassurer. Le bon réflexe est 'vous n'avez RIEN à faire, on gère tout'."
-        },
-        {
-          "text": "Ah si vous êtes pas à l'aise avec internet ça va être dur, c'est sûr que c'est technique.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on confirme et amplifie sa peur. On lui donne une raison de fuir au lieu de le décharger de toute la technique."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "Je suis pas doué avec l'informatique",
-      "artisanLine": "Moi l'informatique et moi ça fait deux, j'ai même du mal avec mon téléphone.",
-      "options": [
-        {
-          "text": "Pas de souci, vous n'aurez besoin de rien faire sur un ordinateur. La seule chose qu'on vous demande, c'est de répondre à 2-3 questions simples sur votre métier — comme là au téléphone — et de mettre le budget pub sur votre compte Google, on vous guide pas à pas. Tout le reste, c'est l'expert qui le fait. Vous recevez les clients par appel, point. C'est fait exprès pour être simple. On regarde ça ensemble une semaine, gratuitement ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on rassure totalement (aucune manip technique), on décrit précisément le peu qu'il a à faire (répondre, et être accompagné pour le budget), et on referme sur le test gratuit. Décharge la peur sans la nier."
-        },
-        {
-          "text": "T'inquiète, c'est super simple, même ma grand-mère y arriverait, c'est rien du tout.",
-          "quality": "ok",
-          "feedback": "Acceptable dans l'intention rassurante, mais 'même ta grand-mère' peut vexer quelqu'un déjà complexé par l'informatique. Mieux vaut détailler concrètement le peu qu'il a à faire."
-        },
-        {
-          "text": "Faudra quand même que vous appreniez à gérer un peu le compte vous-même au début.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lui annonce qu'il devra gérer un compte alors qu'il a peur de la technique. C'est le contraire du 'on fait tout pour vous' — il fuit."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "J'ai pas le temps de m'en occuper",
-      "artisanLine": "J'ai déjà pas le temps de faire ma compta, alors gérer de la pub Google en plus, non merci.",
-      "options": [
-        {
-          "text": "Justement, c'est conçu pour vous prendre zéro temps. Vous ne gérez rien : l'expert s'occupe de tout, et vous, vous bossez tranquille sur vos chantiers. La seule chose qui vous arrive, ce sont des appels de clients qui cherchaient déjà votre service. C'est même l'inverse d'une charge : ça vous amène du boulot sans que vous leviez le petit doigt. Pour vous montrer ça, il me faut juste 10 minutes en visio — matin ou après-midi pour vous ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on lève le frein temps (vous ne gérez rien, on fait tout), on inverse en bénéfice (ça amène du boulot sans effort), et on enchaîne sur le CTA RDV avec question fermée — fidèle au playbook."
-        },
-        {
-          "text": "Ça prend pas beaucoup de temps en fait, juste un petit suivi de temps en temps.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'un petit suivi de temps en temps' sous-entend qu'il aura quand même quelque chose à faire : ça nourrit son objection. Le bon message est 'vous ne gérez rien du tout'."
-        },
-        {
-          "text": "Faut savoir prendre le temps pour les choses importantes, c'est votre business quand même.",
-          "quality": "bad",
-          "feedback": "Erreur classique : leçon culpabilisante qui ignore son problème de temps au lieu de le décharger. On le braque."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "Je vais rien comprendre aux résultats",
-      "artisanLine": "Même si vous le mettez en place, moi je vais rien comprendre aux chiffres, aux statistiques tout ça.",
-      "options": [
-        {
-          "text": "Aucun souci, on traduit tout en français simple. À la fin de la semaine on fait un point ensemble en 10 minutes, et la seule chose qui compte c'est : combien de personnes vous ont contacté grâce à ça, et combien ça peut vous rapporter. Pas de jargon, pas de tableaux à déchiffrer. On regarde juste si ça vous a amené des clients, oui ou non. Et tant que c'est le test, ça vous coûte rien. Ça vous va de tester sur cette base-là ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on rassure sur la simplicité du bilan (un seul indicateur qui compte : des clients ou pas), on reprend le 'on fait les calculs ensemble' du playbook, et on referme sur le test gratuit."
-        },
-        {
-          "text": "Je vous enverrai un rapport détaillé chaque semaine avec toutes les stats, vous verrez.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'rapport détaillé avec toutes les stats' est exactement ce qui l'inquiète. Mieux vaut promettre un bilan simple à l'oral centré sur le nombre de clients."
-        },
-        {
-          "text": "Vous inquiétez pas, vous avez pas besoin de comprendre, faites-moi juste confiance.",
-          "quality": "bad",
-          "feedback": "Erreur classique : 'faites-moi confiance sans comprendre' inquiète au lieu de rassurer, surtout sur un sujet d'argent. On doit rendre les résultats lisibles, pas opaques."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "Faut créer un compte, des accès, c'est lourd",
-      "artisanLine": "Faut créer un compte Google, donner des accès, mettre une carte bancaire... ça me paraît lourd tout ça.",
-      "options": [
-        {
-          "text": "Je comprends que listé comme ça, ça paraisse fastidieux. En vrai c'est un formulaire de 2 minutes qu'on remplit ensemble pendant qu'on est en ligne, et l'expert s'occupe de créer le compte et de lancer. Le seul truc à vous, c'est de mettre le budget pub directement sur votre compte Google — comme ça l'argent reste chez vous, c'est pas nous qui le touchons. On vous accompagne à chaque étape. On le fait maintenant, tant que vous m'avez en ligne ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on dédramatise (formulaire 2 min, expert fait le reste), on rassure sur le contrôle de l'argent (budget chez Google, pas chez nous), et on pousse à remplir en live — fidèle à l'étape formulaire du playbook."
-        },
-        {
-          "text": "Oui y'a quelques étapes à faire mais une fois que c'est fait c'est tranquille, vous verrez.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'quelques étapes à faire' confirme sa crainte de lourdeur sans rassurer sur l'accompagnement ni sur les 2 minutes réelles. Reste vague."
-        },
-        {
-          "text": "C'est vrai que la mise en place c'est un peu chiant, mais bon faut bien passer par là.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on valide que c'est pénible et on dramatise l'effort au lieu de montrer que c'est rapide et accompagné. On lui donne une raison de repousser."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_trop_complique",
-      "label": "J'ai peur de faire une bêtise",
-      "artisanLine": "J'ai peur d'appuyer sur un mauvais bouton et de tout casser ou de faire une grosse bêtise.",
-      "options": [
-        {
-          "text": "Soyez tranquille, vous ne pouvez rien casser : c'est l'expert qui a la main sur le compte et qui configure tout. Vous, vous n'avez aucun bouton à toucher. Le seul moment où vous intervenez, c'est pour valider 2-3 infos avec moi et mettre le budget sur le compte, et là je vous guide en direct, étape par étape. Y'a zéro risque de faire une bêtise. On le fait ensemble tranquillement, et la semaine test est gratuite. Ça vous rassure ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on lève la peur de mal faire (l'expert gère, vous ne touchez rien), on précise le peu qu'il fait sous accompagnement direct, et on referme sur le test gratuit. Décharge totale du côté technique."
-        },
-        {
-          "text": "Y'a pas vraiment de risque, et si vous vous trompez on pourra toujours corriger après.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'si vous vous trompez on corrigera' sous-entend qu'il pourrait se tromper : ça entretient sa peur. Le bon message est qu'il ne touche à rien et donc ne peut pas se tromper."
-        },
-        {
-          "text": "Faut juste faire attention où vous cliquez, mais bon une fois lancé ça devrait aller.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on lui met la responsabilité des clics sur le dos alors qu'il a peur. C'est l'inverse du 'on fait tout pour vous' — on amplifie l'angoisse."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "Google c'est de l'arnaque",
-      "artisanLine": "Google Ads c'est de l'arnaque, ça clique dans le vide et ça bouffe le budget sans rien rapporter.",
-      "options": [
-        {
-          "text": "Je comprends la méfiance, y'a des gens mal accompagnés à qui c'est arrivé. La différence, c'est qu'on cible UNIQUEMENT les gens qui tapent déjà votre métier + votre ville — pas de la pub balancée au hasard. On ne convainc personne, on capte des gens qui cherchent déjà votre service. Et le budget est plafonné, c'est vous qui le fixez, ça peut pas déraper. Le meilleur moyen d'en avoir le cœur net, c'est de tester une semaine gratuitement et de regarder les vrais chiffres.",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide sans contredire, on explique le ciblage sur l'intention de recherche (reprend le 'on capte des gens qui cherchent déjà' du playbook), on rassure sur le budget plafonné, et on referme sur le test gratuit."
-        },
-        {
-          "text": "Mais non c'est pas une arnaque, Google c'est la première entreprise du monde, ça marche.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'c'est gros donc c'est fiable' ne répond pas à sa peur du budget cramé. On n'explique ni le ciblage ni le plafond de budget. Reste superficiel."
-        },
-        {
-          "text": "Si vous pensez que c'est de l'arnaque vous avez tort, c'est pas du tout ça.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on le contredit frontalement sans rien expliquer. Il campe sur sa position et se braque. On ne valide pas, on ne recadre pas."
-        }
-      ],
-      "difficulty": 1,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "Ce sont des faux clics",
-      "artisanLine": "On m'a dit que la moitié des clics sont des robots ou des concurrents qui cliquent pour vider ton budget.",
-      "options": [
-        {
-          "text": "Bonne remarque, et c'est un vrai sujet — sauf que Google détecte et rembourse automatiquement les clics frauduleux ou de robots, vous payez pas pour ça. Et nous on surveille le compte pour repérer toute anomalie. L'idée du test gratuit c'est justement ça : on lance une semaine, et à la fin on regarde ensemble combien de VRAIS contacts vous avez eu pour votre budget. Si c'était que des faux clics, vous le verrez direct dans les résultats. On essaie ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on prend l'objection au sérieux, on apporte un fait rassurant (protection anti-fraude + remboursement), on ajoute le suivi humain, et on referme sur le test gratuit qui prouve par les vrais contacts."
-        },
-        {
-          "text": "Les faux clics ça existe presque pas, c'est une légende, vous inquiétez pas pour ça.",
-          "quality": "ok",
-          "feedback": "Acceptable pour rassurer mais minimiser un sujet réel sans expliquer la protection anti-fraude sonne peu crédible face à quelqu'un d'informé. Il peut sentir qu'on noie le poisson."
-        },
-        {
-          "text": "De toute façon on peut rien y faire contre ça, c'est le jeu de la pub en ligne.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on confirme sa peur et on présente le risque comme inévitable. C'est l'aveu parfait que c'est 'une arnaque' — on tue l'offre."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "Ça va vider mon budget d'un coup",
-      "artisanLine": "J'ai peur que ça parte en vrille et que ça me bouffe 500€ en deux jours sans que je m'en rende compte.",
-      "options": [
-        {
-          "text": "Peur tout à fait légitime, et c'est exactement pour ça que le budget est plafonné. On fixe ensemble environ 10 à 15€ par jour, et Google ne peut PAS dépenser un centime de plus — c'est verrouillé. Sur la semaine test, ça fait dans les 100€ maximum, pas un de plus. Vous gardez le contrôle total, vous pouvez tout couper en un clic à tout moment. Aucun risque de dérapage. On part là-dessus pour la semaine ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide la peur, on rassure avec le mécanisme concret (plafond journalier verrouillé, ~100€ max sur la semaine, coupure possible), reprend les chiffres du playbook, et referme sur le test."
-        },
-        {
-          "text": "Ça arrive jamais ça, Google laisse pas les budgets déraper comme ça, faites confiance.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'faites confiance, ça arrive jamais' ne montre pas le mécanisme du plafond. Expliquer concrètement le verrou journalier rassure bien plus qu'une promesse."
-        },
-        {
-          "text": "Faut surveiller un peu c'est sûr, mais bon avec un peu de chance ça partira pas trop vite.",
-          "quality": "bad",
-          "feedback": "Erreur classique : 'avec un peu de chance' confirme que le dérapage est possible. On valide sa pire crainte au lieu de la lever avec le plafond verrouillé."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "Vous touchez une commission sur mon dos",
-      "artisanLine": "En fait vous me poussez à dépenser chez Google juste pour toucher votre commission, c'est ça le truc ?",
-      "options": [
-        {
-          "text": "Question hyper légitime, je vais être franc avec vous. Pendant la semaine test, je touche zéro — mon service est gratuit, et le budget pub va directement à Google, pas dans ma poche. Je suis payé seulement APRÈS, et uniquement si ça vous rentre des clients et que vous décidez de continuer. Autrement dit, j'ai tout intérêt à ce que ça marche vraiment pour vous, sinon je gagne rien. On a les mêmes intérêts. On teste et on juge sur les résultats ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : transparence totale sur le modèle (gratuit pendant le test, payé seulement si ça performe), on aligne les intérêts ('je gagne que si ça marche pour vous'), ce qui désamorce le soupçon — fidèle à l'esprit du playbook."
-        },
-        {
-          "text": "Non non, moi je gagne rien là-dessus, je veux juste vous aider à avoir plus de clients.",
-          "quality": "ok",
-          "feedback": "Acceptable mais dire 'je gagne rien du tout' est faux (commission après) et risque de se retourner contre vous s'il le découvre. La transparence sur le 'payé seulement si ça marche' est plus solide et crédible."
-        },
-        {
-          "text": "Écoutez, tout le monde doit bien gagner sa vie, vous me reprochez quand même pas ça ?",
-          "quality": "bad",
-          "feedback": "Erreur classique : on se met sur la défensive et on culpabilise le client. Ça confirme son soupçon qu'on est là pour notre intérêt, pas le sien."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "Tout ça c'est du vent",
-      "artisanLine": "Vous me promettez monts et merveilles, mais au final c'est du vent comme tous les commerciaux.",
-      "options": [
-        {
-          "text": "Et vous avez raison de vous méfier des promesses — moi aussi. Justement, je vous promets rien sur parole : je vous propose de le PROUVER. Une semaine de test, gratuite, et à la fin on regarde les chiffres réels ensemble. Si ça vous a rien rapporté, vous le verrez, et vous me direz au revoir sans avoir dépensé un euro pour mon service. Je préfère que vous jugiez sur des résultats que sur mon discours. On lance et on regarde ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide la méfiance, on remplace la promesse par la preuve (le test gratuit comme démonstration), on reprend le positionnement 'd'abord te démontrer ma valeur' du playbook. On désarme le scepticisme."
-        },
-        {
-          "text": "Je vous jure que c'est pas du vent, j'ai plein de clients satisfaits, vous pouvez me croire.",
-          "quality": "ok",
-          "feedback": "Acceptable mais 'je vous jure, croyez-moi' c'est exactement le discours du commercial qu'il rejette. Mieux vaut s'effacer derrière la preuve par le test que d'insister sur sa parole."
-        },
-        {
-          "text": "Si vous nous faites pas confiance c'est compliqué de travailler ensemble, hein.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on culpabilise le client de se méfier et on met la pression. Il se ferme encore plus et l'appel est mort."
-        }
-      ],
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "obj_ads_arnaque_google",
-      "label": "On se fait tous avoir avec ces pubs",
-      "artisanLine": "Un copain a mis des sous dans Google Ads, il a tout perdu, on se fait tous avoir avec ces machins.",
-      "options": [
-        {
-          "text": "Ça m'aide de le savoir, et je comprends que l'histoire de votre copain vous refroidisse. 9 fois sur 10 quand ça tourne mal, c'est que c'était lancé sans expert, sur de mauvais mots-clés ou sans plafond — bref mal configuré. Nous, un expert pilote, on cible que les gens qui cherchent déjà votre métier, et le budget est verrouillé. C'est exactement la différence. Le test gratuit est là pour que VOUS voyiez si chez vous, bien fait, ça réagit autrement. On essaie une semaine ?",
-          "quality": "good",
-          "feedback": "Meilleure réponse : on valide l'expérience du proche sans la nier, on attribue l'échec à une mauvaise config (pas à l'outil), on rassure avec l'expert + ciblage + budget verrouillé, et on referme sur le test gratuit personnalisé."
-        },
-        {
-          "text": "Votre copain s'est sûrement fait avoir par une boîte pas sérieuse, nous c'est différent.",
-          "quality": "ok",
-          "feedback": "Acceptable, l'idée 'mal accompagné' est juste, mais affirmer 'nous c'est différent' sans expliquer pourquoi (expert, ciblage, budget plafonné) sonne creux et ne prouve rien."
-        },
-        {
-          "text": "Bah faut pas écouter les histoires des autres, chacun son expérience, lancez-vous.",
-          "quality": "bad",
-          "feedback": "Erreur classique : on balaie l'expérience de son proche, ce qui le braque, et on pousse à 'se lancer' sans avoir levé la peur de tout perdre."
-        }
-      ],
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
       "id": "obj_reflechir",
       "label": "Je vais réfléchir",
       "artisanLine": "Écoutez, c'est intéressant votre histoire de Google... mais bon, je vais réfléchir.",
@@ -2470,6 +1606,582 @@
         }
       ],
       "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_cest_pub",
+      "label": "C'est de la pub alors ?",
+      "artisanLine": "En gros c'est de la pub votre truc ?",
+      "options": [
+        {
+          "text": "Oui, mais la différence c'est qu'on vise uniquement les gens qui cherchent déjà votre service. On ne va pas les convaincre — ils sont déjà en train de chercher.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on assume que c'est de la pub, mais on recadre tout de suite sur la nuance qui change tout — on ne paie pas pour interrompre des gens, on capte ceux qui tapent déjà votre métier."
+        },
+        {
+          "text": "Oui c'est de la publicité en ligne, mais c'est très performant, beaucoup d'entreprises l'utilisent aujourd'hui.",
+          "quality": "ok",
+          "feedback": "Acceptable mais générique : « c'est performant » ne répond pas à sa méfiance. La formation insiste sur le « on vise ceux qui cherchent déjà » — c'est ça qui désamorce."
+        },
+        {
+          "text": "Non non, c'est pas vraiment de la pub, c'est plus du référencement, c'est différent.",
+          "quality": "bad",
+          "feedback": "Erreur : on nie pour rassurer, et c'est faux — il le sentira. On assume que c'est de la pub et on explique pourquoi c'est différent (intention de recherche)."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_cest_pub",
+      "label": "Je veux pas faire de pub",
+      "artisanLine": "Moi la pub, ça m'intéresse pas trop, j'aime pas trop ça.",
+      "options": [
+        {
+          "text": "Je comprends. Justement, ici on ne va pas matraquer des gens qui n'ont rien demandé — on apparaît uniquement devant ceux qui tapent déjà votre métier sur Google. Vous ne payez que quand quelqu'un vous cherche vraiment.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valide le rejet de la « pub intrusive » et on oppose le ciblage par intention — on ne dérange personne, on capte la demande."
+        },
+        {
+          "text": "La pub c'est ce qui marche le mieux aujourd'hui pour avoir des clients, faut vivre avec son temps.",
+          "quality": "ok",
+          "feedback": "Acceptable mais un peu donneur de leçon : « faut vivre avec son temps » peut braquer. Mieux vaut recadrer sur le ciblage par intention."
+        },
+        {
+          "text": "Ah bon vous aimez pas la pub ? Pourtant tout le monde en fait, vous devriez.",
+          "quality": "bad",
+          "feedback": "Erreur : on juge son avis au lieu de le recadrer. On l'oppose au lieu de lui montrer que ce n'est pas la pub intrusive qu'il imagine."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_cest_pub",
+      "label": "Les gens cliquent pas sur les pubs",
+      "artisanLine": "De toute façon les gens cliquent jamais sur les pubs en haut de Google.",
+      "options": [
+        {
+          "text": "Pour ce qu'on ne cherche pas, c'est vrai. Mais quand vous tapez votre métier + votre ville parce que vous avez un besoin maintenant, vous cliquez sur quoi ? Le premier qui peut vous aider. Les gens qui cherchent votre service sont déjà en train d'acheter.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on accorde le point pour la pub subie, puis on bascule sur le moment d'intention forte (recherche active) où, là, on clique."
+        },
+        {
+          "text": "Si, beaucoup de gens cliquent dessus, les statistiques le montrent très clairement.",
+          "quality": "ok",
+          "feedback": "Acceptable mais on argumente par des « stats » abstraites. La formation préfère l'exemple concret du besoin urgent où l'on clique sur le premier résultat utile."
+        },
+        {
+          "text": "Vous vous trompez, tout le monde clique sur les pubs en fait.",
+          "quality": "bad",
+          "feedback": "Erreur : on le contredit frontalement. On lui donne raison sur la pub subie avant de basculer sur le moment de recherche active."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_deja_google",
+      "label": "Je suis déjà sur Google",
+      "artisanLine": "Je suis déjà sur Google, ça me sert à quoi votre truc ?",
+      "options": [
+        {
+          "text": "Parfait, ça veut dire qu'on peut simplement vous rendre plus visible pendant une semaine pour voir la différence.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on ne débat pas, on transforme le « j'y suis déjà » en tremplin vers le test — « plus visible, une semaine, pour voir »."
+        },
+        {
+          "text": "Être sur Google et être en HAUT de Google c'est pas pareil, là vous êtes sûrement noyé dans les résultats.",
+          "quality": "ok",
+          "feedback": "Le fond est juste, mais le ton corrige l'artisan (« vous êtes noyé »). La formation reste légère : « on peut vous rendre plus visible une semaine pour voir »."
+        },
+        {
+          "text": "Oui mais sur Google y'a la pub et le naturel, le naturel ça compte plus, donc vous êtes mal placé.",
+          "quality": "bad",
+          "feedback": "Erreur : on noie le prospect sous le jargon (naturel/payant) au lieu de le ramener simplement vers le test d'une semaine."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_deja_google",
+      "label": "J'ai déjà ma fiche Google",
+      "artisanLine": "J'ai déjà ma fiche Google avec mes avis, pourquoi payer en plus ?",
+      "options": [
+        {
+          "text": "Bien joué d'avoir la fiche, gardez-la. Ce qu'on teste, c'est apparaître tout en haut quand on tape votre métier + votre ville, au-dessus de la carte. Une semaine, gratuitement — vous voyez la différence et vous décidez.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valorise la fiche sans la dénigrer, on isole ce qu'elle ne couvre pas (le haut de page sur la recherche métier+ville) et on recadre sur le test gratuit."
+        },
+        {
+          "text": "La fiche c'est bien mais ça suffit pas, faut absolument la pub en plus sinon vous existez pas.",
+          "quality": "ok",
+          "feedback": "Acceptable mais alarmiste (« vous existez pas »). On complète la fiche, on ne la dévalorise pas."
+        },
+        {
+          "text": "La fiche Google ça sert à rien, c'est la pub qui compte vraiment aujourd'hui.",
+          "quality": "bad",
+          "feedback": "Erreur : on casse ce qu'il a déjà, il se braque. La fiche est un atout — on ajoute, on ne remplace pas."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_deja_google",
+      "label": "Je suis premier sur mon nom",
+      "artisanLine": "Quand je tape le nom de ma boîte je suis premier, donc ça va.",
+      "options": [
+        {
+          "text": "Parfait, ceux qui vous connaissent vous trouvent. Maintenant tapez votre métier + votre ville, sans votre nom, comme quelqu'un qui ne vous connaît pas encore : vous ressortez où ? C'est exactement cette recherche-là qu'on teste pendant une semaine.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on distingue la recherche sur le nom (clients existants) de la recherche sur le métier (nouveaux clients) — et on propose de tester cette dernière."
+        },
+        {
+          "text": "Être premier sur votre nom ça compte pas, personne cherche votre nom, c'est inutile.",
+          "quality": "ok",
+          "feedback": "Acceptable sur le fond mais on dévalorise sèchement. La formation fait la distinction avec tact, sans rabaisser."
+        },
+        {
+          "text": "Oui mais ça c'est que sur votre nom, le reste vous y êtes pas, donc en gros vous êtes invisible.",
+          "quality": "bad",
+          "feedback": "Erreur : « vous êtes invisible » braque. On guide par une question (tapez votre métier sans votre nom) pour qu'il constate lui-même."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_envoyez_mail",
+      "label": "Envoyez-moi un mail",
+      "artisanLine": "Envoyez-moi tout ça par mail, je regarderai.",
+      "options": [
+        {
+          "text": "Je peux vous envoyer un résumé, mais ça ne remplacera pas les 10 minutes où on regarde ensemble votre cas. On se cale un créneau rapide et ensuite je vous envoie tout par mail.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on accepte le mail SANS lâcher le RDV — le mail vient APRÈS les 10 minutes où on regarde son cas concret."
+        },
+        {
+          "text": "Un mail ça sert à rien, vous le lirez jamais, autant qu'on en parle maintenant directement.",
+          "quality": "ok",
+          "feedback": "Acceptable mais frontal (« vous le lirez jamais »). Mieux vaut accepter le mail comme complément du RDV, pas comme refus."
+        },
+        {
+          "text": "D'accord pas de souci, je vous envoie ça par mail et vous me direz.",
+          "quality": "bad",
+          "feedback": "Erreur : on lâche le RDV. Le mail seul finit non lu — la formation garde le créneau et envoie le résumé ensuite."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_envoyez_mail",
+      "label": "Envoyez une plaquette",
+      "artisanLine": "Vous avez pas une plaquette ou une doc à m'envoyer ?",
+      "options": [
+        {
+          "text": "Je peux, mais honnêtement une plaquette générique vous dira moins que 10 minutes où on regarde VOTRE zone et ce que les gens tapent chez vous. On se cale ça, et je vous envoie un récap derrière. Plutôt le matin ou l'après-midi ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on oppose le générique (plaquette) au sur-mesure (son cas en 10 min), on garde le RDV et on enchaîne sur une question fermée de créneau."
+        },
+        {
+          "text": "On n'a pas de plaquette, on fonctionne qu'en rendez-vous, c'est comme ça.",
+          "quality": "ok",
+          "feedback": "Acceptable mais un peu rigide. On peut envoyer un récap — l'important est de ne pas lâcher le RDV, pas de refuser sèchement."
+        },
+        {
+          "text": "Oui je vous envoie notre plaquette complète, vous regarderez quand vous aurez le temps.",
+          "quality": "bad",
+          "feedback": "Erreur : la plaquette « quand vous aurez le temps » = enterrement de première classe. On garde le créneau."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_boa",
+      "label": "Je marche au bouche-à-oreille",
+      "artisanLine": "Mes clients viennent par bouche-à-oreille, j'ai pas besoin de ça.",
+      "options": [
+        {
+          "text": "C'est très bien, ça ne remplace pas ça. On ajoute juste une source en plus quand les gens cherchent directement sur Google.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on ne touche pas au bouche-à-oreille (c'est un atout), on se positionne en complément — « une source en plus »."
+        },
+        {
+          "text": "Le bouche-à-oreille c'est bien mais c'est pas régulier, avec Google vous auriez un flux constant et prévisible.",
+          "quality": "ok",
+          "feedback": "Acceptable et vrai, mais on argumente au lieu de rester simple. La formation se contente de « on ajoute une source en plus » sans dévaloriser le BAO."
+        },
+        {
+          "text": "Le bouche-à-oreille aujourd'hui ça suffit plus, faut être sur internet sinon vous allez disparaître.",
+          "quality": "bad",
+          "feedback": "Erreur : alarmiste et dénigrant pour ce qui marche déjà chez lui. On complète le BAO, on ne le condamne pas."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_boa",
+      "label": "J'ai assez de clients comme ça",
+      "artisanLine": "Franchement j'ai déjà assez de clients avec le bouche-à-oreille.",
+      "options": [
+        {
+          "text": "Tant mieux, c'est la preuve que vous bossez bien. L'idée c'est pas de vous noyer — c'est juste de tester une semaine pour voir si Google peut vous amener des demandes que vous choisirez, sur votre service le plus rentable. Sans risque.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on valide, on rassure sur le « pas de surcharge », et on recentre sur le test sans risque sur le service prioritaire."
+        },
+        {
+          "text": "On n'a jamais assez de clients, on peut toujours faire plus de chiffre, croyez-moi.",
+          "quality": "ok",
+          "feedback": "Acceptable mais on pousse à la consommation, ça sonne commercial. Mieux vaut parler de demandes choisies sur le service rentable."
+        },
+        {
+          "text": "Ah bon vous refusez des clients ? C'est dommage, vous laissez de l'argent sur la table.",
+          "quality": "bad",
+          "feedback": "Erreur : on culpabilise. On respecte sa situation et on propose un test sans engagement."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_reflechir_ads",
+      "label": "Pas le temps / je réfléchis (P1)",
+      "artisanLine": "Là j'ai pas le temps, faut que je réfléchisse.",
+      "options": [
+        {
+          "text": "Bien sûr. Là on ne prend pas de décision long terme — c'est juste 10 minutes pour voir si ça a du sens pour vous. Vous êtes dispo mardi matin ou mercredi après-midi ?",
+          "quality": "good",
+          "feedback": "Réponse de la formation (P1) : on dédramatise (« pas une décision long terme, 10 min ») et on propose immédiatement un choix fermé de créneau."
+        },
+        {
+          "text": "Réfléchir à quoi ? C'est gratuit et sans engagement, y'a rien à réfléchir, on lance.",
+          "quality": "ok",
+          "feedback": "Acceptable mais un peu pressant. On dédramatise et on propose un créneau précis plutôt que de forcer tout de suite."
+        },
+        {
+          "text": "D'accord, réfléchissez tranquillement et rappelez-moi quand vous voulez.",
+          "quality": "bad",
+          "feedback": "Erreur : « rappelez-moi » = on perd le lead. La formation garde la main avec une question de créneau fermée."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_reflechir_ads",
+      "label": "Je dois en parler (P2)",
+      "artisanLine": "C'est intéressant mais faut que je réfléchisse, que j'en parle.",
+      "options": [
+        {
+          "text": "Bien sûr. On prend pas de décision sur du long terme — c'est juste une semaine pour voir. Je te laisse le formulaire, tu le remplis quand t'es prêt. Dès que c'est fait, l'expert lance.",
+          "quality": "good",
+          "feedback": "Réponse de la formation (P2) : on accepte le « je réfléchis » mais on envoie le formulaire — le fil reste attaché, et c'est lui qui déclenche tout."
+        },
+        {
+          "text": "Tu veux en parler à qui ? On parle juste d'un test gratuit, y'a rien à valider avec personne.",
+          "quality": "ok",
+          "feedback": "Acceptable mais on questionne son entourage de façon un peu intrusive. La formation laisse le formulaire et garde le lien actif."
+        },
+        {
+          "text": "Ok prends ton temps, tu me redis quand t'as réfléchi.",
+          "quality": "bad",
+          "feedback": "Erreur : « prends ton temps » sans accroche = le lead refroidit. On laisse le formulaire pour garder le fil."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_reflechir_ads",
+      "label": "Pas le moment",
+      "artisanLine": "Là c'est pas le bon moment pour moi, je suis débordé.",
+      "options": [
+        {
+          "text": "Je comprends, et c'est justement pour ça que le test est fait pour vous : c'est nous qui faisons tout, vous n'avez rien à gérer. On cale 10 minutes pour vous montrer, et si ce n'est pas le moment vous me le direz à ce moment-là. Plutôt en fin de semaine ?",
+          "quality": "good",
+          "feedback": "Bonne réponse : on retourne le « débordé » (le test ne demande aucun travail de sa part) et on propose un créneau souple sans lâcher."
+        },
+        {
+          "text": "Y'a jamais de bon moment vous savez, faut se lancer un jour ou l'autre.",
+          "quality": "ok",
+          "feedback": "Acceptable mais cliché. Mieux vaut retourner le « débordé » en argument (on s'occupe de tout) puis proposer un créneau."
+        },
+        {
+          "text": "D'accord je vous rappelle dans quelques semaines alors.",
+          "quality": "bad",
+          "feedback": "Erreur : repousser de plusieurs semaines = abandon. On propose un créneau proche en levant le frein du temps."
+        }
+      ],
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_prix_750",
+      "label": "750 balles par mois quand même",
+      "artisanLine": "750 balles par mois quand même, c'est pas rien...",
+      "options": [
+        {
+          "text": "Je comprends que ça fasse grimacer — c'est normal, tu sais pas encore ce que ça rapporte. C'est justement l'idée du test : tu vois les résultats, on fait les calculs ensemble, et tu décides toi-même si c'est rentable. Le prix ne s'applique que si tu veux continuer.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on accueille la réaction, on rappelle qu'il ne paie le forfait qu'APRÈS avoir vu les résultats, puis silence. On ne négocie pas — on reframe sur le test."
+        },
+        {
+          "text": "750€ c'est rien comparé à ce que ça va te rapporter, un seul chantier et c'est remboursé largement.",
+          "quality": "ok",
+          "feedback": "Acceptable (l'ancrage ROI est juste) mais on balaie son objection trop vite. La formation valide d'abord la réaction et renvoie au test avant de chiffrer."
+        },
+        {
+          "text": "Bon écoute, je peux te faire un petit geste, disons 600€ pour démarrer ?",
+          "quality": "bad",
+          "feedback": "Erreur : on ouvre la négo et on brade avant même le test. Le prix ne se discute pas maintenant — il ne s'applique qu'après les résultats."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_prix_750",
+      "label": "C'est trop pour ma boîte",
+      "artisanLine": "750 par mois pour une petite boîte comme la mienne c'est trop.",
+      "options": [
+        {
+          "text": "J'entends. Et c'est exactement pour ça qu'on commence par une semaine test gratuite : tu ne t'engages sur rien. Tu regardes ce que ça te rentre, on fait les calculs, et si la machine te ramène plus qu'elle ne coûte, là seulement tu décides. Sinon t'auras juste payé ~100€ de pub pour être fixé.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on ramène systématiquement au test sans risque et à la décision différée, sans défendre le tarif dans le vide."
+        },
+        {
+          "text": "Toutes les boîtes de ta taille le prennent, c'est le tarif normal du marché tu sais.",
+          "quality": "ok",
+          "feedback": "Acceptable mais l'argument « tout le monde le prend » ne lève pas SON frein. On reframe sur le test et la décision après résultats."
+        },
+        {
+          "text": "Si c'est trop cher pour toi je comprends, c'est pas grave, on laisse tomber.",
+          "quality": "bad",
+          "feedback": "Erreur : on capitule. On n'a même pas rappelé que le forfait est optionnel et décidé après le test gratuit."
+        }
+      ],
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_budget_100",
+      "label": "100€ j'ai pas envie de les jeter",
+      "artisanLine": "Même 100€, j'ai pas envie de les jeter par la fenêtre.",
+      "options": [
+        {
+          "text": "Le pire scénario : ça ne donne rien, t'es fixé pour 100€. C'est le prix de savoir. Si tu ne testes pas — la situation reste exactement comme aujourd'hui. L'idée du test c'est pas de prendre un risque, c'est de voir si on peut changer ta situation rapidement.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : le recadrage « prix de savoir » + pire scénario chiffré à 100€, puis silence. On transforme la dépense en information."
+        },
+        {
+          "text": "100€ c'est vraiment rien, tu dépenses plus que ça en essence ou en café dans la semaine.",
+          "quality": "ok",
+          "feedback": "Acceptable mais minimiser son argent peut vexer. La formation préfère le cadrage « 100€ = le prix de savoir » qui donne du sens à la dépense."
+        },
+        {
+          "text": "T'inquiète, ça va marcher, tu vas pas les perdre tes 100€, je te le garantis.",
+          "quality": "bad",
+          "feedback": "Erreur : promettre le résultat = survente, et ça casse la confiance si ça rate. On cadre sur le pire scénario assumé, pas sur une garantie."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_budget_100",
+      "label": "Encore un budget à sortir",
+      "artisanLine": "Encore un budget à sortir, j'en ai marre de payer partout.",
+      "options": [
+        {
+          "text": "Clair avec toi : ce ~100€, c'est payé directement à Google, pas à nous — notre travail sur la semaine est gratuit. Et c'est plafonné, 10-15€ par jour, Google ne peut pas dépenser un centime de plus. Le pire scénario c'est 100€ pour savoir si ça te rentre des clients.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on clarifie QUI encaisse (Google, pas nous), le plafond, et on referme sur le « prix de savoir »."
+        },
+        {
+          "text": "C'est un investissement, pas une dépense, faut voir ça comme un placement qui va te rapporter.",
+          "quality": "ok",
+          "feedback": "Acceptable mais le couplet « investissement » est abstrait. La formation rassure d'abord sur le plafond et le « payé à Google, pas à nous »."
+        },
+        {
+          "text": "Bah écoute si 100€ c'est un problème, c'est que c'est compliqué pour toi en ce moment...",
+          "quality": "bad",
+          "feedback": "Erreur : on le juge sur sa situation financière, il se braque. On lève le frein (plafond, à qui ça va) sans jugement."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_budget_100",
+      "label": "Peur que ça dérape",
+      "artisanLine": "J'ai peur que ça me bouffe 500 balles en deux jours, ces trucs-là.",
+      "options": [
+        {
+          "text": "Légitime, et c'est pour ça que le budget est PLAFONNÉ : 10 à 15€ par jour, Google ne peut pas dépenser plus, et on peut tout couper en un clic. Sur la semaine, c'est ~100€ maximum, point. Tu gardes le contrôle total.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on traite la peur réelle par le plafond strict et la possibilité de tout couper — il garde le contrôle."
+        },
+        {
+          "text": "Ça arrive jamais ça, t'inquiète, Google gère tout ça très bien automatiquement.",
+          "quality": "ok",
+          "feedback": "Acceptable mais on balaie sa peur sans preuve concrète. La formation donne le mécanisme rassurant : plafond journalier + coupure en un clic."
+        },
+        {
+          "text": "Si jamais ça dérape je te rembourse la différence, t'as ma parole.",
+          "quality": "bad",
+          "feedback": "Erreur : promesse de remboursement intenable qui te met en risque. Le bon levier c'est le plafond technique, pas une garantie perso."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_assez_boulot",
+      "label": "J'ai déjà assez de boulot",
+      "artisanLine": "J'ai déjà assez de boulot, je vais pas savoir où donner de la tête.",
+      "options": [
+        {
+          "text": "Justement, l'idée n'est pas de t'inonder. On démarre doucement pour voir la qualité des demandes, pas la quantité. Tu gardes totalement la main — tu réponds à ce qui t'intéresse.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on rassure sur le volume (qualité, pas quantité) et sur le contrôle — il choisit ce qu'il prend."
+        },
+        {
+          "text": "C'est un bon problème ça ! Tu pourras augmenter tes prix et garder que les beaux chantiers.",
+          "quality": "ok",
+          "feedback": "Acceptable et malin (monter en gamme), mais on saute son inquiétude. La formation rassure d'abord : démarrage doux, il garde la main."
+        },
+        {
+          "text": "T'inquiète, on va t'envoyer un max de demandes, tu vas voir, ça va exploser !",
+          "quality": "bad",
+          "feedback": "Erreur : promettre un raz-de-marée à quelqu'un déjà débordé = on amplifie son frein au lieu de le lever."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_assez_boulot",
+      "label": "Je suis tout seul, je peux pas suivre",
+      "artisanLine": "Je suis tout seul, si y'a trop de demandes je peux pas suivre.",
+      "options": [
+        {
+          "text": "Logique, et on cale ça à ton rythme : on commence sur ton service le plus rentable, dans ta zone, et on ajuste le robinet selon ce que tu peux absorber. L'idée c'est des demandes que tu choisis, pas une avalanche. Tu restes maître du volume.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on cale le volume sur sa capacité (rythme, zone, service prioritaire) et on insiste sur le contrôle."
+        },
+        {
+          "text": "T'embaucheras quelqu'un avec le chiffre en plus, c'est comme ça qu'on grandit.",
+          "quality": "ok",
+          "feedback": "Acceptable à long terme mais hors sujet face à sa peur immédiate. On rassure d'abord sur le volume maîtrisé."
+        },
+        {
+          "text": "Bah faudra t'organiser, on peut pas freiner les clients qui veulent venir.",
+          "quality": "bad",
+          "feedback": "Erreur : on lui renvoie le problème sans solution. Le levier c'est le robinet réglable, pas « débrouille-toi »."
+        }
+      ],
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_deja_essaye",
+      "label": "Déjà essayé, rien donné",
+      "artisanLine": "J'ai déjà essayé Google Ads, ça n'a rien donné.",
+      "options": [
+        {
+          "text": "C'est exactement pour ça qu'on fait un test court. On ne te demande pas de repartir sur des mois — juste de voir si ça réagit différemment quand c'est configuré correctement par un expert dédié.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on accueille l'échec passé et on le retourne — test court, sans réengagement long, avec un expert aux manettes cette fois."
+        },
+        {
+          "text": "C'est parce que c'était mal configuré, t'as dû le faire toi-même ou tomber sur un mauvais, nous on est meilleurs.",
+          "quality": "ok",
+          "feedback": "Acceptable (le diagnostic est souvent vrai) mais le ton « nous on est meilleurs » est gratuit. La formation reste sur le test court qui le prouve."
+        },
+        {
+          "text": "Ah si ça a pas marché c'est que dans ton métier ça marche pas, c'est pas pour tout le monde.",
+          "quality": "bad",
+          "feedback": "Erreur : on lui donne une raison d'abandonner pour de bon. On reframe sur la config (expert) testable en une semaine, pas sur une fatalité."
+        }
+      ],
+      "difficulty": 2,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_deja_essaye",
+      "label": "J'ai cramé 300€ pour rien",
+      "artisanLine": "J'ai testé tout seul, j'ai cramé 300 balles pour rien.",
+      "options": [
+        {
+          "text": "Ça m'aide de le savoir. Neuf fois sur dix le souci c'est le ciblage — mauvais mots-clés, mauvaise zone, pas de plafond. Là c'est un expert qui pilote, et tu vois en une semaine si ça réagit différemment quand c'est bien fait. Et cette fois le budget est plafonné.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on diagnostique l'échec (ciblage), on oppose l'expert + le plafond, et on propose le test court comme preuve."
+        },
+        {
+          "text": "300€ c'est rien, faut investir beaucoup plus que ça pour que Google Ads marche vraiment.",
+          "quality": "ok",
+          "feedback": "Acceptable partiellement mais « investir beaucoup plus » l'effraie. La formation parle d'expert + plafond, pas de gros budget."
+        },
+        {
+          "text": "Bah voilà, c'est pour ça qu'il faut nous payer 750€ par mois, sinon ça marche pas.",
+          "quality": "bad",
+          "feedback": "Erreur : sortir le prix mensuel en plein traitement d'objection, avant les résultats. On reste sur le test gratuit piloté par l'expert."
+        }
+      ],
+      "difficulty": 3,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_connais_rien",
+      "label": "J'y connais rien à Google",
+      "artisanLine": "Moi Google, les pubs, tout ça... j'y connais rien.",
+      "options": [
+        {
+          "text": "Parfait — c'est exactement pour ça qu'on a un expert Google Ads dédié qui s'en occupe entièrement. Toi tu reçois juste les appels. Le formulaire c'est 2 minutes — après c'est lui qui gère tout.",
+          "quality": "good",
+          "feedback": "Réponse de la formation : on transforme l'incompétence ressentie en non-sujet — l'expert fait tout, lui ne gère que les appels qui rentrent."
+        },
+        {
+          "text": "C'est pas grave, je vais t'expliquer comment ça marche, tu vas vite comprendre, c'est pas si compliqué.",
+          "quality": "ok",
+          "feedback": "Acceptable mais contre-productif : lui proposer d'apprendre renforce sa peur. La formation le décharge totalement (l'expert gère), elle ne le forme pas."
+        },
+        {
+          "text": "Faut quand même que tu comprennes un minimum sinon tu vas pas pouvoir suivre les résultats.",
+          "quality": "bad",
+          "feedback": "Erreur : on lui met une charge mentale alors qu'il dit ne rien y connaître. Tout l'argument est « tu n'as rien à gérer »."
+        }
+      ],
+      "difficulty": 1,
+      "offer": "ads"
+    },
+    {
+      "id": "obj_ads_connais_rien",
+      "label": "Faut créer des comptes, c'est lourd",
+      "artisanLine": "Faut créer un compte, des accès, des trucs techniques, c'est trop lourd pour moi.",
+      "options": [
+        {
+          "text": "Le seul truc qu'on te demande, c'est 2 minutes pour remplir un formulaire — ton site, ta zone, ton service. C'est tout. L'expert crée le compte, configure, lance et surveille. Tu n'as aucun réglage technique à toucher.",
+          "quality": "good",
+          "feedback": "Bonne réponse : on réduit son effort à 2 minutes de formulaire et on liste ce que l'expert prend en charge à sa place."
+        },
+        {
+          "text": "C'est pas si technique que ça, avec un peu d'habitude tu vas t'y faire, tout le monde y arrive.",
+          "quality": "ok",
+          "feedback": "Acceptable mais on banalise sa peur. La formation supprime carrément la charge (l'expert gère tout), elle ne dit pas « tu t'y feras »."
+        },
+        {
+          "text": "Bon je t'envoie les accès Google et tu te débrouilles pour configurer, c'est simple.",
+          "quality": "bad",
+          "feedback": "Erreur : on lui refile la technique alors qu'il dit ne pas savoir. C'est l'expert qui configure, lui ne touche à rien."
+        }
+      ],
+      "difficulty": 2,
       "offer": "ads"
     }
   ]

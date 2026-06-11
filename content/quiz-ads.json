@@ -473,16 +473,6 @@
       "offer": "ads"
     },
     {
-      "id": "ads_q1_032",
-      "skill": "ambitions",
-      "type": "trou",
-      "prompt": "Selon les stats de Léo, environ ___ % des RDV acceptent la semaine test.",
-      "answer": "70",
-      "explanation": "70% des RDV acceptent la semaine test, et 50% des semaines test finissent en closing.",
-      "difficulty": 3,
-      "offer": "ads"
-    },
-    {
       "id": "ads_q1_033",
       "skill": "reprendre_lead",
       "type": "qcm",
@@ -1096,7 +1086,7 @@
     },
     {
       "id": "ads_q3_008",
-      "skill": "obj_ads_arnaque_google",
+      "skill": "obj_ads_budget_100",
       "type": "qcm",
       "prompt": "Le prospect dit : 'Le budget pub, c'est vous qui l'encaissez, c'est une arnaque.' Quelle réponse est fidèle à la méthode ?",
       "options": [
@@ -1112,7 +1102,7 @@
     },
     {
       "id": "ads_q3_009",
-      "skill": "obj_ads_deja_premier",
+      "skill": "obj_ads_deja_google",
       "type": "qcm",
       "prompt": "Le prospect répond : 'Je suis déjà sur Google.' Quelle est la meilleure réponse ?",
       "options": [
@@ -1128,7 +1118,7 @@
     },
     {
       "id": "ads_q3_010",
-      "skill": "obj_ads_deja_premier",
+      "skill": "obj_ads_deja_google",
       "type": "qcm",
       "prompt": "Quelle est la différence entre apparaître quand on tape le NOM de l'entreprise et apparaître sur 'métier + ville' ?",
       "options": [
@@ -1144,7 +1134,7 @@
     },
     {
       "id": "ads_q3_011",
-      "skill": "obj_ads_budget_pub",
+      "skill": "obj_ads_budget_100",
       "type": "qcm",
       "prompt": "Le prospect dit : 'Je n'ai pas le budget pour faire de la pub.' Que réponds-tu ?",
       "options": [
@@ -1160,7 +1150,7 @@
     },
     {
       "id": "ads_q3_012",
-      "skill": "obj_ads_budget_pub",
+      "skill": "obj_ads_budget_100",
       "type": "qcm",
       "prompt": "Comment recadrer la valeur des 100€ de budget face à un prospect hésitant ?",
       "options": [
@@ -1176,7 +1166,7 @@
     },
     {
       "id": "ads_q3_013",
-      "skill": "obj_ads_marche_pas",
+      "skill": "obj_ads_deja_essaye",
       "type": "qcm",
       "prompt": "Le prospect dit : 'J'ai déjà essayé Google Ads, ça n'a pas marché.' Quelle est la bonne réponse ?",
       "options": [
@@ -1192,7 +1182,7 @@
     },
     {
       "id": "ads_q3_014",
-      "skill": "obj_ads_marche_pas",
+      "skill": "obj_ads_deja_essaye",
       "type": "trou",
       "prompt": "Face à 'ça n'a pas marché', on ne demande pas de repartir sur des mois — juste de voir si ça réagit différemment quand c'est configuré correctement par un ___ dédié.",
       "answer": "expert",
@@ -1202,7 +1192,7 @@
     },
     {
       "id": "ads_q3_015",
-      "skill": "obj_ads_jai_agence",
+      "skill": "obj_ads_deja_essaye",
       "type": "qcm",
       "prompt": "Le prospect dit : 'Je travaille déjà avec une agence et j'ai été déçu.' Quelle posture adopter ?",
       "options": [
@@ -1218,7 +1208,7 @@
     },
     {
       "id": "ads_q3_016",
-      "skill": "obj_ads_jai_agence",
+      "skill": "obj_ads_deja_essaye",
       "type": "qcm",
       "prompt": "Quel est le positionnement à adopter face à un prospect échaudé par une agence ?",
       "options": [
@@ -1234,7 +1224,7 @@
     },
     {
       "id": "ads_q3_017",
-      "skill": "obj_ads_trop_complique",
+      "skill": "obj_ads_connais_rien",
       "type": "qcm",
       "prompt": "Le prospect dit : 'Ça a l'air compliqué, je n'y connais rien.' Que réponds-tu ?",
       "options": [
@@ -1250,7 +1240,7 @@
     },
     {
       "id": "ads_q3_018",
-      "skill": "obj_ads_trop_complique",
+      "skill": "obj_ads_connais_rien",
       "type": "trou",
       "prompt": "Quand le prospect trouve ça compliqué, on rassure : 'Vous n'avez aucun risque à prendre — c'est nous qui faisons ___ pour vous.'",
       "answer": "tout",
@@ -1260,7 +1250,7 @@
     },
     {
       "id": "ads_q3_019",
-      "skill": "obj_ads_arnaque_google",
+      "skill": "obj_ads_cest_pub",
       "type": "qcm",
       "prompt": "Le prospect dit : 'C'est de la pub, je n'y crois pas.' Quelle est la bonne réponse selon la méthode ?",
       "options": [
@@ -1340,7 +1330,7 @@
     },
     {
       "id": "ads_q3_024",
-      "skill": "obj_ads_budget_pub",
+      "skill": "obj_ads_prix_750",
       "type": "qcm",
       "prompt": "Pourquoi un seul chantier capté peut rentabiliser le test ?",
       "options": [
@@ -1397,32 +1387,6 @@
       "offer": "ads"
     },
     {
-      "id": "ads_q3_028",
-      "skill": "presentation",
-      "type": "qcm",
-      "prompt": "Selon les stats de Léo, quelle proportion des RDV acceptent la semaine test ?",
-      "options": [
-        "30%",
-        "50%",
-        "70%",
-        "90%"
-      ],
-      "answer": 2,
-      "explanation": "70% des RDV acceptent la semaine test, et 50% des semaines test finissent en closing.",
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
-      "id": "ads_q3_029",
-      "skill": "presentation",
-      "type": "trou",
-      "prompt": "Selon Léo, environ ___ % des semaines test se transforment en closing.",
-      "answer": "50",
-      "explanation": "50% des semaines test finissent en closing : c'est pour ça que multiplier les tests gratuits est le levier principal.",
-      "difficulty": 2,
-      "offer": "ads"
-    },
-    {
       "id": "ads_q3_030",
       "skill": "presentation",
       "type": "qcm",
@@ -1472,7 +1436,7 @@
     },
     {
       "id": "ads_q3_033",
-      "skill": "obj_ads_trop_complique",
+      "skill": "obj_ads_reflechir_ads",
       "type": "qcm",
       "prompt": "Le prospect dit : 'Je dois réfléchir / en parler.' Quelle réponse est fidèle à la méthode ?",
       "options": [
